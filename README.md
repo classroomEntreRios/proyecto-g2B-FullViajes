@@ -3,9 +3,14 @@ En el siguiente proyecto realizaremos un sitio web para la promoción turistica 
 <br>
 Quienes participan en este proyecto: 
 </br>
-  • Etulain Román
-  • Gamarra Constanza
-  • Godoy Joel  
-  • Gomez Darío
-  • Hernandez Alí
-  • Herrera Matías
+<ul>
+  <li>Etulain Román</li>
+  <li>Gamarra Constanza</li>
+  <li>Godoy Joel </li>
+  <li>Gomez Darío </li>
+  <li> Hernandez Alí </li>
+  <li>Herrera Matías </li>
+</ul>
+
+ 
+
