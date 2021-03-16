@@ -54,7 +54,7 @@ namespace FullViajes.Controllers
         //MUESTRA EL DETALLE DE USUARIO        
         public ActionResult Perfil(int id)
         {
-            if (id == null)
+            if (id == null)//El resultado es siempre false porque un valor de tipo int nunca es igual a null
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }

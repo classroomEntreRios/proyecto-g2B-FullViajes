@@ -1,0 +1,78 @@
+
+<div class="formulario">
+    <div class="container">
+        <h1 class="titulo" style="text-align: center;"><strong>FORMULARIO DE REGISTRO</strong></h1>
+        <div class="row">
+            <div class="col-sm-6">
+                <form [formGroup]="RegistrarUsuario" (ngSubmit)="agregar()">
+                    <!-- FORM NOMBRE -->
+                    <div class="form-group">
+                        <label for="nombre"><strong>Nombres</strong> </label>
+                        <input formControlName="Nombre" type="text" class="form-control fondo" id="nombre" placeholder="Ingrese Nombre Completo" autocomplete="off">
+                        <span *ngIf="RegistrarUsuario.get('Nombre')?.invalid &&RegistrarUsuario.get('Nombre')?.touched" class="text-danger">
+                            El <strong>Nombre</strong> es requerido
+                        </span>
+                    </div>
+                    <!-- FORM APELLIDO -->
+                    <div class="form-group">
+                        <label for="apellido"><strong>Apellido</strong></label>
+                        <input formControlName="Apellido" type="text" class="form-control fondo" id="apellido" placeholder="Ingrese Apellido" autocomplete="off">
+                        <span *ngIf="RegistrarUsuario.get('Apellido')?.invalid &&RegistrarUsuario.get('Apellido')?.touched" class="text-danger">
+                            El <strong>Apellido</strong> es requerido
+                        </span>
+                    </div>
+                    <!-- FORM NICKNAME -->
+                    <div class="form-group">
+                        <label for="nick"><strong>Nombre de Usuario</strong></label>
+                        <input formControlName="NickName" type="text" class="form-control fondo" id="nick" placeholder="Ingrese un Nick Name" autocomplete="off">
+                        <span *ngIf="RegistrarUsuario.get('NickName')?.invalid &&RegistrarUsuario.get('NickName')?.touched" class="text-danger">
+                            El <strong>Nombre de Usuario</strong> es requerido
+                        </span>
+                    </div>
+
+                    <!-- FORM CORREO -->
+                    <div class="form-group">
+                        <label for="correo"><strong>Correo Electrónico</strong></label>
+                        <input formControlName="Email" type="email" class="form-control fondo" id="correo" aria-describedby="emailHelp" placeholder="Ingrese su correo electrónico" autocomplete="off">
+                        <small id="emailHelp" class="form-text text-muted">No compartiremos su correo con nadie más</small>
+                        <span *ngIf="RegistrarUsuario.get('Email')?.invalid &&RegistrarUsuario.get('Email')?.touched" class="text-danger">
+                            El <strong>Email</strong> es requerido
+                        </span>
+                    </div>
+                    <!-- FORM CONTRASEÑA -->
+                    <div class="form-group">
+                        <label for="pass"><strong>Contraseña</strong></label>
+                        <input formControlName="Password" type="password" class="form-control fondo" id="pass" placeholder="Password" autocomplete="off">
+                        <span *ngIf="RegistrarUsuario.get('Password')?.invalid &&RegistrarUsuario.get('Password')?.touched" class="text-danger">
+                            El <strong>Password</strong> es requerido
+                        </span>
+                    </div>
+                    <!-- FORM DESCRIPCION -->
+                    <div class="form-group">
+                        <label for="descripcion"><strong>Descripción</strong> (Opcional)</label>
+                        <textarea formControlName="Descripcion" class="form-control fondo" id="descripcion" rows="3"></textarea>
+                    </div>
+                    <!-- FORM CHEQUEAR -->
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="chequear" required>
+                        <label class="form-check-label" for="chequear">Acepto. <a href="#">Terminos y Condiciones</a></label>
+                    </div>
+
+
+                        <!-- VERIFICAR QUE ESTE CHEQUEADO -->
+                    <div class="boton">
+                        <button routerLink="/" type="button" class="btn btn-primary" >Cancelar</button>
+                        <button  type="submit" [disabled]="RegistrarUsuario.invalid" class="btn btn-primary float-end" >Registrarme</button>
+                    </div>
+                </form>
+            </div> <!-- columna 6 -->
+            <div class="col-sm-6">
+                <img class="imagenlogo img-fluid" src="./assets/form-registro/imagenregistro.png" alt="FullViajes">
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</div> <!-- formulario -->
+
+
+
+<script src="./assets/form-registro/form-registro.js"></script>
