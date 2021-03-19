@@ -51,20 +51,7 @@ namespace FullViajes.Controllers
             }
 
         }
-        //MUESTRA EL DETALLE DE USUARIO        
-        public ActionResult Perfil(int id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Usuario usuario = db.Usuario.Find(id);
-            if (usuario == null)
-            {
-                return HttpNotFound();
-            }
-            return View(usuario);
-        }
+        
 
         // INGRESA NUEVO USUARIO
         public ActionResult Nuevo()
@@ -80,6 +67,20 @@ namespace FullViajes.Controllers
                 {
                     using (FullViajesEntities db = new FullViajesEntities())
                     {
+                        //CHEQUEA QUE EL NOMBRE NO ESTÉ VACÍO
+                        string nombre = oUser.nombre;
+                        if (nombre == null)
+                        {
+                            ModelState.AddModelError("nombre", "El campo no debe estar vacío");
+                            return View();
+                        }
+                        // CHEQUEA QUE EL NOMBRE NO ESTÉ VACÍO
+                        string apellido = oUser.apellido;
+                        if (apellido == null)
+                        {
+                            ModelState.AddModelError("apellido", "El campo no debe estar vacío");
+                            return View();
+                        }
                         //CHEQUEA QUE EL MAIL NO ESTA EN USO
                         Usuario emailcheck = db.Usuario.Where(a => a.email == oUser.email).FirstOrDefault();
                         if (emailcheck != null)
@@ -87,11 +88,21 @@ namespace FullViajes.Controllers
                             ModelState.AddModelError("email", "El email ya se encuentra registrado");
                             return View();
                         }
+
                         //CHEQUEA QUE EL NOMBRE DE USUARIO NO ESTE EN USO
                         Usuario usercheck = db.Usuario.Where(a => a.nickname == oUser.nickname).FirstOrDefault();
                         if (usercheck != null)
                         {
                             ModelState.AddModelError("nickname", "El usuario " + oUser.nickname + " ya se encuentra registrado");
+                            return View();
+                        }
+                        //CHEQUEA EL LARGO DE CONTRASEÑA
+                        string passwordcheck = oUser.password;
+                        int length = passwordcheck.Length;
+                        int passlenght = length;
+                        if (passlenght <= 7)
+                        {
+                            ModelState.AddModelError("password", "La contraseña debe tener más de 8 caracteres");
                             return View();
                         }
                         //ENCRIPTA CONTRASEÑA
