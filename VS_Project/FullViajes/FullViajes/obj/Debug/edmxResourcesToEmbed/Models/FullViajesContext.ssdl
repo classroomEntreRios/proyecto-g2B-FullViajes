@@ -1,0 +1,217 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FullViajesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Alojamiento">
+    <Key>
+      <PropertyRef Name="id_alojamiento" />
+    </Key>
+    <Property Name="id_alojamiento" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_ciudad" Type="bigint" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="descripcion" Type="text" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="100" />
+    <Property Name="direccion" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="itinerario" Type="binary" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Atracciones">
+    <Key>
+      <PropertyRef Name="id_atraccion" />
+    </Key>
+    <Property Name="id_atraccion" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_ciudad" Type="bigint" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="descripcion" Type="text" />
+    <Property Name="direccion" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="itinerario" Type="binary" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ciudad">
+    <Key>
+      <PropertyRef Name="id_ciudad" />
+    </Key>
+    <Property Name="id_ciudad" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="cp" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="coordenadas" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="itinerario" Type="binary" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Clima">
+    <Key>
+      <PropertyRef Name="id_clima" />
+    </Key>
+    <Property Name="id_clima" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_ciudad" Type="bigint" Nullable="false" />
+    <Property Name="fecha" Type="date" Nullable="false" />
+    <Property Name="estado" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="tempmax" Type="smallint" Nullable="false" />
+    <Property Name="tempmin" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Imagen">
+    <Key>
+      <PropertyRef Name="id_imagen" />
+    </Key>
+    <Property Name="id_imagen" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_ciudad" Type="bigint" Nullable="false" />
+    <Property Name="url" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="descripcion" Type="varchar" MaxLength="300" />
+    <Property Name="seccion" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Respuestas">
+    <Key>
+      <PropertyRef Name="id_respuesta" />
+    </Key>
+    <Property Name="id_respuesta" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_topics" Type="bigint" Nullable="false" />
+    <Property Name="id_usuario" Type="bigint" Nullable="false" />
+    <Property Name="contenido" Type="text" Nullable="false" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="fecha_modificacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Topicos">
+    <Key>
+      <PropertyRef Name="id_topics" />
+    </Key>
+    <Property Name="id_topics" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_usuario" Type="bigint" Nullable="false" />
+    <Property Name="titulo" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="contenido" Type="text" Nullable="false" />
+    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="fecha_modificacion" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nickname" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="password" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="rol" Type="tinyint" Nullable="false" />
+    <Property Name="user_foto" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="user_descripcion" Type="varchar" MaxLength="300" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" />
+    <Property Name="apellido" Type="varchar" MaxLength="100" />
+    <Property Name="active" Type="bit" />
+    <Property Name="token" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="Alojamiento_FK">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Alojamiento" Type="Self.Alojamiento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="id_ciudad" />
+      </Principal>
+      <Dependent Role="Alojamiento">
+        <PropertyRef Name="id_ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Atracciones_FK">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Atracciones" Type="Self.Atracciones" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="id_ciudad" />
+      </Principal>
+      <Dependent Role="Atracciones">
+        <PropertyRef Name="id_ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Clima_FK">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Clima" Type="Self.Clima" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="id_ciudad" />
+      </Principal>
+      <Dependent Role="Clima">
+        <PropertyRef Name="id_ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Imagen_FK">
+    <End Role="Ciudad" Type="Self.Ciudad" Multiplicity="1" />
+    <End Role="Imagen" Type="Self.Imagen" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ciudad">
+        <PropertyRef Name="id_ciudad" />
+      </Principal>
+      <Dependent Role="Imagen">
+        <PropertyRef Name="id_ciudad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Respuestas_FK">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Respuestas" Type="Self.Respuestas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Respuestas">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="RespuestasT_FK">
+    <End Role="Topicos" Type="Self.Topicos" Multiplicity="1" />
+    <End Role="Respuestas" Type="Self.Respuestas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Topicos">
+        <PropertyRef Name="id_topics" />
+      </Principal>
+      <Dependent Role="Respuestas">
+        <PropertyRef Name="id_topics" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Topicos_FK">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Topicos" Type="Self.Topicos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="Topicos">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FullViajesModelStoreContainer">
+    <EntitySet Name="Alojamiento" EntityType="Self.Alojamiento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Atracciones" EntityType="Self.Atracciones" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ciudad" EntityType="Self.Ciudad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Clima" EntityType="Self.Clima" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Imagen" EntityType="Self.Imagen" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Respuestas" EntityType="Self.Respuestas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Topicos" EntityType="Self.Topicos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Alojamiento_FK" Association="Self.Alojamiento_FK">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Alojamiento" EntitySet="Alojamiento" />
+    </AssociationSet>
+    <AssociationSet Name="Atracciones_FK" Association="Self.Atracciones_FK">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Atracciones" EntitySet="Atracciones" />
+    </AssociationSet>
+    <AssociationSet Name="Clima_FK" Association="Self.Clima_FK">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Clima" EntitySet="Clima" />
+    </AssociationSet>
+    <AssociationSet Name="Imagen_FK" Association="Self.Imagen_FK">
+      <End Role="Ciudad" EntitySet="Ciudad" />
+      <End Role="Imagen" EntitySet="Imagen" />
+    </AssociationSet>
+    <AssociationSet Name="Respuestas_FK" Association="Self.Respuestas_FK">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Respuestas" EntitySet="Respuestas" />
+    </AssociationSet>
+    <AssociationSet Name="RespuestasT_FK" Association="Self.RespuestasT_FK">
+      <End Role="Topicos" EntitySet="Topicos" />
+      <End Role="Respuestas" EntitySet="Respuestas" />
+    </AssociationSet>
+    <AssociationSet Name="Topicos_FK" Association="Self.Topicos_FK">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Topicos" EntitySet="Topicos" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

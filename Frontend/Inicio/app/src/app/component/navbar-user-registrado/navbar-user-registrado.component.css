@@ -1,0 +1,15 @@
+#NavUser {
+  background-color: white!important;
+  max-width: 65 px;
+}
+
+.avatar {
+    max-width: 40px;
+}
+
+.dropdown-item:hover {
+    border-radius: 10px ;
+    background-color:#f15d39 !important;
+    text-decoration: none;
+    color: white !important;
+    }
