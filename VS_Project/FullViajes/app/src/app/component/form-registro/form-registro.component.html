@@ -1,0 +1,63 @@
+<div class="formulario">
+    <div class="container">
+        <h1 class="titulo" style="text-align: center;"><strong>FORMULARIO DE REGISTRO</strong></h1>
+        <div class="row">
+            <div class="col-sm-6">
+                <form #form="ngForm" (submit)="onSubmit(form)">
+                    
+                    <!-- FORM NOMBRE -->
+                    <div class="form-group">
+                        <label for="nombre"><strong>Nombres</strong> </label>
+                        <input type="text" class="form-control fondo" name="nombre" placeholder="Ingrese Nombre Completo" autocomplete="off" #nombre="ngModel" [(ngModel)]="service.formData.nombre">
+                    </div>
+                    <!-- FORM APELLIDO -->
+                    <div class="form-group">
+                        <label for="apellido"><strong>Apellido</strong></label>
+                        <input type="text" class="form-control fondo" name="apellido" placeholder="Ingrese Apellido" autocomplete="off" #apellido="ngModel" [(ngModel)]="service.formData.apellido">
+                        
+                    </div>
+                    <!-- FORM NICKNAME -->
+                    <div class="form-group">
+                        <label for="nick"><strong>Nombre de Usuario</strong></label>
+                        <input type="text" class="form-control fondo" name="nickname" placeholder="Ingrese un Nick Name" autocomplete="off" #nickname="ngModel" [(ngModel)]="service.formData.nickname">
+                        
+                    </div>
+
+                    <!-- FORM CORREO -->
+                    <div class="form-group">
+                        <label for="correo"><strong>Correo Electrónico</strong></label>
+                        <input type="email" class="form-control fondo" name="email" aria-describedby="emailHelp" placeholder="Ingrese su correo electrónico" autocomplete="off" #email="ngModel" [(ngModel)]="service.formData.email" >
+                        <small id="emailHelp" class="form-text text-muted">No compartiremos su correo con nadie más</small>
+                        
+                    </div>
+                    <!-- FORM CONTRASEÑA -->
+                    <div class="form-group">
+                        <label for="pass"><strong>Contraseña</strong></label>
+                        <input type="password" class="form-control fondo" name="password" placeholder="Password" autocomplete="off" #password="ngModel" [(ngModel)]="service.formData.password">
+                        
+                    </div>
+                    <!-- FORM DESCRIPCION -->
+                    <div class="form-group">
+                        <label for="descripcion"><strong>Descripción</strong> (Opcional)</label>
+                        <textarea class="form-control fondo" name="user_descripcion" rows="3" #user_descripcion="ngModel" [(ngModel)]="service.formData.user_descripcion"></textarea>
+                    </div>
+                    <!-- FORM CHEQUEAR -->
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="chequear" required>
+                        <label class="form-check-label" for="chequear">Acepto. <a href="#">Terminos y Condiciones</a></label>
+                    </div>
+
+
+                        <!-- VERIFICAR QUE ESTE CHEQUEADO -->
+                    <div class="boton">
+                        <button routerLink="/" type="button" class="btn btn-primary" >Cancelar</button>
+                        <button type="submit" class="btn btn-primary float-end" >Registrarme</button>
+                    </div>
+                </form>
+            </div> <!-- columna 6 -->
+            <div class="col-sm-6">
+                <img class="imagenlogo img-fluid" src="./assets/images/form-registro/imagenregistro.png" alt="FullViajes">
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</div> <!-- formulario -->

@@ -1,0 +1,20 @@
+<div id="login"  class="modal">
+  <form autocomplete=off method="post">
+      <div class="container">
+        <label for="uname"><b>E-mail</b></label>
+        <input type="text" placeholder="Ingrese E-mail" name="mail" required>
+    
+        <label for="psw"><b>Contraseña</b></label>
+        <input type="password" placeholder="Ingrese Contraseña" name="password" required>
+    
+        <button type="submit">Ingresar</button>
+      </div>
+  </form> 
+      <div class="container" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn" onclick="document.getElementById('login').style.display='none'">Cancelar</button>
+        <span class="psw">Olvidó la contraseña</span>
+        <a routerLink="/formulario">Registrarse</a>
+        
+      </div>
+    
+  </div>
