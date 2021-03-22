@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormRegistroComponent } from './component/form-registro/form-registro.component';
 import { PrincipalComponent } from './component/principal/principal.component';
+import { UsuarioComponent } from './component/usuario/usuario.component';
 
 
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
   {path:'formulario', component: FormRegistroComponent},
   {path:'', component: PrincipalComponent},
   {path:'index', component: PrincipalComponent},
+  {path:'usuario', component: UsuarioComponent},
   {path:'**', redirectTo: '/', pathMatch: 'full'}
 
 ];

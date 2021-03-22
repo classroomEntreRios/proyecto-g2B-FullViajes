@@ -87,8 +87,8 @@ namespace FullViajes.Controllers
                 Usuario emailcheck = db.Usuario.Where(a => a.email == usuario.email).FirstOrDefault();
                 if (emailcheck != null)
                 {
-                    MensajeError = "El email ya se encuentra registrado";
-                    return BadRequest(MensajeError);
+                   // return new Respuesta
+                   // { Estado = "Error", Mensaje = "El email ya se encuentra registrado" };
                 }
                 //CHEQUEA QUE EL NOMBRE DE USUARIO NO ESTE EN USO
                 Usuario usercheck = db.Usuario.Where(a => a.nickname == usuario.nickname).FirstOrDefault();
@@ -98,9 +98,8 @@ namespace FullViajes.Controllers
                     return BadRequest(MensajeError);
                 }
                 //ENCRIPTA CONTRASEÑA
-                // string pswd = Encrypt.GetSHA256(oUser.password);
-                // oUser.password = pswd;
-                // usuario.user_foto = "/img/profile.png";
+                string pswd = Encrypt.GetSHA256(usuario.password);
+                usuario.password = pswd;
                 string tkn = Guid.NewGuid().ToString();
                 usuario.rol = 1;
                 usuario.active = false;

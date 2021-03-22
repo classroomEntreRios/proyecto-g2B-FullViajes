@@ -14,10 +14,15 @@
 
 .fondo{background: rgb(233, 231, 231);}
 
-/* .boton{
-    text-align: center;
-} */
-
+.botoncancelar:hover{
+    background-color:rgb(194, 21, 21)
+}
+.botonregistrado:hover{
+    background-color:rgb(10, 67, 172)
+}
+.botonregistrar:active{
+    background-color:rgb(22, 202, 52)
+}
 span{
     margin-left: 5px;
 }

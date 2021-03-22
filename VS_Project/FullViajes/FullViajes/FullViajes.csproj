@@ -232,6 +232,7 @@
     <Compile Include="Models\Imagen.cs">
       <DependentUpon>FullViajesEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Respuesta.cs" />
     <Compile Include="Models\Respuestas.cs">
       <DependentUpon>FullViajesEntities.tt</DependentUpon>
     </Compile>

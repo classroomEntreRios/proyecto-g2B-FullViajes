@@ -15,7 +15,7 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { PrincipalComponent } from './component/principal/principal.component';
 import { ContentinitComponent } from './component/contentinit/contentinit.component';
-import { SobreERComponent } from './component/sobre-er/sobre-er.component';
+import { SobreErComponent } from './component/sobre-er/sobre-er.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,7 @@ import { SobreERComponent } from './component/sobre-er/sobre-er.component';
     FooterComponent,
     PrincipalComponent,
     ContentinitComponent,
-    SobreERComponent
+    SobreErComponent
   ],
   imports: [
     BrowserModule,

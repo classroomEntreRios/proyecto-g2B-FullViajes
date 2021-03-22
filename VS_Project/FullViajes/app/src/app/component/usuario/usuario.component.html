@@ -1,20 +1,29 @@
-<div id="login"  class="modal">
-  <form autocomplete=off method="post">
-      <div class="container">
-        <label for="uname"><b>E-mail</b></label>
-        <input type="text" placeholder="Ingrese E-mail" name="mail" required>
-    
-        <label for="psw"><b>Contraseña</b></label>
-        <input type="password" placeholder="Ingrese Contraseña" name="password" required>
-    
-        <button type="submit">Ingresar</button>
+<app-navbar></app-navbar>
+<div id="login">
+  <form #form="ngForm" (submit)="onSubmit(form)" autocomplete=off>
+    <div class="container">
+      <label><strong>E-Mail</strong> </label>
+      <input pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$" #email="ngModel" name="email"
+        [(ngModel)]="service.formData.email" type="text" class="form-control"
+        placeholder="Ingrese E-mail Registrado" required>
+      <div [hidden]="email.valid || (email.pristine && !email.touched)" class="alert alert-danger">
+        <div>
+          El <strong>Correo electrónico</strong> es requerido. Y solo puede contener letras,
+          numeros, puntos, guiones y guion bajo.
+        </div>
       </div>
-  </form> 
-      <div class="container" style="background-color:#f1f1f1">
-        <button type="button" class="cancelbtn" onclick="document.getElementById('login').style.display='none'">Cancelar</button>
-        <span class="psw">Olvidó la contraseña</span>
-        <a routerLink="/formulario">Registrarse</a>
-        
+      <label for="psw"><b>Contraseña</b></label>
+      <input #password="ngModel" name="password" [(ngModel)]="service.formData.password" type="password" class="form-control" placeholder="Ingrese su Contraseña" required  pattern=".{4,12}$">
+      <div [hidden]="password.valid || (password.pristine && !password.touched)" class="alert alert-danger">
+        <div>
+            Debe ingresar su contraseña.
+        </div>
       </div>
-    
+      <button type="submit" style="margin-top: 10px;" class="btn btn-secondary botonregistrado"><strong>Ingresar</strong></button>    </div>
+   </form>
+  <div class="container" style="background-color:#f1f1f1">
+    <a routerLink="/"><button type="button" class="cancelbtn">Cancelar</button></a>
+    <button type="button" class="btn-secondary lgbtn" style="background-color: grey; margin-left: 10px;">Olvidó la contraseña</button>
+    <a href="#" routerLink="/formulario"><button type="button" style="background-color: #f15d39;"><strong>Registrarse</strong></button></a>
   </div>
+</div>

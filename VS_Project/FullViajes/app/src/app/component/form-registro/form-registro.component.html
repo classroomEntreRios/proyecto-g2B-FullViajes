@@ -1,63 +1,180 @@
-<div class="formulario">
-    <div class="container">
-        <h1 class="titulo" style="text-align: center;"><strong>FORMULARIO DE REGISTRO</strong></h1>
-        <div class="row">
-            <div class="col-sm-6">
-                <form #form="ngForm" (submit)="onSubmit(form)">
-                    
-                    <!-- FORM NOMBRE -->
-                    <div class="form-group">
-                        <label for="nombre"><strong>Nombres</strong> </label>
-                        <input type="text" class="form-control fondo" name="nombre" placeholder="Ingrese Nombre Completo" autocomplete="off" #nombre="ngModel" [(ngModel)]="service.formData.nombre">
-                    </div>
-                    <!-- FORM APELLIDO -->
-                    <div class="form-group">
-                        <label for="apellido"><strong>Apellido</strong></label>
-                        <input type="text" class="form-control fondo" name="apellido" placeholder="Ingrese Apellido" autocomplete="off" #apellido="ngModel" [(ngModel)]="service.formData.apellido">
-                        
-                    </div>
-                    <!-- FORM NICKNAME -->
-                    <div class="form-group">
-                        <label for="nick"><strong>Nombre de Usuario</strong></label>
-                        <input type="text" class="form-control fondo" name="nickname" placeholder="Ingrese un Nick Name" autocomplete="off" #nickname="ngModel" [(ngModel)]="service.formData.nickname">
-                        
-                    </div>
+<!DOCTYPE html>
+<html lang="es">
 
-                    <!-- FORM CORREO -->
-                    <div class="form-group">
-                        <label for="correo"><strong>Correo Electrónico</strong></label>
-                        <input type="email" class="form-control fondo" name="email" aria-describedby="emailHelp" placeholder="Ingrese su correo electrónico" autocomplete="off" #email="ngModel" [(ngModel)]="service.formData.email" >
-                        <small id="emailHelp" class="form-text text-muted">No compartiremos su correo con nadie más</small>
-                        
-                    </div>
-                    <!-- FORM CONTRASEÑA -->
-                    <div class="form-group">
-                        <label for="pass"><strong>Contraseña</strong></label>
-                        <input type="password" class="form-control fondo" name="password" placeholder="Password" autocomplete="off" #password="ngModel" [(ngModel)]="service.formData.password">
-                        
-                    </div>
-                    <!-- FORM DESCRIPCION -->
-                    <div class="form-group">
-                        <label for="descripcion"><strong>Descripción</strong> (Opcional)</label>
-                        <textarea class="form-control fondo" name="user_descripcion" rows="3" #user_descripcion="ngModel" [(ngModel)]="service.formData.user_descripcion"></textarea>
-                    </div>
-                    <!-- FORM CHEQUEAR -->
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="chequear" required>
-                        <label class="form-check-label" for="chequear">Acepto. <a href="#">Terminos y Condiciones</a></label>
-                    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="formulario">
+        <div class="container">
+            <h1 class="titulo" style="text-align: center;"><strong>FORMULARIO DE REGISTRO</strong></h1>
+            <div class="row">
+                <div class="col-sm-6">
+                    <p>Bienvenido <strong>{{service.formData.nickname}}</strong> estas a solo un paso de registrarte!
+                    </p>
+
+                    <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
 
 
-                        <!-- VERIFICAR QUE ESTE CHEQUEADO -->
-                    <div class="boton">
-                        <button routerLink="/" type="button" class="btn btn-primary" >Cancelar</button>
-                        <button type="submit" class="btn btn-primary float-end" >Registrarme</button>
-                    </div>
-                </form>
-            </div> <!-- columna 6 -->
-            <div class="col-sm-6">
-                <img class="imagenlogo img-fluid" src="./assets/images/form-registro/imagenregistro.png" alt="FullViajes">
-            </div>
-        </div> <!-- row -->
-    </div> <!-- container -->
-</div> <!-- formulario -->
+                        <!-- NICKNAME -->
+                        <div class="form-group">
+                            <label><strong>NickName</strong> </label>
+                            <input name="nickname" [(ngModel)]="service.formData.nickname" type="text"
+                                class="form-control " placeholder="Ingrese un Nick Name" ng-maxlength="8" required
+                                #nickname="ngModel">
+                            <div [hidden]="nickname.valid || (nickname.pristine && !nickname.touched)"
+                                class="alert alert-danger" pattern="[a-zA-Z0-9\_\-]{4,16}$">
+                                <div>
+                                    El <strong>Nombre de Usuario</strong> es requerido y debe ser entre 4 y 16 dígitos
+                                    (puede incluir letras, números y guión bajo).
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- NOMBRE -->
+                        <div class="form-group">
+                            <label><strong>Nombre</strong></label>
+                            <input #nombre="ngModel" name="nombre" [(ngModel)]="service.formData.nombre" type="text"
+                                class="form-control" placeholder="Ingrese Nombre Completo" required
+                                pattern="[a-zA-ZÀ-ÿ\s]{1,40}$">
+                            <div [hidden]="nombre.valid || (nombre.pristine && !nombre.touched)"
+                                class="alert alert-danger">
+                                <div>
+                                    El <strong>Nombre</strong> es requerido y solo se aceptan valores alfabéticos. No
+                                    puede contener números ni símbolos.
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <!-- APELLIDO -->
+                        <div class="form-group">
+                            <label><strong>Apellido</strong></label>
+                            <input #apellido="ngModel" name="apellido" [(ngModel)]="service.formData.apellido"
+                                type="text" class="form-control" placeholder="Ingrese Apellido" required
+                                pattern="[a-zA-ZÀ-ÿ\s]{1,40}$">
+                            <div [hidden]="apellido.valid || (apellido.pristine && !apellido.touched)"
+                                class="alert alert-danger">
+                                <div>
+                                    El <strong>Apellido</strong> es requerido y solo se aceptan valores alfabéticos. No
+                                    puede contener números ni símbolos.
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                        <!-- CORREO ELECTRONICO -->
+                        <div class="form-group">
+                            <label><strong>Email</strong></label>
+                            <input pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$" #email="ngModel"
+                                name="email" [(ngModel)]="service.formData.email" type="text" class="form-control"
+                                placeholder="Ingrese su correo electrónico en minúscula" required>
+                            <div [hidden]="email.valid || (email.pristine && !email.touched)"
+                                class="alert alert-danger">
+                                <div>
+                                    El <strong>Correo electrónico</strong> es requerido. Y solo puede contener letras,
+                                    numeros, puntos, guiones y guion bajo.
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <!-- CONTRASEÑA -->
+                        <div class="form-group">
+                            <label><strong>Contraseña</strong></label>
+                            <input #password="ngModel" name="password" [(ngModel)]="service.formData.password"
+                                type="password" class="form-control" placeholder="Ingrese su Password" required
+                                pattern=".{4,12}$">
+
+                            <div [hidden]="password.valid || (password.pristine && !password.touched)"
+                                class="alert alert-danger">
+                                <div>
+                                    El <strong>Password</strong> es requerido y debe ser entre 4 y 16 dígitos.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- REPETIR CONTRASEÑA -->
+                        <div class="form-group">
+                            <label><strong>Repetir Contraseña</strong></label>
+                            <input #password2="ngModel" name="password2" type="password" class="form-control"
+                                placeholder="Repita su Password" required pattern="{{service.formData.password}}"
+                                ngModel>
+
+                            <div [hidden]="password2.valid || (password2.pristine && !password2.touched)"
+                                class="alert alert-danger">
+                                <div>
+                                    El <strong>Password</strong> debe ser idéntico al ingresado anteriormente.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- DESCRIPCION -->
+                        <div class="form-group">
+                            <label><strong>Descripción (Opcional)</strong></label>
+                            <input #user_descripcion="ngModel" name="user_descripcion"
+                                [(ngModel)]="service.formData.user_descripcion" type="text" class="form-control"
+                                placeholder="Ingrese una breve descripción" ngModel>
+                        </div>
+
+
+                        <!-- BOTONES -->
+                        <div class="form-group" style="text-align: center;">
+                            <button type="submit" style="margin-bottom: 10px; background-color: #f15d39;" [disabled]="form.invalid"
+                                class="btn btn-lg btn-block botonregistro"><strong>Registrar</strong></button>
+                            <button routerLink="/" type="button" class="btn btn-secondary botoncancelar"
+                                style=" margin-right: 30px;">Cancelar</button>
+                            <button routerLink="/usuario" type="button" class="btn btn-secondary botonregistrado"
+                                style="margin-right: 0px;">Ya estoy Registrado</button>
+                        </div>
+                    </form>
+                </div> <!-- columna 6 -->
+                <div class="col-sm-6">
+                    <img class="imagenlogo img-fluid" src="./assets/images/form-registro/imagenregistro.png"
+                        alt="FullViajes">
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </div> <!-- formulario -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
+        integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
+        integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
+        crossorigin="anonymous"></script>
+
+    <script src="./assets/form-registro/form-registro.js"></script>
+
+</body>
+
+</html>
+
+
+<!-- formControlName="Nombre"
+    formControlName="NickName"
+    formControlName="Apellido"
+    formControlName="Email"
+    formControlName="Password"
+
+#nombre="ngModel"
+#apellido="ngModel" 
+#email="ngModel"
+#password="ngModel"
+#user_foto="ngModel"
+#user_descripcion="ngModel" -->
