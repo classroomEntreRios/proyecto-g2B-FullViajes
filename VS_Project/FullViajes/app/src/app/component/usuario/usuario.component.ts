@@ -34,7 +34,7 @@ export class UsuarioComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) { 
-    this.insertRecord(form); 
+    this.insertRecord(form);
   }
 
   insertRecord(form: NgForm) {

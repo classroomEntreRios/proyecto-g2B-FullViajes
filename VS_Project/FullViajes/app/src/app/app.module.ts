@@ -12,6 +12,7 @@ import { UsuarioComponent } from './component/usuario/usuario.component';
 import { UsuarioService } from './services/usuario.service';
 import { IndexComponent } from './component/index/index.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SobreErComponent } from './component/sobre-er/sobre-er.component';
 
 
 
@@ -24,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     FooterComponent,
     UsuarioComponent,
     IndexComponent,
+    SobreErComponent,
   ],
   
   imports: [
