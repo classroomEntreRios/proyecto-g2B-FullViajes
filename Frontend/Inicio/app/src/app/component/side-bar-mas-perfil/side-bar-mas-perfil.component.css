@@ -1,0 +1,120 @@
+
+.avatar{
+    width:150px;
+    height:150px;
+    border-radius:150px;
+    box-shadow: 1px 1px rgb(255, 255, 255);
+}
+:root {
+ --primary: #f15d39!important;
+ --light: white;
+
+}
+
+body{
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 300;
+    color: var(--primary)
+}
+
+#sidebar-container{
+    min-height: 100vh;
+}
+
+#sidebar-container .sidebar-header{
+    padding: .875rem 1.25rem;
+    
+}
+
+#sidebar-container .menu{
+    width: 18rem;
+    
+}
+
+.bg-primary {
+    background-color: #f15d39!important ;
+}
+
+a:hover {
+    text-decoration: none!important;
+    background-color: #f17d39!important;
+    color: white!important;
+    font-size: 17px;
+}
+
+.menu .closebtn {
+    position: absolute;
+    top: 10px;
+    margin-left: 10px;
+    font-weight: 400;
+    text-align: center;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+
+.closebtn i{
+    font-size: 30px;
+    color: white;
+}
+
+.closebtn i:hover{
+    font-size: 30.5px;
+}
+
+.portada h2{
+    text-align: center;
+    color: rgb(112, 112, 112);
+}
+
+.portada h5{
+    text-align: center;
+    color: white;
+    font-weight: 300;
+}
+
+.portada .avatar{
+    display: block;
+    align-items: center;
+    margin:auto;
+
+   
+}
+
+.portada{
+  
+  background-image: url("./../../../assets/Imagenes/Portada.jpg") ;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 250vh;
+  height: 250px;
+  padding-top: 25px;
+  align-items: center;
+}
+
+.box{
+    width: 450px;
+    height: 350px;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid rgba(177, 177, 177, 0.933);
+    border-radius: 15px ;
+    text-align: justify;
+    margin-top: 200 px;
+    position:relative; /* Para que exista relacion entre sus divs*/
+}
+
+.info{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 850px){
+    #sidebar-container{
+        min-height: 1000vh;
+    }
+    
+
+}
