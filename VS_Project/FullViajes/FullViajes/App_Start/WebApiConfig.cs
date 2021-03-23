@@ -11,7 +11,7 @@ namespace FullViajes
         public static void Register(HttpConfiguration config)
         {
             //config.MapHttpAttributeRoutes();
-            config.EnableCors(new EnableCorsAttribute("http//localhost:4200", headers: "*", methods: "*"));
+            config.EnableCors(new EnableCorsAttribute("http://localhost:4200", headers: "*", methods: "*"));
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

@@ -87,8 +87,10 @@ namespace FullViajes.Controllers
                 Usuario emailcheck = db.Usuario.Where(a => a.email == usuario.email).FirstOrDefault();
                 if (emailcheck != null)
                 {
-                   // return new Respuesta
-                   // { Estado = "Error", Mensaje = "El email ya se encuentra registrado" };
+                    // return new Respuesta
+                    // { Estado = "Error", Mensaje = "El email ya se encuentra registrado" };
+                    MensajeError = "El Correo " + usuario.email + " ya se encuentra registrado"; //probar
+                    return BadRequest(MensajeError);                                            //probar
                 }
                 //CHEQUEA QUE EL NOMBRE DE USUARIO NO ESTE EN USO
                 Usuario usercheck = db.Usuario.Where(a => a.nickname == usuario.nickname).FirstOrDefault();
@@ -141,6 +143,8 @@ namespace FullViajes.Controllers
             base.Dispose(disposing);
         }
 
+
+        //PARA BUSQUEDA
         private bool UsuarioExists(long id)
         {
             return db.Usuario.Count(e => e.id_usuario == id) > 0;

@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\led\source\repos\proyecto-g2B-FullViajes\VS_Project\FullViajes\app\src\polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! C:\Users\Turco\Desktop\Full Stack\proyecto-g2B-FullViajes\VS_Project\FullViajes\app\src\polyfills.ts */"hN/g");
 
 
 /***/ }),
