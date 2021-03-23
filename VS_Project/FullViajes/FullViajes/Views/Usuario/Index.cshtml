@@ -1,0 +1,65 @@
+﻿@model IEnumerable<FullViajes.Models.Usuario>
+
+@{
+    ViewBag.Title = "Listado de Usuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lista de Usuarios</h2>
+
+<a href="~/Usuario/Nuevo" class="btn btn-lg btn-success">Agregar Usuario</a>
+<br />
+<br />
+
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            Nombre y Apellido
+        </th>
+        <th>
+            Nombre de Usuario
+        </th>
+        <th>
+            E-Mail
+        </th>
+        <th>
+            Activo
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomapel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nickname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.active)
+            </td>
+            <td>
+                <a class="btn btn-warning" href="~/Usuario/Modificar/@item.id_usuario">Editar</a>
+                <a class="btn btn-info" href="~/Usuario/Perfil/@item.id_usuario">Ver Perfil</a>
+                <a class="btn btn-danger elimina" href="~/Usuario/Eliminar/@item.id_usuario">Eliminar</a>
+
+            </td>
+        </tr>
+    }
+
+</table>
+@section scripts
+{
+    <script>
+    $(".elimina").click(function (event) {
+        if (!confirm("¿Estás seguro de eliminar el usuario?"))
+            event.preventDefault();
+    }
+        );
+    </script>
+}
