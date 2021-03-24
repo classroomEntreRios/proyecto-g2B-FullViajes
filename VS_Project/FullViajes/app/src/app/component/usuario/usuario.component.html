@@ -1,149 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <title>Bootstrap Example</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
-
-<body>
-    <div class="formulario">
-        <div class="container">
-            <h1 class="titulo" style="text-align: center;"><strong>FORMULARIO DE REGISTRO</strong></h1>
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>Bienvenido <strong>{{service.formData.nickname}}</strong> estas a solo un paso de registrarte!
-                    </p>
-
-                    <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
-                        <input type="hidden" name="id_usuario" #id_usuario="ngModel"
-                            [(ngModel)]="service.formData.id_usuario">
-
-
-
-                        <div class="form-group">
-                            <label><strong>NickName</strong> </label>
-                            <input #nickname="ngModel" name="nickname" id="nickname"
-                                [(ngModel)]="service.formData.nickname" type="text" class="form-control"
-                                placeholder="Ingrese un Nick Name" ngModel required>
-                            <!-- <div class="alert alert-danger" [hidden]="service.formData.nickname.valid || service.formData.nickname.pristine">
-                                <div *ngIf="service.formData.nickname.errors?.required">
-                                    El <strong>Nombre de Usuario</strong> es requerido
-                                </div>
-                            </div> -->
-                            <div *ngIf="nickname.invalid && (nickname.dirty || nickname.touched)"
-                                class="alert alert-danger">
-                                <div *ngIf="nickname.invalid">
-                                    El nombre de usuario es obligatorio.
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="form-group">
-                            <label><strong>Nombre</strong></label>
-                            <input #nombre="ngModel" name="nombre" [(ngModel)]="service.formData.nombre" type="text"
-                                class="form-control" placeholder="Ingrese Nombre Completo" ngModel required>
-                            <div *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)" class="alert alert-danger">
-                                <div *ngIf="nombre.invalid">
-                                    El nombre es obligatorio.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label><strong>Apellido</strong></label>
-                            <input #apellido="ngModel" name="apellido" [(ngModel)]="service.formData.apellido"
-                                type="text" class="form-control" placeholder="Ingrese Apellido" ngModel required>
-                            <div *ngIf="apellido.invalid && (apellido.dirty || apellido.touched)"
-                                class="alert alert-danger">
-                                <div *ngIf="apellido.invalid">
-                                    El apellido es obligatorio.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label><strong>Email</strong></label>
-                            <input id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" #email="ngModel"
-                                name="email" [(ngModel)]="service.formData.email" required type="email"
-                                class="form-control" placeholder="Ingrese su correo electrónico" ngModel required>
-                            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
-                                <div *ngIf="email.invalid">
-                                    El campo debe poseer formato email, ejemplo: usuario@gmail.com
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label><strong>Contraseña</strong></label>
-                            <input #password="ngModel" required minlength="6" name="password"
-                                [(ngModel)]="service.formData.password" type="password" class="form-control"
-                                placeholder="Ingrese su Password" ngModel required>
-                            <div *ngIf="password.invalid && (password.dirty || password.touched)"
-                                class="alert alert-danger">
-                                <div *ngIf="password.invalid">
-                                    El campo contraseña es obligatorio.
-                                </div>
-                                <div *ngIf="password.errors.minlength">
-                                    El campo contraseña debe tener al menos 6 caracteres.
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="form-group">
-                            <label><strong>Descripción (Opcional)</strong></label>
-                            <input #user_descripcion="ngModel" name="user_descripcion"
-                                [(ngModel)]="service.formData.user_descripcion" type="text" class="form-control"
-                                placeholder="Ingrese una breve descripción" ngModel>
-                        </div>
-
-                        <div class="form-group" style="text-align: center;">
-                            <button routerLink="/" type="button" class="btn btn-secondary botoncancelar"
-                                style=" margin-right: 30px;">Cancelar</button>
-                            <button routerLink="/" type="button" class="btn btn-secondary botonregistrado"
-                                style="margin-right: 30px;">Ya estoy Registrado</button>
-                            <button type="submit" style="margin-right: 30px;" [disabled]="form.invalid"
-                            class="btn btn-primary"><strong>Registrar</strong></button>
-                        </div>
-                    </form>
-                </div> <!-- columna 6 -->
-                <div class="col-sm-6">
-                    <img class="imagenlogo img-fluid" src="./assets/Imagenes/form-registro/imagenregistro.png" alt="FullViajes">
-                </div>
-            </div> <!-- row -->
-        </div> <!-- container -->
-    </div> <!-- formulario -->
-
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js"
-        integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"
-        integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG"
-        crossorigin="anonymous"></script>
-
-    <script src="./assets/form-registro/form-registro.js"></script>
-
-</body>
-
-</html>
-
-
-<!-- formControlName="Nombre"
-    formControlName="NickName"
-    formControlName="Apellido"
-    formControlName="Email"
-    formControlName="Password"
-#nombre="ngModel"
-#apellido="ngModel" 
-#email="ngModel"
-#password="ngModel"
-#user_foto="ngModel"
-#user_descripcion="ngModel" -->
+<app-navbar></app-navbar>
+<div id="login">
+  <form #form="ngForm" (submit)="onSubmit(form)" autocomplete=off>
+    <div class="container">
+      <label><strong>E-Mail</strong> </label>
+      <input pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$" #email="ngModel" name="email"
+        [(ngModel)]="service.formData.email" type="text" class="form-control"
+        placeholder="Ingrese E-mail Registrado" required>
+      <div [hidden]="email.valid || (email.pristine && !email.touched)" class="alert alert-danger">
+        <div>
+          El <strong>Correo electrónico</strong> es requerido. Y solo puede contener letras,
+          numeros, puntos, guiones y guion bajo.
+        </div>
+      </div>
+      <label for="psw"><b>Contraseña</b></label>
+      <input #password="ngModel" name="password" [(ngModel)]="service.formData.password" type="password" class="form-control" placeholder="Ingrese su Contraseña" required  pattern=".{4,12}$">
+      <div [hidden]="password.valid || (password.pristine && !password.touched)" class="alert alert-danger">
+        <div>
+            Debe ingresar su contraseña.
+        </div>
+      </div>
+      <button type="submit" style="margin-top: 10px;" class="btn btn-secondary botonregistrado"><strong>Ingresar</strong></button>    </div>
+   </form>
+  <div class="container" style="background-color:#f1f1f1">
+    <a routerLink="/"><button type="button" class="cancelbtn">Cancelar</button></a>
+    <button type="button" class="btn-secondary lgbtn" style="background-color: grey; margin-left: 10px;">Olvidó la contraseña</button>
+    <a href="#" routerLink="/formulario"><button type="button" style="background-color: #f15d39;"><strong>Registrarse</strong></button></a>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {CargarScriptsService} from './../../services/cargar-scripts.service';
 
 @Component({
   selector: 'app-sobre-er',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SobreErComponent implements OnInit {
 
-  constructor() { }
+  //constructor(private cargaScript: CargarScriptsService) { 
+    //cargaScript.CargaScript(['sobre-er/Card.js']);
+ // }
 
   ngOnInit(): void {
   }

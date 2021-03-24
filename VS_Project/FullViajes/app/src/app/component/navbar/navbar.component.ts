@@ -12,11 +12,4 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  
-User = {
-  nombre: 'pepe',
-  apellido: 'argento'
-
-}
-
 }

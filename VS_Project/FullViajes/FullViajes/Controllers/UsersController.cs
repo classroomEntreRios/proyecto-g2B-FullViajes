@@ -1,245 +1,149 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using FullViajes.Models;
 using System.Net;
-using System.Net.Mail;
-using System.Web.Security;
+using System.Net.Http;
+using System.Web.Http;
+using System.Web.Http.Description;
+using FullViajes.Models;
 
 namespace FullViajes.Controllers
 {
-    public class UsersController : Controller
+    public class UsersController : ApiController
     {
         private FullViajesEntities db = new FullViajesEntities();
 
-        public ActionResult Index()
+        public string MessaError { get; private set; }
+
+        // GET: api/Users
+        public IQueryable<Usuario> GetUsuario()
         {
-            if (Session["idUsuario"] != null)
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("Login");
-            }
+            return db.Usuario;
         }
 
-        public ActionResult Login()
+        // GET: api/Users/5
+        [ResponseType(typeof(Usuario))]
+        public IHttpActionResult GetUsuario(long id)
         {
-            return View();
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(string email, string password)
-        {
-            if (ModelState.IsValid)
+            Usuario usuario = db.Usuario.Find(id);
+            if (usuario == null)
             {
-                var emailcheck = db.Usuario.Where(u => u.email == email).FirstOrDefault();
-                if (emailcheck != null)
+                return NotFound();
+            }
+
+            return Ok(usuario);
+        }
+
+        // PUT: api/Users/5
+        [ResponseType(typeof(void))]
+        public IHttpActionResult PutUsuario(long id, Usuario usuario)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (id != usuario.id_usuario)
+            {
+                return BadRequest();
+            }
+
+            db.Entry(usuario).State = EntityState.Modified;
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!UsuarioExists(id))
                 {
-                    //Chequea estado de activacion de usuario
-                    if (emailcheck.active == true)
-                    {
-                        string pswd = Encrypt.GetSHA256(password);
-                        if (emailcheck.password == pswd)
-                        {
-                            Session["email"] = emailcheck.email;
-                            Session["idUsuario"] = emailcheck.id_usuario;
-                            Session["rol"] = emailcheck.rol;
-                            if (emailcheck.nomapel == " ")
-                            {
-                                Session["username"] = emailcheck.nickname;
-                            }
-                            else
-                            {
-                                Session["username"] = emailcheck.nomapel;
-                            }
-
-                            return RedirectToAction("Index");
-                        }
-                        else
-                        {
-                            ModelState.AddModelError("password", "La contraseña no es correcta");
-                            return View();
-                        }
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("email", "Debe activar la cuenta para poder iniciar sesión");
-                        return View();
-                    }
+                    return NotFound();
                 }
                 else
                 {
-                    ModelState.AddModelError("email", "El email no se encuentra registrado o la cuenta no esta activa");
-                    return View();
+                    throw;
                 }
             }
-            return View();
+
+            return StatusCode(HttpStatusCode.NoContent);
         }
 
-        public ActionResult Logout()
+        // POST: api/Users
+        [ResponseType(typeof(Usuario))]
+        public IHttpActionResult PostUsuario(Usuario usuario)
         {
-            Session.Clear();
-            return Redirect("~/Home/");
-        }
-        public ActionResult Privi()
-        {
-            return View();
-        }
-        public ActionResult RePass()
-        {
-            return View();
-        }
-        public ActionResult Registrar()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Registrar(Usuario oUser)
-        {
-            try
+            string MensajeError = "Error";
+            if (!ModelState.IsValid)
             {
-                if (ModelState.IsValid)
-                {
-                    using (FullViajesEntities db = new FullViajesEntities())
-                    {
-                        //CHEQUEA QUE EL NOMBRE NO ESTÉ VACÍO
-                        string nombre = oUser.nombre;
-                        if (nombre == null)
-                        {
-                            ModelState.AddModelError("nombre", "El campo no debe estar vacío");
-                            return View();
-                        }
-                        // CHEQUEA QUE EL NOMBRE NO ESTÉ VACÍO
-                        string apellido = oUser.apellido;
-                        if (apellido == null)
-                        {
-                            ModelState.AddModelError("apellido", "El campo no debe estar vacío");
-                            return View();
-                        }
-                        //CHEQUEA QUE EL MAIL NO ESTA EN USO
-                        Usuario emailcheck = db.Usuario.Where(a => a.email == oUser.email).FirstOrDefault();
-                        if (emailcheck != null)
-                        {
-                            ModelState.AddModelError("email", "El email ya se encuentra registrado");
-                            return View();
-                        }
-                        //CHEQUEA QUE EL NOMBRE DE USUARIO NO ESTE EN USO
-                        Usuario usercheck = db.Usuario.Where(a => a.nickname == oUser.nickname).FirstOrDefault();
-                        if (usercheck != null)
-                        {
-                            ModelState.AddModelError("nickname", "El usuario " + oUser.nickname + " ya se encuentra registrado");
-                            return View();
-                        }
-                        //CHEQUEA EL LARGO DE CONTRASEÑA
-                        string passwordcheck = oUser.password;
-                        int length = passwordcheck.Length;
-                        int passlenght = length;
-                        if (passlenght <= 7)
-                        {
-                            ModelState.AddModelError("password", "La contraseña debe tener más de 8 caracteres");
-                            return View();
-                        }
-                        //ENCRIPTA CONTRASEÑA
-                        string pswd = Encrypt.GetSHA256(oUser.password);
-                        oUser.password = pswd;
-                        oUser.user_foto = "/img/profile.png";
-                        string tkn = Guid.NewGuid().ToString();
-                        oUser.rol = 1;
-                        oUser.active = false;
-                        oUser.token = tkn;
-                        //SI LA DESCRIPCION DE USUARIO ES VACIA CREO UNA CADENA PARA RELLENAR EL CAMPO
-                        if (oUser.user_descripcion == null)
-                        {
-                            oUser.user_descripcion = "El Usuario: " + oUser.nickname + " no agregó descripción pero su email es: " + oUser.email;
-                        }
-                        db.Usuario.Add(oUser);
-                        db.SaveChanges();
-                        //Send Email to User
-                        EnviarMailVerificador(oUser.email, oUser.token.ToString());
-                        return RedirectToAction("Index");
-                    }
-                }
-                return View();
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-        [HttpGet]
-        public ActionResult Verifica(string id)
-        {
-            bool Status = false;
-            using (FullViajesEntities db = new FullViajesEntities())
-            {
-                if (!string.IsNullOrEmpty(id))
-                {
-                    var verif = db.Usuario.Where(a => a.token == id).FirstOrDefault();
-                    if (verif != null)
-                    {
-                        verif.active = true;
-                        verif.token = "";
-                        db.SaveChanges();
-                        Status = true;
-                        ViewBag.Mensaje = "Se ha verificado correctamente el Email";
-                    }
-                    else
-                    {
-                        ViewBag.Mensaje = "Ocurrio un error en la activación";
-                    }
-                }
-            }
-            if (Status == true)
-            {
-                ViewBag.Status = "Ya puede acceder desde ";
-                ViewBag.Dir = "Users";
+                return BadRequest(ModelState);
             }
             else
             {
-                ViewBag.Status = "Intente regenerar contraseña y token de activacion desde ";
-                ViewBag.Dir = "Users/RePass";
+                //CHEQUEA QUE EL MAIL NO ESTA EN USO
+                Usuario emailcheck = db.Usuario.Where(a => a.email == usuario.email).FirstOrDefault();
+                if (emailcheck != null)
+                {
+                   // return new Respuesta
+                   // { Estado = "Error", Mensaje = "El email ya se encuentra registrado" };
+                }
+                //CHEQUEA QUE EL NOMBRE DE USUARIO NO ESTE EN USO
+                Usuario usercheck = db.Usuario.Where(a => a.nickname == usuario.nickname).FirstOrDefault();
+                if (usercheck != null)
+                {
+                    MensajeError = "El usuario " + usuario.nickname + " ya se encuentra registrado";
+                    return BadRequest(MensajeError);
+                }
+                //ENCRIPTA CONTRASEÑA
+                string pswd = Encrypt.GetSHA256(usuario.password);
+                usuario.password = pswd;
+                string tkn = Guid.NewGuid().ToString();
+                usuario.rol = 1;
+                usuario.active = false;
+                usuario.token = tkn;
+                usuario.user_foto = "/img/profile.png";
+                //SI LA DESCRIPCION DE USUARIO ES VACIA CREO UNA CADENA PARA RELLENAR EL CAMPO
+                if (usuario.user_descripcion == null)
+                {
+                    usuario.user_descripcion = "El Usuario: " + usuario.nickname + " no agregó descripción pero su email es: " + usuario.email;
+                }
+                db.Usuario.Add(usuario);
+                db.SaveChanges();
             }
-            return View();
+            return CreatedAtRoute("DefaultApi", new { id = usuario.id_usuario }, usuario); ;
         }
-        [NonAction]
-        public void EnviarMailVerificador(string email, string tkn)
+
+        // DELETE: api/Users/5
+        [ResponseType(typeof(Usuario))]
+        public IHttpActionResult DeleteUsuario(long id)
         {
-            var UrlVerifica = "/Users/Verifica/" + tkn;
-            var link = Request.Url.AbsoluteUri.Replace(Request.Url.PathAndQuery, UrlVerifica);
-
-            var DesdeEmail = new MailAddress("fullviajestest@m3s.com.ar", "FullViajes Registro de Usuarios");
-            var HaciaEmail = new MailAddress(email);
-            var DesdeEmailPassword = "fullviajesprueba";
-            string subject = "Su cuenta el Full Viajes se ha creado satisfactoriamente";
-
-            string body = "<br/><br/>Estamos muy alegres que te hayas registrado en FullViajes. Su cuenta ha sido creada correctamente pero debe verificar su mail para activar la cuenta" +
-                "Debe hacer click en el siguiente vinculo para poder acceder " +
-                " <br/><br/><a href='" + link + "'>" + link + "</a> ";
-
-            var smtp = new SmtpClient
+            Usuario usuario = db.Usuario.Find(id);
+            if (usuario == null)
             {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(DesdeEmail.Address, DesdeEmailPassword)
-            };
+                return NotFound();
+            }
 
-            using (var message = new MailMessage(DesdeEmail, HaciaEmail)
+            db.Usuario.Remove(usuario);
+            db.SaveChanges();
+
+            return Ok(usuario);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
             {
-                Subject = subject,
-                Body = body,
-                IsBodyHtml = true
-            })
-                smtp.Send(message);
+                db.Dispose();
+            }
+            base.Dispose(disposing);
+        }
 
+        private bool UsuarioExists(long id)
+        {
+            return db.Usuario.Count(e => e.id_usuario == id) > 0;
         }
     }
 }
