@@ -12,9 +12,9 @@ export class CargaJsService {
     for (let archivo of archivos)
     {
       let script = document.createElement("script");
-      script.src = "./../../assets/Js" + archivo ;
-      let div = document.getElementsByTagName("div")[0];
-      div.appendChild(script);
+      script.src = "./assets/ScriptsJs/" + archivo ;
+      let body = document.getElementsByTagName("body")[0];
+      body.appendChild(script);
     }
   }
   

@@ -1,11 +1,74 @@
 
-<div class="Header">
-<app-navbar></app-navbar>
-</div>
-<div class="Contenido">
-<app-sobre-er></app-sobre-er>
-</div>
-<div class="Footer">
-    <app-footer></app-footer>
-</div>
-
+<nz-layout class="app-layout">
+    <nz-sider class="menu-sidebar" style="background-color: #f15d39!important;height: 1280px;"
+              nzCollapsible
+              nzWidth="216px"
+              nzBreakpoint="md"
+              [(nzCollapsed)]="isCollapsed"
+              [nzTrigger]="null">
+      <div class="sidebar-logo"  >
+          <img src='./../../../assets/Imagenes/Diseño sin título.png' class="img-fluid avatar nr-2 " >
+      </div>
+    
+      <br>
+      <a href="#" class="d-block p-3 text-light" style="border-top: white solid 1px;">  <i class="fas fa-user nr-4 "></i> Perfil </a>
+      
+      <a href="#" class="d-block p-3 text-light">  <i class="fas fa-cog nr-4 "></i> Ajustes </a>
+      
+      <a href="#" class="d-block p-3 text-light">   <i class="fas fa-bullhorn nr-4  "></i> Foro </a>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+       <br>
+       <br>
+      <br>
+       <br>
+      <br>
+      <a href="#" class="d-block p-3 text-light" style="border-top: white solid 1px;"> <i class="fas fa-home nr-4 "></i>Volver a página principal </a>
+      
+      <a href="#" class="d-block p-3 text-light"><i class="fas fa-sign-out-alt nr-4 "></i> Cerrar Sesión  </a>
+    </nz-sider>
+    <nz-layout>
+      <nz-header>
+        <div class="app-header">
+          <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+              <i class="trigger"
+                 nz-icon
+                 [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+              ></i>
+          </span>
+        </div>
+      </nz-header>
+      <nz-content>
+        <div class="inner-content" style="background-color: rgb(255, 255, 255); height: 1215px;" id="contenido">
+          <div class="portada">
+              <img src='./../../../assets/Imagenes/Turista.png' class="img-fluid rounded-circle avatar nr-2"  >
+              <h2 id= "Name" style="margin-top: 105px;">Nombre y Apellido</h2> 
+              <h5 id="Nickname">@Nickname</h5>
+              <div class="info">
+                  <div class="box">
+                      <h2 id="h2box">Información</h2>
+                      <br>
+                      <p > General </p>
+                      <p><i class="fas fa-user"></i> Nombre: Nombre Apellido </p>
+                      <p><i class="far fa-envelope"></i> Email: user@dominio.com </p>
+                      <p>Redes sociales (opcional)</p>
+                      <p><i class="fab fa-instagram">  </i> Instagram: </p>
+                      <p><i class="fab fa-twitter"></i> Twitter:</p>
+                   
+                  </div>
+                  <div class="box aboutme ">
+                      <h2 id="h2box">About me</h2>
+                      <br>
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis nulla quidem voluptas esse ut fugiat, pariatur aliquid debitis blanditiis! Accusamus dolor, similique aliquam autem eligendi debitis dolore voluptatum suscipit tenetur! Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero quaerat ea officiis veritatis ducimus pariatur doloremque, in, ipsa deleniti illo, alias atque quis neque nostrum a facere odio tempore repudiandae!</p>
+                  </div>
+              </div>
+       </div>
+          <router-outlet></router-outlet>
+        </div>
+      </nz-content>
+    </nz-layout>
+  </nz-layout>
+  

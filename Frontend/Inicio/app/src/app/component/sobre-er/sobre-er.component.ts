@@ -8,9 +8,9 @@ import {CargaJsService}  from './../../Services/carga-js.service';
 })
 export class SobreERComponent implements OnInit {
 
-  constructor( private _CargaScript:CargaJsService){
+  constructor( private cargaScript:CargaJsService){
 
-    _CargaScript.Carga(["Js/Card.js"]);
+    cargaScript.Carga(["sobre-er/Cards.Js"]);
     
   }
 
