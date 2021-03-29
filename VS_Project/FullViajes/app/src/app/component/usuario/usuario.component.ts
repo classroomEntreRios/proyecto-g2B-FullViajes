@@ -3,6 +3,7 @@ import {UsuarioService} from 'src/app/services/usuario.service';
 import { Router } from '@angular/router'; 
 import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Usuario } from 'src/app/models/usuario.model';
 
 @Component({
   selector: 'app-usuario',
@@ -37,8 +38,14 @@ export class UsuarioComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.login(form);
   }
+
   login(form : NgForm){
-    this.service.postUsuario(form.value).subscribe(res => {this.resetForm(form);});
+    this.service.postUsuario(form.value).subscribe (res=> {
+    
+      this.resetForm(form);
+
+    });
+    
     this.router.navigate(['/usuario']);
 }
 

@@ -72,6 +72,8 @@ namespace FullViajes.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
+
+
         // POST: api/Users
         [ResponseType(typeof(Usuario))]
         public IHttpActionResult PostUsuario(Usuario usuario)
@@ -79,7 +81,14 @@ namespace FullViajes.Controllers
             string MensajeError = "Error";
             if (!ModelState.IsValid)
             {
+                foreach (var modelValue in ModelState.Values) { modelValue.Errors.Clear(); }
+
+            
+
+                ModelState.AddModelError("Error", "Hubo un error al intentar registrarte. Intenta mas tarde");
                 return BadRequest(ModelState);
+                //MensajeError = "El formulario es invalido"; //probar
+                //return BadRequest(MensajeError); //probar
             }
             else
             {
@@ -87,16 +96,21 @@ namespace FullViajes.Controllers
                 Usuario emailcheck = db.Usuario.Where(a => a.email == usuario.email).FirstOrDefault();
                 if (emailcheck != null)
                 {
-                    // return new Respuesta
-                    // { Estado = "Error", Mensaje = "El email ya se encuentra registrado" };
-                    MensajeError = "El Correo " + usuario.email + " ya se encuentra registrado"; //probar
+
+                    //foreach (var modelValue in ModelState.Values) { modelValue.Errors.Clear(); }
+                    //ModelState.AddModelError("Error", "El email " + usuario.email + " ya se encuentra registrado");
+                    //return BadRequest(ModelState);
+
+                    MensajeError = "El correo ya se encuentra registrado"; //probar
                     return BadRequest(MensajeError);                                            //probar
                 }
                 //CHEQUEA QUE EL NOMBRE DE USUARIO NO ESTE EN USO
                 Usuario usercheck = db.Usuario.Where(a => a.nickname == usuario.nickname).FirstOrDefault();
                 if (usercheck != null)
                 {
-                    MensajeError = "El usuario " + usuario.nickname + " ya se encuentra registrado";
+                   // ModelState.AddModelError("Error", "El usuario " + usuario.nickname + " ya se encuentra registrado");
+                   // return BadRequest(ModelState);
+                    MensajeError = "El usuario ya se encuentra registrado";
                     return BadRequest(MensajeError);
                 }
                 //ENCRIPTA CONTRASEÑA

@@ -35,6 +35,16 @@
                                     (puede incluir letras, números y guión bajo).
                                 </div>
                             </div>
+
+                            
+                                            <!-- SI ESTA USADO -->
+                            <div *ngIf="erroru" class="alert alert-danger">
+                                <div>
+                                     El Nombre de Usuario <strong>{{service.formData.nickname}}</strong> ya se encuentra registrado.
+                                </div>
+                            </div>
+
+
                         </div>
 
 
@@ -89,6 +99,17 @@
                                     numeros, puntos, guiones y guion bajo.
                                 </div>
                             </div>
+
+                                            <!-- SI ESTA USADO -->
+                            <div *ngIf="errorc"
+                                class="alert alert-danger">
+                                <div>
+                                    El Correo electrónico <strong>{{service.formData.email}}</strong> ya se encuentra registrado.
+                                </div>
+                            </div>
+
+
+
                         </div>
 
 

@@ -30,6 +30,9 @@ namespace FullViajes.Controllers
     public class UsuarioController : Controller
     {
         FullViajesEntities db = new FullViajesEntities();
+
+
+
         //MUESTRA LISTADO GENERAL
         public ActionResult Index()
         {
@@ -51,6 +54,8 @@ namespace FullViajes.Controllers
             }
 
         }
+
+
         //MUESTRA EL DETALLE DE USUARIO        
         public ActionResult Perfil(int id)
         {
@@ -93,6 +98,7 @@ namespace FullViajes.Controllers
                         {
                             ModelState.AddModelError("nickname", "El usuario " + oUser.nickname + " ya se encuentra registrado");
                             return View();
+
                         }
                         //ENCRIPTA CONTRASEÑA
                         string pswd = Encrypt.GetSHA256(oUser.password);
