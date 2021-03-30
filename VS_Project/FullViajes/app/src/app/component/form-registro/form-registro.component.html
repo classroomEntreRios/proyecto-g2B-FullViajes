@@ -27,7 +27,7 @@
                             <label><strong>NickName</strong> </label>
                             <input name="nickname" [(ngModel)]="service.formData.nickname" type="text"
                                 class="form-control " placeholder="Ingrese un Nick Name" ng-maxlength="8" required
-                                #nickname="ngModel">
+                                #nickname="ngModel" (keyup)="corregido()" >
                             <div [hidden]="nickname.valid || (nickname.pristine && !nickname.touched)"
                                 class="alert alert-danger" pattern="[a-zA-Z0-9\_\-]{4,16}$">
                                 <div>
@@ -91,7 +91,7 @@
                             <label><strong>Email</strong></label>
                             <input pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$" #email="ngModel"
                                 name="email" [(ngModel)]="service.formData.email" type="text" class="form-control"
-                                placeholder="Ingrese su correo electrónico en minúscula" required>
+                                placeholder="Ingrese su correo electrónico en minúscula" (keyup)="corregido()" required>
                             <div [hidden]="email.valid || (email.pristine && !email.touched)"
                                 class="alert alert-danger">
                                 <div>
@@ -101,8 +101,7 @@
                             </div>
 
                                             <!-- SI ESTA USADO -->
-                            <div *ngIf="errorc"
-                                class="alert alert-danger">
+                            <div *ngIf="errorc"  class="alert alert-danger">
                                 <div>
                                     El Correo electrónico <strong>{{service.formData.email}}</strong> ya se encuentra registrado.
                                 </div>

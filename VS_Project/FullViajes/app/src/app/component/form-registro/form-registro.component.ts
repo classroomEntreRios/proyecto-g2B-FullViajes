@@ -15,6 +15,9 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 export class FormRegistroComponent implements OnInit {
   erroru=false;
   errorc=false;
+
+
+
   constructor(public service: UsuarioService, private router:Router) {
     
 
@@ -32,6 +35,8 @@ export class FormRegistroComponent implements OnInit {
     //quitar los alerts ya que aparecen al vaciar todo
     this.erroru=false;
     this.errorc=false;
+
+    
 
     this.service.formData = {
       nombre: '',
@@ -75,10 +80,10 @@ export class FormRegistroComponent implements OnInit {
                     {
                         this.errorc=true;
                     } 
-                    else {
+                    else {console.log('algo malio sal');
                       //MOSTRAR UN ERROR GENERAL POR FORMULARIO INVALIDO
-                      this.resetForm();
-                      this.router.navigate(['/usuario']);
+                      //this.resetForm();
+                      //this.router.navigate(['/usuario']);
                     }
                 }
                 this.router.navigate(['/formulario']);
@@ -87,8 +92,11 @@ export class FormRegistroComponent implements OnInit {
         
         //this.router.navigate(['/usuario']);
         }
+  corregido(){
+    this.erroru=false;
+    this.errorc=false;
+  }
 
-
- 
+        
    }
 

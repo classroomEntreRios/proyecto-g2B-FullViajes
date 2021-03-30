@@ -4,7 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormRegistroComponent } from './component/form-registro/form-registro.component';
 import { PrincipalComponent } from './component/principal/principal.component';
 import { UsuarioComponent } from './component/usuario/usuario.component';
-
+import {ListUsuariosComponent} from './component/list-usuarios/list-usuarios.component';
 
 const routes: Routes = [
   // {path:'', component: componente que muestra por defecto si ruta vacia},
@@ -12,7 +12,9 @@ const routes: Routes = [
   {path:'', component: PrincipalComponent},
   {path:'index', component: PrincipalComponent},
   {path:'usuario', component: UsuarioComponent},
+  {path:'ListUsuarios', component: ListUsuariosComponent},
   {path:'**', redirectTo: '/', pathMatch: 'full'}
+
 
 ];
 
