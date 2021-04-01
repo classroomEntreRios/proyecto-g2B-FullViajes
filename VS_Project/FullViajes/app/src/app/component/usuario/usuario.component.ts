@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {UsuarioService} from 'src/app/services/usuario.service';
-import { Router } from '@angular/router'; 
+import { UsuarioService } from 'src/app/services/usuario.service';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators, NgForm } from '@angular/forms';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
@@ -11,7 +11,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 })
 export class UsuarioComponent implements OnInit {
 
-  constructor(public service: UsuarioService, private router:Router) { }
+  constructor(public service: UsuarioService, private router: Router) { }
 
   ngOnInit(): void {
     this.resetForm();
@@ -21,7 +21,7 @@ export class UsuarioComponent implements OnInit {
     if (form != null)
       form.resetForm();
 
-      this.service.formData = {
+    this.service.formData = {
       nombre: '',
       apellido: '',
       nickname: '',
@@ -32,15 +32,15 @@ export class UsuarioComponent implements OnInit {
       token: '',
       user_foto: '',
       user_descripcion: '',
-      };
+    };
   }
   onSubmit(form: NgForm) {
     this.login(form);
   }
-  login(form : NgForm){
-    this.service.postUsuario(form.value).subscribe(res => {this.resetForm(form);});
+  login(form: NgForm) {
+    this.service.postUsuario(form.value).subscribe(res => { this.resetForm(form); });
     this.router.navigate(['/usuario']);
-}
+  }
 
- }
+}
 

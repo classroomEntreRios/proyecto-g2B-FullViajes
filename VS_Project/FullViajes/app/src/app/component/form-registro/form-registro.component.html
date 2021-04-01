@@ -27,7 +27,7 @@
                             <label><strong>NickName</strong> </label>
                             <input name="nickname" [(ngModel)]="service.formData.nickname" type="text"
                                 class="form-control " placeholder="Ingrese un Nick Name" ng-maxlength="8" required
-                                #nickname="ngModel">
+                                #nickname="ngModel" (keyup)="corregido()">
                             <div [hidden]="nickname.valid || (nickname.pristine && !nickname.touched)"
                                 class="alert alert-danger" pattern="[a-zA-Z0-9\_\-]{4,16}$">
                                 <div>
@@ -35,6 +35,17 @@
                                     (puede incluir letras, números y guión bajo).
                                 </div>
                             </div>
+
+
+                            <!-- SI ESTA USADO -->
+                            <div *ngIf="erroru" class="alert alert-danger">
+                                <div>
+                                    El Nombre de Usuario <strong>{{service.formData.nickname}}</strong> ya se encuentra
+                                    registrado.
+                                </div>
+                            </div>
+
+
                         </div>
 
 
@@ -81,7 +92,7 @@
                             <label><strong>Email</strong></label>
                             <input pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$" #email="ngModel"
                                 name="email" [(ngModel)]="service.formData.email" type="text" class="form-control"
-                                placeholder="Ingrese su correo electrónico en minúscula" required>
+                                placeholder="Ingrese su correo electrónico en minúscula" (keyup)="corregido()" required>
                             <div [hidden]="email.valid || (email.pristine && !email.touched)"
                                 class="alert alert-danger">
                                 <div>
@@ -89,6 +100,17 @@
                                     numeros, puntos, guiones y guion bajo.
                                 </div>
                             </div>
+
+                            <!-- SI ESTA USADO -->
+                            <div *ngIf="errorc" class="alert alert-danger">
+                                <div>
+                                    El Correo electrónico <strong>{{service.formData.email}}</strong> ya se encuentra
+                                    registrado.
+                                </div>
+                            </div>
+
+
+
                         </div>
 
 
@@ -135,7 +157,8 @@
 
                         <!-- BOTONES -->
                         <div class="form-group" style="text-align: center;">
-                            <button type="submit" style="margin-bottom: 10px; background-color: #f15d39;" [disabled]="form.invalid"
+                            <button type="submit" style="margin-bottom: 10px; background-color: #f15d39;"
+                                [disabled]="form.invalid"
                                 class="btn btn-lg btn-block botonregistro"><strong>Registrar</strong></button>
                             <button routerLink="/" type="button" class="btn btn-secondary botoncancelar"
                                 style=" margin-right: 30px;">Cancelar</button>
@@ -171,7 +194,6 @@
     formControlName="Apellido"
     formControlName="Email"
     formControlName="Password"
-
 #nombre="ngModel"
 #apellido="ngModel" 
 #email="ngModel"

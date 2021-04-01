@@ -12,7 +12,9 @@ namespace FullViajes
         public static void Register(HttpConfiguration config)
         {
             // Enable Cors localhost:44331 o localhost:4200??
-            config.EnableCors(new EnableCorsAttribute("https://localhost:44331", headers: "*", methods: "*"));
+            // config.EnableCors(new EnableCorsAttribute("https://localhost:44331", headers: "*", methods: "*"));
+            EnableCorsAttribute cors = new EnableCorsAttribute("*", "*", "GET, POST, PUT, DELETE, OPTIONS");
+            config.EnableCors(cors);
 
             config.MapHttpAttributeRoutes();
 
