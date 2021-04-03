@@ -72,9 +72,10 @@ namespace FullViajes.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Users
+        [Route("api/Users/register")]
+        [HttpPost]
         [ResponseType(typeof(Usuario))]
-        public IHttpActionResult PostUsuario(Usuario usuario)
+        public IHttpActionResult RegistrarUsuario(Usuario usuario)
         {
             string MensajeError = "Error";
             if (!ModelState.IsValid)
@@ -94,7 +95,7 @@ namespace FullViajes.Controllers
                 Usuario usercheck = db.Usuario.Where(a => a.nickname == usuario.nickname).FirstOrDefault();
                 if (usercheck != null)
                 {
-                    MensajeError = "El usuario " + usuario.nickname + " ya se encuentra registrado";
+                   //MensajeError = "El usuario " + usuario.nickname + " ya se encuentra registrado";
                     return BadRequest(MensajeError);
                 }
                 //ENCRIPTA CONTRASEÑA
@@ -116,6 +117,19 @@ namespace FullViajes.Controllers
             return CreatedAtRoute("DefaultApi", new { id = usuario.id_usuario }, usuario); ;
         }
 
+        [Route("api/Users/login")]
+        [HttpPost]
+        [ResponseType(typeof(Usuario))]
+        public IHttpActionResult AccederUsuario(string usuario, string email)
+        {
+            Usuario user = db.Usuario.Find(email);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(user);
+        }
         // DELETE: api/Users/5
         [ResponseType(typeof(Usuario))]
         public IHttpActionResult DeleteUsuario(long id)

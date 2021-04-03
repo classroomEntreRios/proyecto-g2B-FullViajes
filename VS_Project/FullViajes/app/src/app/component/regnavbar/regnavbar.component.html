@@ -23,19 +23,29 @@
                             </div>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#contactanos"> <button class="btn-toggle" id="btn-toggle">Contactanos </button> <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href=#Contactanos> <button class="btn-toggle" id="btn-toggle">Contactanos </button> <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" routerLink="/principal2"> <button> <i class="fas fa-search"></i> Buscar </button> <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="#"> <button> <i class="fas fa-search"></i> Buscar </button> <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" routerLink="/usuario"> <button style="width: 185px;" style="width:auto;">   Login/ ¿Nuevo Usuario?  </button> <span class="sr-only">(current)</span></a>
-                        </li>
+                     
+                            <ul class="navbar-nav ml-auto">
+                            <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <img src="{{imgperfil}}" class="img-fluid rounded-circle avatar nr-2">
+                                {{Username}}
+                              </a>
+                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Mi perfil</a>
+                                <a class="dropdown-item" href="#">Dashboard</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Cerrar Sesión</a>
+                              </div>
+                            </li>   
+                          </ul>
+                    
                     </ul>
                     </div>
                </nav>
          </div>   
     </div>  
-
-        
-    </header>
