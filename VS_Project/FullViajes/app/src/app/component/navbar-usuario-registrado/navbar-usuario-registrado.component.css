@@ -1,0 +1,68 @@
+.avatar {
+    max-width: 40px;
+}
+
+.dropdown-item:hover {
+    border-radius: 10px ;
+    background-color:#f15d39 !important;
+    text-decoration: none;
+    color: white !important;
+    }
+
+    
+  
+.img-fluid{
+    position: relative;
+    top:0px;
+    margin-left: 0;
+}
+
+button {
+    transition-duration: 0.4s;
+    background-color: transparent;
+    border: none ;
+    position:relative; 
+    width: 120px;
+    
+    }
+
+/*Efecto en Navbar*/
+ button:hover{
+    cursor: pointer;
+    background-color:#f15d39;
+    color: white;
+    border-radius: 8px ;
+        }
+        
+ .dropdown-item:hover {
+    border-radius: 10px ;
+    background-color:#f15d39 !important;
+    text-decoration: none;
+    color: white !important;
+    }
+
+    @media screen and (max-width: 850px){
+
+        #navbarNavDropdown   
+        {
+            background-color: rgb(255, 255, 255)!important;
+            border: 0.5px solid rgba(177, 177, 177, 0.933);
+            box-shadow:  5px 5px 20px  rgb(0, 0, 0,0.5 );
+            width: 120px;
+        }
+
+        /*Resize menu*/
+        .navbar-toggler-icon {
+            font-size: 15px;
+        }
+    
+        .navbar-toggler{
+            width: 70px;
+        }
+        
+        /*Resize banner*/
+        .img-fluid {
+            width: 100 vh; 
+        }
+    }
+        

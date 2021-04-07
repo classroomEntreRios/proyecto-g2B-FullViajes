@@ -108,3 +108,12 @@ span.psw {
      width: 100%;
   }
 }
+.register{
+  background-color: #f15d39;
+}
+.olvido{
+  background-color: grey; 
+  margin-left: 10px;
+  width: 35%;
+  padding: 10px 18px;
+}

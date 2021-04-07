@@ -10,17 +10,15 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
   styleUrls: ['./usuario.component.css']
 })
 export class UsuarioComponent implements OnInit {
-
+  error = false;
+  mensaje = '';
   constructor(public service: UsuarioService, private router: Router) { }
-
   ngOnInit(): void {
     this.resetForm();
   }
-
   resetForm(form?: NgForm) {
     if (form != null)
       form.resetForm();
-
     this.service.formData = {
       nombre: '',
       apellido: '',
@@ -35,12 +33,32 @@ export class UsuarioComponent implements OnInit {
     };
   }
   onSubmit(form: NgForm) {
-    this.login(form);
-  }
-  login(form: NgForm) {
-    this.service.postUsuario(form.value).subscribe(res => { this.resetForm(form); });
-    this.router.navigate(['/usuario']);
-  }
+    this.service.login(form.value).subscribe(
 
+      (res: any) => {
+        this.error = false;
+        if (res.resultado == 1) {
+          localStorage.setItem('token', res.datos['token']);
+          localStorage.setItem('rol', res.datos['rol']);
+          localStorage.setItem('nickname', res.datos['nicname']);
+          localStorage.setItem('imgperfil', res.datos['imgperfil']);
+          console.log(res);
+          if(res.datos['rol']==1){
+          this.router.navigate(['/principal2']);
+          }else{
+            this.router.navigate(['/principal2']);
+          }
+        }
+        else {
+          if (res.resultado == 0) {
+            localStorage.setItem('resultado', res.resultado);
+            console.log(res);
+            this.mensaje = res.mensaje;
+            this.error = true;
+          }
+
+        }
+      }   
+    );
+  }
 }
-

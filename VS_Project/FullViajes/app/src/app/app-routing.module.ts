@@ -4,11 +4,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormRegistroComponent } from './component/form-registro/form-registro.component';
 import { PrincipalComponent } from './component/principal/principal.component';
 import { UsuarioComponent } from './component/usuario/usuario.component';
+import {PrincipalregComponent } from './component/principalreg/principalreg.component'
 
 
 const routes: Routes = [
   // {path:'', component: componente que muestra por defecto si ruta vacia},
   {path:'formulario', component: FormRegistroComponent},
+  {path:'principal2', component: PrincipalregComponent},
   {path:'', component: PrincipalComponent},
   {path:'index', component: PrincipalComponent},
   {path:'usuario', component: UsuarioComponent},

@@ -7,7 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! E:\Usuarios\User\Desktop\Escritorio\Curso FULLSTACK\proyecto-g2B-FullViajes\VS_Project\FullViajes\app\src\polyfills.ts */"hN/g");
+module.exports = __webpack_require__(/*! E:\Usuarios\User\Desktop\Escritorio\Curso FULLSTACK\PROYECTO\proyecto-g2B-FullViajes\VS_Project\FullViajes\app\src\polyfills.ts */"hN/g");
 
 
 /***/ }),

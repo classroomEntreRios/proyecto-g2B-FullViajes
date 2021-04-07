@@ -72,14 +72,22 @@ namespace FullViajes.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Users
+        [Route("api/Users/register")]
+        [HttpGet, HttpPost]
         [ResponseType(typeof(Usuario))]
-        public IHttpActionResult PostUsuario(Usuario usuario)
+        public IHttpActionResult register(Usuario usuario)
         {
             string MensajeError = "Error";
             if (!ModelState.IsValid)
             {
+                foreach (var modelValue in ModelState.Values) { modelValue.Errors.Clear(); }
+
+
+
+                ModelState.AddModelError("Error", "Hubo un error al intentar registrarte. Intenta mas tarde");
                 return BadRequest(ModelState);
+                //MensajeError = "El formulario es invalido"; //probar
+                //return BadRequest(MensajeError); //probar
             }
             else
             {
@@ -123,6 +131,19 @@ namespace FullViajes.Controllers
             return CreatedAtRoute("DefaultApi", new { id = usuario.id_usuario }, usuario); ;
         }
 
+        [Route("api/Users/login")]
+        [HttpPost]
+        [ResponseType(typeof(Usuario))]
+        public IHttpActionResult AccederUsuario(string usuario, string email)
+        {
+            Usuario user = db.Usuario.Find(email);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(user);
+        }
         // DELETE: api/Users/5
         [ResponseType(typeof(Usuario))]
         public IHttpActionResult DeleteUsuario(long id)

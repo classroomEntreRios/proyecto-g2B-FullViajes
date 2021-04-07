@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IndexComponent } from './index.component';
+import { SideBarDashboardComponent } from './side-bar-dashboard.component';
 
-describe('IndexComponent', () => {
-  let component: IndexComponent;
-  let fixture: ComponentFixture<IndexComponent>;
+describe('SideBarDashboardComponent', () => {
+  let component: SideBarDashboardComponent;
+  let fixture: ComponentFixture<SideBarDashboardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IndexComponent ]
+      declarations: [ SideBarDashboardComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IndexComponent);
+    fixture = TestBed.createComponent(SideBarDashboardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

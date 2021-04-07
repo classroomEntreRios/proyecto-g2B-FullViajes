@@ -196,10 +196,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccesoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
-    <Compile Include="Controllers\UsuariosWebApiController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -243,6 +243,8 @@
       <DependentUpon>FullViajesContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UsuarioPartial.cs" />
+    <Compile Include="Models\WS\AccesoViewModel.cs" />
+    <Compile Include="Models\WS\Respuesta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
