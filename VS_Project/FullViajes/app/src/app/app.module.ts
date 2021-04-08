@@ -17,6 +17,7 @@ import { PrincipalComponent } from './component/principal/principal.component';
 import { ContentinitComponent } from './component/contentinit/contentinit.component';
 import { SobreErComponent } from './component/sobre-er/sobre-er.component';
 import { ListUsuariosComponent } from './component/list-usuarios/list-usuarios.component';
+import { PruebaCiudadComponent } from './component/prueba-ciudad/prueba-ciudad.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { ListUsuariosComponent } from './component/list-usuarios/list-usuarios.c
     PrincipalComponent,
     ContentinitComponent,
     SobreErComponent,
-    ListUsuariosComponent
+    ListUsuariosComponent,
+    PruebaCiudadComponent
   ],
   imports: [
     BrowserModule,

@@ -71,6 +71,8 @@ namespace FullViajes.Controllers
             return View(usuario);
         }
 
+
+
         // INGRESA NUEVO USUARIO
         public ActionResult Nuevo()
         {
@@ -129,6 +131,8 @@ namespace FullViajes.Controllers
                 throw new Exception(ex.Message);
             }
         }
+
+
         //MODIFICA DATOS DE USUARIO
         public ActionResult Modificar(int id)
         {

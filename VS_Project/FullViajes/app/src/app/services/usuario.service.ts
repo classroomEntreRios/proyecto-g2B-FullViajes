@@ -20,9 +20,6 @@ export class UsuarioService {
     
     return this.http.post(this.rootURL+'/Users', formData);
 
-    
-
-  
   }
 
   getUsuario(){
