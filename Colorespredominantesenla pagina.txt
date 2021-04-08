@@ -1,0 +1,8 @@
+Colores de la página : 
+Celestito: #20c3ec
+Verde: #caec58
+Naranjita: #f15d39
+Amarillo: #ffc10d
+Fucsia: #ee4b60
+Lila: #ae7fb7
+Marroncito : #9b5b2f
