@@ -1,2 +1,0 @@
-C:\Users\Constanza Gamarra\Proyecto\FullViajes\FullViajes\obj\Debug\FullViajes.csprojAssemblyReference.cache
-C:\Users\Constanza Gamarra\Proyecto\FullViajes\FullViajes\obj\Debug\FullViajes.csproj.CoreCompileInputs.cache
