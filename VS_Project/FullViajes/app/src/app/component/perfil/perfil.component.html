@@ -1,0 +1,29 @@
+<app-sidebar></app-sidebar>
+
+<div class="inner-content" style="" id="contenido">
+    <div class="portada">
+        <img src='{{user_img}}' class="img-fluid rounded-circle avatar nr-2">
+        <h2 id="Name" style="margin-top: 105px;">{{ApeNom}}</h2>
+        <h5 id="Nickname">@{{nickname}}</h5>
+        <div class="float-right"><p><i class="fas fa-edit"></i>Editar Datos</p></div>
+        <div class="info">
+            
+            <div class="box">
+                <h2 id="h2box">Información</h2>
+                <br>
+                <p> General </p>
+                <p><i class="fas fa-user"></i> Nombre: {{ApeNom}} </p>
+                <p><i class="far fa-envelope"></i> Email: {{mail}} </p>
+                <p>Redes sociales (opcional)</p>
+                <p><i class="fab fa-instagram"> </i> Instagram: </p>
+                <p><i class="fab fa-twitter"></i> Twitter:</p>
+
+            </div>
+            <div class="box aboutme ">
+                <h2 id="h2box">Descripción</h2>
+                <br>
+                <p>{{descripcion}}</p>
+            </div>
+        </div>
+    </div>
+</div>

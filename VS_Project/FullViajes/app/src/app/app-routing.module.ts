@@ -5,12 +5,18 @@ import { FormRegistroComponent } from './component/form-registro/form-registro.c
 import { PrincipalComponent } from './component/principal/principal.component';
 import { UsuarioComponent } from './component/usuario/usuario.component';
 import {PrincipalregComponent } from './component/principalreg/principalreg.component'
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { PerfilComponent } from './component/perfil/perfil.component';
+import { LogoutComponent } from './component/logout/logout.component';
 
 
 const routes: Routes = [
   // {path:'', component: componente que muestra por defecto si ruta vacia},
   {path:'formulario', component: FormRegistroComponent},
-   {path:'principal2', component: PrincipalregComponent},
+  {path:'principal2', component: PrincipalregComponent},
+  {path:'dashboard', component: DashboardComponent},
+  {path:'logout', component: LogoutComponent},
+  {path:'perfil', component: PerfilComponent},
   {path:'', component: PrincipalComponent},
   {path:'index', component: PrincipalComponent},
   {path:'usuario', component: UsuarioComponent},

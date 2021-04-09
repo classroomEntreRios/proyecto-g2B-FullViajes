@@ -18,6 +18,10 @@ import { ContentinitComponent } from './component/contentinit/contentinit.compon
 import { SobreErComponent } from './component/sobre-er/sobre-er.component';
 import { RegnavbarComponent } from './component/regnavbar/regnavbar.component';
 import { PrincipalregComponent } from './component/principalreg/principalreg.component';
+import { SidebarComponent } from './component/sidebar/sidebar.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { PerfilComponent } from './component/perfil/perfil.component';
+import { LogoutComponent } from './component/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import { PrincipalregComponent } from './component/principalreg/principalreg.com
     ContentinitComponent,
     SobreErComponent,
     RegnavbarComponent,
-    PrincipalregComponent
+    PrincipalregComponent,
+    SidebarComponent,
+    DashboardComponent,
+    PerfilComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 })
 export class UsuarioService {
   oRes='';
+  //user_id='';
   formData: Usuario = new Usuario;
   readonly rootURL = 'https://localhost:44331/api'
   constructor(private http: HttpClient) { }
@@ -23,6 +24,13 @@ export class UsuarioService {
   login(formData:Usuario) {
     return this.http.post(this.rootURL + '/Acceso/Login', formData);
   }
+  acceder(user_id: string){
+    return this.http.get(this.rootURL + '/Users/GetUsuario/'+ user_id)
+  }
+ 
+ chau (token:string){
+   return this.http.get(this.rootURL + '/Acceso/Logout?token='+token)
+ }
   /*Login(model: any) {
     debugger;
     var a = this.rootURL + 'UserLogin';

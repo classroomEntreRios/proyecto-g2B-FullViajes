@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using FullViajes.Models;
+using System.Web.Http.Description;
 
 namespace FullViajes.Controllers
 {
@@ -32,6 +33,7 @@ namespace FullViajes.Controllers
                                 var tkn = Guid.NewGuid().ToString();
                                 oRes.datos = new {
                                     token =tkn,
+                                    user_id=user.id_usuario,
                                     rol=user.rol,
                                     nicname=user.nickname,
                                     imgperfil=user.user_foto
@@ -62,12 +64,25 @@ namespace FullViajes.Controllers
             }
             return oRes;
         }
-        /*
-        public Respuesta Logout()
+
+        [HttpGet]
+        [ResponseType(typeof(Respuesta))]
+        public IHttpActionResult Logout(string token)
         {
             Respuesta oRes = new Respuesta();
-            return oRes;
+            using (FullViajesEntities db = new FullViajesEntities())
+            {
+                Usuario user = db.Usuario.Where(a => a.token == token).FirstOrDefault();
+                if (user != null)
+                {
+                    oRes.resultado = 0;
+                    user.token = "";
+                    db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                }
+            }
+                return Ok(oRes);
         }
-        */
+        
     }
 }

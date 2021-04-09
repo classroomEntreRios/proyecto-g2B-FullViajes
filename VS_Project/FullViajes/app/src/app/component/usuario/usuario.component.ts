@@ -12,6 +12,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 export class UsuarioComponent implements OnInit {
   error = false;
   mensaje = '';
+ 
   constructor(public service: UsuarioService, private router: Router) { }
   ngOnInit(): void {
     this.resetForm();
@@ -39,9 +40,11 @@ export class UsuarioComponent implements OnInit {
         this.error = false;
         if (res.resultado == 1) {
           localStorage.setItem('token', res.datos['token']);
+          localStorage.setItem('user_id', res.datos['user_id']);
           localStorage.setItem('rol', res.datos['rol']);
           localStorage.setItem('nickname', res.datos['nicname']);
           localStorage.setItem('imgperfil', res.datos['imgperfil']);
+          localStorage.setItem('resultado', res.resultado);
           console.log(res);
           if(res.datos['rol']==1){
           this.router.navigate(['/principal2']);
@@ -61,5 +64,6 @@ export class UsuarioComponent implements OnInit {
       }   
     );
   }
+
 }
 
