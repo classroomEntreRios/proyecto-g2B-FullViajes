@@ -8,6 +8,10 @@ import {PrincipalregComponent } from './component/principalreg/principalreg.comp
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { PerfilComponent } from './component/perfil/perfil.component';
 import { LogoutComponent } from './component/logout/logout.component';
+import { PerfileditComponent } from './component/perfiledit/perfiledit.component';
+import { UsuariosComponent } from './component/usuarios/usuarios.component';
+import { CiudadesComponent } from './component/ciudades/ciudades.component';
+import { AtractivosComponent } from './component/atractivos/atractivos.component';
 
 
 const routes: Routes = [
@@ -15,8 +19,12 @@ const routes: Routes = [
   {path:'formulario', component: FormRegistroComponent},
   {path:'principal2', component: PrincipalregComponent},
   {path:'dashboard', component: DashboardComponent},
+  {path:'perfiledit', component: PerfileditComponent},
   {path:'logout', component: LogoutComponent},
   {path:'perfil', component: PerfilComponent},
+  {path:'admusers', component: UsuariosComponent},
+  {path:'admcitys', component: CiudadesComponent},
+  {path:'admatrac', component: AtractivosComponent},
   {path:'', component: PrincipalComponent},
   {path:'index', component: PrincipalComponent},
   {path:'usuario', component: UsuarioComponent},

@@ -15,9 +15,8 @@
   .menu-sidebar {
     position: relative;
     z-index: 10;
-   
     min-height: 100vh;
-    box-shadow: 2px 0 6px rgba(124, 124, 124, 0.35);
+    box-shadow: 2px 0 4px rgba(124, 124, 124, 0.35);
     align-items: center;
   
   }
@@ -43,7 +42,7 @@
     position: relative;
     width: 80%;
     height:80%;
-    max-width: 210px;
+    max-width: 170px;
     min-width: 10%;
     max-height: 210px;
     border-radius:250px;
@@ -53,28 +52,12 @@
     margin: 5px;
   
   }
-  
-  
-  
-  
-  nz-header {
-    padding: 0;
-    width: 100%;
-    z-index: 2;
-   
-  }
-  
-  .app-header {
+ .app-header {
     position: relative;
     height: 64px;
     padding: 0;
     background: rgb(255, 255, 255);
     box-shadow: 0 1px 4px rgba(0,21,41,.08);
-  }
-  
-  nz-content {
-    margin: 0x;
-   
   }
   
   .inner-content {

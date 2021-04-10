@@ -22,6 +22,12 @@ import { SidebarComponent } from './component/sidebar/sidebar.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { PerfilComponent } from './component/perfil/perfil.component';
 import { LogoutComponent } from './component/logout/logout.component';
+import { PerfileditComponent } from './component/perfiledit/perfiledit.component';
+import { SidebardashComponent } from './component/sidebardash/sidebardash.component';
+import { UsuariosComponent } from './component/usuarios/usuarios.component';
+import { AtractivosComponent } from './component/atractivos/atractivos.component';
+import { ForoComponent } from './component/foro/foro.component';
+import { CiudadesComponent } from './component/ciudades/ciudades.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +44,13 @@ import { LogoutComponent } from './component/logout/logout.component';
     SidebarComponent,
     DashboardComponent,
     PerfilComponent,
-    LogoutComponent
+    LogoutComponent,
+    PerfileditComponent,
+    SidebardashComponent,
+    UsuariosComponent,
+    AtractivosComponent,
+    ForoComponent,
+    CiudadesComponent
   ],
   imports: [
     BrowserModule,
