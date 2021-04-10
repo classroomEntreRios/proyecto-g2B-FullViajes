@@ -18,6 +18,7 @@ import { ContentinitComponent } from './component/contentinit/contentinit.compon
 import { SobreErComponent } from './component/sobre-er/sobre-er.component';
 import { RegnavbarComponent } from './component/regnavbar/regnavbar.component';
 import { PrincipalregComponent } from './component/principalreg/principalreg.component';
+import { ClimaComponent } from './component/clima/clima.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { PrincipalregComponent } from './component/principalreg/principalreg.com
     ContentinitComponent,
     SobreErComponent,
     RegnavbarComponent,
-    PrincipalregComponent
+    PrincipalregComponent,
+    ClimaComponent
   ],
   imports: [
     BrowserModule,

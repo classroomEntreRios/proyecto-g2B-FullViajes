@@ -1,0 +1,85 @@
+<div class="container-fluid p-0">
+  <div class="row justify-content-center">
+    <div class="col justify-content-center" id="cardClima">
+      <!--Card con el clima actual-->
+      <div class="weatherWidgetRow" style="font-size: 28px;"><i class="fa fa-map-marker" aria-hidden="true"></i>
+        {{weather.resolvedAddress}}</div>
+
+      <div *ngIf="weather.currentConditions.icon=='clear-day'" class="sun">
+        <img class="imagenlogo img-fluid" src="./assets/Imagenes/clima-iconos/clear-day.png" alt="soleado">
+      </div>
+      <div *ngIf="weather.currentConditions.icon=='clear-night'" class="weatherWidgetRow">
+        <img class="imagenlogo img-fluid" src="./assets/Imagenes/clima-iconos/clear-night.png" alt="despejadoNoche">
+      </div>
+      <div *ngIf="weather.currentConditions.icon=='cloudy'" class="cloud">
+        <img class="imagenlogo img-fluid" src="./assets/Imagenes/clima-iconos/cloudy.png" alt="nublado">
+      </div>
+      <div *ngIf="weather.currentConditions.icon=='rain'" class="cloud">
+        <img class="imagenlogo img-fluid" src="./assets/Imagenes/clima-iconos/rain.png" alt="lluvia">
+      </div>
+      <div *ngIf="weather.currentConditions.icon=='partly-cloudy-day'" class="cloud">
+        <img class="imagenlogo img-fluid" src="./assets/Imagenes/clima-iconos/partly-cloudy-day.png"
+          alt="nubladoParcialDia">
+      </div>
+      <div *ngIf="weather.currentConditions.icon=='partly-cloudy-night'" class="cloud">
+        <img class="imagenlogo img-fluid" src="./assets/Imagenes/clima-iconos/partly-cloudy-night.png"
+          alt="nubladoParcialNoche">
+      </div>
+      <div *ngIf="weather.currentConditions.icon=='fog'" class="cloud">
+        <img class="imagenlogo img-fluid" src="./assets/Imagenes/clima-iconos/fog.png" alt="niebla">
+      </div>
+      <div *ngIf="weather.currentConditions.icon=='wind'" class="cloud">
+        <img class="imagenlogo img-fluid" src="./assets/Imagenes/clima-iconos/wind.png" alt="viento">
+      </div>
+
+
+      <div class="weatherWidgetRow" style="font-size: 32px;">{{weather.currentConditions.temp}}°</div>
+      <div class="weatherWidgetRow" style="font-size: 18px;">Min: {{weather.days[0].tempmin}}° / Max:
+        {{weather.days[0].tempmax}}°</div>
+      <div class="weatherWidgetRow" style="font-size: 28px;">Humedad: {{weather.currentConditions.humidity}}%</div>
+      <div class="weatherWidgetRow" style="font-size: 28px;">Precipitación: {{weather.currentConditions.precipprob}}%
+      </div>
+    </div>
+
+    <!--Input para ciudad (temporal sin card card-body)-->
+    <div class="col" id="cardBorder">
+      <div class="row">
+        <div class="card card-body" id="cardBorder">
+          <form (submit)="submitLocation(cityName)">
+            <input type="text" placeholder="Nombre ciudad" class="form-control" autofocus #cityName>
+
+            <button class="btn btn-primary btn-block mt-2">
+              Obtener clima
+            </button>
+          </form>
+        </div>
+      </div>
+      <!--Columnas de los tres dias siguientes clima-->
+      <div class="col">
+        <div class="weatherWidgetRow" style="font-size: 22px;">Siguientes 3 días</div>
+        <div class="row">
+          <div class="card card-body" id="cardClima">
+            <div class="weatherWidgetRow" style="font-size: 18px;">Fecha: {{weather.days[1].datetime}}</div>
+            <div class="weatherWidgetRow" style="font-size: 18px;">MIN: {{weather.days[1].tempmin}}° / MAX
+              {{weather.days[1].tempmax}}°</div>
+            <div class="weatherWidgetRow" style="font-size: 18px;">Humedad: {{weather.days[1].humidity}}%</div>
+          </div>
+          <div class="card card-body" id="cardClima">
+            <div class="weatherWidgetRow" style="font-size: 18px;">Fecha: {{weather.days[2].datetime}}</div>
+            <div class="weatherWidgetRow" style="font-size: 18px;">MIN: {{weather.days[2].tempmin}}° / MAX
+              {{weather.days[2].tempmax}}°</div>
+            <div class="weatherWidgetRow" style="font-size: 18px;">Humedad: {{weather.days[2].humidity}}%</div>
+          </div>
+          <div class="card card-body" id="cardClima">
+            <div class="weatherWidgetRow" style="font-size: 18px;">Fecha: {{weather.days[3].datetime}}</div>
+            <div class="weatherWidgetRow" style="font-size: 18px;">MIN: {{weather.days[3].tempmin}}° / MAX
+              {{weather.days[3].tempmax}}°</div>
+            <div class="weatherWidgetRow" style="font-size: 18px;">Humedad: {{weather.days[3].humidity}}%</div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
