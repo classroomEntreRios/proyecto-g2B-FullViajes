@@ -6,21 +6,7 @@
  
 }
 
-#form{
-	height: 100%;	
-	background-color: #98d4f3;
-	overflow: hidden;
-	position: relative;
-	
-}
-form{
-	margin: 0 auto;
-	width: 500px;
-	padding-top: 40px;
-	color: white;
-	position: relative;
-}
-  .box{
+.box{
     max-width: 100%;
     min-width: 40%;
     min-height: 350px;
