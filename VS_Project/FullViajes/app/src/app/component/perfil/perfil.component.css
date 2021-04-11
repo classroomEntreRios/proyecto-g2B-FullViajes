@@ -77,6 +77,7 @@
     padding: 24px;
     background: #fff;
     height: 100%;
+    width:100%;
   }
   
   .portada h2{
@@ -100,12 +101,10 @@
     
   }
   
-  
-  
-  
   .box{
-    width: 450px;
-    height: 350px;
+    max-width: 45%;
+    min-width: 40%;
+    min-height: 350px;
     margin: 10px;
     padding: 15px;
     border: 1px solid rgba(177, 177, 177, 0.933);
@@ -125,7 +124,7 @@
   
   .portada{
     height: 250px;
-    /*  background-image: url("./assets/Imagenes/Portada.jpg") ;*/
+    background-image: url("./../../../assets/Imagenes/Portada.jpg") ;
     background-size: cover;
     background-repeat: no-repeat;
   }

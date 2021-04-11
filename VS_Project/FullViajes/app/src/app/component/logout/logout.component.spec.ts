@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SideBarMasPerfilComponent } from './side-bar-mas-perfil.component';
+import { LogoutComponent } from './logout.component';
 
-describe('SideBarMasPerfilComponent', () => {
-  let component: SideBarMasPerfilComponent;
-  let fixture: ComponentFixture<SideBarMasPerfilComponent>;
+describe('LogoutComponent', () => {
+  let component: LogoutComponent;
+  let fixture: ComponentFixture<LogoutComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SideBarMasPerfilComponent ]
+      declarations: [ LogoutComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SideBarMasPerfilComponent);
+    fixture = TestBed.createComponent(LogoutComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

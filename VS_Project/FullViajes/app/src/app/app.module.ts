@@ -19,6 +19,16 @@ import { SobreErComponent } from './component/sobre-er/sobre-er.component';
 import { RegnavbarComponent } from './component/regnavbar/regnavbar.component';
 import { PrincipalregComponent } from './component/principalreg/principalreg.component';
 import { ClimaComponent } from './component/clima/clima.component';
+import { LogoutComponent } from './component/logout/logout.component';
+import { AtractivosComponent } from './component/atractivos/atractivos.component';
+import { CiudadesComponent } from './component/ciudades/ciudades.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { ForoComponent } from './component/foro/foro.component';
+import { SidebarComponent } from './component/sidebar/sidebar.component';
+import { SidebardashComponent } from './component/sidebardash/sidebardash.component';
+import { UsuariosComponent } from './component/usuarios/usuarios.component';
+import { PerfilComponent } from './component/perfil/perfil.component';
+import { PerfileditComponent } from './component/perfiledit/perfiledit.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +42,17 @@ import { ClimaComponent } from './component/clima/clima.component';
     SobreErComponent,
     RegnavbarComponent,
     PrincipalregComponent,
-    ClimaComponent
+    ClimaComponent,
+    LogoutComponent,
+    AtractivosComponent,
+    CiudadesComponent,
+    DashboardComponent,
+    ForoComponent,
+    SidebarComponent,
+    SidebardashComponent,
+    UsuariosComponent,
+    PerfilComponent,
+    PerfileditComponent
   ],
   imports: [
     BrowserModule,
