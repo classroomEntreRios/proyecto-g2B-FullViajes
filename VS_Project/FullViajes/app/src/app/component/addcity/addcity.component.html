@@ -1,0 +1,68 @@
+<app-sidebardash></app-sidebardash>
+<div class="container">
+    <div class="row">
+        <h2>Agregar Ciudad</h2>
+    </div>
+    <div class="row">
+        <div class="box">
+            <form>
+                <div class="form-group">
+                    <label>Ciudad:</label>
+                    <input type="textbox" name="ciudad" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Código Postal</label>
+                    <input type="textbox" name="cp" class="form-control cp">
+                </div>
+                <div class="form-group">
+                    <label>Coordenadas</label>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="latitude">Latitud</label>
+                        <div class="col-md-9">
+                            <label class="radio-inline">
+                                <input type="radio" name="latnordsud" value="nord" id="nord">
+                                N
+                            </label>
+                            &nbsp;&nbsp;&nbsp;
+                            <label class="radio-inline">
+                                <input type="radio" name="latnordsud" value="sud" id="sud" checked="">
+                                S
+                            </label>
+                            <input class="form-control sexagesimal" id="latitude_degres" type="textbox">
+                            <label for="latitude_degres">°</label>
+                            <input class="form-control sexagesimalsec sexagesimal" id="latitude_minutes" type="textbox">
+                            <label for="latitude_minutes">'</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label" for="latitude">Longitud</label>
+                        <div class="col-md-9">
+                            <label class="radio-inline">
+                                <input type="radio" name="longeo" value="east" id="east">
+                                E
+                            </label>
+                            &nbsp;&nbsp;&nbsp;
+                            <label class="radio-inline">
+                                <input type="radio" name="longeo" value="west" id="west" checked="">
+                                O
+                            </label>
+                            <input class="form-control sexagesimal" id="latitude_degres" type="textbox">
+                            <label for="latitude_degres">°</label>
+                            <input class="form-control sexagesimal" id="latitude_minutes" type="textbox">
+                            <label for="latitude_minutes">'</label>
+                        </div>
+                        <div class="form-group">
+                            <label>Descripción</label>
+                            <textarea class="form-control" name="descripcion"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn float-right btn-outline-success" style="margin-left: 5px;">Agregar</button>
+                            <button class="btn float-right btn-outline-danger">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+
+    </div>

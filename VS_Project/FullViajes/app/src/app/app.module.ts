@@ -28,6 +28,8 @@ import { UsuariosComponent } from './component/usuarios/usuarios.component';
 import { AtractivosComponent } from './component/atractivos/atractivos.component';
 import { ForoComponent } from './component/foro/foro.component';
 import { CiudadesComponent } from './component/ciudades/ciudades.component';
+import { AddcityComponent } from './component/addcity/addcity.component';
+import { AdduserComponent } from './component/adduser/adduser.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +52,9 @@ import { CiudadesComponent } from './component/ciudades/ciudades.component';
     UsuariosComponent,
     AtractivosComponent,
     ForoComponent,
-    CiudadesComponent
+    CiudadesComponent,
+    AddcityComponent,
+    AdduserComponent
   ],
   imports: [
     BrowserModule,

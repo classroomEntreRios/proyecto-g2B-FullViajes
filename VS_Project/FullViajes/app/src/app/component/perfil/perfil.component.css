@@ -101,6 +101,7 @@
     
   }
   
+  /*
   .box{
     max-width: 45%;
     min-width: 40%;
@@ -111,8 +112,22 @@
     border-radius: 15px ;
     text-align: justify;
     margin-top: 200 px;
-    position:relative; /* Para que exista relacion entre sus divs*/
+    position:relative; /* Para que exista relacion entre sus divs
     background-color:white;
+  }
+  */
+  .box{
+    max-width: 100%;
+    min-width: 40%;
+    min-height: 350px;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid rgba(177, 177, 177, 0.933);
+    border-radius: 15px ;
+    text-align: justify;
+    margin-top: 200 px;
+    overflow:initial;
+    position:relative;
   }
   
   .info{

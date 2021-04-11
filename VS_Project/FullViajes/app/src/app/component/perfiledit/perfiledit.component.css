@@ -6,7 +6,7 @@
  
 }
 
-.box{
+ .box{
     max-width: 100%;
     min-width: 40%;
     min-height: 350px;
@@ -58,7 +58,10 @@
     height: 100%;
     display: flex;
     flex-wrap: wrap;
+    text-align: center;
     width:100%;
+    align-items: center;
+    justify-content: center;
   }
 
   .profile{

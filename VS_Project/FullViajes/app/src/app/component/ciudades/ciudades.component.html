@@ -1,2 +1,61 @@
 <app-sidebardash></app-sidebardash>
-<h2>Acá va el contenido de administración de ciudades</h2>
+<div class="container">
+    <h2>Administrar ciudades</h2>
+    <div class="row">
+        <a routerLink="/addcity"><button class="btn btn-outline-primary">Agregar Ciudad</button></a>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="table-responsive-sm">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Ciudad</th>
+                        <th scope="col">CP</th>
+                        <th scope="col" class="d-none d-sm-table-cell">Coordenadas</th>
+                        <th scope="col" class="d-none d-md-table-cell">Descripción</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr scope="row">
+                        <td>
+                            Paraná
+                        </td>
+                        <td>
+                            3100
+                        </td>
+                        <td class="d-none d-sm-table-cell">
+                            31°43'57.8'' S 60°31.738' O
+                        </td>
+                        <td class="d-none d-md-table-cell">
+                            Paraná es una ciudad de la orilla este del río Paraná, en la provincia argentina de Entre Ríos. En la ciudad está el Parque Urquiza, con fuentes y esculturas, y al oeste está la playa El Parque. La playa más grande es la Thompson, que se ubica más allá del puerto de la ciudad. La Catedral de Nuestra Señora del Rosario se construyó en el siglo XIX y tiene una fachada adornada con pilares y 2 torres. Cerca está el Teatro 3 de Febrero, de estilo europeo. 
+                        </td>
+                        <td>
+                            <a routerLink="/editcity"><i class="fas fa-edit"></i></a>
+                            <a routerLink="/delcity"><i class="fas fa-eraser"></i></a>
+                        </td>
+                    </tr>
+                    <tr scope="row">
+                        <td>
+                            Colón
+                        </td>
+                        <td>
+                            3280
+                        </td>
+                        <td class="d-none d-sm-table-cell">
+                            32°13'23.2'' S 58°8.656' O
+                        </td>
+                        <td class="d-none d-md-table-cell">
+                            Colón es una ciudad de la provincia de Entre Ríos, en el noreste de Argentina. Se ubica en las orillas del río Uruguay y es conocida por sus playas y su enorme feria anual de artesanías. Los bares y restaurantes se agrupan en la calle 12 de Abril, que lleva a la frondosa Plaza San Martín. El Parque Dr. Herminio J. Quirós tiene senderos que cruzan sus jardines escalonados. En el sur de la ciudad, el puente General Artigas conecta Colón con la ciudad de Paysandú en Uruguay.                            
+                        </td>
+                        <td>
+                            <a routerLink="/editcity"><i class="fas fa-edit"></i></a>
+                            <a routerLink="/delcity"><i class="fas fa-eraser"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

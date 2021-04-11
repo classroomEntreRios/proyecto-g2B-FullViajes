@@ -12,6 +12,8 @@ import { PerfileditComponent } from './component/perfiledit/perfiledit.component
 import { UsuariosComponent } from './component/usuarios/usuarios.component';
 import { CiudadesComponent } from './component/ciudades/ciudades.component';
 import { AtractivosComponent } from './component/atractivos/atractivos.component';
+import { AddcityComponent } from './component/addcity/addcity.component';
+import { AdduserComponent } from './component/adduser/adduser.component';
 
 
 const routes: Routes = [
@@ -25,6 +27,8 @@ const routes: Routes = [
   {path:'admusers', component: UsuariosComponent},
   {path:'admcitys', component: CiudadesComponent},
   {path:'admatrac', component: AtractivosComponent},
+  {path:'addcity', component: AddcityComponent},
+  {path:'adduser', component: AdduserComponent},
   {path:'', component: PrincipalComponent},
   {path:'index', component: PrincipalComponent},
   {path:'usuario', component: UsuarioComponent},

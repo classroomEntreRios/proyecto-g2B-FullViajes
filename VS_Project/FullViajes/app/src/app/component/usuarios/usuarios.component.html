@@ -1,4 +1,67 @@
 <app-sidebardash></app-sidebardash>
-<div class="inner-content" style="" id="contenido">
-<h2>Acá va el contenido de administración de usuarios</h2>
-</div>
+<div class="container">
+    <h2>Administrar Usuarios</h2>
+    <div class="row">
+        <a routerLink="/adduser"><button class="btn btn-outline-primary"><i class="fas fa-user-plus"></i> Agregar Usuario</button></a>
+    </div>
+    <br/>
+    <div class="row">
+        <div class="table-responsive-sm">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Nickname</th>
+                        <th scope="col">Email</th>
+                        <th scope="col" class="d-none d-sm-table-cell">Rol</th>
+                        <th scope="col" class="d-none d-md-table-cell">Nombre Completo</th>
+                        <th scope="col" class="d-none d-lg-table-cell">Descripción</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr scope="row">
+                        <td>
+                            admin
+                        </td>
+                        <td>
+                            admin@admin.com
+                        </td>
+                        <td class="d-none d-sm-table-cell">
+                            Admin
+                        </td>
+                        <td class="d-none d-md-table-cell">
+                            Administrador General
+                        </td>
+                        <td class="d-none d-lg-table-cell">
+                            El presente es un usuario administrador basico para la demo del sistema de FullViajes
+                        </td>
+                        <td>
+                            <a routerLink="/editcity"><i class="fas fa-edit"></i></a>
+                            <a routerLink="/delcity"><i class="fas fa-eraser"></i></a>
+                        </td>
+                    </tr>
+                    <tr scope="row">
+                        <td>
+                            usuario
+                        </td>
+                        <td>
+                            usuario@prueba.com
+                        </td>
+                        <td class="d-none d-sm-table-cell">
+                            User
+                        </td>
+                        <td class="d-none d-md-table-cell">
+                            Usuario de Prueba
+                        </td>
+                        <td class="d-none d-lg-table-cell">
+                            El presente es un usuario basico para la demo del sistema de FullViajes
+                        </td>
+                        <td>
+                            <a routerLink="/editcity"><i class="fas fa-edit"></i></a>
+                            <a routerLink="/delcity"><i class="fas fa-eraser"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
