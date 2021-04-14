@@ -31,6 +31,9 @@ export class UsuarioService {
  chau (token:string){
    return this.http.get(this.rootURL + '/Acceso/Logout?token='+token)
  }
+ listar(){
+   return this.http.get(this.rootURL+ '/Users/GetUsuario')
+ }
   /*Login(model: any) {
     debugger;
     var a = this.rootURL + 'UserLogin';

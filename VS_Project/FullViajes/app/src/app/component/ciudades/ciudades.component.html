@@ -54,6 +54,24 @@
                             <a routerLink="/delcity"><i class="fas fa-eraser"></i></a>
                         </td>
                     </tr>
+                    <tr scope="row" *ngFor="let city of cities">
+                        <td>
+                            {{city.nombre}}
+                        </td>
+                        <td>
+                            {{city.cp}}
+                        </td>
+                        <td class="d-none d-sm-table-cell">
+                            {{city.coordenadas}}
+                        </td>
+                        <td class="d-none d-md-table-cell">
+                            {{city.descripcion}}
+                        </td>
+                        <td>
+                            <a routerLink="/editcity/{{city.id_ciudad}}"><i class="fas fa-edit"></i></a>
+                            <a routerLink="/delcity/{{city.id_ciudad}}"><i class="fas fa-eraser"></i></a>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>

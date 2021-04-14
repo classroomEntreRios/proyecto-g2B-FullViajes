@@ -14,6 +14,7 @@ import { CiudadesComponent } from './component/ciudades/ciudades.component';
 import { AtractivosComponent } from './component/atractivos/atractivos.component';
 import { AddcityComponent } from './component/addcity/addcity.component';
 import { AdduserComponent } from './component/adduser/adduser.component';
+import { LevelaccessComponent } from './component/levelaccess/levelaccess.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
   {path:'admatrac', component: AtractivosComponent},
   {path:'addcity', component: AddcityComponent},
   {path:'adduser', component: AdduserComponent},
+  {path:'levelaccess', component: LevelaccessComponent},
   {path:'', component: PrincipalComponent},
   {path:'index', component: PrincipalComponent},
   {path:'usuario', component: UsuarioComponent},

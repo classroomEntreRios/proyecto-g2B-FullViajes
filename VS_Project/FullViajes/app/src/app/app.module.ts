@@ -30,6 +30,8 @@ import { ForoComponent } from './component/foro/foro.component';
 import { CiudadesComponent } from './component/ciudades/ciudades.component';
 import { AddcityComponent } from './component/addcity/addcity.component';
 import { AdduserComponent } from './component/adduser/adduser.component';
+import { LevelaccessComponent } from './component/levelaccess/levelaccess.component';
+import { ClimaComponent } from './component/clima/clima.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +56,9 @@ import { AdduserComponent } from './component/adduser/adduser.component';
     ForoComponent,
     CiudadesComponent,
     AddcityComponent,
-    AdduserComponent
+    AdduserComponent,
+    LevelaccessComponent,
+    ClimaComponent
   ],
   imports: [
     BrowserModule,
