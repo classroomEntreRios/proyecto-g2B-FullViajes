@@ -27,7 +27,8 @@ namespace FullViajes.Models
         public string nombre { get; set; }
         public string cp { get; set; }
         public string coordenadas { get; set; }
-        public byte[] itinerario { get; set; }
+        public string descripcion { get; set; }
+        public bool menu { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Alojamiento> Alojamiento { get; set; }

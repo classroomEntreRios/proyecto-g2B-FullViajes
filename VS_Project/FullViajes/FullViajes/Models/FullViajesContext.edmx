@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FullViajesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FullViajesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Alojamiento">
           <Key>
             <PropertyRef Name="id_alojamiento" />
@@ -36,7 +36,8 @@
           <Property Name="nombre" Type="varchar" MaxLength="200" Nullable="false" />
           <Property Name="cp" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="coordenadas" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="itinerario" Type="binary" MaxLength="1" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="menu" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Clima">
           <Key>
@@ -219,8 +220,7 @@
             <End Role="Topicos" EntitySet="Topicos" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FullViajesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -257,11 +257,12 @@
           <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="cp" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="coordenadas" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="itinerario" Type="Binary" MaxLength="1" FixedLength="true" Nullable="false" />
           <NavigationProperty Name="Alojamiento" Relationship="Self.Alojamiento_FK" FromRole="Ciudad" ToRole="Alojamiento" />
           <NavigationProperty Name="Atracciones" Relationship="Self.Atracciones_FK" FromRole="Ciudad" ToRole="Atracciones" />
           <NavigationProperty Name="Clima" Relationship="Self.Clima_FK" FromRole="Ciudad" ToRole="Clima" />
           <NavigationProperty Name="Imagen" Relationship="Self.Imagen_FK" FromRole="Ciudad" ToRole="Imagen" />
+          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="menu" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Clima">
           <Key>
@@ -486,11 +487,12 @@
           <EntitySetMapping Name="Ciudad">
             <EntityTypeMapping TypeName="FullViajesModel.Ciudad">
               <MappingFragment StoreEntitySet="Ciudad">
+                <ScalarProperty Name="menu" ColumnName="menu" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="id_ciudad" ColumnName="id_ciudad" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="cp" ColumnName="cp" />
                 <ScalarProperty Name="coordenadas" ColumnName="coordenadas" />
-                <ScalarProperty Name="itinerario" ColumnName="itinerario" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

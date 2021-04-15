@@ -14,7 +14,7 @@ export class ClimaService {
   }
 
   getClima(cityName: string) {
-    return this.http.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}%2C%20E%2C%20AR?unitGroup=metric&key=${this.apiKey}`)
+    return this.http.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}?unitGroup=metric&key=${this.apiKey}`)
   }
   
 }
