@@ -40,7 +40,7 @@
                                 S
                             </label>
                             
-                            <input class="form-control sexagesimal" id="latitude_degres" type="textbox" (keyup)="corregido()" formControlName="lat_grad" >
+                            <input class="form-control sexagesimal" id="latitude_degres" type="textbox" (keyup)="corregido()" formControlName="lat_grad">
                             <label for="latitude_degres">°</label>
                             <input class="form-control sexagesimalsec sexagesimal" id="latitude_minutes" type="textbox" (keyup)="corregido()" formControlName="lat_min">
                             <label for="latitude_minutes">'</label>
@@ -68,6 +68,10 @@
                             
                             <div *ngIf="( ((cityForm.get('latnordsud')?.invalid || cityForm.get('longeo')?.invalid) && (cityForm.get('lat_grad')?.touched||cityForm.get('lat_min')?.touched ||cityForm.get('long_grad')?.touched||cityForm.get('long_min')?.touched)    )) || (cityForm.get('lat_grad')?.invalid && (cityForm.get('lat_grad')?.dirty || cityForm.get('lat_grad')?.touched)) || (cityForm.get('lat_min')?.invalid && (cityForm.get('lat_min')?.dirty || cityForm.get('lat_min')?.touched))|| (cityForm.get('long_grad')?.invalid && (cityForm.get('long_grad')?.dirty || cityForm.get('long_grad')?.touched))|| (cityForm.get('long_min')?.invalid && (cityForm.get('long_min')?.dirty || cityForm.get('long_min')?.touched))" class="alert alert-danger">
                                 Las coordenadas son necesarias para agregar una ciudad.
+
+                                <!-- <div *ngIf="(cityForm.get('lat_grad')?.hasError('pattern'))||(cityForm.get('lat_min')?.hasError('pattern'))||(cityForm.get('long_grad')?.hasError('pattern'))||(cityForm.get('long_min')?.hasError('pattern'))">
+                                    Solo se aceptan números
+                                </div> -->
                             </div>
                     </div>
 

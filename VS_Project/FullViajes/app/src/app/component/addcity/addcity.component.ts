@@ -11,7 +11,12 @@ export class AddcityComponent implements OnInit {
   cityForm!: FormGroup;
   errorc=false;
   coordenadas="";
+  coor1="";
+  coor2="";
+  coor3="";
+  coor4="";
   coordenadasresp="";
+ 
 
   constructor(private formBuilder: FormBuilder, public service:CiudadesService) { }
 
@@ -20,11 +25,11 @@ export class AddcityComponent implements OnInit {
       ciudad: ['', Validators.required],
       cp: ['', Validators.required],
       latnordsud: ['', Validators.required],
-      lat_grad: ['', Validators.required],
-      lat_min: ['', Validators.required],
+      lat_grad: ['', Validators.required,Validators.pattern("/^[0-9]+$/")],
+      lat_min: ['', Validators.required,Validators.pattern("/^[0-9]+$/")],
       longeo: ['', Validators.required],
-      long_grad: ['', Validators.required],
-      long_min: ['', Validators.required],     
+      long_grad: ['', Validators.required,Validators.pattern("/^[0-9]+$/")],
+      long_min: ['', Validators.required,Validators.pattern("/^[0-9]+$/")],     
       descripcion: ['', Validators.required],
       menu: false
     });
@@ -53,6 +58,11 @@ this.coordenadas=this.cityForm.value.lat_grad+"°"+this.cityForm.value.lat_min+"
 
   
 }
+
+solonumero(supuestonumero:any) {
+  return /^[0-9]+$/gi.test(supuestonumero);
+};
+
 corregido(){
   this.errorc=false;
 }
