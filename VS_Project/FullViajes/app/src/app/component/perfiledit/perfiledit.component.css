@@ -1,0 +1,69 @@
+:host {
+    display: flex;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+   
+  }
+  
+   .box{
+      max-width: 100%;
+      min-width: 40%;
+      min-height: 350px;
+      margin: 10px;
+      padding: 15px;
+      border: 1px solid rgba(177, 177, 177, 0.933);
+      border-radius: 15px ;
+      text-align: justify;
+      margin-top: 200 px;
+      overflow:initial;
+      position:relative; /* Para que exista relacion entre sus divs*/
+      background-color:#da7a86;
+    }
+    .acp{
+      background: #caec58;
+      font-weight: bold;
+    }
+    .acc{
+      margin-left: 5px;
+      border: 3px solid red;
+      background:#eaeaea;
+      font-weight: bold;
+      color: #ee4b60;
+    }
+  .form-label{
+    padding-bottom: 5px;
+    font-weight: bold;
+  }
+    h2{
+      color:white;
+      text-transform: capitalize;
+      font-style: oblique;
+      font-weight: bolder;
+    }
+  
+    form-control{
+      width: 90%  !important;
+    }
+    
+    .info{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .inner-content {
+      padding: 24px;
+      background:#eaeaea;
+      height: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      text-align: center;
+      width:100%;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .profile{
+      max-width: 150px;
+    }

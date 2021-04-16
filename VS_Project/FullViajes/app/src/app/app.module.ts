@@ -14,10 +14,24 @@ import { UsuarioComponent } from './component/usuario/usuario.component';
 import { NavbarComponent } from './component/navbar/navbar.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { PrincipalComponent } from './component/principal/principal.component';
-import { ContentinitComponent } from './component/contentinit/contentinit.component';
 import { SobreErComponent } from './component/sobre-er/sobre-er.component';
-import { ListUsuariosComponent } from './component/list-usuarios/list-usuarios.component';
-import { PruebaCiudadComponent } from './component/prueba-ciudad/prueba-ciudad.component';
+import { AddcityComponent } from './component/addcity/addcity.component';
+import { AdduserComponent } from './component/adduser/adduser.component';
+import { CiudadesComponent } from './component/ciudades/ciudades.component';
+import { AtractivosComponent } from './component/atractivos/atractivos.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { ForoComponent } from './component/foro/foro.component';
+import { LogoutComponent } from './component/logout/logout.component';
+import { PerfileditComponent } from './component/perfiledit/perfiledit.component';
+import { PerfilComponent } from './component/perfil/perfil.component';
+import { PrincipalregComponent } from './component/principalreg/principalreg.component';
+import { RegnavbarComponent } from './component/regnavbar/regnavbar.component';
+import { SidebarComponent } from './component/sidebar/sidebar.component';
+import { SidebardashComponent } from './component/sidebardash/sidebardash.component';
+import { UsuariosComponent } from './component/usuarios/usuarios.component';
+import { ContentinitComponent } from './component/contentinit/contentinit.component';
+import { LevelaccessComponent } from './component/levelaccess/levelaccess.component';
+import { ClimaComponent } from './component/clima/clima.component';
 
 @NgModule({
   declarations: [
@@ -27,10 +41,24 @@ import { PruebaCiudadComponent } from './component/prueba-ciudad/prueba-ciudad.c
     NavbarComponent,
     FooterComponent,
     PrincipalComponent,
-    ContentinitComponent,
     SobreErComponent,
-    ListUsuariosComponent,
-    PruebaCiudadComponent
+    AddcityComponent,
+    AdduserComponent,
+    CiudadesComponent,
+    AtractivosComponent,
+    DashboardComponent,
+    ForoComponent,
+    LogoutComponent,
+    PerfileditComponent,
+    PerfilComponent,
+    PrincipalregComponent,
+    RegnavbarComponent,
+    SidebarComponent,
+    SidebardashComponent,
+    UsuariosComponent,
+    ContentinitComponent,
+    LevelaccessComponent,
+    ClimaComponent
   ],
   imports: [
     BrowserModule,

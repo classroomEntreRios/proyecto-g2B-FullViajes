@@ -16,8 +16,6 @@ export class FormRegistroComponent implements OnInit {
   erroru=false;
   errorc=false;
 
-
-
   constructor(public service: UsuarioService, private router:Router) {
     
 

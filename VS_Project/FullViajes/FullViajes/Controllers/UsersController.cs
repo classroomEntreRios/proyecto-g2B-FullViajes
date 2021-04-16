@@ -73,8 +73,9 @@ namespace FullViajes.Controllers
         }
 
 
-
-        // POST: api/Users
+        [Route("api/Users/register")]
+        [HttpPost]
+        // POST: api/Users  REGISTRAR
         [ResponseType(typeof(Usuario))]
         public IHttpActionResult PostUsuario(Usuario usuario)
         {
@@ -132,6 +133,24 @@ namespace FullViajes.Controllers
             return CreatedAtRoute("DefaultApi", new { id = usuario.id_usuario }, usuario); ;
         }
 
+
+
+        // ACCEDER
+        [Route("api/Users/login")]
+        [HttpPost]
+        [ResponseType(typeof(Usuario))]
+        public IHttpActionResult AccederUsuario(string usuario, string email)
+        {
+            Usuario user = db.Usuario.Find(email);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(user);
+        }
+
+
         // DELETE: api/Users/5
         [ResponseType(typeof(Usuario))]
         public IHttpActionResult DeleteUsuario(long id)
@@ -147,6 +166,9 @@ namespace FullViajes.Controllers
 
             return Ok(usuario);
         }
+
+
+
 
         protected override void Dispose(bool disposing)
         {

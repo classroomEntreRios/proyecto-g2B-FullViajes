@@ -230,6 +230,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AccesoController.cs" />
     <Compile Include="Controllers\CiudadesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
@@ -268,7 +269,8 @@
     <Compile Include="Models\Imagen.cs">
       <DependentUpon>FullViajesEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Respuesta.cs" />
+    <Compile Include="Models\WS\AccesoViewModel.cs" />
+    <Compile Include="Models\WS\Respuesta.cs" />
     <Compile Include="Models\Respuestas.cs">
       <DependentUpon>FullViajesEntities.tt</DependentUpon>
     </Compile>
