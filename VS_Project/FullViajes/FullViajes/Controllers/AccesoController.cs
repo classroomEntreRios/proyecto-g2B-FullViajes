@@ -24,14 +24,14 @@ namespace FullViajes.Controllers
                 {
                     string pswd = Encrypt.GetSHA256(model.password);
                     Usuario user = db.Usuario.Where(a => a.email == model.email).FirstOrDefault();
-                    if (user != null)
+                    if (user != null)//si el correo esta registrado entra al if
                     {
 
-                        if (user.password == pswd)
+                        if (user.password == pswd) //compara contraseñas
                         {
-                            if (user.active == true)
+                            if (user.active == true) //si esta activo ...
                             {
-                                oRes.resultado = 1;
+                                oRes.resultado = 1; //respondo 1 
                                 var tkn = Guid.NewGuid().ToString();
                                 oRes.datos = new
                                 {
@@ -41,23 +41,23 @@ namespace FullViajes.Controllers
                                     nicname = user.nickname,
                                     imgperfil = user.user_foto
                                 };
-                                user.token = tkn;
-                                db.Entry(user).State = System.Data.Entity.EntityState.Modified;
+                                user.token = tkn; //le pongo el token al usuario 
+                                db.Entry(user).State = System.Data.Entity.EntityState.Modified;//lo pongo en activo
                                 db.SaveChanges();
                             }
                             else
                             {
-                                oRes.mensaje = "El usuario no se encuentra activo";
+                                oRes.mensaje = "El usuario no se encuentra activo"; //si no esta activo respondo el mensaje
                             }
                         }
                         else
                         {
-                            oRes.mensaje = "Datos incorrectos";
+                            oRes.mensaje = "Datos incorrectos";//si no son las mismas passwords
                         }
                     }
                     else
                     {
-                        oRes.mensaje = "Datos incorrectos";
+                        oRes.mensaje = "Datos incorrectos"; //si no se encuentra el correo en la db
                     }
                 }
             }

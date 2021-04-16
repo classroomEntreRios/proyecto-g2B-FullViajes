@@ -1,5 +1,6 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { CiudadesService } from 'src/app/services/ciudades.service';
 
 @Component({
   selector: 'app-addcity',
@@ -8,12 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddcityComponent implements OnInit {
   cityForm!: FormGroup;
+  errorc=true;
+  coordenadas="";
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, public service:CiudadesService) { }
 
   ngOnInit(): void {
     this.cityForm = this.formBuilder.group({
-      ciudad: ['', Validators.required],
+      ciudad: ['', Validators.required,],
       cp: ['', Validators.required],
       latnordsud: ['', Validators.required],
       lat_grad: ['', Validators.required],
@@ -25,7 +28,17 @@ export class AddcityComponent implements OnInit {
       menu: false
     });
   }
-enviarTodo(){
+
+
+submit(){
   
+console.log(this.cityForm.value);
+
+this.coordenadas=this.cityForm.value.lat_grad+"°"+this.cityForm.value.lat_min+"'"+this.cityForm.value.latnordsud+" "+ this.cityForm.value.long_grad+"°"+this.cityForm.value.long_min+"'"+this.cityForm.value.longeo;
+
+  
+}
+corregido(){
+  this.errorc=false;
 }
 }
