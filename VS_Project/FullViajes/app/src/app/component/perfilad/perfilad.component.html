@@ -13,7 +13,7 @@
                 </button>
                 <div class="collapse navbar-collapse prder-last" id="nav">
                     <ul class="navbar-nav flex-column w-100 justify-content-center">
-                        <a routerLink="/perfil" class="d-block p-3 text-light" style="border-top: white solid 1px;"> <i
+                        <a routerLink="/perfilad" class="d-block p-3 text-light" style="border-top: white solid 1px;"> <i
                                 class="fas fa-user nr-4 "></i> Perfil </a>
                         <a href="#" class="d-block p-3 text-light"><i class="fas fa-cog nr-4 "></i> Ajustes </a>
                         <a href="#" class="d-block p-3 text-light"> <i class="fas fa-bullhorn nr-4  "></i> Foro</a>
@@ -37,20 +37,31 @@
                     <div class="inner-content" style="background-color: rgb(255, 255, 255); height: 1300px;"
                         id="contenido">
                         <!--Contenido-->
-                        <h2>Detalles de Usuario</h2>
-                        <a routerLink="/admusers"><button class="btn btn-outline-secondary">Volver</button></a>
-                        <div class="row">
-                            <div class="box">
-                                <p><i class="fas fa-user"></i> Nombre: {{user.nomapel}} </p>
-                                <p><i class="far fa-envelope"></i> Email: {{user.email}} </p>
-                                <p><i class="far fa-envelope"></i> Rol: {{user.rol}} </p>
-                                <p><i class="far fa-envelope"></i> Estado: {{user.active}} </p>
-                                <p><i class="far fa-envelope"></i> imágen de Perfil: {{user.user_foto}} </p>
-                                <img src="{{user.user_foto}}">
-                                <p>Redes sociales (opcional)</p>
-                                <p><i class="fab fa-instagram"> </i> Instagram: </p>
-                                <p><i class="fab fa-twitter"></i> Twitter:</p>
-                                <p><i class="fas fa-user"></i> Descripción: {{user.user_descripcion}} </p>
+                        <div class="inner-content" style="background-color: rgb(255, 255, 255); height: 1300px;" id="contenido">
+                            <div class="portada">
+                                <img src='{{user_img}}' class="img-fluid rounded-circle avatar nr-2"  >
+                                <h2 id= "Name" style="margin-top: 105px;">{{ApeNom}}</h2> 
+                                <h5 id="Nickname">@{{nickname}}</h5>
+                                <div>
+                                    <div class="float-right"><a class="nav-link" routerLink="/perfiladedit"><button><i class="fas fa-edit"></i>Editar Datos</button></a></div>
+                                    </div>
+                                <div class="info">
+                                    <div class="box">
+                                        <h2 id="h2box">Información</h2>
+                                        <br>
+                                        <p > General </p>
+                                        <p><i class="fas fa-user"></i> Nombre: {{ApeNom}} </p>
+                                        <p><i class="far fa-envelope"></i> Email: {{mail}} </p>
+                                        <p>Redes sociales (opcional)</p>
+                                        <p><i class="fab fa-instagram">  </i> Instagram: </p>
+                                        <p><i class="fab fa-twitter"></i> Twitter:</p>
+                                    </div>
+                                    <div class="box aboutme ">
+                                        <h2 id="h2box">Descripción</h2>
+                                        <br>
+                                        <p>{{descripcion}}</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <!--Fin Contenido-->

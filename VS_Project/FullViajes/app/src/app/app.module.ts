@@ -36,6 +36,9 @@ import { ViewuserComponent } from './component/viewuser/viewuser.component';
 import { ActiveuserComponent } from './component/activeuser/activeuser.component';
 import { DeactiveuserComponent } from './component/deactiveuser/deactiveuser.component';
 import { EdituserComponent } from './component/edituser/edituser.component';
+import { EditcityComponent } from './component/editcity/editcity.component';
+import { PerfiladComponent } from './component/perfilad/perfilad.component';
+import { PerfiladeditComponent } from './component/perfiladedit/perfiladedit.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +69,10 @@ import { EdituserComponent } from './component/edituser/edituser.component';
     ViewuserComponent,
     ActiveuserComponent,
     DeactiveuserComponent,
-    EdituserComponent
+    EdituserComponent,
+    EditcityComponent,
+    PerfiladComponent,
+    PerfiladeditComponent
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,9 @@ import { AdduserComponent } from './component/adduser/adduser.component';
 import { LevelaccessComponent } from './component/levelaccess/levelaccess.component';
 import { ViewuserComponent } from './component/viewuser/viewuser.component';
 import { EdituserComponent } from './component/edituser/edituser.component';
+import { EditcityComponent } from './component/editcity/editcity.component';
+import { PerfiladComponent } from './component/perfilad/perfilad.component';
+import { PerfiladeditComponent } from './component/perfiladedit/perfiladedit.component';
 
 
 const routes: Routes = [
@@ -25,12 +28,15 @@ const routes: Routes = [
   {path:'principal2', component: PrincipalregComponent},
   {path:'dashboard', component: DashboardComponent},
   {path:'perfiledit', component: PerfileditComponent},
+  {path:'perfiladedit', component: PerfiladeditComponent},
   {path:'logout', component: LogoutComponent},
   {path:'perfil', component: PerfilComponent},
+  {path:'perfilad', component: PerfiladComponent},
   {path:'admusers', component: UsuariosComponent},
   {path:'admcitys', component: CiudadesComponent},
   {path:'admatrac', component: AtractivosComponent},
   {path:'addcity', component: AddcityComponent},
+  {path:'editcity/:id', component: EditcityComponent},
   {path:'adduser', component: AdduserComponent},
   {path:'viewuser/:user_id', component: ViewuserComponent},
   {path:'edituser/:user_id', component: EdituserComponent},

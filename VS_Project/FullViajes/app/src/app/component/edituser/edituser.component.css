@@ -1,7 +1,16 @@
-:host {
-    display: flex;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-   
-  }
+#Sidebar {
+  background-color: #f15d39!important;
+}
+
+a {
+  text-decoration:none ;
+}
+
+a:hover {
+  background-color: #f17d39;
+  color: white!important;
+}
+.box{
+  margin-left: 50px;
+  margin-top: 15px;
+}

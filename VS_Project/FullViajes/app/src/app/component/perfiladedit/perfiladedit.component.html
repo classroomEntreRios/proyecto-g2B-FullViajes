@@ -37,21 +37,42 @@
                     <div class="inner-content" style="background-color: rgb(255, 255, 255); height: 1300px;"
                         id="contenido">
                         <!--Contenido-->
-                        <h2>Detalles de Usuario</h2>
-                        <a routerLink="/admusers"><button class="btn btn-outline-secondary">Volver</button></a>
-                        <div class="row">
-                            <div class="box">
-                                <p><i class="fas fa-user"></i> Nombre: {{user.nomapel}} </p>
-                                <p><i class="far fa-envelope"></i> Email: {{user.email}} </p>
-                                <p><i class="far fa-envelope"></i> Rol: {{user.rol}} </p>
-                                <p><i class="far fa-envelope"></i> Estado: {{user.active}} </p>
-                                <p><i class="far fa-envelope"></i> imágen de Perfil: {{user.user_foto}} </p>
-                                <img src="{{user.user_foto}}">
-                                <p>Redes sociales (opcional)</p>
-                                <p><i class="fab fa-instagram"> </i> Instagram: </p>
-                                <p><i class="fab fa-twitter"></i> Twitter:</p>
-                                <p><i class="fas fa-user"></i> Descripción: {{user.user_descripcion}} </p>
-                            </div>
+                        <div class="box">
+                            <h2>Información General</h2>
+                            <form>
+                                <div class="form-group" id="name-form">
+                                    <label class="form-label">Nombre: </label>
+                                    <input type="text" id="nombre" name="nombre" class="form-control"
+                                        value="{{user.nombre}}" />
+                                </div>
+                                <div class="form-group" id="name-form">
+                                    <label class="form-label">Apellido: </label>
+                                    <input type="text" id="apellido" name="apellido" class="form-control"
+                                        value="{{user.apellido}}" />
+                                </div>
+                                <div class="form-group" id="name-form">
+                                    <label class="form-label">Descripción: </label>
+                                    <textarea class="form-control">{{user.user_descripcion}}</textarea>
+                                </div>
+                                <div class="float-right">
+                                    <button type="submit" class="acp btn" id="ButtonEnviar">Enviar</button>
+                                    <button type="cancel" class="acc btn" id="ButtonEnviar">Cancelar</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="box">
+                            <h2>Imágen de Perfil</h2>
+                            <p class="float-right">
+                                <img src="{{user.user_foto}}" class="rounded profile" />
+                            </p>
+                            <form>
+                                <div class="form-group">
+                                    <label class="form-label">Imagen de Perfil: </label>
+                                    <input type="text" id="imagen" name="imagen" class="form-control"
+                                        value="{{user.user_foto}}" />
+                                </div>
+                                <button type="submit" class="acp btn" id="ButtonEnviar">Subir</button>
+                            </form>
                         </div>
                         <!--Fin Contenido-->
                     </div>
