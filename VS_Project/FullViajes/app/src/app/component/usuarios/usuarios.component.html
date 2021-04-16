@@ -3,6 +3,13 @@
     <h2>Administrar Usuarios</h2>
     <div class="row">
         <a routerLink="/adduser"><button class="btn btn-outline-primary"><i class="fas fa-user-plus"></i> Agregar Usuario</button></a>
+        <div class="float-right">
+            <div class="m5"><i class="fa fa-eye" ></i> Ver</div>
+            <div class="m5"><i class="fas fa-plus-circle"></i> Activar</div>
+            <div class="m5"><i class="fas fa-minus-circle"></i> Desactivar</div>
+            <div class="m5"><i class="fas fa-edit"></i> Editar</div>
+            <div class="m5"><i class="fas fa-eraser"></i> Borrar</div>
+        </div>
     </div>
     <br/>
     <div class="row">
@@ -12,55 +19,14 @@
                     <tr>
                         <th scope="col">Nickname</th>
                         <th scope="col">Email</th>
-                        <th scope="col" class="d-none d-sm-table-cell">Rol</th>
-                        <th scope="col" class="d-none d-md-table-cell">Nombre Completo</th>
+                        <th scope="col" class="d-none d-sm-table-cell">Estado</th>
+                        <th scope="col" class="d-none d-md-table-cell">Rol</th>
+                        <th scope="col" class="d-none d-md-table-cell">Nombre</th>
                         <th scope="col" class="d-none d-lg-table-cell">Descripción</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr scope="row">
-                        <td>
-                            admin
-                        </td>
-                        <td>
-                            admin@admin.com
-                        </td>
-                        <td class="d-none d-sm-table-cell">
-                            Admin
-                        </td>
-                        <td class="d-none d-md-table-cell">
-                            Administrador General
-                        </td>
-                        <td class="d-none d-lg-table-cell">
-                            El presente es un usuario administrador basico para la demo del sistema de FullViajes
-                        </td>
-                        <td>
-                            <a routerLink="/editcity"><i class="fas fa-edit"></i></a>
-                            <a routerLink="/delcity"><i class="fas fa-eraser"></i></a>
-                        </td>
-                    </tr>
-                    <tr scope="row">
-                        <td>
-                            usuario
-                        </td>
-                        <td>
-                            usuario@prueba.com
-                        </td>
-                        <td class="d-none d-sm-table-cell">
-                            User
-                        </td>
-                        <td class="d-none d-md-table-cell">
-                            Usuario de Prueba
-                        </td>
-                        <td class="d-none d-lg-table-cell">
-                            El presente es un usuario basico para la demo del sistema de FullViajes
-                        </td>
-                        <td>
-                            <a routerLink="/editcity"><i class="fas fa-edit"></i></a>
-                            <a routerLink="/delcity"><i class="fas fa-eraser"></i></a>
-                        </td>
-                    </tr>
                     <tr scope="row"  *ngFor="let user of users">
                         <td>
                             {{user.nickname}}
@@ -69,6 +35,9 @@
                             {{user.email}}
                         </td>
                         <td class="d-none d-sm-table-cell">
+                            {{user.active}}
+                        </td>
+                        <td class="d-none d-md-table-cell">
                             {{user.rol}}
                         </td>
                         <td class="d-none d-md-table-cell">
@@ -78,7 +47,10 @@
                             {{user.user_descripcion}}
                         </td>
                         <td>
+                            <a routerLink="/viewuser/{{user.id_usuario}}"><i class="fas fa-eye" ></i></a>
                             <a routerLink="/edituser/{{user.id_usuario}}"><i class="fas fa-edit"></i></a>
+                            <a routerLink="/activeuser/{{user.id_usuario}}"><i class="fas fa-plus-circle"></i></a>
+                            <a routerLink="/deactiveuser/{{user.id_usuario}}"><i class="fas fa-minus-circle"></i></a>
                             <a routerLink="/deluser/{{user.id_usuario}}"><i class="fas fa-eraser"></i></a>
                         </td>
                     </tr>

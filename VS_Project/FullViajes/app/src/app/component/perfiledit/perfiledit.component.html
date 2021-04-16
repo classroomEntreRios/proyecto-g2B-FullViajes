@@ -5,15 +5,15 @@
         <form>
             <div class="form-group" id="name-form">
                 <label class="form-label">Nombre: </label>
-                <input type="text" id="nombre" name="nombre" class="form-control" />
+                <input type="text" id="nombre" name="nombre" class="form-control" value="{{user.nombre}}" />
             </div>
             <div class="form-group" id="name-form">
                 <label class="form-label">Apellido: </label>
-                <input type="text" id="apellido" name="apellido" class="form-control" />
+                <input type="text" id="apellido" name="apellido" class="form-control"  value="{{user.apellido}}"/>
             </div>
             <div class="form-group" id="name-form">
                 <label class="form-label">Descripción: </label>
-                <textarea class="form-control"></textarea>
+                <textarea class="form-control">{{user.user_descripcion}}</textarea>
             </div>
             <div class="float-right">
                 <button type="submit" class="acp btn" id="ButtonEnviar">Enviar</button>
@@ -24,12 +24,12 @@
     <div class="box">
         <h2>Imágen de Perfil</h2>
         <p class="float-right">
-        <img src="./assets/Imagenes/Turista.png" class="rounded profile" />
+        <img src="{{user.user_foto}}" class="rounded profile" />
         </p>
         <form>
             <div class="form-group">
                 <label class="form-label">Imagen de Perfil: </label>
-                <input type="text" id="imagen" name="imagen" class="form-control" />
+                <input type="text" id="imagen" name="imagen" class="form-control" value="{{user.user_foto}}"/>
             </div>
             <button type="submit" class="acp btn" id="ButtonEnviar">Subir</button>
         </form>

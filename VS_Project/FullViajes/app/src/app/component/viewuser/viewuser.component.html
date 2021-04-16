@@ -1,0 +1,19 @@
+<app-sidebardash></app-sidebardash>
+<div class="container">
+    <h2>Detalles de Usuario</h2>
+    <a routerLink="/admusers"><button class="btn btn-outline-secondary">Volver</button></a>
+    <div class="row">
+        <div class="box">
+            <p><i class="fas fa-user"></i> Nombre: {{user.nomapel}} </p>
+                <p><i class="far fa-envelope"></i> Email: {{user.email}} </p>
+                <p><i class="far fa-envelope"></i> Rol: {{user.rol}} </p>
+                <p><i class="far fa-envelope"></i> Estado: {{user.active}} </p>
+                <p><i class="far fa-envelope"></i> imágen de Perfil: {{user.user_foto}} </p>
+                <img src="{{user.user_foto}}">
+                <p>Redes sociales (opcional)</p>
+                <p><i class="fab fa-instagram"> </i> Instagram: </p>
+                <p><i class="fab fa-twitter"></i> Twitter:</p>
+                <p><i class="fas fa-user"></i> Descripción: {{user.user_descripcion}} </p>
+        </div>
+    </div>
+</div>

@@ -75,7 +75,7 @@ namespace FullViajes.Controllers
         [Route("api/Users/register")]
         [HttpPost]
         [ResponseType(typeof(Usuario))]
-        public IHttpActionResult RegistrarUsuario(Usuario usuario)
+        public IHttpActionResult Register(Usuario usuario)
         {
             string MensajeError = "Error";
             if (!ModelState.IsValid)
@@ -88,14 +88,16 @@ namespace FullViajes.Controllers
                 Usuario emailcheck = db.Usuario.Where(a => a.email == usuario.email).FirstOrDefault();
                 if (emailcheck != null)
                 {
-                   // return new Respuesta
-                   // { Estado = "Error", Mensaje = "El email ya se encuentra registrado" };
+                    // return new Respuesta
+                    // { Estado = "Error", Mensaje = "El email ya se encuentra registrado" };
+                    MensajeError = "El email " + usuario.email + " ya se encuentra registrado";
+                    return BadRequest(MensajeError);
                 }
                 //CHEQUEA QUE EL NOMBRE DE USUARIO NO ESTE EN USO
                 Usuario usercheck = db.Usuario.Where(a => a.nickname == usuario.nickname).FirstOrDefault();
                 if (usercheck != null)
                 {
-                   //MensajeError = "El usuario " + usuario.nickname + " ya se encuentra registrado";
+                    MensajeError = "El usuario " + usuario.nickname + " ya se encuentra registrado";
                     return BadRequest(MensajeError);
                 }
                 //ENCRIPTA CONTRASEÑA

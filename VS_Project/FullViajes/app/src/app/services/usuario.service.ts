@@ -34,9 +34,4 @@ export class UsuarioService {
  listar(){
    return this.http.get(this.rootURL+ '/Users/GetUsuario')
  }
-  /*Login(model: any) {
-    debugger;
-    var a = this.rootURL + 'UserLogin';
-    return this.http.post<any>(this.rootURL + 'UserLogin', model);
-  }*/
 }

@@ -11,5 +11,8 @@
     justify-content: center;
     min-height: 100vh;
   }
+.loading{
+    max-width: 80%;
+  }
 
 /*# sourceMappingURL=styles.css.map*/

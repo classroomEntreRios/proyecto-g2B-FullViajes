@@ -32,6 +32,10 @@ import { AddcityComponent } from './component/addcity/addcity.component';
 import { AdduserComponent } from './component/adduser/adduser.component';
 import { LevelaccessComponent } from './component/levelaccess/levelaccess.component';
 import { ClimaComponent } from './component/clima/clima.component';
+import { ViewuserComponent } from './component/viewuser/viewuser.component';
+import { ActiveuserComponent } from './component/activeuser/activeuser.component';
+import { DeactiveuserComponent } from './component/deactiveuser/deactiveuser.component';
+import { EdituserComponent } from './component/edituser/edituser.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +62,11 @@ import { ClimaComponent } from './component/clima/clima.component';
     AddcityComponent,
     AdduserComponent,
     LevelaccessComponent,
-    ClimaComponent
+    ClimaComponent,
+    ViewuserComponent,
+    ActiveuserComponent,
+    DeactiveuserComponent,
+    EdituserComponent
   ],
   imports: [
     BrowserModule,
