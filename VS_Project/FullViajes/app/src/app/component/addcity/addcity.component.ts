@@ -28,12 +28,26 @@ export class AddcityComponent implements OnInit {
       descripcion: ['', Validators.required],
       menu: false
     });
+    
   }
 
 
 submit(){
+  //ARMO EL STRING DE COORDENADAS
+  this.coordenadas=this.cityForm.value.lat_grad+"°"+this.cityForm.value.lat_min+"'"+this.cityForm.value.latnordsud+" "+ this.cityForm.value.long_grad+"°"+this.cityForm.value.long_min+"'"+this.cityForm.value.longeo;
+
+
+  this.service.formData={
+    nombre: this.cityForm.value.ciudad,
+    cp: this.cityForm.value.cp,
+    coordenadas: this.coordenadas,
+    descripcion: this.cityForm.value.descripcion,
+    menu:false
+  };
   
+
 console.log(this.cityForm.value);
+
 
 this.coordenadas=this.cityForm.value.lat_grad+"°"+this.cityForm.value.lat_min+"'"+this.cityForm.value.latnordsud+" "+ this.cityForm.value.long_grad+"°"+this.cityForm.value.long_min+"'"+this.cityForm.value.longeo;
 

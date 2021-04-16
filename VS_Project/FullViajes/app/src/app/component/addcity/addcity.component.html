@@ -39,7 +39,8 @@
                                 <input type="radio" name="latnordsud" value="S" id="sud" checked="" formControlName="latnordsud">
                                 S
                             </label>
-                            <input class="form-control sexagesimal" id="latitude_degres" type="textbox" (keyup)="corregido()" formControlName="lat_grad">
+                            
+                            <input class="form-control sexagesimal" id="latitude_degres" type="textbox" (keyup)="corregido()" formControlName="lat_grad" >
                             <label for="latitude_degres">°</label>
                             <input class="form-control sexagesimalsec sexagesimal" id="latitude_minutes" type="textbox" (keyup)="corregido()" formControlName="lat_min">
                             <label for="latitude_minutes">'</label>
@@ -59,9 +60,9 @@
                                 <input type="radio" name="longeo" value="O" id="west" checked="" formControlName="longeo">
                                 O
                             </label>
-                            <input class="form-control sexagesimal" id="latitude_degres" type="textbox" (keyup)="corregido()" formControlName="long_grad">
+                            <input class="form-control sexagesimal" id="latitude_degres" type="textbox" (keyup)="corregido()" formControlName="long_grad" >
                             <label for="latitude_degres">°</label>
-                            <input class="form-control sexagesimal" id="latitude_minutes" type="textbox" (keyup)="corregido()" formControlName="long_min">
+                            <input class="form-control sexagesimal" id="latitude_minutes" type="textbox" (keyup)="corregido()" formControlName="long_min" >
                             <label for="latitude_minutes">'</label>
 
                             
@@ -88,7 +89,7 @@
                                     La ciudad en {{this.coordenadasresp}} ya se encuentra registrada.
                                 </div>
                             </div>
-                            <button type="submit" class="btn float-right btn-outline-success" style="margin-left: 5px;">Agregar</button>
+                            <button type="submit" class="btn float-right btn-outline-success" style="margin-left: 5px;"[disabled]="cityForm.invalid">Agregar</button>
                             <button routerLink="/admcitys" type="button" class="btn float-right btn-outline-danger">Cancelar</button>
                         </div>
                     </div>
