@@ -81,12 +81,12 @@ namespace FullViajes.Controllers
 
 
             //compruebo que el cp no se encuentre ya registrado salvo el del mismo id q es el que se esta modificando
-            Ciudad cpcheck = db.Ciudad.Where(a => a.cp == ciudad.cp && a.id_ciudad != ciudad.id_ciudad).FirstOrDefault();
-            if (cpcheck != null)
-            {
-                ModelState.AddModelError("CP", "EL CODIGO POSTAL YA SE ENCUENTRA EN LA BASE DE DATOS");
-                return BadRequest(ModelState);
-            }
+            //Ciudad cpcheck = db.Ciudad.Where(a => a.cp == ciudad.cp && a.id_ciudad != ciudad.id_ciudad).FirstOrDefault();
+            //if (cpcheck != null)
+            //{
+             //   ModelState.AddModelError("CP", "EL CODIGO POSTAL YA SE ENCUENTRA EN LA BASE DE DATOS");
+               // return BadRequest(ModelState);
+            //}
 
 
             db.Entry(ciudad).State = EntityState.Modified;    //modifica

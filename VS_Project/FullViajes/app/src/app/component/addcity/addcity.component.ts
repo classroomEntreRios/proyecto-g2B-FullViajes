@@ -9,14 +9,15 @@ import { CiudadesService } from 'src/app/services/ciudades.service';
 })
 export class AddcityComponent implements OnInit {
   cityForm!: FormGroup;
-  errorc=true;
+  errorc=false;
   coordenadas="";
+  coordenadasresp="";
 
   constructor(private formBuilder: FormBuilder, public service:CiudadesService) { }
 
   ngOnInit(): void {
     this.cityForm = this.formBuilder.group({
-      ciudad: ['', Validators.required,],
+      ciudad: ['', Validators.required],
       cp: ['', Validators.required],
       latnordsud: ['', Validators.required],
       lat_grad: ['', Validators.required],
