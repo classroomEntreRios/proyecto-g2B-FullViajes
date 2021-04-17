@@ -5,7 +5,7 @@
     </div>
     <div class="row">
         <div class="box">
-            <form (submit)="submit()" [formGroup]="cityForm">
+            <form (ngSubmit)="onSubmit()" [formGroup]="cityForm" autocomplete="off">
                 <div class="form-group">
                     <label>Ciudad:</label>
                     <input type="textbox" name="ciudad" class="form-control" formControlName="ciudad">
@@ -90,7 +90,7 @@
                             <!-- SI ESTA REGISTRADA -->
                             <div *ngIf="errorc"  class="alert alert-danger" style="text-align: center;">
                                 <div>
-                                    La ciudad en {{this.coordenadasresp}} ya se encuentra registrada.
+                                    Ya se encuentra registrada una ciudad en esas coordenadas ({{this.coordenadasresp}}).
                                 </div>
                             </div>
                             <button type="submit" class="btn float-right btn-outline-success" style="margin-left: 5px;"[disabled]="cityForm.invalid">Agregar</button>

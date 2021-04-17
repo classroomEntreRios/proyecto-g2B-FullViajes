@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
-
-namespace FullViajes.Models
+﻿namespace FullViajes.Models
 {
-    public class CiudadPartial
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+
+    public partial class CiudadPartial
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public CiudadPartial()
@@ -16,6 +14,7 @@ namespace FullViajes.Models
             this.Clima = new HashSet<Clima>();
             this.Imagen = new HashSet<Imagen>();
         }
+
         [Required]
         public string nombre { get; set; }
         [Required]
@@ -23,7 +22,9 @@ namespace FullViajes.Models
         [Required]
         public string coordenadas { get; set; }
         [Required]
-        public byte[] itinerario { get; set; }
+        public string descripcion { get; set; }
+        [Required]
+        public Nullable<bool> menu { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Alojamiento> Alojamiento { get; set; }

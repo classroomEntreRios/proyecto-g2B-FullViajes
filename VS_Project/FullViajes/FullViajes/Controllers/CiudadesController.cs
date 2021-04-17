@@ -61,13 +61,13 @@ namespace FullViajes.Controllers
         {
             if (!ModelState.IsValid) //COMPRUEBA QUE EL FORM RECIBIDO SEA VALIDO
             {
-                ModelState.AddModelError("ERROR", "DATOS INGRESADOS NO VALIDOS");
+                ModelState.AddModelError("Error", "DATOS INGRESADOS NO VALIDOS");
                 return BadRequest(ModelState);
             }
 
             if (id != ciudad.id_ciudad)
             {
-                ModelState.AddModelError("ID", "VALOR DE ID NO COINCIDE CON ID DEL FORM");
+                ModelState.AddModelError("Error", "VALOR DE ID NO COINCIDE CON ID DEL FORM");
                 return BadRequest(ModelState);//comprueba sean el mismo id del form recibido y el que se modifica
             }
             
@@ -75,7 +75,7 @@ namespace FullViajes.Controllers
             Ciudad coordenadascheck = db.Ciudad.Where(a => a.coordenadas == ciudad.coordenadas && a.id_ciudad != ciudad.id_ciudad).FirstOrDefault();
             if (coordenadascheck != null)
             {
-                ModelState.AddModelError("Coordenadas", "LAS COORDENADAS YA SE ENCUENTRA EN LA BASE DE DATOS");
+                ModelState.AddModelError("Error", "LAS COORDENADAS YA SE ENCUENTRA EN LA BASE DE DATOS");
                 return BadRequest(ModelState);
             }
 
@@ -99,7 +99,7 @@ namespace FullViajes.Controllers
             {
                 if (!CiudadExists(id)) //si id no existia en las ciudades retorna error
                 {
-                    ModelState.AddModelError("CIUDAD", "LA CIUDAD NO SE ENCUENTRA EN LA BASE DE DATOS");
+                    ModelState.AddModelError("Error", "LA CIUDAD NO SE ENCUENTRA EN LA BASE DE DATOS");
                     return NotFound();//
                 }
                 else
@@ -121,41 +121,39 @@ namespace FullViajes.Controllers
 
 
         // POST: api/Ciudades                           //AGREGA UNA CIUDAD
+        [Route("api/Ciudades/register")]
+        [HttpPost]
         [ResponseType(typeof(Ciudad))]
         public IHttpActionResult PostCiudad(Ciudad ciudad)
         {
+
+            foreach (var modelValue in ModelState.Values) { modelValue.Errors.Clear(); }
             if (!ModelState.IsValid)//comprueba que el modelo sea valido
             {
-                ModelState.AddModelError("ERROR", "DATOS INGRESADOS NO VALIDOS");
+                ModelState.AddModelError("Error", "DATOS INGRESADOS NO VALIDOS");
                 return BadRequest(ModelState);
             }
 
-            //compruebo que el id no se encuentre registrado
-            Ciudad idcheck = db.Ciudad.Where(a => a.id_ciudad == ciudad.id_ciudad).FirstOrDefault();
-            if (idcheck != null) 
-            {
-                ModelState.AddModelError("CIUDAD", "LA CIUDAD YA SE ENCUENTRA EN LA BASE DE DATOS");
-                return BadRequest(ModelState);
-            }
 
-            //compruebo que las coordenadas no se encuentre registrada
             Ciudad coordenadascheck = db.Ciudad.Where(a => a.coordenadas == ciudad.coordenadas).FirstOrDefault();
             if (coordenadascheck != null)
             {
-                ModelState.AddModelError("Coordenadas", "LAS COORDENADAS YA SE ENCUENTRA EN LA BASE DE DATOS");
+                ModelState.AddModelError("Error", "LAS COORDENADAS YA SE ENCUENTRA EN LA BASE DE DATOS");
                 return BadRequest(ModelState);
             }
 
-            //compruebo que el Codigo Postal no se encuentre registrado
-            Ciudad cpcheck = db.Ciudad.Where(a => a.cp == ciudad.cp).FirstOrDefault();
-            if (cpcheck != null)
+
+
+            //SI LA DESCRIPCION DE USUARIO ES VACIA CREO UNA CADENA PARA RELLENAR EL CAMPO
+            if (ciudad.descripcion == null)
             {
-                ModelState.AddModelError("CP", "EL CODIGO POSTAL YA SE ENCUENTRA EN LA BASE DE DATOS");
-                return BadRequest(ModelState);
+                ciudad.descripcion = "El Administrador: no agregó descripción de ésta ciudad";
             }
+
 
             db.Ciudad.Add(ciudad);
             db.SaveChanges();
+
             return CreatedAtRoute("DefaultApi", new { id = ciudad.id_ciudad }, ciudad);
         }
 
