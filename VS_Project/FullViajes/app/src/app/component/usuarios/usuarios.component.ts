@@ -15,7 +15,6 @@ export class UsuariosComponent implements OnInit {
   ApeNom='';
   descripcion='';
   users:any;
-  
 
   constructor(public service: UsuarioService, private router: Router) { }
 
@@ -23,12 +22,6 @@ export class UsuariosComponent implements OnInit {
     this.service.listar().subscribe(
       (usuario: any) => {
         this.users=usuario;
-        /*this.user_id=usuario.id_usuario;
-        this.nickname=usuario.nickname;
-        this.mail=usuario.email;
-        this.rol=usuario.rol;
-        this.ApeNom=usuario.nomapel
-        this.descripcion=usuario.user_descripcion;*/
       }
     );
   }

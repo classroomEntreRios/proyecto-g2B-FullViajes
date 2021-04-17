@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Ciudad } from '../models/ciudades.model';
+import { Ciudad } from '../models/ciudades.model'
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -11,6 +11,16 @@ export class CiudadesService {
   readonly rootURL = 'https://localhost:44331/api'
   constructor(private http: HttpClient) { }
 
+  clearFormData(){
+    this.formData={
+      nombre: "",
+      cp: "",
+      coordenadas: "",
+      descripcion: "",
+      menu:false
+    };
+
+  }
   postCiudad(formData: Ciudad) {
     return this.http.post(this.rootURL + '/Ciudades/register', formData);
   }

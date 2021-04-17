@@ -13,7 +13,7 @@
                 </button>
                 <div class="collapse navbar-collapse prder-last" id="nav">
                     <ul class="navbar-nav flex-column w-100 justify-content-center">
-                        <a routerLink="/perfil" class="d-block p-3 text-light" style="border-top: white solid 1px;"> <i
+                        <a routerLink="/perfilad" class="d-block p-3 text-light" style="border-top: white solid 1px;"> <i
                                 class="fas fa-user nr-4 "></i> Perfil </a>
                         <a href="#" class="d-block p-3 text-light"><i class="fas fa-cog nr-4 "></i> Ajustes </a>
                         <a href="#" class="d-block p-3 text-light"> <i class="fas fa-bullhorn nr-4  "></i> Foro</a>
@@ -43,9 +43,9 @@
                             <div class="box">
                                 <p><i class="fas fa-user"></i> Nombre: {{user.nomapel}} </p>
                                 <p><i class="far fa-envelope"></i> Email: {{user.email}} </p>
-                                <p><i class="far fa-envelope"></i> Rol: {{user.rol}} </p>
-                                <p><i class="far fa-envelope"></i> Estado: {{user.active}} </p>
-                                <p><i class="far fa-envelope"></i> imágen de Perfil: {{user.user_foto}} </p>
+                                <p> Rol: {{user.rol}} </p>
+                                <p> Estado: {{user.active}} </p>
+                                <p> imágen de Perfil: {{user.user_foto}} </p>
                                 <img src="{{user.user_foto}}">
                                 <p>Redes sociales (opcional)</p>
                                 <p><i class="fab fa-instagram"> </i> Instagram: </p>

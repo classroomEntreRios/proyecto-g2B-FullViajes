@@ -10,22 +10,19 @@ import { CiudadesService } from 'src/app/services/ciudades.service';
 })
 export class EditcityComponent implements OnInit {
   cityForm!: FormGroup;
+  city:any;
+  city_id="";
 
   constructor(private formBuilder: FormBuilder,public service: CiudadesService, private router: Router, private _route:ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.cityForm = this.formBuilder.group({
-      ciudad: ['', Validators.required],
-      cp: ['', Validators.required],
-      latnordsud: ['', Validators.required],
-      lat_grad: ['', Validators.required],
-      lat_min: ['', Validators.required],
-      longeo: ['', Validators.required],
-      long_grad: ['', Validators.required],
-      long_min: ['', Validators.required],     
-      descripcion: ['', Validators.required],
-      menu: false
-    });
+    this.city_id = this._route.snapshot.paramMap.get('id')!;
+    this.service.acceder(this.city_id).subscribe(
+      (ciudad: any) => {
+        this.city=ciudad;
+      }
+    );
+    
   }
   enviarTodo(){
   
