@@ -46,11 +46,11 @@
                                     <form [formGroup]="cityForm" (ngSubmit)="enviarTodo()">
                                         <div class="form-group">
                                             <label>Ciudad:</label>
-                                            <input type="textbox" formControlName="ciudad" class="form-control">
+                                            <input type="textbox" formControlName="ciudad" class="form-control" value="{{city.nombre}}">
                                         </div>
                                         <div class="form-group">
                                             <label>Código Postal</label>
-                                            <input type="textbox" formControlName="cp" class="form-control cp">
+                                            <input type="textbox" formControlName="cp" class="form-control cp"  value="{{city.cp}}">
                                         </div>
                                         <div class="form-group">
                                             <label>Coordenadas</label>

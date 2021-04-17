@@ -74,10 +74,12 @@
                                                 {{user.email}}
                                             </td>
                                             <td class="d-none d-sm-table-cell">
-                                                {{user.active}}
+                                                <p *ngIf="user.active==true;">Activo</p>
+                                               <p *ngIf="user.active==false;">Inactivo</p>
                                             </td>
-                                            <td class="d-none d-md-table-cell">
-                                                {{user.rol}}
+                                            <td class="d-none d-md-table-cell" >
+                                               <p *ngIf="user.rol==0;">Admin</p>
+                                               <p *ngIf="user.rol==1;">User</p>
                                             </td>
                                             <td class="d-none d-md-table-cell">
                                                 {{user.nomapel}}
