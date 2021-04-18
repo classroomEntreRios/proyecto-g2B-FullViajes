@@ -43,63 +43,114 @@
                             </div>
                             <div class="row">
                                 <div class="box">
-                                    <form [formGroup]="cityForm" (ngSubmit)="enviarTodo()">
+                                    <form (ngSubmit)="onSubmit()" [formGroup]="cityForm" autocomplete="off">
                                         <div class="form-group">
                                             <label>Ciudad:</label>
-                                            <input type="textbox" formControlName="ciudad" class="form-control" value="{{city.nombre}}">
+                                            <input type="textbox" name="ciudad" formControlName="ciudad"
+                                                class="form-control" value="{{this.service.formData.nombre}}">
+                                            <div *ngIf="cityForm.get('ciudad')?.invalid && (cityForm.get('ciudad')?.dirty || cityForm.get('ciudad')?.touched)"
+                                                class="alert alert-danger">
+                                                El nombre de la ciudad es requerido
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Código Postal</label>
-                                            <input type="textbox" formControlName="cp" class="form-control cp"  value="{{city.cp}}">
+                                            <input type="textbox" name="cp" class="form-control cp" formControlName="cp" (keyup)="corregido()" value="{{this.service.formData.cp}}">
+                                            <div *ngIf="cityForm.get('cp')?.invalid && (cityForm.get('cp')?.dirty || cityForm.get('cp')?.touched)" class="alert alert-danger">
+                                                El Código Postal de la ciudad es requerido
+                                            </div>
                                         </div>
+                        
+                        
                                         <div class="form-group">
                                             <label>Coordenadas</label>
                                             <div class="form-group">
                                                 <label class="col-md-3 control-label" for="latitude">Latitud</label>
                                                 <div class="col-md-9">
                                                     <label class="radio-inline">
-                                                        <input type="radio" formControlName="latnordsud" value="N" id="nord">
+                                                        <input type="radio" name="latnordsud" value="N" id="nord" formControlName="latnordsud">
                                                         N
                                                     </label>
                                                     &nbsp;&nbsp;&nbsp;
                                                     <label class="radio-inline">
-                                                        <input type="radio" formControlName="latnordsud" value="S" id="sud" checked="">
+                                                        <input type="radio" name="latnordsud" value="S" id="sud" checked="" formControlName="latnordsud">
                                                         S
                                                     </label>
-                                                    <input class="form-control sexagesimal" id="lat_grad" type="textbox" formControlName="lat_grad">
-                                                    <label for="lat_grad">°</label>
-                                                    <input class="form-control sexagesimalsec sexagesimal" id="lat_min" type="textbox" formControlName="lat_min">
-                                                    <label for="lat_min">'</label>
+                                                    
+                                                    <input class="form-control sexagesimal" id="latitude_degres" type="textbox" (keyup)="corregido()" formControlName="lat_grad">
+                                                    <label for="latitude_degres">°</label>
+                                                    <input class="form-control sexagesimalsec sexagesimal" id="latitude_minutes" type="textbox" (keyup)="corregido()" formControlName="lat_min">
+                                                    <label for="latitude_minutes">'</label>
                                                 </div>
                                             </div>
+                        
+                        
                                             <div class="form-group">
-                                                <label class="col-md-3 control-label" for="longitud">Longitud</label>
+                                                <label class="col-md-3 control-label" for="latitude">Longitud</label>
                                                 <div class="col-md-9">
                                                     <label class="radio-inline">
-                                                        <input type="radio" value="E" id="east" formControlName="longeo">
+                                                        <input type="radio" name="longeo" value="E" id="east" formControlName="longeo">
                                                         E
                                                     </label>
                                                     &nbsp;&nbsp;&nbsp;
                                                     <label class="radio-inline">
-                                                        <input type="radio" formControlName="longeo" value="O" id="west" checked="">
+                                                        <input type="radio" name="longeo" value="O" id="west" checked="" formControlName="longeo">
                                                         O
                                                     </label>
-                                                    <input class="form-control sexagesimal" id="long_grad" type="textbox" formControlName="long_grad">
-                                                    <label for="long_grad">°</label>
-                                                    <input class="form-control sexagesimal" id="long_min" type="textbox" formControlName="long_min">
-                                                    <label for="long_min">'</label>
+                                                    <input class="form-control sexagesimal" id="latitude_degres" type="textbox" (keyup)="corregido()" formControlName="long_grad" >
+                                                    <label for="latitude_degres">°</label>
+                                                    <input class="form-control sexagesimal" id="latitude_minutes" type="textbox" (keyup)="corregido()" formControlName="long_min" >
+                                                    <label for="latitude_minutes">'</label>
+                        
+                                                    
+                                                    <div *ngIf="( ((cityForm.get('latnordsud')?.invalid || cityForm.get('longeo')?.invalid) && (cityForm.get('lat_grad')?.touched||cityForm.get('lat_min')?.touched ||cityForm.get('long_grad')?.touched||cityForm.get('long_min')?.touched)    )) || (cityForm.get('lat_grad')?.invalid && (cityForm.get('lat_grad')?.dirty || cityForm.get('lat_grad')?.touched)) || (cityForm.get('lat_min')?.invalid && (cityForm.get('lat_min')?.dirty || cityForm.get('lat_min')?.touched))|| (cityForm.get('long_grad')?.invalid && (cityForm.get('long_grad')?.dirty || cityForm.get('long_grad')?.touched))|| (cityForm.get('long_min')?.invalid && (cityForm.get('long_min')?.dirty || cityForm.get('long_min')?.touched))" class="alert alert-danger">
+                                                        Las coordenadas son necesarias para agregar una ciudad.
+                        
+                                                        <!-- <div *ngIf="(cityForm.get('lat_grad')?.hasError('pattern'))||(cityForm.get('lat_min')?.hasError('pattern'))||(cityForm.get('long_grad')?.hasError('pattern'))||(cityForm.get('long_min')?.hasError('pattern'))">
+                                                            Solo se aceptan números
+                                                        </div> -->
+                                                    </div>
+                                            </div>
+                        
+                                            <div class="form-group">
+                                                <label>Descripción</label>
+                                                <textarea class="form-control" name="descripcion" formControlName="descripcion" [(ngModel)]="this.service.formData.descripcion">{{this.service.formData.descripcion}}</textarea>
+                                                
+                                                <div *ngIf="cityForm.get('descripcion')?.invalid && (cityForm.get('descripcion')?.dirty || cityForm.get('descripcion')?.touched)" class="alert alert-danger">
+                                                    Debe ingresar una breve descripcion de la ciudad.
                                                 </div>
+                                        </div>
+
+
                                                 <div class="form-group">
-                                                    <label>Descripción</label>
-                                                    <textarea class="form-control" formControlName="descripcion"></textarea>
+                                                    <label class="col-md-3 control-label" for="menu">Activo en menu:</label>
+                                                    <div class="col-md-9">
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="menu" value="0" id="0">
+                                                            SI
+                                                        </label>
+                                                        &nbsp;&nbsp;&nbsp;
+                                                        <label class="radio-inline">
+                                                            <input type="radio" name="menu" value="1" id="1" checked="">
+                                                            NO
+                                                        </label>
+                                                    </div>
                                                 </div>
+                                            <div class="form-group" >
+                                                    <!-- SI ESTA REGISTRADA -->
+                                                    <div *ngIf="errorc"  class="alert alert-danger" style="text-align: center;">
+                                                        <div>
+                                                            Ya se encuentra registrada una ciudad en esas coordenadas ({{this.coordenadasresp}}).
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                                 <div class="form-group">
-                                                    <button class="btn float-right btn-outline-success"
-                                                        style="margin-left: 5px;">Agregar</button>
+                                                    <button type="submit" class="btn float-right btn-outline-success" style="margin-left: 5px;"[disabled]="cityForm.invalid">Aceptar</button>
                                                     <a routerLink="/admcitys"><button class="btn float-right btn-outline-danger">Cancelar</button></a>
                                                 </div>
                                             </div>
-                                        </div>
+                                        
                                     </form>
                                 </div>
                             </div>
