@@ -43,10 +43,10 @@
                             </div>
                             <div class="row">
                                 <div class="box">
-                                    <form [formGroup]="cityForm" (ngSubmit)="enviarTodo()">
+                                    <form (ngSubmit)="onSubmit()" [formGroup]="cityForm" autocomplete="off">
                                         <div class="form-group">
                                             <label>Ciudad:</label>
-                                            <input type="textbox" formControlName="ciudad" class="form-control" value="{{city.nombre}}">
+                                            <input type="textbox" name="ciudad" formControlName="ciudad" class="form-control">
                                         </div>
                                         <div class="form-group">
                                             <label>Código Postal</label>
@@ -91,7 +91,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Descripción</label>
-                                                    <textarea class="form-control" formControlName="descripcion"></textarea>
+                                                    <textarea class="form-control" name="descripcion" formControlName="descripcion"></textarea>
                                                 </div>
                                                 <div class="form-group">
                                                     <button class="btn float-right btn-outline-success"
