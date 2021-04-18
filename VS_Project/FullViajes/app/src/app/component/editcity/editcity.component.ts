@@ -66,10 +66,10 @@ export class EditcityComponent implements OnInit {
         ciudad: this.city.nombre,
         cp:this.city.cp,
         descripcion: this.city.descripcion,
-        lat_grad:this.latit_grad,
-        //lat_min:this.latit_min,
-        //long_min:this.long_min,
-        //long_grad:this.long_grad,
+        //lat_grad:this.latit_grad,
+        lat_min:this.latit_min,
+        long_min:this.long_min,
+        long_grad:this.long_grad,
       }
     );
       }
