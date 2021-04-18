@@ -7,7 +7,8 @@
 h2 {
   text-align: center;
   margin-top: 20px;
-  transform: translateY(10px);
+  transform: translateY(-19px);
+  color: white;
 }
 
 .form-control{
