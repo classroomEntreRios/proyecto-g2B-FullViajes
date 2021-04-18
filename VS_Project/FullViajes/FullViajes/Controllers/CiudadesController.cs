@@ -56,6 +56,8 @@ namespace FullViajes.Controllers
 
 
         // PUT: api/Ciudades/5                      //MODIFICA UNA CIUDAD, RECIBE EL FORM Y EL ID
+        [Route("api/Ciudades/editar")]
+        [HttpPost]
         [ResponseType(typeof(void))]
         public IHttpActionResult PutCiudad(long id, Ciudad ciudad)
         {

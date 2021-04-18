@@ -27,6 +27,9 @@ export class CiudadesService {
   acceder(ciudad_id: string){
     return this.http.get(this.rootURL + '/Ciudades/GetCiudad/'+ ciudad_id)
   }
+  editar(formData:Ciudad, id: any){return this.http.post(this.rootURL + '/Ciudades/editar', formData, id);
+
+  }
  listar(){
    return this.http.get(this.rootURL+ '/Ciudades/GetCiudad')
  }

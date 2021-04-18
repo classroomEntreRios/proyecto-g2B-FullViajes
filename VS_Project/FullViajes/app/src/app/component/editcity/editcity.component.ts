@@ -67,7 +67,7 @@ export class EditcityComponent implements OnInit {
   insertRecord(){
    
   
-    this.service.postCiudad(this.service.formData).subscribe(
+    this.service.editar(this.service.formData,this.city_id).subscribe(
       res => {
         //MOSTRAR UN MENSAJE QUE SE GUARDO CORRECTAMENTE
         this.router.navigate(['/admcitys']);
