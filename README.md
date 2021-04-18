@@ -6,8 +6,6 @@ Quienes participan en este proyecto:
 <ul>
   <li type="square">Etulain Román</li>
   <li type="square">Gamarra Constanza</li>
-  <li type="square">Godoy Joel </li>
-  <li type="square">Gomez Darío </li>
   <li type="square"> Hernandez Alí </li>
   <li type="square">Herrera Matías </li>
 </ul>
