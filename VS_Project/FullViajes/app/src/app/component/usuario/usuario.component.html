@@ -1,4 +1,64 @@
+<div class="all" style="background-color: rgb(255, 255, 255);">
 <app-navbar></app-navbar>
+
+<div class="container-fluid" id="Containerprincipal">
+    <div class="row">
+      <div class="col-5 align-items-center" id="Imagen">
+        <img src="./../../../assets/Imagenes/sesion/Logo.png"  alt="logo full viajes" class="avatar rounded-circle my-4 p-1 d-none d-md-block shadow">
+      </div>
+
+      <div class="col-7 " style="background-color: rgb(255, 255, 255);" id="Bienvenido">
+          <strong>
+            <H2> Bienvenido!</H2>
+          </strong>
+          <div id="login">
+            <form #form="ngForm" (submit)="onSubmit(form)" autocomplete=off>
+              <div class="container">
+                <label><strong> E-Mail</strong> </label>
+                <input pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$" #email="ngModel" name="email"
+                  [(ngModel)]="service.formData.email" type="text" class="form-control" placeholder=" Ingrese E-mail Registrado"
+                  required>
+                <div [hidden]="email.valid || (email.pristine && !email.touched)" class="alert alert-danger">
+                  <div>
+                    El <strong>Correo electrónico</strong> es requerido. Y solo puede contener letras,
+                    numeros, puntos, guiones y guion bajo.
+                  </div>
+                </div>
+                <label for="psw" > <b>Contraseña</b></label>
+                <input #password="ngModel" name="password" [(ngModel)]="service.formData.password" type="password"
+                  class="form-control" placeholder="Ingrese su Contraseña" required pattern=".{4,12}$">
+                <div [hidden]="password.valid || (password.pristine && !password.touched)" class="alert alert-danger">
+                  <div>
+                    Debe ingresar su contraseña.
+                  </div>
+                </div>
+                <div *ngIf="error" class="alert alert-danger">
+                  <div>
+                    <strong>{{mensaje}}</strong>
+                  </div>
+                </div>
+                <button type="submit" style="margin-top: 10px;"
+                  class="btn btn-secondary botonregistrado" [disabled]="form.invalid"><strong>Ingresar</strong></button>
+                </div>  
+              
+            </form>
+            <div class="container" style="background-color:#f1f1f1">
+              <a routerLink="/"><button type="button" class="cancelbtn">Cancelar</button></a>
+              <button type="button" class="olvido">Olvidó la contraseña</button>
+              <a href="#" routerLink="/formulario"><button type="button"
+                  class="register" ><strong>Registrarse</strong></button></a>
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+</div>
+</div>
+
+
+
+<!-- Login anterior por si me la mando :) 
 <div id="login">
   <form #form="ngForm" (submit)="onSubmit(form)" autocomplete=off>
     <div class="container">
@@ -36,3 +96,5 @@
         class="register" ><strong>Registrarse</strong></button></a>
   </div>
 </div>
+-->
+
