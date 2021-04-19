@@ -40,6 +40,7 @@ import { EditcityComponent } from './component/editcity/editcity.component';
 import { PerfiladComponent } from './component/perfilad/perfilad.component';
 import { PerfiladeditComponent } from './component/perfiladedit/perfiladedit.component';
 import { UsersettingsComponent } from './component/usersettings/usersettings.component';
+import { AdminsettingsComponent } from './component/adminsettings/adminsettings.component';
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import { UsersettingsComponent } from './component/usersettings/usersettings.com
     PerfiladComponent,
     PerfiladeditComponent,
     UsersettingsComponent,
+    AdminsettingsComponent,
     
   ],
   imports: [
