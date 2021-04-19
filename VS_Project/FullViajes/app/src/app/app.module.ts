@@ -39,7 +39,9 @@ import { EdituserComponent } from './component/edituser/edituser.component';
 import { EditcityComponent } from './component/editcity/editcity.component';
 import { PerfiladComponent } from './component/perfilad/perfilad.component';
 import { PerfiladeditComponent } from './component/perfiladedit/perfiladedit.component';
-import { DashboardDefComponent } from './component/dashboard-def/dashboard-def.component';
+import { UsersettingsComponent } from './component/usersettings/usersettings.component';
+import { AdminsettingsComponent } from './component/adminsettings/adminsettings.component';
+
 
 @NgModule({
   declarations: [
@@ -74,7 +76,9 @@ import { DashboardDefComponent } from './component/dashboard-def/dashboard-def.c
     EditcityComponent,
     PerfiladComponent,
     PerfiladeditComponent,
-    DashboardDefComponent
+    UsersettingsComponent,
+    AdminsettingsComponent,
+    
   ],
   imports: [
     BrowserModule,

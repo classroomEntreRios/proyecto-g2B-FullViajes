@@ -1,0 +1,150 @@
+<div class="container-fluid" style="background-color: rgb(255, 255, 255);">
+    <div class="row min-vh-100 flex-column flex-md-row">
+        <aside class="col-12 col-md-2 col-xl-2  p-0  flex-shrink-1 " id="Sidebar">
+            <nav
+                class="navbar navbar-expand-md navbar-dark bd-dark flex-md-column flex-row py-2 text-center sticky-top">
+                <div class="align-items-center">
+                    <img src='./assets/Imagenes/logoside.png' alt="logo full viajes" id="logo"
+                        class="img-fluid rounded-circle my-4 p-1 d-none d-md-block shadow">
+                </div>
+                <button type="button" class="navbar-toggler border-0 order-1" data-toggle="collapse"
+                    data-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse prder-last" id="nav">
+                    <ul class="navbar-nav flex-column w-100 justify-content-center">
+                        <li class="nav-item">
+                            <a routerLink="/perfil" class="d-block p-3 text-light nav-link active"
+                                style="border-top: white solid 1px;background-color:#f17d39;"> <i
+                                    class="fas fa-user nr-4 "></i> Perfil </a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/ajustes" class="d-block p-3 text-light nav-link"> <i
+                                    class="fas fa-cog nr-4 "></i> Ajustes </a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/foro" class="d-block p-3 text-light nav-link"> <i
+                                    class="fas fa-bullhorn nr-4  "></i> Foro </a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/principal2" class="d-block p-3 text-light nav-link"
+                                style="border-top: white solid 1px;"> <i class="fas fa-home nr-4 "></i>Volver a
+                                página principal </a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/logout" class="d-block p-3 text-light nav-link"><i
+                                    class="fas fa-sign-out-alt nr-4 "></i> Cerrar Sesión </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+        <main class="col px-0 flex-grow-1">
+            <div class="container py-3">
+                <article>
+                    <div class="inner-content" style="background-color: rgb(255, 255, 255); "
+                        id="contenido">
+                        <!--Contenido-->
+                        <div class="container justify-content-center">
+                            <div class="row justify-content-center">
+                                <div class="box">
+                                    <strong>
+                                        <h2 class="pass">
+                                            Cambiar contraseña
+                                        </h2>
+                                    </strong>
+                                    <strong>
+                                        <h5 >
+                                            Ingrese contraseña actual
+                                        </h5>
+                                    </strong>
+                                    <div class="form-floating">
+                                        <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña actual">
+                                        <label for="floatingPassword"></label>
+                                    </div>
+
+                                    <strong>
+                                        <h5 >
+                                            Ingrese nueva contraseña
+                                        </h5>
+                                    </strong>
+
+                                    <div class="form-floating">
+                                        <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña nueva">
+                                        <label for="floatingPassword"></label>
+                                    </div>
+
+                                    <strong>
+                                        <h5 >
+                                            Repita nueva contraseña
+                                        </h5>
+                                    </strong>
+
+                                    <div class="form-floating">
+                                        <input type="password" class="form-control" id="floatingPassword" placeholder="Repita contraseña nueva">
+                                        <label for="floatingPassword"></label>
+                                    </div>
+                                </div>
+                                <div class="box">
+                                    <strong>
+                                        <h2 class="mail">
+                                            Cambios varios
+                                        </h2>
+                                    </strong>
+                                    <strong>
+                                        <h5 >
+                                            NickName
+                                        </h5>
+                                    </strong>
+                                    <div class="form-floating">
+                                        <input  class="form-control"  placeholder="@NickName">
+                                        <label></label>
+                                    </div>
+                                    <strong>
+                                        <h5 >
+                                            Email
+                                        </h5>
+                                    </strong>
+                                    <div class="form-floating mb-3">
+                                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                        <label for="floatingInput"></label>
+                                    </div>
+                                   
+                                </div>
+                                <div class="box" id="Inactivar">
+                                    <strong>
+                                        <h2 class="inactivarh2">
+                                            Desactivar/Eliminar cuenta
+                                        </h2>
+                                    </strong>
+                                    <div class="row justify-content-center">
+                                    <div class="col-6 justify-content-center" >
+                                    <button class="desactivar  btn btn-success" style="margin-top: 15px; ">
+                                        Desactivar
+                                    </button>
+                                    </div>
+                                    <div class="col-6 justify-content-center" >
+                                        <button class="baja btn btn-success" id="Baja"   style="margin-top: 15px;">
+                                            Solicitar la baja
+                                        </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <button class="changes btn btn-success ">
+                                    Guardar Cambios
+                                </button>
+                             </div>
+                        </div>
+                     
+                    </div>
+
+                </article>
+            </div>
+            <div class="text-center p-3 col-12" id="Footer" style="background-color: #f15d39;padding-top: 10 px;">
+                <strong>
+                    <p style="color:white;">© 2021 Copyright: Grupo 2B.</p>
+                </strong>
+            </div>
+        </main>
