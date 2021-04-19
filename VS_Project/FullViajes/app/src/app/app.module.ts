@@ -41,6 +41,7 @@ import { PerfiladComponent } from './component/perfilad/perfilad.component';
 import { PerfiladeditComponent } from './component/perfiladedit/perfiladedit.component';
 import { UsersettingsComponent } from './component/usersettings/usersettings.component';
 import { AdminsettingsComponent } from './component/adminsettings/adminsettings.component';
+import { CitiesviewComponent } from './component/citiesview/citiesview.component';
 
 
 @NgModule({
@@ -78,6 +79,7 @@ import { AdminsettingsComponent } from './component/adminsettings/adminsettings.
     PerfiladeditComponent,
     UsersettingsComponent,
     AdminsettingsComponent,
+    CitiesviewComponent,
     
   ],
   imports: [

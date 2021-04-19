@@ -1,4 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); 
+
 .abs-center {
     display: flex;
     align-items: center;
@@ -15,7 +18,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Roboto', sans-serif;
   
     background-color: transparent(238, 105, 105);
 }
