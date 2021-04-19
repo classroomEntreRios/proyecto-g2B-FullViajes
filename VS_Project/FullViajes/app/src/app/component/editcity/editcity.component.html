@@ -77,9 +77,9 @@
                                                         S
                                                     </label>
                                                     
-                                                    <input class="form-control sexagesimal" id="latitude_degres" type="textbox" (keyup)="corregido()" formControlName="lat_grad">
+                                                    <input class="form-control sexagesimal" id="latitude_degres" type="textbox" (keyup)="corregido()" formControlName="lat_grad" [(ngModel)]="this.cityForm.value.lat_grad" value={{this.cityForm.value.lat_grad}}>
                                                     <label for="latitude_degres">°</label>
-                                                    <input class="form-control sexagesimalsec sexagesimal" id="latitude_minutes" type="textbox" (keyup)="corregido()" formControlName="lat_min">
+                                                    <input class="form-control sexagesimalsec sexagesimal" id="latitude_minutes" type="textbox" (keyup)="corregido()" formControlName="lat_min" [(ngModel)]="this.cityForm.value.lat_min" value={{this.cityForm.value.lat_min}}>
                                                     <label for="latitude_minutes">'</label>
                                                 </div>
                                             </div>
@@ -97,9 +97,9 @@
                                                         <input type="radio" name="longeo" value="O" id="west" checked="" formControlName="longeo">
                                                         O
                                                     </label>
-                                                    <input class="form-control sexagesimal" id="latitude_degres" type="textbox" (keyup)="corregido()" formControlName="long_grad" >
+                                                    <input class="form-control sexagesimal" id="latitude_degres" type="textbox" (keyup)="corregido()" formControlName="long_grad" [(ngModel)]="this.cityForm.value.long_grad" value={{this.cityForm.value.long_grad}}>
                                                     <label for="latitude_degres">°</label>
-                                                    <input class="form-control sexagesimal" id="latitude_minutes" type="textbox" (keyup)="corregido()" formControlName="long_min" >
+                                                    <input class="form-control sexagesimal" id="latitude_minutes" type="textbox" (keyup)="corregido()" formControlName="long_min" [(ngModel)]="this.cityForm.value.long_min" value={{this.cityForm.value.long_min}}>
                                                     <label for="latitude_minutes">'</label>
                         
                                                     

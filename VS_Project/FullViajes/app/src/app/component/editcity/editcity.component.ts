@@ -28,7 +28,13 @@ export class EditcityComponent implements OnInit {
   errorc=false;
   coordenadas="";
   coordenadasresp="";
-
+  latnordsud="";
+  coordenadasrecibida:any;
+  lat_grad="";
+  lat_min="";
+  longeo="";
+  long_grad="";
+  long_min="";
   constructor(private formBuilder: FormBuilder,public service: CiudadesService, private router: Router, private _route:ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -40,10 +46,32 @@ export class EditcityComponent implements OnInit {
     this.service.acceder(this.city_id).subscribe(
       (ciudad: any) => {
         this.service.formData=ciudad;
+        this.coordenadasrecibida=this.service.formData.coordenadas.split(" ");
+        this.latnordsud=this.coordenadasrecibida[1].toString();
+        this.longeo=this.coordenadasrecibida[0].toString();
+        this.coordenadasrecibida=this.latnordsud.split("°");
+        this.lat_grad=this.coordenadasrecibida[0].toString();
+        this.latnordsud=this.coordenadasrecibida[1].toString();
+        this.coordenadasrecibida=this.latnordsud.split("'");
+        this.lat_min=this.coordenadasrecibida[0].toString();
+        this.latnordsud=this.coordenadasrecibida[1].toString();
+        this.latnordsud=this.latnordsud.substr(-1);
+        this.coordenadasrecibida=this.longeo.split("°");
+        this.long_grad=this.coordenadasrecibida[0].toString();
+        this.longeo=this.coordenadasrecibida[1].toString();
+        this.coordenadasrecibida=this.longeo.split("'");
+        this.long_min=this.coordenadasrecibida[0].toString();
+        this.longeo=this.coordenadasrecibida[1].toString();
+        this.longeo=this.longeo.substr(-1);
+
+        this.cityForm.value.lat_grad=this.lat_grad;
+     
+
       }
     );
     
-  }onSubmit():void{
+  }
+  onSubmit():void{
 
     this.coordenadas=this.cityForm.value.lat_grad+"°"+this.cityForm.value.lat_min+"'"+this.cityForm.value.latnordsud+" "+ this.cityForm.value.long_grad+"°"+this.cityForm.value.long_min+"'"+this.cityForm.value.longeo;
     this.coordenadasresp=this.cityForm.value.lat_grad+"°"+this.cityForm.value.lat_min+"'"+this.cityForm.value.latnordsud+" "+ this.cityForm.value.long_grad+"°"+this.cityForm.value.long_min+"'"+this.cityForm.value.longeo;
