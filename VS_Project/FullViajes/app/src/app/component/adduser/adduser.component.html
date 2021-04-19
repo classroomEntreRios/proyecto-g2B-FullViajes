@@ -43,47 +43,61 @@
                             </div>
                             <div class="row">
                                 <div class="box">
-                                    <form>
+                                    <form (ngSubmit)="onSubmit()" [formGroup]="userForm" autocomplete="off">
                                         <div class="form-group">
                                             <label>Nickname:</label>
-                                            <input type="textbox" name="nickname" class="form-control">
+                                            <input type="textbox" name="nickname" class="form-control" formControlName="nickname">
+                                            <div *ngIf="userForm.get('nickname')?.invalid && (userForm.get('nickname')?.dirty || userForm.get('nickname')?.touched)" class="alert alert-danger">
+                                <div>
+                                    El <strong>Nombre de Usuario</strong> es requerido y debe ser entre 4 y 16 dígitos
+                                    (puede incluir letras, números y guión bajo).
+                                </div>
+                            </div>
+
+                            
+                                            <!-- SI ESTA USADO -->
+                            <div *ngIf="erroru" class="alert alert-danger">
+                                <div>
+                                     El Nombre de Usuario ya se encuentra registrado.
+                                </div>
+                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Nombre:</label>
-                                            <input type="textbox" name="nombre" class="form-control">
+                                            <input type="textbox" name="nombre" class="form-control" formControlName="nombre">
                                         </div>
                                         <div class="form-group">
                                             <label>Apellido:</label>
-                                            <input type="textbox" name="apellido" class="form-control">
+                                            <input type="textbox" name="apellido" class="form-control" formControlName="apellido">
                                         </div>
                                         <div class="form-group">
                                             <label>Email:</label>
-                                            <input type="textbox" name="email" class="form-control">
+                                            <input type="textbox" name="email" class="form-control" formControlName="email">
                                         </div>
                                         <div class="form-group">
                                             <label>Contraseña:</label>
-                                            <input type="textbox" name="password" class="form-control">
+                                            <input type="textbox" name="password" class="form-control" formControlName="password">
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-3 control-label" for="latitude">Rol</label>
                                             <div class="col-md-9">
                                                 <label class="radio-inline">
-                                                    <input type="radio" name="rol" value="0" id="0">
+                                                    <input type="radio" name="rol" value="0" id="0" formControlName="rol">
                                                     Administrador
                                                 </label>
                                                 &nbsp;&nbsp;&nbsp;
                                                 <label class="radio-inline">
-                                                    <input type="radio" name="rol" value="1" id="1" checked="">
+                                                    <input type="radio" name="rol" value="1" id="1" checked="" formControlName="rol">
                                                     Usuario
                                                 </label>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Descripción</label>
-                                            <textarea class="form-control" name="descripcion"></textarea>
+                                            <textarea class="form-control" name="descripcion" formControlName="descripcion"></textarea>
                                         </div>
                                         <div class="form-group">
-                                            <button class="btn float-right btn-outline-success" style="margin-left: 5px;">Agregar</button>
+                                            <button type="submit" class="btn float-right btn-outline-success" style="margin-left: 5px;"[disabled]="userForm.invalid">Agregar</button>
                                             <a routerLink="/admusers"><button class="btn float-right btn-outline-danger">Cancelar</button></a>
                                         </div>
                                     </form>
