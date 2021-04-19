@@ -1,7 +1,7 @@
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { CiudadesService } from 'src/app/services/ciudades.service';
-import { Router } from '@angular/router'; 
+import {ActivatedRoute, Router } from '@angular/router'; 
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { compileDeclarePipeFromMetadata } from '@angular/compiler';
 
@@ -40,9 +40,7 @@ export class AddcityComponent implements OnInit {
 
 
 onSubmit():void{
-  //ARMO EL STRING DE COORDENADAS
-  // if (this.cityForm.invalid){this.cityForm.markAllAsTouched();}
-  // this.cityForm.reset();
+
   this.coordenadas=this.cityForm.value.lat_grad+"°"+this.cityForm.value.lat_min+"'"+this.cityForm.value.latnordsud+" "+ this.cityForm.value.long_grad+"°"+this.cityForm.value.long_min+"'"+this.cityForm.value.longeo;
   this.coordenadasresp=this.cityForm.value.lat_grad+"°"+this.cityForm.value.lat_min+"'"+this.cityForm.value.latnordsud+" "+ this.cityForm.value.long_grad+"°"+this.cityForm.value.long_min+"'"+this.cityForm.value.longeo;
 
