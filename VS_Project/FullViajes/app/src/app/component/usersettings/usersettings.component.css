@@ -1,0 +1,46 @@
+#Sidebar {
+    background-color: #f15d39!important;
+  }
+  
+  a {
+    text-decoration:none ;
+  }
+  
+  a:hover {
+    background-color: #f17d39;
+    color: white!important;
+  }
+
+  .box{
+    width: 450px;
+    height: 350px;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid rgba(177, 177, 177, 0.933);
+    border-radius: 15px ;
+    text-align: justify;
+    margin-top: 200 px;
+    position:relative; /* Para que exista relacion entre sus divs*/
+    background-color:white;
+  }
+    
+  #Inactivar {
+      width: 900px;
+      height: 150px;
+  }
+
+  @media only screen and (max-width: 600px)  {
+    h2{
+        font-size: 23px;
+    }
+    #Sidebar{
+        max-width: 100vh;
+    }
+
+    #Inactivar{
+        width: 300px;
+    }
+    .box{
+        width: 300px;
+    }
+  }
