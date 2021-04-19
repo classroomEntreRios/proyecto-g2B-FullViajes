@@ -20,6 +20,8 @@ import { EdituserComponent } from './component/edituser/edituser.component';
 import { EditcityComponent } from './component/editcity/editcity.component';
 import { PerfiladComponent } from './component/perfilad/perfilad.component';
 import { PerfiladeditComponent } from './component/perfiladedit/perfiladedit.component';
+import { AdminsettingsComponent } from './component/adminsettings/adminsettings.component';
+import { UsersettingsComponent } from './component/usersettings/usersettings.component';
 
 
 const routes: Routes = [
@@ -29,6 +31,8 @@ const routes: Routes = [
   {path:'dashboard', component: DashboardComponent},
   {path:'perfiledit', component: PerfileditComponent},
   {path:'perfiladedit', component: PerfiladeditComponent},
+  {path:'ajustes', component: UsersettingsComponent},
+  {path:'ajustesad', component: AdminsettingsComponent},
   {path:'logout', component: LogoutComponent},
   {path:'perfil', component: PerfilComponent},
   {path:'perfilad', component: PerfiladComponent},

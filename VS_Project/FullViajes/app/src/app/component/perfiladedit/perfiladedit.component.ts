@@ -9,6 +9,11 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class PerfiladeditComponent implements OnInit {
   user_id="";
+  nickname="";
+  mail='';
+  ApeNom='';
+  descripcion='';
+  user_img='';
   user:any;
 
   constructor(public service: UsuarioService, private router: Router) { }

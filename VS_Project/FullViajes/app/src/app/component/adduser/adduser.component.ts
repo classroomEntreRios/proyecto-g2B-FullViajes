@@ -10,14 +10,15 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./adduser.component.css']
 })
 export class AdduserComponent implements OnInit {
+  emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";
   erroru = false;
   errorc = false;
   userForm: FormGroup = this.formBuilder.group({
-    nickname: ['', Validators.required],
-    nombre: ['', Validators.required],
-    apellido: ['', Validators.required],
+    nickname: ['', Validators.required, Validators.pattern("^[a-z0-9_-]{8,15}$/")],
+    nombre: ['', Validators.required, Validators.pattern("/^[a-zA-Z\_\-]{4,16}$/")],
+    apellido: ['', Validators.required, Validators.pattern("/[a-zA-Z0-9\_\-]{4,16}$/")],
     password: ['', Validators.required],
-    email: ['', Validators.required, Validators.pattern("/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$/")],
+    email: ['', Validators.required, Validators.pattern(this.emailPattern)],
     rol: ['', Validators.required],
     descripcion: ['']
   });
@@ -57,9 +58,9 @@ export class AdduserComponent implements OnInit {
       },
       (err: HttpErrorResponse) => {
 
-        var MensajeError = err.error.ModelState.Error;
-        
-        console.log(MensajeError);
+        var MensajeError = err.error.ModelState.toString();
+        //console.log(err);
+       console.log(MensajeError);
         if (MensajeError == "EL MAIL YA SE ENCUENTRA EN LA BASE DE DATOS") {
           this.errorc = true;
           this.userForm.reset();

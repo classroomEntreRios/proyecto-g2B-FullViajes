@@ -37,42 +37,38 @@
                     <div class="inner-content" style="background-color: rgb(255, 255, 255); height: 1300px;"
                         id="contenido">
                         <!--Contenido-->
-                        <div class="box">
-                            <h2>Información General</h2>
-                            <form>
-                                <div class="form-group" id="name-form">
-                                    <label class="form-label">Nombre: </label>
-                                    <input type="text" id="nombre" name="nombre" class="form-control"
-                                        value="{{user.nombre}}" />
+                        <div class="inner-content" style="background-color: rgb(255, 255, 255); height: 1300px;" id="contenido">
+                            <div class="portada">
+                                <img src='{{user_img}}' class="img-fluid rounded-circle avatar nr-2"  >
+                                <h2 id= "Name" style="margin-top: 105px;">{{ApeNom}}</h2> 
+                                <h5 id="Nickname">@{{nickname}}</h5>
+                                <div>
+                                    <div class="float-right">
+                                        <a class="nav-link" routerLink="/perfiladedit">
+                                            <button style="background-color: turquoise!important;"><i class="fas fa-edit"></i>
+                                                Editar Datos
+                                            </button>
+                                        </a>
+                                    </div>
+                                    </div>
+                                <div class="info">
+                                    <div class="box">
+                                        <h2 id="h2box">Información</h2>
+                                        <br>
+                                        <p > General </p>
+                                        <p><i class="fas fa-user"></i> Nombre: {{ApeNom}} </p>
+                                        <p><i class="far fa-envelope"></i> Email: {{mail}} </p>
+                                        <p>Redes sociales (opcional)</p>
+                                        <p><i class="fab fa-instagram">  </i> Instagram: </p>
+                                        <p><i class="fab fa-twitter"></i> Twitter:</p>
+                                    </div>
+                                    <div class="box aboutme ">
+                                        <h2 id="h2box">Descripción</h2>
+                                        <br>
+                                        <p>{{descripcion}}</p>
+                                    </div>
                                 </div>
-                                <div class="form-group" id="name-form">
-                                    <label class="form-label">Apellido: </label>
-                                    <input type="text" id="apellido" name="apellido" class="form-control"
-                                        value="{{user.apellido}}" />
-                                </div>
-                                <div class="form-group" id="name-form">
-                                    <label class="form-label">Descripción: </label>
-                                    <textarea class="form-control">{{user.user_descripcion}}</textarea>
-                                </div>
-                                <div class="float-right">
-                                    <button type="submit" class="acp btn" id="ButtonEnviar">Enviar</button>
-                                    <button type="cancel" class="acc btn" id="ButtonEnviar">Cancelar</button>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="box">
-                            <h2>Imágen de Perfil</h2>
-                            <p class="float-right">
-                                <img src="{{user.user_foto}}" class="rounded profile" />
-                            </p>
-                            <form>
-                                <div class="form-group">
-                                    <label class="form-label">Imagen de Perfil: </label>
-                                    <input type="text" id="imagen" name="imagen" class="form-control"
-                                        value="{{user.user_foto}}" />
-                                </div>
-                                <button type="submit" class="acp btn" id="ButtonEnviar">Subir</button>
-                            </form>
+                            </div>
                         </div>
                         <!--Fin Contenido-->
                     </div>
