@@ -6,7 +6,10 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ClimaService {
 
-  apiKey: string = 'PUZYPGRF29CQYT4DPT8GGDTEE';
+  //apiKey: string = 'PUZYPGRF29CQYT4DPT8GGDTEE';
+  
+  //api matias1
+  apiKey: string = '75J9942ASWZK3GMXMEA9SCPS9';
   URIvisualCrossing = '';
 
   constructor(private http: HttpClient) {
