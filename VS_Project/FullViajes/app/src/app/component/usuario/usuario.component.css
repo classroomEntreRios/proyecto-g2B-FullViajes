@@ -1,3 +1,47 @@
+#Containerprincipal {
+  background-color: white;
+  height: 400px;
+  transform: translateY(70px);
+}
+
+h2 {
+  text-align: center;
+  margin-top: 20px;
+  transform: translateY(-19px);
+  color: white;
+}
+
+.form-control{
+ border-radius: 20px;
+
+}
+
+#Bienvenido{
+  justify-content: center;
+}
+
+#Imagen {
+  background-image: url(./../../../assets/Imagenes/sesion/Gentefeliz.jpg) ;
+  background-size: cover;
+  height: 550px;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar {
+  height: 250px;
+  margin-left: 150px;
+  transform: translateY(100px);
+  width: 250px; 
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.212)!important;
+}
+
+
+.botonregistrado {
+  border-radius: 10px;
+  width: 150px;
+}
+
 input[type=text], input[type=password] {
   width: 100%;
   padding: 12px 20px;
@@ -9,7 +53,7 @@ input[type=text], input[type=password] {
 
 /* Set a style for all buttons */
 button {
-  background-color: #4CAF50;
+  background-color: #caec58;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -78,7 +122,7 @@ span.psw {
 
 .close:hover,
 .close:focus {
-  color: red;
+  color:#f15d39;
   cursor: pointer;
 }
 
@@ -109,11 +153,19 @@ span.psw {
   }
 }
 .register{
-  background-color: #f15d39;
+  background-color: #20c3ec;
+  border-radius: 10px;
 }
 .olvido{
-  background-color: grey; 
+  background-color: #caec58; 
   margin-left: 10px;
   width: 35%;
   padding: 10px 18px;
+}
+
+ .olvido{
+  border-radius: 10px;
+}
+.cancelbtn {
+  border-radius: 10px;
 }

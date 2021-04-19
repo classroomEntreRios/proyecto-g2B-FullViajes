@@ -12,6 +12,7 @@ import { compileDeclarePipeFromMetadata } from '@angular/compiler';
   styleUrls: ['./editcity.component.css']
 })
 export class EditcityComponent implements OnInit {
+
   city_id="";
   cityForm: FormGroup = this.formBuilder.group({
     ciudad: ['', Validators.required],
@@ -28,6 +29,7 @@ export class EditcityComponent implements OnInit {
   errorc=false;
   coordenadas="";
   coordenadasresp="";
+  // a cambiar
   latnordsud="";
   coordenadasrecibida:any;
   lat_grad="";
@@ -35,8 +37,21 @@ export class EditcityComponent implements OnInit {
   longeo="";
   long_grad="";
   long_min="";
-  constructor(private formBuilder: FormBuilder,public service: CiudadesService, private router: Router, private _route:ActivatedRoute) { }
+// fin a cambiar
 
+
+  // city:any;
+  // splitted:any;
+  // longit:string="";
+  // long_grad:string="";
+  // long_min:string="";
+  // latit:string="";
+  // latit_grad:string="";
+  // latit_min:string="";
+
+
+  constructor(private formBuilder: FormBuilder,public service: CiudadesService, private router: Router, private _route:ActivatedRoute) { }
+  
   ngOnInit(): void {
     this.cityForm.reset();  
     this.errorc=false;
@@ -45,6 +60,7 @@ export class EditcityComponent implements OnInit {
     this.city_id = this._route.snapshot.paramMap.get('id')!;
     this.service.acceder(this.city_id).subscribe(
       (ciudad: any) => {
+// <<<<<<< HEAD
         this.service.formData=ciudad;
         this.coordenadasrecibida=this.service.formData.coordenadas.split(" ");
         this.latnordsud=this.coordenadasrecibida[1].toString();
@@ -67,10 +83,44 @@ export class EditcityComponent implements OnInit {
         this.cityForm.value.lat_grad=this.lat_grad;
      
 
+// =======
+    //     this.city=ciudad;
+    //     this.splitted = this.city.coordenadas.split(" "); 
+    //     this.longit=this.splitted[1].toString();
+    //     this.latit=this.splitted[0].toString();
+    //     this.splitted = this.longit.split("°");
+    //     this.long_grad=this.splitted[0].toString();
+    //     this.longit= this.splitted[1].toString(); 
+    //     this.splitted = this.longit.split("'");
+    //     this.long_min=this.splitted[0].toString();
+    //     this.splitted = this.latit.split("°");
+    //     this.latit_grad=this.splitted[0].toString();
+    //     this.latit= this.splitted[1].toString(); 
+    //     this.splitted = this.latit.split("'");
+    //     this.latit_min=this.splitted[0].toString();
+    // /*console.log(this.splitted[1].toString())*/
+    // console.log(this.long_min);
+    // console.log(this.long_grad);
+    // console.log(this.latit_min);
+    // console.log(this.latit_grad);
+    // this.cityForm.patchValue(
+    //   {
+        
+    //     ciudad: this.city.nombre,
+    //     cp:this.city.cp,
+    //     descripcion: this.city.descripcion,
+    //     //lat_grad:this.latit_grad,
+    //     lat_min:this.latit_min,
+    //     long_min:this.long_min,
+    //     long_grad:this.long_grad,
+// >>>>>>> 33f7c7a3e34026468929d65a91c2532a5f178c25
+   
       }
-    );
+    );   
+    
     
   }
+
   onSubmit():void{
 
     this.coordenadas=this.cityForm.value.lat_grad+"°"+this.cityForm.value.lat_min+"'"+this.cityForm.value.latnordsud+" "+ this.cityForm.value.long_grad+"°"+this.cityForm.value.long_min+"'"+this.cityForm.value.longeo;
@@ -137,6 +187,7 @@ export class EditcityComponent implements OnInit {
   // solonumero(supuestonumero:any) {
   //   return /^[0-9]+$/gi.test(supuestonumero);
   // };
+
   
   corregido(){
     this.errorc=false;

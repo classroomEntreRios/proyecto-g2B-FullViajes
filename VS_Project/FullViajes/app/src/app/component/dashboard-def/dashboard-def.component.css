@@ -1,0 +1,39 @@
+
+  .card{
+    border: 3px solid rgba(177, 177, 177, 0.933);
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder; 
+    border-radius: 10px ;
+  }
+  .card:hover{
+    background: black;
+  }
+  .card a:hover {
+    color: white;
+  }
+  .card a{
+    color: #f17d39;
+  }
+  .container{
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    transform: translateY(-0px);
+  }
+  #Sidebar {
+    background-color: #f15d39!important;
+  }
+  
+  a {
+    text-decoration:none ;
+  }
+  
+  a:hover {
+    background-color: #f17d39;
+    color: white!important;
+  }

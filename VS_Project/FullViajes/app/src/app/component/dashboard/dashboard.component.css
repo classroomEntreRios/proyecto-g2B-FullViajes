@@ -6,7 +6,7 @@
    
   }
   .card{
-    border: 3px solid rgba(177, 177, 177, 0.933);
+    border: 2px solid rgba(177, 177, 177, 0.933);
     text-align: center;
     margin: 10px;
     padding: 10px;
@@ -15,6 +15,13 @@
     align-items: center;
     font-weight: bolder; 
     border-radius: 10px ;
+    height: 250px;
+    width: 300px;
+  
+  }
+
+  .card i {
+    font-size: 100px;
   }
   .card:hover{
     background: black;
@@ -27,13 +34,15 @@
   }
   .container{
     width: 100%;
-    margin-left:50px;
-    margin-top:40px;
     justify-content: center;
     flex-wrap: wrap;
   }
   #Sidebar {
     background-color: #f15d39!important;
+  }
+
+  .card a{
+    font-size: 20px;
   }
   
   a {
@@ -44,3 +53,35 @@
     background-color: #f17d39;
     color: white!important;
   }
+
+  @media only screen and (max-width: 850px)  {
+    .card{
+        
+      width: 200px;
+      height: 120px;
+      margin-top: 15px;
+    }
+
+      .card i{
+        font-size: 70px;
+      }
+
+     
+  }
+
+  @media only screen and (max-width: 500px)  {
+
+    .card{
+        
+       width: 200px;
+       height: 150px;
+       margin-top: 15px;
+      
+
+    }
+
+   .card i{
+      font-size: 70px;
+    }
+  }
+

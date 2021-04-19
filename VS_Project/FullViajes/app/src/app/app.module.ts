@@ -39,6 +39,7 @@ import { EdituserComponent } from './component/edituser/edituser.component';
 import { EditcityComponent } from './component/editcity/editcity.component';
 import { PerfiladComponent } from './component/perfilad/perfilad.component';
 import { PerfiladeditComponent } from './component/perfiladedit/perfiladedit.component';
+import { DashboardDefComponent } from './component/dashboard-def/dashboard-def.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +73,8 @@ import { PerfiladeditComponent } from './component/perfiladedit/perfiladedit.com
     EdituserComponent,
     EditcityComponent,
     PerfiladComponent,
-    PerfiladeditComponent
+    PerfiladeditComponent,
+    DashboardDefComponent
   ],
   imports: [
     BrowserModule,

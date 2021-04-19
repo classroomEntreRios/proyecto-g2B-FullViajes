@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" style="background-color: white;">
     <div class="row min-vh-100 flex-column flex-md-row">
         <aside class="col-12 col-md-3 col-xl-2 p-0 flex-shrink-1" id="Sidebar">
             <nav
@@ -43,11 +43,12 @@
         <main class="col px-0 flex-grow-1">
             <div class="container py-3">
                 <article>
-                    <div class="inner-content" style="background-color: rgb(255, 255, 255); height: 1300px;"
+                    <div class="inner-content" style="background-color: rgb(255, 255, 255);"
                         id="contenido">
                                         <!--Contenedor-->
                                    <div class="box">
-                        <h2>Información General</h2>
+                        <h2 style="text-align: center;">Información General</h2>
+                        <br>
                         <form>
                             <div class="form-group" id="name-form">
                                 <label class="form-label">Nombre: </label>
@@ -70,7 +71,8 @@
                         </form>
                     </div>
                     <div class="box">
-                        <h2>Imágen de Perfil</h2>
+                        <h2 style="text-align: center;">Imágen de Perfil</h2>
+                        <br>
                         <p class="float-right">
                             <img src="{{user.user_foto}}" class="rounded profile" />
                         </p>
@@ -90,13 +92,13 @@
 
                 </article>
             </div>
-            <div class="text-center p-3 col-12" id="Footer" style="background-color: #f15d39;padding-top: 10 px;">
-                <strong>
-                    <p style="color:white;">© 2021 Copyright: Grupo 2B.</p>
-                </strong>
-            </div>
+            
         </main>
-
+        <div class="text-center p-3 col-12" id="Footer" style="background-color: #f15d39;padding-top: 10 px;">
+            <strong>
+                <p style="color:white;">© 2021 Copyright: Grupo 2B.</p>
+            </strong>
+        </div>
     </div>
 </div>
 
