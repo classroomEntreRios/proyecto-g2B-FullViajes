@@ -42,14 +42,31 @@ namespace FullViajes.Controllers
         [ResponseType(typeof(void))]
         public IHttpActionResult Editar(long id, Usuario usuario)
         {
+            string MensajeError = "Error";
             Usuario user = db.Usuario.Where(a => a.id_usuario == id).FirstOrDefault();
             if (user != null)
             {
-                user.active = usuario.active;
+               /*
+                //CHEQUEA QUE EL MAIL NO ESTA EN USO
+                Usuario emailcheck = db.Usuario.Where(a => a.email == usuario.email).FirstOrDefault();
+                if (emailcheck != null)
+                {
+                    MensajeError = "El email " + usuario.email + " ya se encuentra registrado";
+                    return BadRequest(MensajeError);
+                }
+                //CHEQUEA QUE EL NOMBRE DE USUARIO NO ESTE EN USO
+                Usuario usercheck = db.Usuario.Where(a => a.nickname == usuario.nickname).FirstOrDefault();
+                if (usercheck != null)
+                {
+                    MensajeError = "El usuario " + usuario.nickname + " ya se encuentra registrado";
+                    return BadRequest(MensajeError);
+                }
+                */
                 user.nickname = usuario.nickname;
                 user.nombre = usuario.nombre;
                 user.apellido = usuario.apellido;
                 user.email = usuario.email;
+                user.rol = usuario.rol;
                 user.user_descripcion = usuario.user_descripcion;
                 db.Entry(user).State = EntityState.Modified;
 
