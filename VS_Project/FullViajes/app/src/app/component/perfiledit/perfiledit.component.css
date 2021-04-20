@@ -1,0 +1,97 @@
+ .box{
+    max-width: 100%;
+    min-width: 40%;
+    min-height: 350px;
+    margin: 10px;
+    padding: 15px;
+    border: 1px solid rgba(177, 177, 177, 0.933);
+    border-radius: 15px ;
+    text-align: justify;
+    overflow:initial;
+    position:relative; /* Para que exista relacion entre sus divs*/
+    background-color: #eaeaea;
+    transform: translateY(-10px);
+  
+  }
+
+  .acp{
+    background: #caec58;
+    font-weight: bold;
+    color: white;
+    border-radius: 10px;
+    transition: 0.5s all;
+  }
+
+  .acp:hover {
+    background: white;
+    font-weight: bold;
+    border: 2px solid #caec58!important;
+    color: #caec58 ;
+  }
+
+  .acc{
+    margin-left: 5px;
+    background:#ee4b60;
+    color:white;
+    font-weight: bold;
+    border-radius: 10px;
+  }
+
+  .acc:hover {
+    background:white;
+    color:#ee4b60;
+    border:#ee4b60 solid 2px;
+  }
+.form-label{
+  padding-bottom: 5px;
+  font-weight: bold;
+}
+  h2{
+    color:#f15d39;
+    text-transform: capitalize;
+    font-style: oblique;
+    font-weight: bolder;
+  }
+
+  form-control{
+    width: 90%  !important;
+  }
+  
+  .info{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .inner-content {
+    
+    background:#ffffff;
+    display: flex;
+    flex-wrap: wrap;
+    max-height: 50%;
+    align-items: center;
+    text-align: center;
+    width:100%;
+    justify-content: center;
+  }
+  .profile{
+    max-width: 150px;
+  }
+  #Sidebar {
+    background-color: #f15d39!important;
+  }
+  
+  a {
+    text-decoration:none ;
+  }
+  
+  a:hover {
+    background-color: #f17d39;
+    color: white!important;
+  }
+  
+
+  
+  .Footer {
+    transform: translateY(150px);
+  }

@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); 
+
+.abs-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  .loading{
+    max-width: 80%;
+  }
+
+  /*Estilo Generales*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+  
+    background-color: transparent(238, 105, 105);
+}
+
+body{
+    background-color: #ebebeb !important;
+    background-size: cover;
+}
+
+main{
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}

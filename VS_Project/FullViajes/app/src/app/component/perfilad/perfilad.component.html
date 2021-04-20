@@ -1,0 +1,89 @@
+<div class="container-fluid">
+    <div class="row min-vh-100 flex-column flex-md-row">
+        <aside class="col-12 col-md-3 col-xl-2 p-0 flex-shrink-1" id="Sidebar">
+            <nav
+                class="navbar navbar-expand-md navbar-dark bd-dark flex-md-column flex-row py-2 text-center sticky-top">
+                <div class="align-items-center">
+                    <img src='./assets/Imagenes/logoside.png' alt="logo full viajes"
+                        class="img-fluid rounded-circle my-4 p-1 d-none d-md-block shadow">
+                </div>
+                <button type="button" class="navbar-toggler border-0 order-1" data-toggle="collapse" data-target="#nav"
+                    aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse prder-last" id="nav">
+                    <ul class="navbar-nav flex-column w-100 justify-content-center">
+                        <a routerLink="/perfilad" class="d-block p-3 text-light" style="border-top: white solid 1px;"> <i
+                                class="fas fa-user nr-4 "></i> Perfil </a>
+                        <a href="#" class="d-block p-3 text-light"><i class="fas fa-cog nr-4 "></i> Ajustes </a>
+                        <a href="#" class="d-block p-3 text-light"> <i class="fas fa-bullhorn nr-4  "></i> Foro</a>
+                        <a routerLink="/admusers" class="d-block p-3 text-light"> <i class="fas fa-users nr-4"></i>
+                            Usuarios</a>
+                        <a routerLink="/admcitys" class="d-block p-3 text-light"> <i
+                                class="fas fa-map-marker-alt nr-4"></i> Ciudades</a>
+                        <a routerLink="/admatrac" class="d-block p-3 text-light"> <i
+                                class="fas fa-map-marked-alt nr-4"></i> Atractivos</a>
+                        <a routerLink="/principal2" class="d-block p-3 text-light" style="border-top: white solid 1px;">
+                            <i class="fas fa-home nr-4 "></i> Página principal </a>
+                        <a routerLink="/logout" class="d-block p-3 text-light"><i class="fas fa-sign-out-alt nr-4 "></i>
+                            Cerrar Sesión </a>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+        <main class="col px-0 flex-grow-1">
+            <div class="container py-3">
+                <article>
+                    <div class="inner-content" style="background-color: rgb(255, 255, 255); height: 1300px;"
+                        id="contenido">
+                        <!--Contenido-->
+                        <div class="inner-content" style="background-color: rgb(255, 255, 255); height: 1300px;" id="contenido">
+                            <div class="portada">
+                                <img src='{{user_img}}' class="img-fluid rounded-circle avatar nr-2"  >
+                                <h2 id= "Name" style="margin-top: 105px;">{{ApeNom}}</h2> 
+                                <h5 id="Nickname">@{{nickname}}</h5>
+                                <div>
+                                    <div class="float-right">
+                                        <a class="nav-link" routerLink="/perfiladedit">
+                                            <button style="background-color: turquoise!important;"><i class="fas fa-edit"></i>
+                                                Editar Datos
+                                            </button>
+                                        </a>
+                                    </div>
+                                    </div>
+                                <div class="info">
+                                    <div class="box">
+                                        <h2 id="h2box">Información</h2>
+                                        <br>
+                                        <p > General </p>
+                                        <p><i class="fas fa-user"></i> Nombre: {{ApeNom}} </p>
+                                        <p><i class="far fa-envelope"></i> Email: {{mail}} </p>
+                                        <p>Redes sociales (opcional)</p>
+                                        <p><i class="fab fa-instagram">  </i> Instagram: </p>
+                                        <p><i class="fab fa-twitter"></i> Twitter:</p>
+                                    </div>
+                                    <div class="box aboutme ">
+                                        <h2 id="h2box">Descripción</h2>
+                                        <br>
+                                        <p>{{descripcion}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Fin Contenido-->
+                    </div>
+
+                </article>
+            </div>
+            <div class="text-center p-3 col-12" id="Footer" style="background-color: #f15d39;padding-top: 10 px;">
+                <strong>
+                    <p style="color:white;">© 2021 Copyright: Grupo 2B.</p>
+                </strong>
+            </div>
+        </main>
+
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>
