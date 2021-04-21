@@ -16,5 +16,10 @@ export class ClimaService {
   getClima(cityName: string) {
     return this.http.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}?unitGroup=metric&key=${this.apiKey}`)
   }
+
+  getClimaHistorico(cityName: string, dateStart: string, dateEnd: string){
+    // return this.http.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/weatherdata/history?aggregateHours=24&combinationMethod=aggregate&startDateTime=${dateStart}T00%3A00%3A00&endDateTime=${dateEnd}T00%3A00%3A00&maxStations=-1&maxDistance=-1&contentType=csv&unitGroup=metric&locationMode=single&key=${this.apiKey}&dataElements=default&locations=${cityName}`)
+    return this.http.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${cityName}/${dateStart}/${dateEnd}?unitGroup=metric&key=${this.apiKey}`)
+  }
   
 }

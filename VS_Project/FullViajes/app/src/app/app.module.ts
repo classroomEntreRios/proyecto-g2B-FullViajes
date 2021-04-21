@@ -32,6 +32,8 @@ import { AddcityComponent } from './component/addcity/addcity.component';
 import { AdduserComponent } from './component/adduser/adduser.component';
 import { LevelaccessComponent } from './component/levelaccess/levelaccess.component';
 import { ClimaComponent } from './component/clima/clima.component';
+import { ClimahistoricoComponent } from './component/climahistorico/climahistorico.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,8 @@ import { ClimaComponent } from './component/clima/clima.component';
     AddcityComponent,
     AdduserComponent,
     LevelaccessComponent,
-    ClimaComponent
+    ClimaComponent,
+    ClimahistoricoComponent,
   ],
   imports: [
     BrowserModule,
@@ -69,7 +72,8 @@ import { ClimaComponent } from './component/clima/clima.component';
     AppRoutingModule
   ],
   providers: [
-    UsuarioService
+    UsuarioService,
+    DatePipe
   ],
   bootstrap: [AppComponent]
 })

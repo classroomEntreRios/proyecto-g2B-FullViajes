@@ -1,0 +1,72 @@
+<div class="container px-6">
+  <div class="col" id="cardBorder">
+    <div class="row">
+      <div class="card card-body" id="cardBorder">
+        <form (submit)="submitHistorico(cityName, dateStart, dateEnd)">
+
+          <div class="container-md">
+            <div class="row">
+              <div class="col">
+                <label for="cityName">Ciudad</label>
+                <input type="text" placeholder="Ciudad" class="form-control" autofocus #cityName>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="container-md">
+            <div class="row">
+              <div class="col">
+                <label for="dateStart">Fecha inicial</label>
+                <input type="date" class="form-control" #dateStart id="dateStart" name="trip-start" value="2021-04-20"
+                  min="2010-01-01" max="2021-4-15">
+
+              </div>
+              <div class="col">
+
+                <label for="dateEnd">Fecha final:</label>
+                <input type="date" class="form-control" #dateEnd id="dateEnd" name="trip-end" value="2021-04-21"
+                  min="2010-01-01" max="2021-4-15">
+              </div>
+
+            </div>
+          </div>
+
+
+
+
+
+
+          <button class="btn btn-primary btn-block mt-2">
+            Obtener clima historico
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="container">
+      <h5>Clima historico:</h5>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Estado</th>
+            <th>Temperatura</th>
+            <th>Humedad</th>
+            <th>Viento</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of weather.days">
+            <th>{{ item.datetime }}</th>
+            <td><img src="./assets/Imagenes/clima-iconos/{{item.icon}}.png" alt="imagenClima" width="30"
+                height="30"></td>
+            <td>{{ item.temp }}º</td>
+            <td>{{ item.humidity }}%</td>
+            <td>{{ item.windspeed }}kph</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
