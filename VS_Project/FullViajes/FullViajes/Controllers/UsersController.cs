@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -38,21 +39,49 @@ namespace FullViajes.Controllers
         }
 
         // PUT: api/Users/5
+        [Route("api/Users/editar")]
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutUsuario(long id, Usuario usuario)
+        public IHttpActionResult Editar(long id, Usuario usuario)
         {
-            if (!ModelState.IsValid)
+            string MensajeError = "Error";
+            Usuario user = db.Usuario.Where(a => a.id_usuario == id).FirstOrDefault();
+            if (user != null)
             {
-                return BadRequest(ModelState);
+                /*
+                 //CHEQUEA QUE EL MAIL NO ESTA EN USO
+                 Usuario emailcheck = db.Usuario.Where(a => a.email == usuario.email).FirstOrDefault();
+                 if (emailcheck != null)
+                 {
+                     MensajeError = "El email " + usuario.email + " ya se encuentra registrado";
+                     return BadRequest(MensajeError);
+                 }
+                 //CHEQUEA QUE EL NOMBRE DE USUARIO NO ESTE EN USO
+                 Usuario usercheck = db.Usuario.Where(a => a.nickname == usuario.nickname).FirstOrDefault();
+                 if (usercheck != null)
+                 {
+                     MensajeError = "El usuario " + usuario.nickname + " ya se encuentra registrado";
+                     return BadRequest(MensajeError);
+                 }
+                 */
+                user.nickname = usuario.nickname;
+                user.nombre = usuario.nombre;
+                user.apellido = usuario.apellido;
+                user.email = usuario.email;
+                user.rol = usuario.rol;
+                user.user_descripcion = usuario.user_descripcion;
+                db.Entry(user).State = EntityState.Modified;
+
             }
-
-            if (id != usuario.id_usuario)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(usuario).State = EntityState.Modified;
-
+            /* if (!ModelState.IsValid)
+         {
+             return BadRequest(ModelState);
+         }
+         if (id != usuario.id_usuario)
+         {
+             return BadRequest();
+         }
+         db.Entry(usuario).State = EntityState.Modified;
+         */
             try
             {
                 db.SaveChanges();
@@ -73,21 +102,14 @@ namespace FullViajes.Controllers
         }
 
         [Route("api/Users/register")]
-        [HttpGet, HttpPost]
+        [HttpPost]
         [ResponseType(typeof(Usuario))]
-        public IHttpActionResult register(Usuario usuario)
+        public IHttpActionResult Register(Usuario usuario)
         {
             string MensajeError = "Error";
             if (!ModelState.IsValid)
             {
-                foreach (var modelValue in ModelState.Values) { modelValue.Errors.Clear(); }
-
-
-
-                ModelState.AddModelError("Error", "Hubo un error al intentar registrarte. Intenta mas tarde");
                 return BadRequest(ModelState);
-                //MensajeError = "El formulario es invalido"; //probar
-                //return BadRequest(MensajeError); //probar
             }
             else
             {
@@ -95,21 +117,16 @@ namespace FullViajes.Controllers
                 Usuario emailcheck = db.Usuario.Where(a => a.email == usuario.email).FirstOrDefault();
                 if (emailcheck != null)
                 {
-
-                    //foreach (var modelValue in ModelState.Values) { modelValue.Errors.Clear(); }
-                    //ModelState.AddModelError("Error", "El email " + usuario.email + " ya se encuentra registrado");
-                    //return BadRequest(ModelState);
-
-                    MensajeError = "El correo ya se encuentra registrado"; //probar
-                    return BadRequest(MensajeError);                                            //probar
+                    // return new Respuesta
+                    // { Estado = "Error", Mensaje = "El email ya se encuentra registrado" };
+                    MensajeError = "El email " + usuario.email + " ya se encuentra registrado";
+                    return BadRequest(MensajeError);
                 }
                 //CHEQUEA QUE EL NOMBRE DE USUARIO NO ESTE EN USO
                 Usuario usercheck = db.Usuario.Where(a => a.nickname == usuario.nickname).FirstOrDefault();
                 if (usercheck != null)
                 {
-                    // ModelState.AddModelError("Error", "El usuario " + usuario.nickname + " ya se encuentra registrado");
-                    // return BadRequest(ModelState);
-                    MensajeError = "El usuario ya se encuentra registrado";
+                    MensajeError = "El usuario " + usuario.nickname + " ya se encuentra registrado";
                     return BadRequest(MensajeError);
                 }
                 //ENCRIPTA CONTRASEÑA
@@ -144,6 +161,47 @@ namespace FullViajes.Controllers
 
             return Ok(user);
         }
+
+        [Route("api/Users/adduser")]
+        [HttpPost]
+        [ResponseType(typeof(Usuario))]
+        public IHttpActionResult Adduser(Usuario usuario)
+        {
+            string MensajeError = "Error";
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            else
+            {
+                //CHEQUEA QUE EL MAIL NO ESTA EN USO
+                Usuario emailcheck = db.Usuario.Where(a => a.email == usuario.email).FirstOrDefault();
+                if (emailcheck != null)
+                {
+                    ModelState.AddModelError("Error", "EL MAIL YA SE ENCUENTRA EN LA BASE DE DATOS");
+                    return BadRequest(ModelState);
+                }
+                //CHEQUEA QUE EL NOMBRE DE USUARIO NO ESTE EN USO
+                Usuario usercheck = db.Usuario.Where(a => a.nickname == usuario.nickname).FirstOrDefault();
+                if (usercheck != null)
+                {
+                    ModelState.AddModelError("Error", "EL NICKNAME YA SE ENCUENTRA EN LA BASE DE DATOS");
+                    return BadRequest(ModelState);
+                }
+                //ENCRIPTA CONTRASEÑA
+                string pswd = Encrypt.GetSHA256(usuario.password);
+                usuario.password = pswd;
+                //SI LA DESCRIPCION DE USUARIO ES VACIA CREO UNA CADENA PARA RELLENAR EL CAMPO
+                if (usuario.user_descripcion == null)
+                {
+                    usuario.user_descripcion = "El Usuario: " + usuario.nickname + " no agregó descripción pero su email es: " + usuario.email;
+                }
+                db.Usuario.Add(usuario);
+                db.SaveChanges();
+            }
+            return CreatedAtRoute("DefaultApi", new { id = usuario.id_usuario }, usuario); ;
+        }
+
         // DELETE: api/Users/5
         [ResponseType(typeof(Usuario))]
         public IHttpActionResult DeleteUsuario(long id)

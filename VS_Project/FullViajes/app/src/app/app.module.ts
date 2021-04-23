@@ -34,6 +34,16 @@ import { LevelaccessComponent } from './component/levelaccess/levelaccess.compon
 import { ClimaComponent } from './component/clima/clima.component';
 import { ClimahistoricoComponent } from './component/climahistorico/climahistorico.component';
 import { DatePipe } from '@angular/common';
+import { ActiveuserComponent } from './component/activeuser/activeuser.component';
+import { AdminsettingsComponent } from './component/adminsettings/adminsettings.component';
+import { CitiesviewComponent } from './component/citiesview/citiesview.component';
+import { DeactiveuserComponent } from './component/deactiveuser/deactiveuser.component';
+import { EditcityComponent } from './component/editcity/editcity.component';
+import { EdituserComponent } from './component/edituser/edituser.component';
+import { PerfiladComponent } from './component/perfilad/perfilad.component';
+import { PerfiladeditComponent } from './component/perfiladedit/perfiladedit.component';
+import { UsersettingsComponent } from './component/usersettings/usersettings.component';
+import { ViewuserComponent } from './component/viewuser/viewuser.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +72,16 @@ import { DatePipe } from '@angular/common';
     LevelaccessComponent,
     ClimaComponent,
     ClimahistoricoComponent,
+    ActiveuserComponent,
+    AdminsettingsComponent,
+    CitiesviewComponent,
+    DeactiveuserComponent,
+    EditcityComponent,
+    EdituserComponent,
+    PerfiladComponent,
+    PerfiladeditComponent,
+    UsersettingsComponent,
+    ViewuserComponent,
   ],
   imports: [
     BrowserModule,

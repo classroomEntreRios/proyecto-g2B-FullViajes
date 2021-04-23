@@ -1,3 +1,5 @@
+  
+
 :host {
   display: flex;
   text-rendering: optimizeLegibility;
@@ -5,79 +7,61 @@
   -moz-osx-font-smoothing: grayscale;
  
 }
-
-
-.app-layout {
-  height: 100vh;
-
+#Sidebar {
+  background-color: #f15d39!important;
 }
 
-.menu-sidebar {
-  position: relative;
-  z-index: 10;
- 
-  min-height: 100vh;
-  box-shadow: 2px 0 6px rgba(124, 124, 124, 0.35);
-  align-items: center;
-
+a {
+  text-decoration:none ;
 }
 
-.header-trigger {
-  height: 64px;
-  padding: 20px 24px;
-  font-size: 20px;
-  cursor: pointer;
-  transition: all .3s,padding 0s;
-}
-
-a{
-  font-size:15px;
-}
 a:hover {
-  background-color:   #f17d39!important;
-  color: rgb(255, 255, 255)!important;
- 
-}
-
-.sidebar-logo .avatar{
-  position: relative;
-  width: 210px;
-  height:210px;
-  border-radius:250px;
-  box-shadow: 1px 1px rgb(255, 255, 255);
-  overflow: hidden;
-  line-height: 64px;
-
+  background-color: #f17d39;
+  color: white!important;
 }
 
 
-
-
-nz-header {
-  padding: 0;
-  width: 100%;
-  z-index: 2;
- 
+.nav-link:hover {
+  font-size: 17px;
+  color: #20c3ec!important;
+  background-color: rgba(255, 255, 255, 0);
 }
 
-.app-header {
-  position: relative;
-  height: 64px;
-  padding: 0;
-  background: rgb(255, 255, 255);
-  box-shadow: 0 1px 4px rgba(0,21,41,.08);
+.logo {
+    width: 150px;
+    height: 150px;
 }
 
-nz-content {
-  margin: 0x;
- 
+.portada .avatar{
+  display: block;
+  align-items: center;
+  margin:auto;
+  height: 200px;
+  width: 200px;
+  transform: translateY(100px);
+  box-shadow: 2px 2px #30303057;
+  
+} 
+
+
+.box{
+  width: 450px;
+  height: 350px;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid rgba(177, 177, 177, 0.933);
+  border-radius: 15px ;
+  text-align: justify;
+  margin-top: 200 px;
+  position:relative; /* Para que exista relacion entre sus divs*/
+  background-color:white;
 }
 
+  
 .inner-content {
   padding: 24px;
   background: #fff;
   height: 100%;
-  width:100%;
 }
 
 .portada h2{
@@ -91,52 +75,12 @@ nz-content {
   font-weight: 300;
 }
 
-.portada .avatar{
-  display: block;
-  align-items: center;
-  margin:auto;
-  height: 200px;
-  width: 200px;
-  transform: translateY(100px);
-  
-}
-
-/*
-.box{
-  max-width: 45%;
-  min-width: 40%;
-  min-height: 350px;
-  margin: 10px;
-  padding: 15px;
-  border: 1px solid rgba(177, 177, 177, 0.933);
-  border-radius: 15px ;
-  text-align: justify;
-  margin-top: 200 px;
-  position:relative; /* Para que exista relacion entre sus divs
-  background-color:white;
-}
-*/
-.box{
-  max-width: 100%;
-  min-width: 40%;
-  min-height: 350px;
-  margin: 10px;
-  padding: 15px;
-  border: 1px solid rgba(177, 177, 177, 0.933);
-  border-radius: 15px ;
-  text-align: justify;
-  margin-top: 200 px;
-  overflow:initial;
-  position:relative;
-}
-
 .info{
   width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
-
 .portada{
   height: 250px;
   background-image: url("./../../../assets/Imagenes/Portada.jpg") ;
@@ -145,70 +89,65 @@ nz-content {
 }
 
 
-@media screen and (max-width: 850px){
-  
-  .sidebar-logo .avatar{
-      width: 80px;
-      height: 80px;
-      align-items: center;
+@media only screen and (max-width: 600px)  {
+
+  .aboutme {
+      width: 450px;
+      height: 490px;
   }
 
+  .portada {
+      height: 160px;
+  }
+
+  .portada .avatar{
+     
+      height: 150px;
+      width: 150px;
+      transform: translateY(70px);
+    } 
+    
+    #Name {
+      transform: translateY(-35px);
+    }
+
+    #Nickname {
+      transform: translateY(-30px);
+    }
   
 }
 
+@media only screen and (max-width: 400px)  {
 
-@media screen and (max-width: 650px){
-     a{
-       font-size: 15px;
-     }
-      .aboutme {
-          height: 300px;
-      }
+  .aboutme {
+      width: 450px;
+      height: 490px;
+  }
 
-      .box {
-        height: 260px;
-      }
+  .portada {
+      height: 150px;
+  }
 
-      .box p{
-        font-size: 10px;
-      }
+  .portada .avatar{
+     
+      height: 120px;
+      width: 120px;
+      transform: translateY(65px);
+    } 
+    
+    #Name {
+      transform: translateY(-45px);
+      font-size: 30px;
+    }
 
-      .portada .avatar{
-        height: 150px;
-        width: 150px;
-        transform: translateY(45px)
-        
-      }
+    #Nickname {
+      transform: translateY(-45px);
+      font-size: 20px;
+    }
 
-      .portada {
-        height: 150px;
-      }
-
-      .portada #Name{ 
-        transform: translateY(-55px)
-      }
-
-      .portada #Nickname{ 
-        transform: translateY(-65px)
-      }
-
-      .portada .box {
-        transform: translateY(-65px)
-      }
-
-      .portada #h2box {
-        font-size: 15px;
-      }
-
-      .portada h2 {
-        font-size: 25px;
-      }
-
-      .portada h5 {
-        font-size: 15px;
-      }
-
-      .menu-sidebar a{
-        font-size: 12px;
-      }
+    .box {
+      transform: translateY(-45px);
+     
+    }
+  
 }

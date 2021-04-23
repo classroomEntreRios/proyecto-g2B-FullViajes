@@ -26,13 +26,13 @@
         </div>
       </div>
       <button type="submit" style="margin-top: 10px;"
-        class="btn btn-secondary botonregistrado"><strong>Ingresar</strong></button>
+        class="btn btn-secondary botonregistrado" [disabled]="form.invalid"><strong>Ingresar</strong></button>
     </div>
   </form>
   <div class="container" style="background-color:#f1f1f1">
     <a routerLink="/"><button type="button" class="cancelbtn">Cancelar</button></a>
     <button type="button" class="olvido">Olvidó la contraseña</button>
     <a href="#" routerLink="/formulario"><button type="button"
-        class="register"><strong>Registrarse</strong></button></a>
+        class="register" ><strong>Registrarse</strong></button></a>
   </div>
 </div>

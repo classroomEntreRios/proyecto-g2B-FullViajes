@@ -1,37 +1,109 @@
-<app-sidebar></app-sidebar>
-<div class="inner-content" id="contenido">
-    <div class="box">
-        <h2>Información General</h2>
-        <form>
-            <div class="form-group" id="name-form">
-                <label class="form-label">Nombre: </label>
-                <input type="text" id="nombre" name="nombre" class="form-control" />
+<div class="container-fluid" style="background-color: white;">
+    <div class="row min-vh-100 flex-column flex-md-row">
+        <aside class="col-12 col-md-3 col-xl-2 p-0 flex-shrink-1" id="Sidebar">
+            <nav
+                class="navbar navbar-expand-md navbar-dark bd-dark flex-md-column flex-row py-2 text-center sticky-top">
+                <div class="align-items-center">
+                    <img src='./assets/Imagenes/logoside.png' alt="logo full viajes"
+                        class="img-fluid rounded-circle my-4 p-1 d-none d-md-block shadow">
+                </div>
+                <button type="button" class="navbar-toggler border-0 order-1" data-toggle="collapse" data-target="#nav"
+                    aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse prder-last" id="nav">
+                    <ul class="navbar-nav flex-column w-100 justify-content-center">
+                        <li class="nav-item">
+                            <a routerLink="/perfil" class="d-block p-3 text-light nav-link active"
+                                style="border-top: white solid 1px;background-color:#f17d39;"> <i
+                                    class="fas fa-user nr-4 "></i> Perfil </a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/ajustes" class="d-block p-3 text-light nav-link"> <i
+                                    class="fas fa-cog nr-4 "></i> Ajustes </a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/foro" class="d-block p-3 text-light nav-link"> <i
+                                    class="fas fa-bullhorn nr-4  "></i> Foro </a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/principal2" class="d-block p-3 text-light nav-link"
+                                style="border-top: white solid 1px;"> <i class="fas fa-home nr-4 "></i>Volver a
+                                página principal </a>
+                        </li>
+                        <li class="nav-item">
+                            <a routerLink="/logout" class="d-block p-3 text-light nav-link"><i
+                                    class="fas fa-sign-out-alt nr-4 "></i> Cerrar Sesión </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </aside>
+
+        <main class="col px-0 flex-grow-1">
+            <div class="container py-3">
+                <article>
+                    <div class="inner-content" style="background-color: rgb(255, 255, 255);"
+                        id="contenido">
+                                        <!--Contenedor-->
+                                   <div class="box">
+                        <h2 style="text-align: center;">Información General</h2>
+                        <br>
+                        <form>
+                            <div class="form-group" id="name-form">
+                                <label class="form-label">Nombre: </label>
+                                <input type="text" id="nombre" name="nombre" class="form-control"
+                                    value="{{user.nombre}}" />
+                            </div>
+                            <div class="form-group" id="name-form">
+                                <label class="form-label">Apellido: </label>
+                                <input type="text" id="apellido" name="apellido" class="form-control"
+                                    value="{{user.apellido}}" />
+                            </div>
+                            <div class="form-group" id="name-form">
+                                <label class="form-label">Descripción: </label>
+                                <textarea class="form-control">{{user.user_descripcion}}</textarea>
+                            </div>
+                            <div class="float-right">
+                                <button type="submit" class="acp btn" id="ButtonEnviar">Enviar</button>
+                                <button type="cancel" class="acc btn" id="ButtonEnviar">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="box">
+                        <h2 style="text-align: center;">Imágen de Perfil</h2>
+                        <br>
+                        <p class="float-right">
+                            <img src="{{user.user_foto}}" class="rounded profile" />
+                        </p>
+                        <form>
+                            <div class="form-group">
+                                <label class="form-label">Imagen de Perfil: </label>
+                                <input type="text" id="imagen" name="imagen" class="form-control"
+                                    value="{{user.user_foto}}" />
+                            </div>
+                            <button type="submit" class="acp btn" id="ButtonEnviar">Subir</button>
+                        </form>
+                    </div>
+                
+                <!--Fin Contenedor-->
+
+                    </div>
+
+                </article>
             </div>
-            <div class="form-group" id="name-form">
-                <label class="form-label">Apellido: </label>
-                <input type="text" id="apellido" name="apellido" class="form-control" />
-            </div>
-            <div class="form-group" id="name-form">
-                <label class="form-label">Descripción: </label>
-                <textarea class="form-control"></textarea>
-            </div>
-            <div class="float-right">
-                <button type="submit" class="acp btn" id="ButtonEnviar">Enviar</button>
-                <button type="cancel" class="acc btn" id="ButtonEnviar">Cancelar</button>
-            </div>
-        </form>
-    </div>
-    <div class="box">
-        <h2>Imágen de Perfil</h2>
-        <p class="float-right">
-        <img src="./assets/Imagenes/Turista.png" class="rounded profile" />
-        </p>
-        <form>
-            <div class="form-group">
-                <label class="form-label">Imagen de Perfil: </label>
-                <input type="text" id="imagen" name="imagen" class="form-control" />
-            </div>
-            <button type="submit" class="acp btn" id="ButtonEnviar">Subir</button>
-        </form>
+            
+        </main>
+        <div class="text-center p-3 col-12" id="Footer" style="background-color: #f15d39;padding-top: 10 px;">
+            <strong>
+                <p style="color:white;">© 2021 Copyright: Grupo 2B.</p>
+            </strong>
+        </div>
     </div>
 </div>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+    crossorigin="anonymous"></script>

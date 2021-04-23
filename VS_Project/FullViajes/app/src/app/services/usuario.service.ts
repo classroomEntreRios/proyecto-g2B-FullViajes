@@ -19,11 +19,15 @@ export class UsuarioService {
   getUsuario(){
     return this.http.get(this.rootURL+'/Users/register');
   }
-
-/*  accederUsuario(formData: Usuario) {
-    return this.http.post(this.rootURL + '/Acceso/Login', formData);
-        console.log(this.oRes);
-  }*/
+  postUsuario(formData: Usuario) {
+    return this.http.post(this.rootURL + '/Users/register', formData);
+  }
+  postUser(formData: Usuario) {
+    return this.http.post(this.rootURL + '/Users/adduser', formData);
+  }
+  editUser(formData:Usuario, user_id: string){
+    return this.http.post(this.rootURL + '/Users/editar/'+ user_id, formData);
+  }
   login(formData:Usuario) {
     return this.http.post(this.rootURL + '/Acceso/Login', formData);
   }
@@ -39,9 +43,18 @@ export class UsuarioService {
   listar(){
     return this.http.get(this.rootURL+ '/Users/GetUsuario')
   }
-  /*Login(model: any) {
-    debugger;
-    var a = this.rootURL + 'UserLogin';
-    return this.http.post<any>(this.rootURL + 'UserLogin', model);
-  }*/
+  clearFormData() {
+    this.formData = {
+      nickname: "",
+      nombre: "",
+      apellido: "",
+      password: "",
+      user_foto: "/img/profile.png",
+      active: true,
+      token: "",
+      email: "",
+      rol: 1,
+      user_descripcion: ""
+    };
+  }
 }

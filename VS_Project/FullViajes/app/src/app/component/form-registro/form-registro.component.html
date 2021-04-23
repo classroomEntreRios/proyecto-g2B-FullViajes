@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-</head>
-
-<body>
-    <div class="formulario">
+<app-navbar></app-navbar>
+<body >
+    <div class="formulario" >
         <div class="container">
             <h1 class="titulo" style="text-align: center;"><strong>FORMULARIO DE REGISTRO</strong></h1>
             <div class="row">
@@ -27,7 +16,7 @@
                             <label><strong>NickName</strong> </label>
                             <input name="nickname" [(ngModel)]="service.formData.nickname" type="text"
                                 class="form-control " placeholder="Ingrese un Nick Name" ng-maxlength="8" required
-                                #nickname="ngModel" (keyup)="corregido()">
+                                #nickname="ngModel" (keyup)="corregido()" >
                             <div [hidden]="nickname.valid || (nickname.pristine && !nickname.touched)"
                                 class="alert alert-danger" pattern="[a-zA-Z0-9\_\-]{4,16}$">
                                 <div>
@@ -36,12 +25,11 @@
                                 </div>
                             </div>
 
-
-                            <!-- SI ESTA USADO -->
+                            
+                                            <!-- SI ESTA USADO -->
                             <div *ngIf="erroru" class="alert alert-danger">
                                 <div>
-                                    El Nombre de Usuario <strong>{{service.formData.nickname}}</strong> ya se encuentra
-                                    registrado.
+                                     El Nombre de Usuario <strong>{{service.formData.nickname}}</strong> ya se encuentra registrado.
                                 </div>
                             </div>
 
@@ -101,11 +89,10 @@
                                 </div>
                             </div>
 
-                            <!-- SI ESTA USADO -->
-                            <div *ngIf="errorc" class="alert alert-danger">
+                                            <!-- SI ESTA USADO -->
+                            <div *ngIf="errorc"  class="alert alert-danger">
                                 <div>
-                                    El Correo electrónico <strong>{{service.formData.email}}</strong> ya se encuentra
-                                    registrado.
+                                    El Correo electrónico <strong>{{service.formData.email}}</strong> ya se encuentra registrado.
                                 </div>
                             </div>
 
@@ -157,8 +144,7 @@
 
                         <!-- BOTONES -->
                         <div class="form-group" style="text-align: center;">
-                            <button type="submit" style="margin-bottom: 10px; background-color: #f15d39;"
-                                [disabled]="form.invalid"
+                            <button type="submit" style="margin-bottom: 10px; background-color: #f15d39;" [disabled]="form.invalid"
                                 class="btn btn-lg btn-block botonregistro"><strong>Registrar</strong></button>
                             <button routerLink="/" type="button" class="btn btn-secondary botoncancelar"
                                 style=" margin-right: 30px;">Cancelar</button>
@@ -168,7 +154,7 @@
                     </form>
                 </div> <!-- columna 6 -->
                 <div class="col-sm-6">
-                    <img class="imagenlogo img-fluid" src="./assets/images/form-registro/imagenregistro.png"
+                    <img class="imagenlogo img-fluid " src="./../../../assets/Imagenes/regis/people1.png"
                         alt="FullViajes">
                 </div>
             </div> <!-- row -->
@@ -185,8 +171,6 @@
     <script src="./assets/form-registro/form-registro.js"></script>
 
 </body>
-
-</html>
 
 
 <!-- formControlName="Nombre"

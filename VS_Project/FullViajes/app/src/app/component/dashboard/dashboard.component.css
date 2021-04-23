@@ -4,4 +4,86 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
    
-}
+  }
+  .card{
+    border: 2px solid rgba(177, 177, 177, 0.933);
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder; 
+    border-radius: 10px ;
+    height: 250px;
+    width: 300px;
+  
+  }
+
+  .card i {
+    font-size: 100px;
+  }
+  .card:hover{
+    background: black;
+  }
+  .card a:hover {
+    color: white;
+  }
+  .card a{
+    color: #f17d39;
+  }
+  .container{
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  #Sidebar {
+    background-color: #f15d39!important;
+  }
+
+  .card a{
+    font-size: 20px;
+  }
+  
+  a {
+    text-decoration:none ;
+  }
+  
+  a:hover {
+    background-color: #f17d39;
+    color: white!important;
+  }
+
+  @media only screen and (max-width: 850px)  {
+    .card{
+        
+      width: 200px;
+      height: 120px;
+      margin-top: 15px;
+    }
+
+      .card i{
+        font-size: 70px;
+      }
+
+      .inner-content {
+        height: 200px;
+      }
+ 
+  }
+
+  @media only screen and (max-width: 500px)  {
+
+    .card{
+        
+       width: 200px;
+       height: 150px;
+       margin-top: 15px;
+      
+
+    }
+
+   .card i{
+      font-size: 70px;
+    }
+  }

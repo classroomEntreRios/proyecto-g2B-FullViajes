@@ -1,213 +1,133 @@
-:host {
-    display: flex;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-   
+#Sidebar {
+  background-color: #f15d39!important;
+}
+
+a {
+  text-decoration:none ;
+}
+
+a:hover {
+  background-color: #f17d39;
+  color: white!important;
+}
+
+
+.portada .avatar{
+  display: block;
+  align-items: center;
+  margin:auto;
+  height: 200px;
+  width: 200px;
+  transform: translateY(100px);
+  box-shadow: 2px 2px #30303057;
+  
+} 
+
+
+.box{
+  width: 450px;
+  height: 350px;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid rgba(177, 177, 177, 0.933);
+  border-radius: 15px ;
+  text-align: justify;
+  margin-top: 200 px;
+  position:relative; /* Para que exista relacion entre sus divs*/
+  background-color:white;
+}
+
+  
+.inner-content {
+  padding: 24px;
+  background: #fff;
+  height: 100%;
+}
+
+.portada h2{
+  text-align: center;
+  color: rgb(112, 112, 112);
+}
+
+.portada h5{
+  text-align: center;
+  color: rgb(117, 117, 117);
+  font-weight: 300;
+}
+
+.info{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.portada{
+  height: 250px;
+  background-image: url("./../../../assets/Imagenes/Portada.jpg") ;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+@media only screen and (max-width: 600px)  {
+
+  .aboutme {
+      width: 450px;
+      height: 490px;
   }
-  
-  
-  .app-layout {
-    height: 100vh;
-  
+
+  .portada {
+      height: 160px;
   }
-  
-  .menu-sidebar {
-    position: relative;
-    z-index: 10;
-   
-    min-height: 100vh;
-    box-shadow: 2px 0 6px rgba(124, 124, 124, 0.35);
-    align-items: center;
-  
-  }
-  
-  .header-trigger {
-    height: 64px;
-    padding: 20px 24px;
-    font-size: 20px;
-    cursor: pointer;
-    transition: all .3s,padding 0s;
-  }
-  
-  a{
-    font-size:15px;
-  }
-  a:hover {
-    background-color:   #f17d39!important;
-    color: rgb(255, 255, 255)!important;
-   
-  }
-  
-  .sidebar-logo .avatar{
-    position: relative;
-    width: 80%;
-    height:80%;
-    max-width: 210px;
-    min-width: 10%;
-    max-height: 210px;
-    border-radius:250px;
-    box-shadow: 1px 1px rgb(255, 255, 255);
-    overflow: hidden;
-    line-height: 64px;
-    margin: 5px;
-  
-  }
-  
-  
-  
-  
-  nz-header {
-    padding: 0;
-    width: 100%;
-    z-index: 2;
-   
-  }
-  
-  .app-header {
-    position: relative;
-    height: 64px;
-    padding: 0;
-    background: rgb(255, 255, 255);
-    box-shadow: 0 1px 4px rgba(0,21,41,.08);
-  }
-  
-  nz-content {
-    margin: 0x;
-   
-  }
-  
-  .inner-content {
-    padding: 24px;
-    background: #fff;
-    height: 100%;
-  }
-  
-  .portada h2{
-    text-align: center;
-    color: rgb(112, 112, 112);
-  }
-  
-  .portada h5{
-    text-align: center;
-    color: rgb(117, 117, 117);
-    font-weight: 300;
-  }
-  
+
   .portada .avatar{
-    display: block;
-    align-items: center;
-    margin:auto;
-    height: 200px;
-    width: 200px;
-    transform: translateY(100px);
+     
+      height: 150px;
+      width: 150px;
+      transform: translateY(70px);
+    } 
     
-  }
-  
-  
-  .box{
-    width: 450px;
-    height: 350px;
-    margin: 10px;
-    padding: 15px;
-    border: 1px solid rgba(177, 177, 177, 0.933);
-    border-radius: 15px ;
-    text-align: justify;
-    margin-top: 200 px;
-    position:relative; /* Para que exista relacion entre sus divs*/
-    background-color:white;
-  }
-  
-  .info{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .portada{
-    height: 250px;
-    background-image: url("./../../../assets/Imagenes/Portada.jpg") ;
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-  
-  
-  @media screen and (max-width: 850px){
-    
-    .sidebar-logo .avatar{
-        width: 80px;
-        height: 80px;
-        align-items: center;
+    #Name {
+      transform: translateY(-35px);
+    }
+
+    #Nickname {
+      transform: translateY(-30px);
     }
   
-    
+}
+
+@media only screen and (max-width: 400px)  {
+
+  .aboutme {
+      width: 450px;
+      height: 490px;
   }
-  
-  
-  @media screen and (max-width: 650px){
-       a{
-         font-size: 15px;
-       }
-        .aboutme {
-            height: 300px;
-        }
-  
-        .box {
-          height: 260px;
-        }
-  
-        .box p{
-          font-size: 10px;
-        }
-  
-        .portada .avatar{
-          height: 150px;
-          width: 150px;
-          transform: translateY(45px)
-          
-        }
-  
-        .portada {
-          height: 150px;
-        }
-  
-        .portada #Name{ 
-          transform: translateY(-55px)
-        }
-  
-        .portada #Nickname{ 
-          transform: translateY(-65px)
-        }
-  
-        .portada .box {
-          transform: translateY(-65px)
-        }
-  
-        .portada #h2box {
-          font-size: 15px;
-        }
-  
-        .portada h2 {
-          font-size: 25px;
-        }
-  
-        .portada h5 {
-          font-size: 15px;
-        }
-  
-        .menu-sidebar a{
-          font-size: 12px;
-        }
+
+  .portada {
+      height: 150px;
   }
- 
-  /*
-  @media all and (max-width:720px) {
-    .menu a {
-      font-size: 0;
-    }
+
+  .portada .avatar{
+     
+      height: 120px;
+      width: 120px;
+      transform: translateY(65px);
+    } 
     
-    .menu a::before {
-      font-size: 1.125rem;
+    #Name {
+      transform: translateY(-45px);
+      font-size: 30px;
     }
-  }*/
+
+    #Nickname {
+      transform: translateY(-45px);
+      font-size: 20px;
+    }
+
+    .box {
+      transform: translateY(-45px);
+     
+    }
+  
+}

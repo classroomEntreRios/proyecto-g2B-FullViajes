@@ -1,0 +1,16 @@
+#Sidebar {
+    background-color: #f15d39!important;
+  }
+  
+  a {
+    text-decoration:none ;
+  }
+  
+  a:hover {
+    background-color: #f17d39;
+    color: white!important;
+  }
+  .box{
+    margin-left: 50px;
+    margin-top: 15px;
+  }
