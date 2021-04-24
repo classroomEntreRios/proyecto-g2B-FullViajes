@@ -50,16 +50,23 @@
                                             <!--Error-->
                                             <div *ngIf="userForm.get('nickname')?.invalid && (userForm.get('nickname')?.dirty || userForm.get('nickname')?.touched)" class="alert alert-danger">
                                                 <div>
-                                                    El <strong>Nombre de Usuario</strong> es requerido y debe ser entre 4 y 16 dígitos (puede incluir letras, números y guión bajo).
+                                                    El <strong>Nombre de Usuario</strong> es requerido.
                                                 </div>
                                             </div>
                                             <!-- SI ESTA USADO -->
                                             <div *ngIf="erroru" class="alert alert-danger">
                                                 <div>
-                                                    El Nombre de Usuario ya se encuentra registrado.
+                                                    El <strong>Nombre de Usuario</strong> ya se encuentra registrado.
                                                 </div>
                                             </div>
                                             <!--Fin Error-->
+                                            <!-- Control de pattern -->
+                                            <div *ngIf="userForm.get('nickname')?.hasError('pattern')"  class="alert alert-danger">
+                                                <div>
+                                                    El <strong>Nombre de Usuario</strong> no debe terner mayúsculas.
+                                                </div>
+                                            </div>
+                                            <!-- Fin Control de pattern -->
                                         </div>
                                         <div class="form-group">
                                             <label>Nombre:</label>
@@ -96,10 +103,17 @@
                                             <!-- SI ESTA USADO -->
                                             <div *ngIf="errorc"  class="alert alert-danger">
                                                 <div>
-                                                    El Correo electrónico ya se encuentra registrado.
+                                                    El <strong>Correo electrónico</strong> ya se encuentra registrado.
                                                 </div>
                                             </div>
                                             <!--Fin Error-->
+                                            <!-- Control de pattern -->
+                                            <div *ngIf="userForm.get('email')?.hasError('pattern')"  class="alert alert-danger">
+                                                <div>
+                                                    El <strong>Correo electrónico</strong> ingresado no tiene un formato correcto.
+                                                </div>
+                                            </div>
+                                            <!-- Fin Control de pattern -->
                                         </div>
                                         <div class="form-group">
                                             <label>Contraseña:</label>
