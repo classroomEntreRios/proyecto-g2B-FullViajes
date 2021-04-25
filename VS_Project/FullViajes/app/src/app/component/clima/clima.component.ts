@@ -10,6 +10,7 @@ export class ClimaComponent implements OnInit {
 
   location = { cityName: 'Parana Entre Ríos', countryCode: 'AR' };
   weather : any;
+  vacio = false;
 
   constructor(private weatherService: ClimaService) { }
 
@@ -34,11 +35,13 @@ export class ClimaComponent implements OnInit {
 
   submitLocation(cityName: HTMLInputElement) {
     if (cityName.value) {
+      this.vacio=false;
+
       this.getWeather(cityName.value);
 
       cityName.value = '';
     } else {
-      alert('Please. Insert some values');
+      this.vacio = true;
     }
     cityName.focus();
     return false;

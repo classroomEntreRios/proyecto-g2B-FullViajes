@@ -23,6 +23,11 @@
           <div class="card card-body" id="cardBorder">
             <form (submit)="submitLocation(cityName)">
               <input type="text" placeholder="Nombre ciudad" class="form-control" autofocus #cityName>
+              <div *ngIf="vacio" class="alert alert-danger">
+                <div>
+                  Debe ingresar el nombre de una ciudad
+                </div>
+              </div>
   
               <button class="btn btn-primary btn-block mt-2">
                 Obtener clima
