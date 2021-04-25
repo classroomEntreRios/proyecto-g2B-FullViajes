@@ -28,6 +28,7 @@ export class AdduserComponent implements OnInit {
 
   ngOnInit(): void {
     this.userForm.reset();
+    this.userForm.patchValue({rol:'1'});
     this.errorc = false;
     this.erroru = false;
   }

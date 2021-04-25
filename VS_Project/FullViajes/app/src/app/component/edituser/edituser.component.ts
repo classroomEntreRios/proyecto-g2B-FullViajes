@@ -10,6 +10,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
   styleUrls: ['./edituser.component.css']
 })
 export class EdituserComponent implements OnInit {
+  rol: string = '1';
   user: any;
   user_id = "";
   userForm: FormGroup = this.formBuilder.group({
@@ -28,15 +29,18 @@ export class EdituserComponent implements OnInit {
     this.user_id = this._route.snapshot.paramMap.get('user_id')!;
     this.service.acceder(this.user_id).subscribe(
       (usuario: any) => {
+        if (usuario.rol=='0'){
+          this.userForm.patchValue({rol:'0'});
+        }else{
+          this.userForm.patchValue({rol:'1'});
+        }
         this.userForm.patchValue(
           {
             nickname: usuario.nickname,
             nombre: usuario.nombre,
             apellido: usuario.apellido,
             descripcion: usuario.user_descripcion,
-            email: usuario.email,
-            rol: usuario.rol,
-           
+            email: usuario.email,           
           }
         );
       }
