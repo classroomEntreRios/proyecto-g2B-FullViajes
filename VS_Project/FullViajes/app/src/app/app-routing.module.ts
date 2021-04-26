@@ -22,6 +22,8 @@ import { PerfiladComponent } from './component/perfilad/perfilad.component';
 import { PerfiladeditComponent } from './component/perfiladedit/perfiladedit.component';
 import { AdminsettingsComponent } from './component/adminsettings/adminsettings.component';
 import { UsersettingsComponent } from './component/usersettings/usersettings.component';
+import { ActiveuserComponent } from './component/activeuser/activeuser.component';
+import { DeactiveuserComponent } from './component/deactiveuser/deactiveuser.component';
 
 
 const routes: Routes = [
@@ -42,6 +44,8 @@ const routes: Routes = [
   {path:'addcity', component: AddcityComponent},
   {path:'editcity/:id', component: EditcityComponent},
   {path:'adduser', component: AdduserComponent},
+  {path:'activeuser/:user_id', component: ActiveuserComponent},
+  {path:'deactiveuser/:user_id', component: DeactiveuserComponent},
   {path:'viewuser/:user_id', component: ViewuserComponent},
   {path:'edituser/:user_id', component: EdituserComponent},
   {path:'levelaccess', component: LevelaccessComponent},
