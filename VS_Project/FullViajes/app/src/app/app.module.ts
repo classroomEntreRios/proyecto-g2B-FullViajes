@@ -40,6 +40,9 @@ import { EditcityComponent } from './component/editcity/editcity.component';
 import { PerfiladComponent } from './component/perfilad/perfilad.component';
 import { PerfiladeditComponent } from './component/perfiladedit/perfiladedit.component';
 import { DashboardDefComponent } from './component/dashboard-def/dashboard-def.component';
+import { CiudadesService } from './services/ciudades.service';
+import { ClimaService } from './services/clima.service';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -85,7 +88,8 @@ import { DashboardDefComponent } from './component/dashboard-def/dashboard-def.c
     AppRoutingModule
   ],
   providers: [
-    UsuarioService
+    UsuarioService, CiudadesService,ClimaService,
+    {provide: LocationStrategy, useClass:HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })

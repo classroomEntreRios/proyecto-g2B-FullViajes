@@ -15,6 +15,7 @@ namespace FullViajes.Controllers
     public class CiudadesController : ApiController
     {
         private FullViajesEntities db = new FullViajesEntities();
+      
 
 
 
@@ -29,6 +30,12 @@ namespace FullViajes.Controllers
             return db.Ciudad;
         }
 
+
+        //RETORNA CIUDADES DEL MENU
+        public List<Ciudad> GetCiudades()
+        {
+            return db.Ciudad.Where(c => c.menu == true).ToList();
+        }
 
 
 
@@ -57,7 +64,7 @@ namespace FullViajes.Controllers
 
         // PUT: api/Ciudades/5                      //MODIFICA UNA CIUDAD, RECIBE EL FORM Y EL ID
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutCiudad(long id, Ciudad ciudad)
+        public IHttpActionResult putCiudad(long id, Ciudad ciudad)
         {
             if (!ModelState.IsValid) //COMPRUEBA QUE EL FORM RECIBIDO SEA VALIDO
             {
