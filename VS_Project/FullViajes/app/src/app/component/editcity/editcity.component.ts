@@ -22,7 +22,6 @@ export class EditcityComponent implements OnInit {
   regex = "/^[0-9]*$/";
   errorformato=false;
   errorc=false;
-  coordenadas="";
   coordenadasI="";
   coordenadasresp="";
   // cityForm!: FormGroup;
@@ -33,19 +32,18 @@ export class EditcityComponent implements OnInit {
 
   splitted:any;
    longit:string="";
-   long_grad:string="";
-   long_min:string="";
+   long_grad:number=0;
+   long_min:number=0;
    latit:string="";
-   latit_grad:string="";
-   latit_min:string="";
+   latit_grad:number=0;
+   latit_min:number=0;
 
   constructor(private formBuilder: FormBuilder,public service: CiudadesService, private router: Router, private _route:ActivatedRoute) { }
   
   ngOnInit(): void {
     this.city_id = this._route.snapshot.paramMap.get('id')!;
     this.errorc=false;
-    this.coordenadas="";
-    
+      
     this.coordenadasresp="";
     this.service.acceder(this.city_id).subscribe(
       (ciudad: any) => {
@@ -76,15 +74,19 @@ export class EditcityComponent implements OnInit {
   onSubmit():void{
     this.errorc=false;
     this.service.clearFormData();
-     this.service.formData={
-       nombre: this.cityForm.value.ciudad,
-       cp: this.cityForm.value.cp,
-       coordenadas: this.coordenadas,
-       descripcion: this.cityForm.value.descripcion,
-       menu:this.cityForm.value.menu
+    console.log(this.cityForm.value.coordenadas);
+    console.log((this.validarcoordenadas(this.cityForm.value.coordenadas)));
+    
+     if(this.validarcoordenadas(this.cityForm.value.coordenadas)){
+        this.service.formData={
+          nombre: this.cityForm.value.ciudad,
+          cp: this.cityForm.value.cp,
+          coordenadas: this.cityForm.value.coordenadas,
+          descripcion: this.cityForm.value.descripcion,
+          menu:this.cityForm.value.menu
      };
-     console.log(this.service.formData);
     this.ModificarCiudad();
+    }else{ this.errorformato=true;};
   }
 
   ModificarCiudad(){
@@ -104,22 +106,12 @@ export class EditcityComponent implements OnInit {
         if (MensajeError=="LAS COORDENADAS YA SE ENCUENTRA EN LA BASE DE DATOS")
             {
                 this.errorc=true;
-                this.coordenadas="";
                 this.cityForm.reset();
-                // this.cityForm.value.lat_grad="";
-                // this.cityForm.value.lat_min="";
-                // this.cityForm.value.long_grad="";
-                // this.cityForm.value.long_min="";
-                
-                
             }
             else
             {
                 {console.log('algo malio sal');
                 this.cityForm.reset();
-                  //MOSTRAR UN ERROR GENERAL POR FORMULARIO INVALIDO
-                  //this.resetForm();
-                  //this.router.navigate(['/usuario']);
                 }
             }
             this.router.navigate(['/addcity']);
@@ -128,40 +120,59 @@ export class EditcityComponent implements OnInit {
   
   }
 
-  validarcoordenadas(x:string){ 
-       console.log(x)
-        this.splitted = x.split(" "); 
+validarcoordenadas(x:string){ 
+       
+        if(x.search(" ")==-1){this.errorformato=true;return false;}
+        this.splitted = x.split(" ");       
         this.longit=this.splitted[1].toString();
         this.latit=this.splitted[0].toString();
+        if(this.longit.search("°")==-1){this.errorformato=true;return false;}
         this.splitted = this.longit.split("°");
-        this.long_grad=this.splitted[0].toString();
+        this.long_grad=parseInt(this.splitted[0].toString());
         this.longit= this.splitted[1].toString(); 
+        if(this.longit.search("'")==-1){this.errorformato=true;return false;}
         this.splitted = this.longit.split("'");
-        this.long_min=this.splitted[0].toString();
+        this.long_min=parseInt(this.splitted[0].toString());
         this.longit=this.splitted[1].toString();
 
+        if(this.latit.search("°")==-1){this.errorformato=true;return false;}
         this.splitted = this.latit.split("°");
-        this.latit_grad=this.splitted[0].toString();
+        this.latit_grad=parseInt(this.splitted[0].toString());
         this.latit= this.splitted[1].toString(); 
+        if(this.latit.search("'")==-1){this.errorformato=true;return false;}
         this.splitted = this.latit.split("'");
-        this.latit_min=this.splitted[0].toString();
+        this.latit_min=parseInt(this.splitted[0].toString());
         this.latit=this.splitted[1].toString();
 
-        console.log(this.longit);
-        console.log(this.long_grad);
-        console.log(this.long_min);
-        console.log(this.latit);
-        console.log(this.latit_grad);
-        console.log(this.latit_min);
-  
+        if(this.longit!="E" && this.longit!="O"){
+          this.errorformato=true;return false;
+        };
+        if(this.latit!="S" && this.latit!="N"){
+          this.errorformato=true;return false;
+        };
+        if((-180 > this.long_grad) || (this.long_grad >180))
+                {this.errorformato=true;return false;}
+            else
+                {if((-180 > this.long_min) || (this.long_min > 180))
+                  {{this.errorformato=true;return false;}}
 
-   this.errorformato=true;
+                }
+        if((-90 > this.latit_grad) || (this.latit_grad>90))
+                {this.errorformato=true;return false;}
+            else
+                {if((-90 > this.latit_min) || (this.latit_min>90))
+                  {{this.errorformato=true;return false;}}
+
+                }
+
+   return true;
   }
 
 
 
-  
+
   corregido(){
+    this.errorformato=false;
     this.errorc=false;
     this.coordenadasresp="";
   }
