@@ -23,8 +23,8 @@ export class CiudadesService {
   postCiudad(formData: Ciudad) {
     return this.http.post(this.rootURL + '/Ciudades/register',  formData);
   }
-  Editar(formData: Ciudad) {
-    return this.http.post(this.rootURL + '/Ciudades/putCiudad',formData);
+  Editar(id:number, formData: Ciudad) {
+    return this.http.post(this.rootURL + '/Ciudades/putCiudad', {id, formData} );
   }
   acceder(ciudad_id: string){
     return this.http.get(this.rootURL + '/Ciudades/GetCiudad/'+ ciudad_id)

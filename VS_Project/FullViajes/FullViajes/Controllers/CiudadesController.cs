@@ -63,7 +63,7 @@ namespace FullViajes.Controllers
 
 
         // PUT: api/Ciudades/5                      //MODIFICA UNA CIUDAD, RECIBE EL FORM Y EL ID
-        [ResponseType(typeof(void))]
+        [ResponseType(typeof(Ciudad))]
         public IHttpActionResult putCiudad(long id, Ciudad ciudad)
         {
             if (!ModelState.IsValid) //COMPRUEBA QUE EL FORM RECIBIDO SEA VALIDO

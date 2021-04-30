@@ -92,7 +92,7 @@ export class EditcityComponent implements OnInit {
   ModificarCiudad(){
  
 
-    this.service.Editar(this.service.formData).subscribe(
+    this.service.Editar(parseInt(this.city_id), this.service.formData).subscribe(
       res => {
         //MOSTRAR UN MENSAJE QUE SE GUARDO CORRECTAMENTE
         this.router.navigate(['/admcitys']);
