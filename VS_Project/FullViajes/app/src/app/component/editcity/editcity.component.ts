@@ -5,6 +5,7 @@ import { CiudadesService } from 'src/app/services/ciudades.service';
 import { HttpClient, HttpErrorResponse} from '@angular/common/http';
 import { compileDeclarePipeFromMetadata } from '@angular/compiler';
 
+
 @Component({
   selector: 'app-editcity',
   templateUrl: './editcity.component.html',
@@ -21,8 +22,9 @@ export class EditcityComponent implements OnInit {
   });
   errorformato=false;
   errorc=false;
-  coordenadasI="";
-  coordenadasresp="";
+  errorG=false; 
+ 
+
   // cityForm!: FormGroup;
   city:any;
   city_id="";
@@ -42,8 +44,7 @@ export class EditcityComponent implements OnInit {
   ngOnInit(): void {
     this.city_id = this._route.snapshot.paramMap.get('id')!;
     this.errorc=false;
-      
-    this.coordenadasresp="";
+    this.errorG=false;   
     this.service.acceder(this.city_id).subscribe(
       (ciudad: any) => {
         this.city=ciudad;
@@ -64,14 +65,18 @@ export class EditcityComponent implements OnInit {
         coordenadas:this.city.coordenadas,
         id_ciudad:this.city.id_ciudad
       }
+
     );
-      }
+      },
+      (err:HttpErrorResponse) => {this.errorG=true; }
     );   
+
     
     
   }
   onSubmit():void{
     this.errorc=false;
+    this.errorG=false; 
     this.service.clearFormData();
     // IMPRIME PARA COMPROBAR LAS COORDENADAS
     // console.log(this.cityForm.value.coordenadas);
@@ -108,20 +113,19 @@ export class EditcityComponent implements OnInit {
         this.router.navigate(['/admcitys']);
         this.cityForm.reset();
       },
-      (err:HttpErrorResponse) => {
-        console.log(err);       
-        var MensajeError=err.error.ModelState.Error;
-        console.log(err.error.Message);
+      (err:HttpErrorResponse) => {     
+        var MensajeError=err.error.message;
+ 
         if (MensajeError=="LAS COORDENADAS YA SE ENCUENTRA EN LA BASE DE DATOS")
             {
                 this.errorc=true;                
             }
             else
             {
-                {console.log('algo malio sal');
+                {this.errorG=true; 
                 }
             }
-            this.router.navigate(['/addcity']);
+            //this.router.navigate(['/addcity']);
         }
     )
   
@@ -187,7 +191,8 @@ export class EditcityComponent implements OnInit {
   corregido(){
     this.errorformato=false;
     this.errorc=false;
-    this.coordenadasresp="";
+    this.errorG=false;
+
   }
 
 

@@ -15,7 +15,7 @@ namespace FullViajes.Controllers
     public class CiudadesController : ApiController
     {
         private FullViajesEntities db = new FullViajesEntities();
-      
+        public string MessaError { get; private set; }
 
 
 
@@ -45,10 +45,11 @@ namespace FullViajes.Controllers
         // GET: api/Ciudades/5
         [ResponseType(typeof(Ciudad))]              //DEVUELVE DETALLES DE CIUDAD , RECIBE ID
         public IHttpActionResult GetCiudad(long id)
-        {
+        {   
             Ciudad ciudad = db.Ciudad.Find(id);
             if (ciudad == null)
             {
+
                 return NotFound(); //NO SE ENCONTRÓ LA CIUDAD
             }
 
@@ -67,24 +68,26 @@ namespace FullViajes.Controllers
         [ResponseType(typeof(Ciudad))]
         public IHttpActionResult putCiudad(long id, Ciudad ciudad)
         {
+            string MensajeError = "Error";
+
             if (!ModelState.IsValid) //COMPRUEBA QUE EL FORM RECIBIDO SEA VALIDO
             {
-                ModelState.AddModelError("Error", "DATOS INGRESADOS NO VALIDOS");
-                return BadRequest(ModelState);
+                MensajeError = "DATOS INGRESADOS NO VALIDOS";
+                return BadRequest(MensajeError);
             }
             
             if (id != ciudad.id_ciudad)
             {
-                ModelState.AddModelError("Error", "VALOR DE ID NO COINCIDE CON ID DEL FORM");
-                return BadRequest(ModelState);//comprueba sean el mismo id del form recibido y el que se modifica
+                MensajeError = "VALOR DE ID NO COINCIDE CON ID DEL FORM";
+                return BadRequest(MensajeError);
             }
 
             //chequeo que las nuevas coordenadas no se encuentren registradas salvo la del mismo id
             Ciudad coordenadascheck = db.Ciudad.Where(a => a.coordenadas == ciudad.coordenadas && a.id_ciudad != id).FirstOrDefault();
             if (coordenadascheck != null)
             {
-                ModelState.AddModelError("Error","LAS COORDENADAS YA SE ENCUENTRA EN LA BASE DE DATOS");
-                return BadRequest(ModelState);
+                MensajeError = "LAS COORDENADAS YA SE ENCUENTRA EN LA BASE DE DATOS";
+                return BadRequest(MensajeError);
             }
 
 
@@ -98,8 +101,9 @@ namespace FullViajes.Controllers
             {
                 if (!CiudadExists(id)) //si id no existia en las ciudades retorna error
                 {
-                    ModelState.AddModelError("Error", "LA CIUDAD NO SE ENCUENTRA EN LA BASE DE DATOS");
-                    return NotFound();//
+                    MensajeError = "LA CIUDAD NO SE ENCUENTRA EN LA BASE DE DATOS";
+                    return BadRequest(MensajeError);
+
                 }
                 else
                 {
@@ -125,20 +129,23 @@ namespace FullViajes.Controllers
         [ResponseType(typeof(Ciudad))]
         public IHttpActionResult Register(Ciudad ciudad)
         {
+            string MensajeError = "Error";
 
             foreach (var modelValue in ModelState.Values) { modelValue.Errors.Clear(); }
             if (!ModelState.IsValid)//comprueba que el modelo sea valido
             {
-                ModelState.AddModelError("Error", "DATOS INGRESADOS NO VALIDOS");
-                return BadRequest(ModelState);
+                MensajeError = "DATOS INGRESADOS NO VALIDOS";
+                return BadRequest(MensajeError);
+
             }
 
 
             Ciudad coordenadascheck = db.Ciudad.Where(a => a.coordenadas == ciudad.coordenadas).FirstOrDefault();
             if (coordenadascheck != null)
             {
-                ModelState.AddModelError("Error", "LAS COORDENADAS YA SE ENCUENTRA EN LA BASE DE DATOS");
-                return BadRequest(ModelState);
+                MensajeError = "LAS COORDENADAS YA SE ENCUENTRA EN LA BASE DE DATOS";
+                return BadRequest(MensajeError);
+
             }
 
 
@@ -168,11 +175,13 @@ namespace FullViajes.Controllers
         [ResponseType(typeof(Ciudad))]
         public IHttpActionResult DeleteCiudad(long id)
         {
+            string MensajeError = "Error";
             Ciudad ciudad = db.Ciudad.Find(id);
             if (ciudad == null)
             {
-                ModelState.AddModelError("CIUDAD", "LA CIUDAD NO SE ENCUENTRA EN LA BASE DE DATOS");
-                return NotFound(); //
+                MensajeError = "LA CIUDAD NO SE ENCUENTRA EN LA BASE DE DATOS";
+                return BadRequest(MensajeError);
+
             }
 
             db.Ciudad.Remove(ciudad);

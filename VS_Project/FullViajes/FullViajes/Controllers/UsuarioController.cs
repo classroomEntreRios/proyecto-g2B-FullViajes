@@ -30,6 +30,7 @@ namespace FullViajes.Controllers
     public class UsuarioController : Controller
     {
         FullViajesEntities db = new FullViajesEntities();
+        public string MessaError { get; private set; }
         //MUESTRA LISTADO GENERAL
         public ActionResult Index()
         {
@@ -74,6 +75,7 @@ namespace FullViajes.Controllers
         [HttpPost]
         public ActionResult Nuevo(Usuario oUser)
         {
+            string MensajeError = "Error";
             try
             {
                 if (ModelState.IsValid)
@@ -83,7 +85,7 @@ namespace FullViajes.Controllers
                         //CHEQUEA QUE EL MAIL NO ESTA EN USO
                         Usuario emailcheck = db.Usuario.Where(a => a.email == oUser.email).FirstOrDefault();
                         if (emailcheck != null)
-                        {
+                        {   
                             ModelState.AddModelError("email", "El email ya se encuentra registrado");
                             return View();
                         }

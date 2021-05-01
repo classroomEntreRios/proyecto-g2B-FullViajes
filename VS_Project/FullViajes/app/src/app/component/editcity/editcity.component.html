@@ -99,7 +99,12 @@
                                             <!-- SI ESTA REGISTRADA -->
                                             <div *ngIf="errorc"  class="alert alert-danger" style="text-align: center;">
                                                 <div>
-                                                    Ya se encuentra registrada una ciudad en esas coordenadas ({{this.coordenadasresp}}).
+                                                    Ya se encuentra registrada una ciudad en esas coordenadas.
+                                                </div>
+                                            </div>
+                                            <div *ngIf="errorG"  class="alert alert-danger" style="text-align: center;">
+                                                <div>
+                                                    HAY UN INCONVENIENDTE...INTENTA MAS TARDE.
                                                 </div>
                                             </div>
                                                     <button class="btn float-right btn-outline-success"
