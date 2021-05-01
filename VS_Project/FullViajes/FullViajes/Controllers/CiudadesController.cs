@@ -63,6 +63,7 @@ namespace FullViajes.Controllers
 
 
         // PUT: api/Ciudades/5                      //MODIFICA UNA CIUDAD, RECIBE EL FORM Y EL ID
+        
         [ResponseType(typeof(Ciudad))]
         public IHttpActionResult putCiudad(long id, Ciudad ciudad)
         {
@@ -71,7 +72,7 @@ namespace FullViajes.Controllers
                 ModelState.AddModelError("Error", "DATOS INGRESADOS NO VALIDOS");
                 return BadRequest(ModelState);
             }
-
+            
             if (id != ciudad.id_ciudad)
             {
                 ModelState.AddModelError("Error", "VALOR DE ID NO COINCIDE CON ID DEL FORM");
@@ -79,21 +80,12 @@ namespace FullViajes.Controllers
             }
 
             //chequeo que las nuevas coordenadas no se encuentren registradas salvo la del mismo id
-            Ciudad coordenadascheck = db.Ciudad.Where(a => a.coordenadas == ciudad.coordenadas && a.id_ciudad != ciudad.id_ciudad).FirstOrDefault();
+            Ciudad coordenadascheck = db.Ciudad.Where(a => a.coordenadas == ciudad.coordenadas && a.id_ciudad != id).FirstOrDefault();
             if (coordenadascheck != null)
             {
-                ModelState.AddModelError("Error", "LAS COORDENADAS YA SE ENCUENTRA EN LA BASE DE DATOS");
+                ModelState.AddModelError("Error","LAS COORDENADAS YA SE ENCUENTRA EN LA BASE DE DATOS");
                 return BadRequest(ModelState);
             }
-
-
-            //compruebo que el cp no se encuentre ya registrado salvo el del mismo id q es el que se esta modificando
-            //Ciudad cpcheck = db.Ciudad.Where(a => a.cp == ciudad.cp && a.id_ciudad != ciudad.id_ciudad).FirstOrDefault();
-            //if (cpcheck != null)
-            //{
-            //   ModelState.AddModelError("CP", "EL CODIGO POSTAL YA SE ENCUENTRA EN LA BASE DE DATOS");
-            // return BadRequest(ModelState);
-            //}
 
 
             db.Entry(ciudad).State = EntityState.Modified;    //modifica

@@ -19,7 +19,6 @@ export class EditcityComponent implements OnInit {
     menu: ['', Validators.required],
     id_ciudad:""
   });
-  regex = "/^[0-9]*$/";
   errorformato=false;
   errorc=false;
   coordenadasI="";
@@ -74,16 +73,27 @@ export class EditcityComponent implements OnInit {
   onSubmit():void{
     this.errorc=false;
     this.service.clearFormData();
-    console.log(this.cityForm.value.coordenadas);
-    console.log((this.validarcoordenadas(this.cityForm.value.coordenadas)));
+    // IMPRIME PARA COMPROBAR LAS COORDENADAS
+    // console.log(this.cityForm.value.coordenadas);
+    // console.log((this.validarcoordenadas(this.cityForm.value.coordenadas)));
     
      if(this.validarcoordenadas(this.cityForm.value.coordenadas)){
-        this.service.formData={
+
+      if(this.cityForm.value.menu==0)
+        {this.service.formData={menu:true,
           nombre: this.cityForm.value.ciudad,
           cp: this.cityForm.value.cp,
           coordenadas: this.cityForm.value.coordenadas,
           descripcion: this.cityForm.value.descripcion,
-          menu:this.cityForm.value.menu
+          id_ciudad:this.cityForm.value.id_ciudad}}
+          else{
+         this.service.formData={
+          nombre: this.cityForm.value.ciudad,
+          cp: this.cityForm.value.cp,
+          coordenadas: this.cityForm.value.coordenadas,
+          descripcion: this.cityForm.value.descripcion,
+          menu:false,
+          id_ciudad:this.cityForm.value.id_ciudad};
      };
     this.ModificarCiudad();
     }else{ this.errorformato=true;};
@@ -99,19 +109,16 @@ export class EditcityComponent implements OnInit {
         this.cityForm.reset();
       },
       (err:HttpErrorResponse) => {
-                
+        console.log(err);       
         var MensajeError=err.error.ModelState.Error;
-        ;
-        console.log(MensajeError);
+        console.log(err.error.Message);
         if (MensajeError=="LAS COORDENADAS YA SE ENCUENTRA EN LA BASE DE DATOS")
             {
-                this.errorc=true;
-                this.cityForm.reset();
+                this.errorc=true;                
             }
             else
             {
                 {console.log('algo malio sal');
-                this.cityForm.reset();
                 }
             }
             this.router.navigate(['/addcity']);
@@ -119,54 +126,60 @@ export class EditcityComponent implements OnInit {
     )
   
   }
-
-validarcoordenadas(x:string){ 
+// VALIDA LAS COORDENADAS
+  validarcoordenadas(cadena:string){
+    var er2=/^[0-9]{1,2}[°]{1}[0-9]{1,2}[']{1}[SN]{1}[ ]{1}[0-9]{1,2}[°]{1}[0-9]{1,2}[']{1}[EO]{1}$/;
+    var rta2=er2.test(cadena);
+    if (rta2==false){this.errorformato=true;return false;} else{ return true;}
+    }
+// VALIDA COORDENADAS, DENTRO DEL RANGO DE LATITUD Y LONGITUD
+// validarcoordenadas(x:string){ 
        
-        if(x.search(" ")==-1){this.errorformato=true;return false;}
-        this.splitted = x.split(" ");       
-        this.longit=this.splitted[1].toString();
-        this.latit=this.splitted[0].toString();
-        if(this.longit.search("°")==-1){this.errorformato=true;return false;}
-        this.splitted = this.longit.split("°");
-        this.long_grad=parseInt(this.splitted[0].toString());
-        this.longit= this.splitted[1].toString(); 
-        if(this.longit.search("'")==-1){this.errorformato=true;return false;}
-        this.splitted = this.longit.split("'");
-        this.long_min=parseInt(this.splitted[0].toString());
-        this.longit=this.splitted[1].toString();
+//         if(x.search(" ")==-1){this.errorformato=true;return false;}
+//         this.splitted = x.split(" ");       
+//         this.longit=this.splitted[1].toString();
+//         this.latit=this.splitted[0].toString();
+//         if(this.longit.search("°")==-1){this.errorformato=true;return false;}
+//         this.splitted = this.longit.split("°");
+//         this.long_grad=parseInt(this.splitted[0].toString());
+//         this.longit= this.splitted[1].toString(); 
+//         if(this.longit.search("'")==-1){this.errorformato=true;return false;}
+//         this.splitted = this.longit.split("'");
+//         this.long_min=parseInt(this.splitted[0].toString());
+//         this.longit=this.splitted[1].toString();
 
-        if(this.latit.search("°")==-1){this.errorformato=true;return false;}
-        this.splitted = this.latit.split("°");
-        this.latit_grad=parseInt(this.splitted[0].toString());
-        this.latit= this.splitted[1].toString(); 
-        if(this.latit.search("'")==-1){this.errorformato=true;return false;}
-        this.splitted = this.latit.split("'");
-        this.latit_min=parseInt(this.splitted[0].toString());
-        this.latit=this.splitted[1].toString();
+//         if(this.latit.search("°")==-1){this.errorformato=true;return false;}
+//         this.splitted = this.latit.split("°");
+//         this.latit_grad=parseInt(this.splitted[0].toString());
+//         this.latit= this.splitted[1].toString(); 
+//         if(this.latit.search("'")==-1){this.errorformato=true;return false;}
+//         this.splitted = this.latit.split("'");
+//         this.latit_min=parseInt(this.splitted[0].toString());
+//         this.latit=this.splitted[1].toString();
 
-        if(this.longit!="E" && this.longit!="O"){
-          this.errorformato=true;return false;
-        };
-        if(this.latit!="S" && this.latit!="N"){
-          this.errorformato=true;return false;
-        };
-        if((-180 > this.long_grad) || (this.long_grad >180))
-                {this.errorformato=true;return false;}
-            else
-                {if((-180 > this.long_min) || (this.long_min > 180))
-                  {{this.errorformato=true;return false;}}
+//         if(this.longit!="E" && this.longit!="O"){
+//           this.errorformato=true;return false;
+//         };
+//         if(this.latit!="S" && this.latit!="N"){
+//           this.errorformato=true;return false;
+//         };
+//         if((-180 > this.long_grad) || (this.long_grad >180))
+//                 {this.errorformato=true;return false;}
+//             else
+//                 {if((-180 > this.long_min) || (this.long_min > 180))
+//                   {{this.errorformato=true;return false;}}
 
-                }
-        if((-90 > this.latit_grad) || (this.latit_grad>90))
-                {this.errorformato=true;return false;}
-            else
-                {if((-90 > this.latit_min) || (this.latit_min>90))
-                  {{this.errorformato=true;return false;}}
+//                 }
+//         if((-90 > this.latit_grad) || (this.latit_grad>90))
+//                 {this.errorformato=true;return false;}
+//             else
+//                 {if((-90 > this.latit_min) || (this.latit_min>90))
+//                   {{this.errorformato=true;return false;}}
 
-                }
+//                 }
 
-   return true;
-  }
+//    return true;
+//   }
 
 
 
@@ -176,4 +189,6 @@ validarcoordenadas(x:string){
     this.errorc=false;
     this.coordenadasresp="";
   }
+
+
 }

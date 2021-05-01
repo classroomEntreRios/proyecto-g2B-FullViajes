@@ -17,14 +17,14 @@ export class CiudadesService {
       cp: "",
       coordenadas: "",
       descripcion: "",
-      menu:false
+      menu:false,
     };
   }
   postCiudad(formData: Ciudad) {
     return this.http.post(this.rootURL + '/Ciudades/register',  formData);
   }
   Editar(id:number, formData: Ciudad) {
-    return this.http.post(this.rootURL + '/Ciudades/putCiudad', {id, formData} );
+    return this.http.put(this.rootURL + '/Ciudades/putCiudad/'+ id, formData);
   }
   acceder(ciudad_id: string){
     return this.http.get(this.rootURL + '/Ciudades/GetCiudad/'+ ciudad_id)

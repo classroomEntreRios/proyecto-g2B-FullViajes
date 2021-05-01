@@ -62,21 +62,16 @@
                                        
                                         <div class="form-group">
                                                 <label for="coordenadas">Coordenadas</label>
-                                                <input type="textbox" formControlName="coordenadas" class="form-control" (keyup)="corregido()" >
+                                                <input type="textbox" formControlName="coordenadas" class="form-control" (keyup)="corregido();" id="coor">
                                                 <div *ngIf="cityForm.get('coordenadas')?.invalid && (cityForm.get('coordenadas')?.dirty || cityForm.get('coordenadas')?.touched)" class="alert alert-danger">
                                                     Las coordenadas son requeridas
                     
-                                                    <!-- <div *ngIf="(cityForm.get('lat_grad')?.hasError('pattern'))||(cityForm.get('lat_min')?.hasError('pattern'))||(cityForm.get('long_grad')?.hasError('pattern'))||(cityForm.get('long_min')?.hasError('pattern'))">
-                                                        Solo se aceptan números
-                                                    </div> -->
                                                 </div>
-                                                <div *ngIf="errorformato" class="alert alert-danger">
+                                                
+                                                <div  id="alertacoor" class="alert alert-danger" *ngIf="errorformato"> <!--  -->
                                                     Las coordenadas deben cumplir cocn el siguente formato: 
-                                                    Ej. 45°45'N 45°45'O 
+                                                    Ej. 45°45'N 45°45'O  o   45°45'S 45°45'E
                     
-                                                    <!-- <div *ngIf="(cityForm.get('lat_grad')?.hasError('pattern'))||(cityForm.get('lat_min')?.hasError('pattern'))||(cityForm.get('long_grad')?.hasError('pattern'))||(cityForm.get('long_min')?.hasError('pattern'))">
-                                                        Solo se aceptan números
-                                                    </div> -->
                                                 </div>
                                         </div>
                                         <div class="form-group">
@@ -133,3 +128,14 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
     crossorigin="anonymous"></script>
+    <script>
+        // function validarcoor(){
+        // var coordenadas=document.querySelector("#coor")
+        // var alertacoor=document.querySelector("#alertacoor")
+        // var cadena=coordenadas.value;
+        // var er2=/^[0-9]{1,2}[°]{1}[0-9]{1,2}[']{1}[SN]{1}[ ]{1}[0-9]{1,2}[°]{1}[0-9]{1,2}[']{1}[EO]{1}$/;
+        // var rta2=er2.test(cadena);
+        // if (rta2==false){alertacoor.hidden==false;} else{alertacoor.hidden==true;}
+        // }
+       
+    </script>

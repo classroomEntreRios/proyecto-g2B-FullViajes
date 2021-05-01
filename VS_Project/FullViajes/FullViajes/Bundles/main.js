@@ -1808,32 +1808,32 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function EditcityComponent_div_49_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 50);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 51);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, " El nombre de la ciudad es requerido ");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } }
 function EditcityComponent_div_54_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 50);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 51);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, " El C\u00F3digo Postal de la ciudad es requerido ");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } }
 function EditcityComponent_div_59_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 50);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 51);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, " Las coordenadas son requeridas ");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } }
 function EditcityComponent_div_60_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 50);
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, " Las coordenadas deben cumplir cocn el siguente formato: Ej. 45\u00B045'N 45\u00B045'O ");
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 52);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, " Las coordenadas deben cumplir cocn el siguente formato: Ej. 45\u00B045'N 45\u00B045'O o 45\u00B045'S 45\u00B045'E ");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } }
 function EditcityComponent_div_65_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 50);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 51);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](1, " Debe ingresar una breve descripcion de la ciudad. ");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
 } }
 function EditcityComponent_div_78_Template(rf, ctx) { if (rf & 1) {
-    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 51);
+    _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 53);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div");
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](2);
     _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
@@ -1857,7 +1857,6 @@ class EditcityComponent {
             menu: ['', _angular_forms__WEBPACK_IMPORTED_MODULE_0__["Validators"].required],
             id_ciudad: ""
         });
-        this.regex = "/^[0-9]*$/";
         this.errorformato = false;
         this.errorc = false;
         this.coordenadasI = "";
@@ -1894,8 +1893,9 @@ class EditcityComponent {
     onSubmit() {
         this.errorc = false;
         this.service.clearFormData();
-        console.log(this.cityForm.value.coordenadas);
-        console.log((this.validarcoordenadas(this.cityForm.value.coordenadas)));
+        // IMPRIME PARA COMPROBAR LAS COORDENADAS
+        // console.log(this.cityForm.value.coordenadas);
+        // console.log((this.validarcoordenadas(this.cityForm.value.coordenadas)));
         if (this.validarcoordenadas(this.cityForm.value.coordenadas)) {
             this.service.formData = {
                 nombre: this.cityForm.value.ciudad,
@@ -1933,65 +1933,68 @@ class EditcityComponent {
             this.router.navigate(['/addcity']);
         });
     }
-    validarcoordenadas(x) {
-        this.splitted = x.split(" ");
-        this.longit = this.splitted[1].toString();
-        this.latit = this.splitted[0].toString();
-        this.splitted = this.longit.split("°");
-        this.long_grad = parseInt(this.splitted[0].toString());
-        this.longit = this.splitted[1].toString();
-        this.splitted = this.longit.split("'");
-        this.long_min = parseInt(this.splitted[0].toString());
-        this.longit = this.splitted[1].toString();
-        this.splitted = this.latit.split("°");
-        this.latit_grad = parseInt(this.splitted[0].toString());
-        this.latit = this.splitted[1].toString();
-        this.splitted = this.latit.split("'");
-        this.latit_min = parseInt(this.splitted[0].toString());
-        this.latit = this.splitted[1].toString();
-        if (this.longit != "E" && this.longit != "W") {
-            this.errorformato = true;
-            return false;
-        }
-        ;
-        if (this.latit != "S" && this.latit != "N") {
-            this.errorformato = true;
-            return false;
-        }
-        ;
-        if ((-180 > this.long_grad) || (this.long_grad > 180)) {
+    // VALIDA LAS COORDENADAS
+    validarcoordenadas(cadena) {
+        var er2 = /^[0-9]{1,2}[°]{1}[0-9]{1,2}[']{1}[SN]{1}[ ]{1}[0-9]{1,2}[°]{1}[0-9]{1,2}[']{1}[EO]{1}$/;
+        var rta2 = er2.test(cadena);
+        if (rta2 == false) {
             this.errorformato = true;
             return false;
         }
         else {
-            if ((-180 > this.long_min) || (this.long_min > 180)) {
-                {
-                    this.errorformato = true;
-                    return false;
-                }
-            }
+            return true;
         }
-        if ((-90 > this.latit_grad) || (this.latit_grad > 90)) {
-            this.errorformato = true;
-            return false;
-        }
-        else {
-            if ((-90 > this.latit_min) || (this.latit_min > 90)) {
-                {
-                    this.errorformato = true;
-                    return false;
-                }
-            }
-        }
-        return true;
     }
+    // VALIDA COORDENADAS, DENTRO DEL RANGO DE LATITUD Y LONGITUD
+    // validarcoordenadas(x:string){ 
+    //         if(x.search(" ")==-1){this.errorformato=true;return false;}
+    //         this.splitted = x.split(" ");       
+    //         this.longit=this.splitted[1].toString();
+    //         this.latit=this.splitted[0].toString();
+    //         if(this.longit.search("°")==-1){this.errorformato=true;return false;}
+    //         this.splitted = this.longit.split("°");
+    //         this.long_grad=parseInt(this.splitted[0].toString());
+    //         this.longit= this.splitted[1].toString(); 
+    //         if(this.longit.search("'")==-1){this.errorformato=true;return false;}
+    //         this.splitted = this.longit.split("'");
+    //         this.long_min=parseInt(this.splitted[0].toString());
+    //         this.longit=this.splitted[1].toString();
+    //         if(this.latit.search("°")==-1){this.errorformato=true;return false;}
+    //         this.splitted = this.latit.split("°");
+    //         this.latit_grad=parseInt(this.splitted[0].toString());
+    //         this.latit= this.splitted[1].toString(); 
+    //         if(this.latit.search("'")==-1){this.errorformato=true;return false;}
+    //         this.splitted = this.latit.split("'");
+    //         this.latit_min=parseInt(this.splitted[0].toString());
+    //         this.latit=this.splitted[1].toString();
+    //         if(this.longit!="E" && this.longit!="O"){
+    //           this.errorformato=true;return false;
+    //         };
+    //         if(this.latit!="S" && this.latit!="N"){
+    //           this.errorformato=true;return false;
+    //         };
+    //         if((-180 > this.long_grad) || (this.long_grad >180))
+    //                 {this.errorformato=true;return false;}
+    //             else
+    //                 {if((-180 > this.long_min) || (this.long_min > 180))
+    //                   {{this.errorformato=true;return false;}}
+    //                 }
+    //         if((-90 > this.latit_grad) || (this.latit_grad>90))
+    //                 {this.errorformato=true;return false;}
+    //             else
+    //                 {if((-90 > this.latit_min) || (this.latit_min>90))
+    //                   {{this.errorformato=true;return false;}}
+    //                 }
+    //    return true;
+    //   }
     corregido() {
+        this.errorformato = false;
         this.errorc = false;
         this.coordenadasresp = "";
     }
 }
 EditcityComponent.ɵfac = function EditcityComponent_Factory(t) { return new (t || EditcityComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_forms__WEBPACK_IMPORTED_MODULE_0__["FormBuilder"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](src_app_services_ciudades_service__WEBPACK_IMPORTED_MODULE_2__["CiudadesService"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_3__["ActivatedRoute"])); };
-EditcityComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: EditcityComponent, selectors: [["app-editcity"]], decls: 88, vars: 8, consts: [[1, "container-fluid"], [1, "row", "min-vh-100", "flex-column", "flex-md-row"], ["id", "Sidebar", 1, "col-12", "col-md-3", "col-xl-2", "p-0", "flex-shrink-1"], [1, "navbar", "navbar-expand-md", "navbar-dark", "bd-dark", "flex-md-column", "flex-row", "py-2", "text-center", "sticky-top"], [1, "align-items-center"], ["src", "./assets/Imagenes/logoside.png", "alt", "logo full viajes", 1, "img-fluid", "rounded-circle", "my-4", "p-1", "d-none", "d-md-block", "shadow"], ["type", "button", "data-toggle", "collapse", "data-target", "#nav", "aria-controls", "nav", "aria-expanded", "false", "aria-label", "Toggle navigation", 1, "navbar-toggler", "border-0", "order-1"], [1, "navbar-toggler-icon"], ["id", "nav", 1, "collapse", "navbar-collapse", "prder-last"], [1, "navbar-nav", "flex-column", "w-100", "justify-content-center"], ["routerLink", "/perfil", 1, "d-block", "p-3", "text-light", 2, "border-top", "white solid 1px"], [1, "fas", "fa-user", "nr-4"], ["href", "#", 1, "d-block", "p-3", "text-light"], [1, "fas", "fa-cog", "nr-4"], [1, "fas", "fa-bullhorn", "nr-4"], ["routerLink", "/admusers", 1, "d-block", "p-3", "text-light"], [1, "fas", "fa-users", "nr-4"], ["routerLink", "/admcitys", 1, "d-block", "p-3", "text-light"], [1, "fas", "fa-map-marker-alt", "nr-4"], ["routerLink", "/admatrac", 1, "d-block", "p-3", "text-light"], [1, "fas", "fa-map-marked-alt", "nr-4"], ["routerLink", "/principal2", 1, "d-block", "p-3", "text-light", 2, "border-top", "white solid 1px"], [1, "fas", "fa-home", "nr-4"], ["routerLink", "/logout", 1, "d-block", "p-3", "text-light"], [1, "fas", "fa-sign-out-alt", "nr-4"], [1, "col", "px-0", "flex-grow-1"], [1, "container", "py-3"], ["id", "contenido", 1, "inner-content", 2, "background-color", "rgb(255, 255, 255)", "height", "1300px"], [1, "container"], [1, "row"], [1, "box"], ["autocomplete", "off", 3, "formGroup", "ngSubmit"], [1, "form-group"], ["type", "textbox", "name", "ciudad", "formControlName", "ciudad", 1, "form-control"], ["class", "alert alert-danger", 4, "ngIf"], ["type", "textbox", "formControlName", "cp", 1, "form-control", "cp"], ["for", "coordenadas"], ["type", "textbox", "formControlName", "coordenadas", 1, "form-control", 3, "keyup"], ["name", "descripcion", "formControlName", "descripcion", 1, "form-control"], ["for", "menu", 1, "col-md-3", "control-label"], [1, "col-md-9"], [1, "radio-inline"], ["type", "radio", "name", "menu", "value", "0", "id", "0"], ["type", "radio", "name", "menu", "value", "1", "id", "1", "checked", ""], ["class", "alert alert-danger", "style", "text-align: center;", 4, "ngIf"], [1, "btn", "float-right", "btn-outline-success", 2, "margin-left", "5px", 3, "disabled"], ["routerLink", "/admcitys"], [1, "btn", "float-right", "btn-outline-danger"], ["id", "Footer", 1, "text-center", "p-3", "col-12", 2, "background-color", "#f15d39", "padding-top", "10 px"], [2, "color", "white"], [1, "alert", "alert-danger"], [1, "alert", "alert-danger", 2, "text-align", "center"]], template: function EditcityComponent_Template(rf, ctx) { if (rf & 1) {
+EditcityComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineComponent"]({ type: EditcityComponent, selectors: [["app-editcity"]], decls: 88, vars: 8, consts: [[1, "container-fluid"], [1, "row", "min-vh-100", "flex-column", "flex-md-row"], ["id", "Sidebar", 1, "col-12", "col-md-3", "col-xl-2", "p-0", "flex-shrink-1"], [1, "navbar", "navbar-expand-md", "navbar-dark", "bd-dark", "flex-md-column", "flex-row", "py-2", "text-center", "sticky-top"], [1, "align-items-center"], ["src", "./assets/Imagenes/logoside.png", "alt", "logo full viajes", 1, "img-fluid", "rounded-circle", "my-4", "p-1", "d-none", "d-md-block", "shadow"], ["type", "button", "data-toggle", "collapse", "data-target", "#nav", "aria-controls", "nav", "aria-expanded", "false", "aria-label", "Toggle navigation", 1, "navbar-toggler", "border-0", "order-1"], [1, "navbar-toggler-icon"], ["id", "nav", 1, "collapse", "navbar-collapse", "prder-last"], [1, "navbar-nav", "flex-column", "w-100", "justify-content-center"], ["routerLink", "/perfil", 1, "d-block", "p-3", "text-light", 2, "border-top", "white solid 1px"], [1, "fas", "fa-user", "nr-4"], ["href", "#", 1, "d-block", "p-3", "text-light"], [1, "fas", "fa-cog", "nr-4"], [1, "fas", "fa-bullhorn", "nr-4"], ["routerLink", "/admusers", 1, "d-block", "p-3", "text-light"], [1, "fas", "fa-users", "nr-4"], ["routerLink", "/admcitys", 1, "d-block", "p-3", "text-light"], [1, "fas", "fa-map-marker-alt", "nr-4"], ["routerLink", "/admatrac", 1, "d-block", "p-3", "text-light"], [1, "fas", "fa-map-marked-alt", "nr-4"], ["routerLink", "/principal2", 1, "d-block", "p-3", "text-light", 2, "border-top", "white solid 1px"], [1, "fas", "fa-home", "nr-4"], ["routerLink", "/logout", 1, "d-block", "p-3", "text-light"], [1, "fas", "fa-sign-out-alt", "nr-4"], [1, "col", "px-0", "flex-grow-1"], [1, "container", "py-3"], ["id", "contenido", 1, "inner-content", 2, "background-color", "rgb(255, 255, 255)", "height", "1300px"], [1, "container"], [1, "row"], [1, "box"], ["autocomplete", "off", 3, "formGroup", "ngSubmit"], [1, "form-group"], ["type", "textbox", "name", "ciudad", "formControlName", "ciudad", 1, "form-control"], ["class", "alert alert-danger", 4, "ngIf"], ["type", "textbox", "formControlName", "cp", 1, "form-control", "cp"], ["for", "coordenadas"], ["type", "textbox", "formControlName", "coordenadas", "id", "coor", 1, "form-control", 3, "keyup"], ["id", "alertacoor", "class", "alert alert-danger", 4, "ngIf"], ["name", "descripcion", "formControlName", "descripcion", 1, "form-control"], ["for", "menu", 1, "col-md-3", "control-label"], [1, "col-md-9"], [1, "radio-inline"], ["type", "radio", "name", "menu", "value", "0", "id", "0"], ["type", "radio", "name", "menu", "value", "1", "id", "1", "checked", ""], ["class", "alert alert-danger", "style", "text-align: center;", 4, "ngIf"], [1, "btn", "float-right", "btn-outline-success", 2, "margin-left", "5px", 3, "disabled"], ["routerLink", "/admcitys"], [1, "btn", "float-right", "btn-outline-danger"], ["id", "Footer", 1, "text-center", "p-3", "col-12", 2, "background-color", "#f15d39", "padding-top", "10 px"], [2, "color", "white"], [1, "alert", "alert-danger"], ["id", "alertacoor", 1, "alert", "alert-danger"], [1, "alert", "alert-danger", 2, "text-align", "center"]], template: function EditcityComponent_Template(rf, ctx) { if (rf & 1) {
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](1, "div", 1);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](2, "aside", 2);
@@ -2076,38 +2079,38 @@ EditcityComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵlistener"]("keyup", function EditcityComponent_Template_input_keyup_58_listener() { return ctx.corregido(); });
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](59, EditcityComponent_div_59_Template, 2, 0, "div", 34);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](60, EditcityComponent_div_60_Template, 2, 0, "div", 34);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](60, EditcityComponent_div_60_Template, 2, 0, "div", 38);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](61, "div", 32);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](62, "label");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](63, "Descripci\u00F3n");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](64, "textarea", 38);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](64, "textarea", 39);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](65, EditcityComponent_div_65_Template, 2, 0, "div", 34);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](66, "div", 32);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](67, "label", 39);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](67, "label", 40);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](68, "En Menu");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](69, "div", 40);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](70, "label", 41);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](71, "input", 42);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](69, "div", 41);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](70, "label", 42);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](71, "input", 43);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](72, " Activado ");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](73, " \u00A0\u00A0\u00A0 ");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](74, "label", 41);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](75, "input", 43);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](74, "label", 42);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelement"](75, "input", 44);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](76, " Desactivado ");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](77, "div", 32);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](78, EditcityComponent_div_78_Template, 3, 1, "div", 44);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](79, "button", 45);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtemplate"](78, EditcityComponent_div_78_Template, 3, 1, "div", 45);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](79, "button", 46);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](80, "Agregar");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](81, "a", 46);
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](82, "button", 47);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](81, "a", 47);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](82, "button", 48);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](83, "Cancelar");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
@@ -2119,9 +2122,9 @@ EditcityComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefine
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](84, "div", 48);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](84, "div", 49);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](85, "strong");
-        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](86, "p", 49);
+        _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementStart"](86, "p", 50);
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵtext"](87, "\u00A9 2021 Copyright: Grupo 2B.");
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵelementEnd"]();
@@ -3175,14 +3178,14 @@ class CiudadesService {
             cp: "",
             coordenadas: "",
             descripcion: "",
-            menu: false
+            menu: false,
         };
     }
     postCiudad(formData) {
         return this.http.post(this.rootURL + '/Ciudades/register', formData);
     }
     Editar(formData) {
-        return this.http.post(this.rootURL + '/Ciudades/putCiudad', formData);
+        return this.http.put(this.rootURL + '/Ciudades/putCiudad', formData);
     }
     acceder(ciudad_id) {
         return this.http.get(this.rootURL + '/Ciudades/GetCiudad/' + ciudad_id);
