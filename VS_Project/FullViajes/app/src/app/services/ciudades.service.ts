@@ -39,4 +39,9 @@ export class CiudadesService {
  listarmenu(){
   return this.http.get(this.rootURL+ '/Ciudades/GetCiudades')
 }
+DeleteCiudad(id:number){
+  return this.http.get(this.rootURL+ '/Ciudades/DeleteCiudad'+id);
+}
+
+
 }

@@ -24,6 +24,7 @@ import { AdminsettingsComponent } from './component/adminsettings/adminsettings.
 import { UsersettingsComponent } from './component/usersettings/usersettings.component';
 import { ActiveuserComponent } from './component/activeuser/activeuser.component';
 import { DeactiveuserComponent } from './component/deactiveuser/deactiveuser.component';
+import {DelcityComponent} from './component/delcity/delcity.component';
 
 
 const routes: Routes = [
@@ -49,6 +50,7 @@ const routes: Routes = [
   {path:'viewuser/:user_id', component: ViewuserComponent},
   {path:'edituser/:user_id', component: EdituserComponent},
   {path:'levelaccess', component: LevelaccessComponent},
+  {path:'delcity', component: DelcityComponent},
   {path:'', component: PrincipalComponent},
   {path:'index', component: PrincipalComponent},
   {path:'usuario', component: UsuarioComponent},

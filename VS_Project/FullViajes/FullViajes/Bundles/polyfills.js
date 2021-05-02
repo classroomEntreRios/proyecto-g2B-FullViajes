@@ -7,11 +7,7 @@
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-module.exports = __webpack_require__(/*! G:\ISPC\proyecto-g2B-FullViajes\VS_Project\FullViajes\app\src\polyfills.ts */"hN/g");
-=======
 module.exports = __webpack_require__(/*! D:\Curso de Full Stack\Proyecto\proyecto-g2B-FullViajes\VS_Project\FullViajes\app\src\polyfills.ts */"hN/g");
->>>>>>> unir
 
 
 /***/ }),

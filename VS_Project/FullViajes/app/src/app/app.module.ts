@@ -47,6 +47,7 @@ import { CitiesviewComponent } from './component/citiesview/citiesview.component
 import { CiudadesService } from './services/ciudades.service';
 import { ClimaService } from './services/clima.service';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { DelcityComponent } from './component/delcity/delcity.component';
 
 
 @NgModule({
@@ -85,6 +86,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     UsersettingsComponent,
     AdminsettingsComponent,
     CitiesviewComponent,
+    DelcityComponent,
     
   ],
   imports: [
