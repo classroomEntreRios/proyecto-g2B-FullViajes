@@ -43,6 +43,11 @@ import { UsersettingsComponent } from './component/usersettings/usersettings.com
 import { AdminsettingsComponent } from './component/adminsettings/adminsettings.component';
 import { CitiesviewComponent } from './component/citiesview/citiesview.component';
 
+//import { DashboardDefComponent } from './component/dashboard-def/dashboard-def.component';
+import { CiudadesService } from './services/ciudades.service';
+import { ClimaService } from './services/clima.service';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -91,7 +96,8 @@ import { CitiesviewComponent } from './component/citiesview/citiesview.component
     AppRoutingModule
   ],
   providers: [
-    UsuarioService
+    UsuarioService, CiudadesService,ClimaService,
+    {provide: LocationStrategy, useClass:HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
 })

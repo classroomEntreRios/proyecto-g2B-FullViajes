@@ -15,6 +15,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 export class FormRegistroComponent implements OnInit {
   erroru=false;
   errorc=false;
+  errorG=false; 
 
 
 
@@ -35,6 +36,7 @@ export class FormRegistroComponent implements OnInit {
     //quitar los alerts ya que aparecen al vaciar todo
     this.erroru=false;
     this.errorc=false;
+    this.errorG=false; 
 
     
 
@@ -55,6 +57,7 @@ export class FormRegistroComponent implements OnInit {
    onSubmit(form: NgForm) {
     this.erroru=false;
     this.errorc=false;
+    this.errorG=false; 
     this.insertRecord(form);
   }
 
@@ -69,24 +72,21 @@ export class FormRegistroComponent implements OnInit {
           },
           (err:HttpErrorResponse) => {
               
-            var MensajeError=err.error.Message;
+            var MensajeError=err.error.message;
             if (MensajeError=="El usuario ya se encuentra registrado")
                 {
                     this.erroru=true;
                 }
                 else
                 {
-                    if (MensajeError=="El correo ya se encuentra registrado")
+                    if (MensajeError=="El email ya se encuentra registrado")
                     {
                         this.errorc=true;
                     } 
-                    else {console.log('algo malio sal');
-                      //MOSTRAR UN ERROR GENERAL POR FORMULARIO INVALIDO
-                      //this.resetForm();
-                      //this.router.navigate(['/usuario']);
+                    else {this.errorG=true;
                     }
                 }
-                this.router.navigate(['/formulario']);
+                //this.router.navigate(['/formulario']);
             }
           );
         
@@ -95,6 +95,7 @@ export class FormRegistroComponent implements OnInit {
   corregido(){
     this.erroru=false;
     this.errorc=false;
+    this.errorG=false; 
   }
 
         

@@ -15,11 +15,9 @@
                             <button>Ciudades</button>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="dropdown-item" href="#">Ciudad1</a>
-                            <a class="dropdown-item" href="#">Ciudad2</a>
-                            <a class="dropdown-item" href="#">Ciudad3</a>
-                            <a class="dropdown-item" href="#">Ciudad4</a>
-                            <a class="dropdown-item" href="#">Ciudad5</a>
+                                <tr *ngFor="let city of cities">
+                                    <td class="dropdown-item" routerLink="/admcitys">{{city.nombre}}</td>
+                                </tr>
                             </div>
                         </li>
                         <li class="nav-item active">

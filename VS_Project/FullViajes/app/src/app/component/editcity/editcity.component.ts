@@ -17,180 +17,196 @@ export class EditcityComponent implements OnInit {
   cityForm: FormGroup = this.formBuilder.group({
     ciudad: ['', Validators.required],
     cp: ['', Validators.required],
-    latnordsud: ['', Validators.required],
-    lat_grad: ['', Validators.required,Validators.pattern("/^[0-9]+$/")],
-    lat_min: ['', Validators.required,Validators.pattern("/^[0-9]+$/")],
-    longeo: ['', Validators.required],
-    long_grad: ['', Validators.required,Validators.pattern("/^[0-9]+$/")],
-    long_min: ['', Validators.required,Validators.pattern("/^[0-9]+$/")],     
+    coordenadas: ['', Validators.required], 
     descripcion: ['', Validators.required],
-    menu: false
+    menu: ['', Validators.required],
+    id_ciudad:""
   });
+  errorformato=false;
   errorc=false;
-  coordenadas="";
-  coordenadasresp="";
-  // a cambiar
-  latnordsud="";
-  coordenadasrecibida:any;
-  lat_grad="";
-  lat_min="";
-  longeo="";
-  long_grad="";
-  long_min="";
-// fin a cambiar
+
+  errorG=false; 
+ 
+
+  // cityForm!: FormGroup;
+  city:any;
+ 
 
 
-  // city:any;
-  // splitted:any;
-  // longit:string="";
-  // long_grad:string="";
-  // long_min:string="";
-  // latit:string="";
-  // latit_grad:string="";
-  // latit_min:string="";
 
+  splitted:any;
+   longit:string="";
+   long_grad:number=0;
+   long_min:number=0;
+   latit:string="";
+   latit_grad:number=0;
+   latit_min:number=0;
 
   constructor(private formBuilder: FormBuilder,public service: CiudadesService, private router: Router, private _route:ActivatedRoute) { }
   
   ngOnInit(): void {
     this.cityForm.reset();  
     this.errorc=false;
-    this.coordenadas="";
-    this.coordenadasresp="";
     this.city_id = this._route.snapshot.paramMap.get('id')!;
+    this.errorc=false;
+    this.errorG=false;   
     this.service.acceder(this.city_id).subscribe(
       (ciudad: any) => {
-// <<<<<<< HEAD
-        this.service.formData=ciudad;
-        this.coordenadasrecibida=this.service.formData.coordenadas.split(" ");
-        this.latnordsud=this.coordenadasrecibida[1].toString();
-        this.longeo=this.coordenadasrecibida[0].toString();
-        this.coordenadasrecibida=this.latnordsud.split("°");
-        this.lat_grad=this.coordenadasrecibida[0].toString();
-        this.latnordsud=this.coordenadasrecibida[1].toString();
-        this.coordenadasrecibida=this.latnordsud.split("'");
-        this.lat_min=this.coordenadasrecibida[0].toString();
-        this.latnordsud=this.coordenadasrecibida[1].toString();
-        this.latnordsud=this.latnordsud.substr(-1);
-        this.coordenadasrecibida=this.longeo.split("°");
-        this.long_grad=this.coordenadasrecibida[0].toString();
-        this.longeo=this.coordenadasrecibida[1].toString();
-        this.coordenadasrecibida=this.longeo.split("'");
-        this.long_min=this.coordenadasrecibida[0].toString();
-        this.longeo=this.coordenadasrecibida[1].toString();
-        this.longeo=this.longeo.substr(-1);
 
-        this.cityForm.value.lat_grad=this.lat_grad;
-     
-
-// =======
-    //     this.city=ciudad;
-    //     this.splitted = this.city.coordenadas.split(" "); 
-    //     this.longit=this.splitted[1].toString();
-    //     this.latit=this.splitted[0].toString();
-    //     this.splitted = this.longit.split("°");
-    //     this.long_grad=this.splitted[0].toString();
-    //     this.longit= this.splitted[1].toString(); 
-    //     this.splitted = this.longit.split("'");
-    //     this.long_min=this.splitted[0].toString();
-    //     this.splitted = this.latit.split("°");
-    //     this.latit_grad=this.splitted[0].toString();
-    //     this.latit= this.splitted[1].toString(); 
-    //     this.splitted = this.latit.split("'");
-    //     this.latit_min=this.splitted[0].toString();
-    // /*console.log(this.splitted[1].toString())*/
-    // console.log(this.long_min);
-    // console.log(this.long_grad);
-    // console.log(this.latit_min);
-    // console.log(this.latit_grad);
-    // this.cityForm.patchValue(
-    //   {
+        this.city=ciudad;
+        if(ciudad.menu==true)
+        {
+        this.cityForm.patchValue({menu:'0'})
+        }
+        else
+        {
+        this.cityForm.patchValue({menu:'1'});
+        }
+      this.cityForm.patchValue(
+      {
         
-    //     ciudad: this.city.nombre,
-    //     cp:this.city.cp,
-    //     descripcion: this.city.descripcion,
-    //     //lat_grad:this.latit_grad,
-    //     lat_min:this.latit_min,
-    //     long_min:this.long_min,
-    //     long_grad:this.long_grad,
-// >>>>>>> 33f7c7a3e34026468929d65a91c2532a5f178c25
-   
+        ciudad: this.city.nombre,
+        cp:this.city.cp,
+        descripcion: this.city.descripcion,
+        coordenadas:this.city.coordenadas,
+        id_ciudad:this.city.id_ciudad
       }
+
+    );
+      },
+      (err:HttpErrorResponse) => {this.errorG=true; }
     );   
+
     
     
   }
-
   onSubmit():void{
-
-    this.coordenadas=this.cityForm.value.lat_grad+"°"+this.cityForm.value.lat_min+"'"+this.cityForm.value.latnordsud+" "+ this.cityForm.value.long_grad+"°"+this.cityForm.value.long_min+"'"+this.cityForm.value.longeo;
-    this.coordenadasresp=this.cityForm.value.lat_grad+"°"+this.cityForm.value.lat_min+"'"+this.cityForm.value.latnordsud+" "+ this.cityForm.value.long_grad+"°"+this.cityForm.value.long_min+"'"+this.cityForm.value.longeo;
-  
     this.errorc=false;
+    this.errorG=false; 
     this.service.clearFormData();
-  
-   this.service.formData={
-      nombre: this.cityForm.value.ciudad,
-      cp: this.cityForm.value.cp,
-      coordenadas: this.coordenadas,
-      descripcion: this.cityForm.value.descripcion,
-      menu:false
-    };
+    // IMPRIME PARA COMPROBAR LAS COORDENADAS
+    // console.log(this.cityForm.value.coordenadas);
+    // console.log((this.validarcoordenadas(this.cityForm.value.coordenadas)));
     
-  
-  console.log(this.service.formData);
-  this.insertRecord();
-    
+     if(this.validarcoordenadas(this.cityForm.value.coordenadas)){
+
+      if(this.cityForm.value.menu==0)
+        {this.service.formData={menu:true,
+          nombre: this.cityForm.value.ciudad,
+          cp: this.cityForm.value.cp,
+          coordenadas: this.cityForm.value.coordenadas,
+          descripcion: this.cityForm.value.descripcion,
+          id_ciudad:this.cityForm.value.id_ciudad}}
+          else{
+         this.service.formData={
+          nombre: this.cityForm.value.ciudad,
+          cp: this.cityForm.value.cp,
+          coordenadas: this.cityForm.value.coordenadas,
+          descripcion: this.cityForm.value.descripcion,
+          menu:false,
+          id_ciudad:this.cityForm.value.id_ciudad};
+     };
+    this.ModificarCiudad();
+    }else{ this.errorformato=true;};
   }
-  insertRecord(){
-   
-  
-    this.service.editar(this.service.formData,this.city_id).subscribe(
+
+
+  ModificarCiudad(){
+ 
+
+    this.service.Editar(parseInt(this.city_id), this.service.formData).subscribe(
+
       res => {
         //MOSTRAR UN MENSAJE QUE SE GUARDO CORRECTAMENTE
         this.router.navigate(['/admcitys']);
         this.cityForm.reset();
       },
-      (err:HttpErrorResponse) => {
-                
-        var MensajeError=err.error.ModelState.Error;
-        ;
-        console.log(MensajeError);
+
+      (err:HttpErrorResponse) => {     
+        var MensajeError=err.error.message;
+ 
         if (MensajeError=="LAS COORDENADAS YA SE ENCUENTRA EN LA BASE DE DATOS")
             {
-                this.errorc=true;
-                this.coordenadas="";
-                this.cityForm.reset();
-                // this.cityForm.value.lat_grad="";
-                // this.cityForm.value.lat_min="";
-                // this.cityForm.value.long_grad="";
-                // this.cityForm.value.long_min="";
-                
-                
+                this.errorc=true;                
             }
             else
             {
-                {console.log('algo malio sal');
-                this.cityForm.reset();
-                  //MOSTRAR UN ERROR GENERAL POR FORMULARIO INVALIDO
-                  //this.resetForm();
-                  //this.router.navigate(['/usuario']);
+                {this.errorG=true; 
                 }
             }
-            this.router.navigate(['/addcity']);
+            //this.router.navigate(['/addcity']);
         }
     )
-  
-  }
-  
-  
-  // solonumero(supuestonumero:any) {
-  //   return /^[0-9]+$/gi.test(supuestonumero);
-  // };
 
   
+
+  }
+
+// VALIDA LAS COORDENADAS
+  validarcoordenadas(cadena:string){
+    var er2=/^[0-9]{1,2}[°]{1}[0-9]{1,2}[']{1}[SN]{1}[ ]{1}[0-9]{1,2}[°]{1}[0-9]{1,2}[']{1}[EO]{1}$/;
+    var rta2=er2.test(cadena);
+    if (rta2==false){this.errorformato=true;return false;} else{ return true;}
+    }
+// VALIDA COORDENADAS, DENTRO DEL RANGO DE LATITUD Y LONGITUD
+// validarcoordenadas(x:string){ 
+       
+//         if(x.search(" ")==-1){this.errorformato=true;return false;}
+//         this.splitted = x.split(" ");       
+//         this.longit=this.splitted[1].toString();
+//         this.latit=this.splitted[0].toString();
+//         if(this.longit.search("°")==-1){this.errorformato=true;return false;}
+//         this.splitted = this.longit.split("°");
+//         this.long_grad=parseInt(this.splitted[0].toString());
+//         this.longit= this.splitted[1].toString(); 
+//         if(this.longit.search("'")==-1){this.errorformato=true;return false;}
+//         this.splitted = this.longit.split("'");
+//         this.long_min=parseInt(this.splitted[0].toString());
+//         this.longit=this.splitted[1].toString();
+
+//         if(this.latit.search("°")==-1){this.errorformato=true;return false;}
+//         this.splitted = this.latit.split("°");
+//         this.latit_grad=parseInt(this.splitted[0].toString());
+//         this.latit= this.splitted[1].toString(); 
+//         if(this.latit.search("'")==-1){this.errorformato=true;return false;}
+//         this.splitted = this.latit.split("'");
+//         this.latit_min=parseInt(this.splitted[0].toString());
+//         this.latit=this.splitted[1].toString();
+
+//         if(this.longit!="E" && this.longit!="O"){
+//           this.errorformato=true;return false;
+//         };
+//         if(this.latit!="S" && this.latit!="N"){
+//           this.errorformato=true;return false;
+//         };
+//         if((-180 > this.long_grad) || (this.long_grad >180))
+//                 {this.errorformato=true;return false;}
+//             else
+//                 {if((-180 > this.long_min) || (this.long_min > 180))
+//                   {{this.errorformato=true;return false;}}
+
+//                 }
+//         if((-90 > this.latit_grad) || (this.latit_grad>90))
+//                 {this.errorformato=true;return false;}
+//             else
+//                 {if((-90 > this.latit_min) || (this.latit_min>90))
+//                   {{this.errorformato=true;return false;}}
+
+//                 }
+
+//    return true;
+//   }
+
+
+
+
   corregido(){
+    this.errorformato=false;
     this.errorc=false;
-    this.coordenadasresp="";
+    this.errorG=false;
+
   }
-  }
+
+
+}
+
