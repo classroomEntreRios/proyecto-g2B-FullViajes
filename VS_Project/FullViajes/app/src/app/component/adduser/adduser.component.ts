@@ -11,14 +11,15 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 })
 export class AdduserComponent implements OnInit {
   //emailPattern = "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
-  emailPattern ="^[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?$"
+  emailPattern ="^[a-zA-Z0-9!#$%&'*_+-]([\.]?[a-zA-Z0-9!#$%&'*_+-])+@[a-zA-Z0-9]([^@&%$\/()=?¿!.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?$";
+  passPattern ="^(?=/\w*/\d)(?=/\w*[A-Z])(?=/\w*[a-z])\S{6,16}$"
   erroru = false;
   errorc = false;
   userForm: FormGroup = this.formBuilder.group({
-    nickname: ['',[ Validators.required, Validators.pattern("^[a-z0-9_-]{8,15}$/")]],
-    nombre: ['',[ Validators.required, Validators.pattern("/^[a-zA-Z\_\-]{4,16}$/")]],
-    apellido: ['', [Validators.required, Validators.pattern("/[a-zA-Z0-9\_\-]{4,16}$/")]],
-    password: ['', Validators.required],
+    nickname: ['',[ Validators.required, Validators.pattern("^[a-z0-9]{1,50}?$")]],
+    nombre: ['', Validators.required],
+    apellido: ['', Validators.required],
+    password: ['', [ Validators.required, Validators.pattern("^[a-zA-Z0-9@#$]{6,25}?$")]],
     email: ['', [Validators.required, Validators.pattern(this.emailPattern)]],
     rol: ['', Validators.required],
     descripcion: ['']
