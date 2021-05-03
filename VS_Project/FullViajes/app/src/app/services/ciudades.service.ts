@@ -40,7 +40,7 @@ export class CiudadesService {
   return this.http.get(this.rootURL+ '/Ciudades/GetCiudades')
 }
 DeleteCiudad(id:number){
-  return this.http.post(this.rootURL+ '/Ciudades/DeleteCiudad/'+id,id);
+  return this.http.delete(this.rootURL+ '/Ciudades/DeleteCiudad/'+id);
 }
 
 
