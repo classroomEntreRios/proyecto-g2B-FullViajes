@@ -3,8 +3,7 @@
 
 }
 
-<<<<<<< HEAD
-  .box{
+.box{
     width: 450px;
     height: 390px;
     margin: 10px;
@@ -36,11 +35,10 @@
     background-color: #f15d39!important;
     color: white;
   }
-=======
+
 a {
   text-decoration:none ;
 }
->>>>>>> 120619291415cb944af350ac9a4303636d0ea14d
 
 a:hover {
   background-color: #f17d39;
