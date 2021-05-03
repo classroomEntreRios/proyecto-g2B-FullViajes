@@ -37,54 +37,41 @@
                     <div class="inner-content" style="background-color: rgb(255, 255, 255); height: 1300px;"
                         id="contenido">
                         <!--Contenido-->
-                        <div class="container">
+                         <div class="container">
                             <div class="row">
-                                <h2>Editar Ciudad</h2>
+                                <h2>Eliminar Ciudad</h2>
                             </div>
                             <div class="row">
                                 <div class="box">
-                                    <form (ngSubmit)="onSubmit()" [formGroup]="cityForm" autocomplete="off">
-                                        <div class="form-group">
+                                    
+                                        <div >
+                                            
                                             <label>Ciudad:</label>
+                                            &nbsp;&nbsp;&nbsp;
+                                            <p>{{this.city.nombre}}</p>
 
-
-                                            <input type="textbox" name="ciudad" formControlName="ciudad" class="form-control">
-
-                                            <div *ngIf="cityForm.get('ciudad')?.invalid && (cityForm.get('ciudad')?.dirty || cityForm.get('ciudad')?.touched)"
-                                                class="alert alert-danger">
-                                                El nombre de la ciudad es requerido
-                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label>Código Postal</label>
-                                            <input type="textbox" formControlName="cp" class="form-control cp">
-                                            <div *ngIf="cityForm.get('cp')?.invalid && (cityForm.get('cp')?.dirty || cityForm.get('cp')?.touched)" class="alert alert-danger">
-                                                El Código Postal de la ciudad es requerido
-                                            </div>
+                                        
+                                        <div >
+                                            <label>Código Postal:</label>
+                                            &nbsp;&nbsp;&nbsp;
+                                            <p>{{this.city.cp}}</p>
                                         </div>
                                        
-                                        <div class="form-group">
-                                                <label for="coordenadas">Coordenadas</label>
-                                                <input type="textbox" formControlName="coordenadas" class="form-control" (keyup)="corregido();" id="coor">
-                                                <div *ngIf="cityForm.get('coordenadas')?.invalid && (cityForm.get('coordenadas')?.dirty || cityForm.get('coordenadas')?.touched)" class="alert alert-danger">
-                                                    Las coordenadas son requeridas
-                    
-                                                </div>
-                                                
-                                                <div  id="alertacoor" class="alert alert-danger" *ngIf="errorformato"> <!--  -->
-                                                    Las coordenadas deben cumplir cocn el siguente formato: 
-                                                    Ej. 45°45'N 45°45'O  o   45°45'S 45°45'E
-                    
-                                                </div>
+                                        <div >
+                                                <label for="coordenadas">Coordenadas:</label>
+                                                &nbsp;&nbsp;&nbsp;
+                                                <p>{{this.city.coordenadas}}</p>
                                         </div>
-                                        <div class="form-group">
-                                                    <label>Descripción</label>
-                                                    <textarea class="form-control" name="descripcion" formControlName="descripcion"></textarea>
-                                                    <div *ngIf="cityForm.get('descripcion')?.invalid && (cityForm.get('descripcion')?.dirty || cityForm.get('descripcion')?.touched)" class="alert alert-danger">
-                                                        Debe ingresar una breve descripcion de la ciudad.
-                                                    </div>
+                                        <div >
+                                                <label>Descripción: </label>
+                                                &nbsp;&nbsp;&nbsp;
+                                                <p>{{this.city.descripcion}}</p>
                                         </div>
-                                        <div class="form-group">
+                                        
+                                        
+                                        <!-- 
+                                            <div >
                                             <label class="col-md-3 control-label" for="menu">En Menu</label>
                                             <div class="col-md-9">
                                                 <label class="radio-inline">
@@ -97,12 +84,12 @@
                                                     Desactivado
                                                 </label>
                                             </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <!-- SI ESTA REGISTRADA -->
+                                        </div> 
+                                    -->
+                                        <div >
                                             <div *ngIf="errorc"  class="alert alert-danger" style="text-align: center;">
                                                 <div>
-                                                    Ya se encuentra registrada una ciudad en esas coordenadas.
+                                                    Esta ciudad ya no se encuentra en la base de datos.
                                                 </div>
                                             </div>
                                             <div *ngIf="errorG"  class="alert alert-danger" style="text-align: center;">
@@ -111,12 +98,12 @@
                                                 </div>
                                             </div>
                                                     <button class="btn float-right btn-outline-success"
-                                                        style="margin-left: 5px;" [disabled]="cityForm.invalid">Agregar</button>
+                                                        style="margin-left: 5px;" onclick="eliminar();">Agregar</button>
                                                     <a routerLink="/admcitys"><button class="btn float-right btn-outline-danger">Cancelar</button></a>
                                         </div>
                                                              
 
-                                    </form>
+                                    
                                 </div>
                             </div>
                         </div>  

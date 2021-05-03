@@ -1,17 +1,9 @@
 #Sidebar {
-    background-color: #f15d39!important;
+  background-color: #f15d39!important;
 
-  }
-  
-  a {
-    text-decoration:none ;
-  }
-  
-  a:hover {
-    background-color: #f17d39;
-    color: white!important;
-  }
+}
 
+<<<<<<< HEAD
   .box{
     width: 450px;
     height: 390px;
@@ -44,67 +36,110 @@
     background-color: #f15d39!important;
     color: white;
   }
+=======
+a {
+  text-decoration:none ;
+}
+>>>>>>> 120619291415cb944af350ac9a4303636d0ea14d
 
-  #Baja {
-    border: 2px solid #f15d39;
-    border-radius: 15px;
-    background-color: white!important;
-    color:#f15d39 ;
-    font-weight: bold;
-    transition: 0.5s ;
-  }
-  #Baja:hover{
-    border: 2px solid #f15d39!important;
-    border-radius: 15px;
-    background-color: #f15d39!important;
-    color: white;
-  }
+a:hover {
+  background-color: #f17d39;
+  color: white!important;
+}
+
+.box{
+  width: 450px;
+  height: 390px;
+  margin: 10px;
+  padding: 15px;
+  border: 1px solid rgba(177, 177, 177, 0.933);
+  border-radius: 15px ;
+  text-align: justify;
+  margin-top: 200 px;
+  position:relative; /* Para que exista relacion entre sus divs*/
+  background-color:white;
+}
   
-  .changes {
-    border: 2px solid #20c3ec!important;
-    border-radius: 15px;
-    background-color: rgb(255, 255, 255)!important;
-    color:#20c3ec ;
-    font-weight: bold;
-    transition: 0.5s ;
+#Inactivar {
+    width: 900px;
+    height: 150px;
+}
+
+.desactivar {
+  border: 2px solid #f15d39!important;
+  border-radius: 15px;
+  background-color: white!important;
+  color: #f15d39;
+  font-weight: bold;
+  transition: 0.5s ;
+}
+.desactivar:hover{
+  border: 2px solid #f15d39!important;
+  border-radius: 15px;
+  background-color: #f15d39!important;
+  color: white;
+}
+
+#Baja {
+  border: 2px solid #f15d39;
+  border-radius: 15px;
+  background-color: white!important;
+  color:#f15d39 ;
+  font-weight: bold;
+  transition: 0.5s ;
+}
+#Baja:hover{
+  border: 2px solid #f15d39!important;
+  border-radius: 15px;
+  background-color: #f15d39!important;
+  color: white;
+}
+
+.changes {
+  border: 2px solid #20c3ec!important;
+  border-radius: 15px;
+  background-color: rgb(255, 255, 255)!important;
+  color:#20c3ec ;
+  font-weight: bold;
+  transition: 0.5s ;
+}
+.changes:hover {
+  border: 2px solid #20c3ec!important;
+  border-radius: 15px;
+  background-color: #20c3ec!important;
+  color: white!important;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 600px)  {
+  h2{
+      font-size: 23px;
   }
-  .changes:hover {
-    border: 2px solid #20c3ec!important;
-    border-radius: 15px;
-    background-color: #20c3ec!important;
-    color: white!important;
-    font-weight: bold;
+  #Sidebar{
+      max-width: 100vh;
   }
 
-  @media only screen and (max-width: 600px)  {
-    h2{
-        font-size: 23px;
-    }
-    #Sidebar{
-        max-width: 100vh;
-    }
+  #Inactivar{
+      width: 300px;
+  }
 
+ 
+
+  .Baja{
+    transform: translateY(50px);
+  }
+
+  .inactivarh2{
+    font-size: 15px;
+  }
+
+  .box{
+      width: 300px;
+  }
+}
+
+@media only screen and (max-width: 1300px)  {
     #Inactivar{
-        width: 300px;
+      width: 450px;
     }
-
-   
-
-    .Baja{
-      transform: translateY(50px);
-    }
-
-    .inactivarh2{
-      font-size: 15px;
-    }
-
-    .box{
-        width: 300px;
-    }
-  }
-
-  @media only screen and (max-width: 1300px)  {
-      #Inactivar{
-        width: 450px;
-      }
-  }
+}

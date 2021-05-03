@@ -4,4 +4,5 @@ export class Ciudad {
     coordenadas!: string;
     descripcion!: string;
     menu!: boolean | null;
+    id_ciudad?:number;
 }

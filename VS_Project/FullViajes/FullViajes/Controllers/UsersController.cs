@@ -120,14 +120,14 @@ namespace FullViajes.Controllers
                 {
                     // return new Respuesta
                     // { Estado = "Error", Mensaje = "El email ya se encuentra registrado" };
-                    MensajeError = "El email " + usuario.email + " ya se encuentra registrado";
+                    MensajeError = "El email ya se encuentra registrado";
                     return BadRequest(MensajeError);
                 }
                 //CHEQUEA QUE EL NOMBRE DE USUARIO NO ESTE EN USO
                 Usuario usercheck = db.Usuario.Where(a => a.nickname == usuario.nickname).FirstOrDefault();
                 if (usercheck != null)
                 {
-                    MensajeError = "El usuario " + usuario.nickname + " ya se encuentra registrado";
+                    MensajeError = "El usuario ya se encuentra registrado";
                     return BadRequest(MensajeError);
                 }
                 //ENCRIPTA CONTRASEÑA

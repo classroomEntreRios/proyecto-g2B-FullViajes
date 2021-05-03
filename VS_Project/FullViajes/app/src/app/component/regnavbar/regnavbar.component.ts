@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CiudadesService } from 'src/app/services/ciudades.service';
 
 @Component({
   selector: 'app-regnavbar',
@@ -8,11 +10,17 @@ import { Component, OnInit } from '@angular/core';
 export class RegnavbarComponent implements OnInit {
   Username = '';
   imgperfil='';
+  cities:any;
 
 
-  constructor() { }
+  constructor(public service: CiudadesService, private router: Router) { }
 
   ngOnInit(): void {
+    this.service.listarmenu().subscribe(
+      (city: any) => {
+        this.cities=city;
+      }
+    );
       this.Username = localStorage.getItem('nickname')!;
       this.imgperfil = localStorage.getItem('imgperfil')!;
   }
