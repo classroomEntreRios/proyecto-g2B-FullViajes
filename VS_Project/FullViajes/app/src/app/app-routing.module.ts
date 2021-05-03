@@ -50,7 +50,7 @@ const routes: Routes = [
   {path:'viewuser/:user_id', component: ViewuserComponent},
   {path:'edituser/:user_id', component: EdituserComponent},
   {path:'levelaccess', component: LevelaccessComponent},
-  {path:'delcity', component: DelcityComponent},
+  {path:'delcity/:id', component: DelcityComponent},
   {path:'', component: PrincipalComponent},
   {path:'index', component: PrincipalComponent},
   {path:'usuario', component: UsuarioComponent},
