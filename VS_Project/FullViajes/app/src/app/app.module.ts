@@ -42,12 +42,14 @@ import { PerfiladeditComponent } from './component/perfiladedit/perfiladedit.com
 import { UsersettingsComponent } from './component/usersettings/usersettings.component';
 import { AdminsettingsComponent } from './component/adminsettings/adminsettings.component';
 import { CitiesviewComponent } from './component/citiesview/citiesview.component';
+import { DatePipe } from '@angular/common';
 
 //import { DashboardDefComponent } from './component/dashboard-def/dashboard-def.component';
 import { CiudadesService } from './services/ciudades.service';
 import { ClimaService } from './services/clima.service';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { DelcityComponent } from './component/delcity/delcity.component';
+import { ClimahistoricoComponent } from './component/climahistorico/climahistorico.component';
 
 
 @NgModule({
@@ -87,6 +89,7 @@ import { DelcityComponent } from './component/delcity/delcity.component';
     AdminsettingsComponent,
     CitiesviewComponent,
     DelcityComponent,
+    ClimahistoricoComponent,
     
   ],
   imports: [
@@ -98,7 +101,7 @@ import { DelcityComponent } from './component/delcity/delcity.component';
     AppRoutingModule
   ],
   providers: [
-    UsuarioService, CiudadesService,ClimaService,
+    UsuarioService, CiudadesService,ClimaService, DatePipe,
     {provide: LocationStrategy, useClass:HashLocationStrategy}
   ],
   bootstrap: [AppComponent]
