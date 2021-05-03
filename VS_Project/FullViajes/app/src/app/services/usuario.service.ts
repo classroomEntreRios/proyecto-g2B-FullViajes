@@ -10,7 +10,7 @@ export class UsuarioService {
   oRes = '';
   //user_id='';
   formData: Usuario = new Usuario;
- //readonly rootURL = 'https://fullviajesdemo.azurewebsites.net/api'
+  //readonly rootURL = 'https://fullviajesdemo.azurewebsites.net/api'
   readonly rootURL = 'https://localhost:44331/api'
   constructor(private http: HttpClient) { }
 

@@ -85,6 +85,13 @@
                                         <input type="password" class="form-control" id="floatingPassword" placeholder="Repita contraseña nueva">
                                         <label for="floatingPassword"></label>
                                     </div>
+                                    <div class="row justify-content-center">
+                                        <a routerLink="/changepswd/{{user.id_usuario}}">
+                                        <button class="changes btn btn-success ">
+                                            Cambiar Contraseña
+                                        </button>
+                                        </a>
+                                     </div>
                                 </div>
                                 <div class="box">
                                     <strong>
@@ -98,7 +105,7 @@
                                         </h5>
                                     </strong>
                                     <div class="form-floating">
-                                        <input  class="form-control"  placeholder="@NickName">
+                                        <input  class="form-control"  placeholder="@NickName" value="{{user.nickname}}">
                                         <label></label>
                                     </div>
                                     <strong>
@@ -107,10 +114,14 @@
                                         </h5>
                                     </strong>
                                     <div class="form-floating mb-3">
-                                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{user.email}}">
                                         <label for="floatingInput"></label>
                                     </div>
-                                   
+                                    <div class="row justify-content-center">
+                                        <button class="changes btn btn-success ">
+                                            Guardar Cambios
+                                        </button>
+                                     </div>
                                 </div>
                                 <div class="box" id="Inactivar">
                                     <strong>
@@ -132,11 +143,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row justify-content-center">
-                                <button class="changes btn btn-success ">
-                                    Guardar Cambios
-                                </button>
-                             </div>
+                            
                         </div>
                      
                     </div>
