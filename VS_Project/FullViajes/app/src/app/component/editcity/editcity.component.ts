@@ -54,7 +54,7 @@ export class EditcityComponent implements OnInit {
       (ciudad: any) => {
 
         this.city=ciudad;
-        if(ciudad.menu==true)
+        if(ciudad.menu==1)
         {
         this.cityForm.patchValue({menu:'0'})
         }

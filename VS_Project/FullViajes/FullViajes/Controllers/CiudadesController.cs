@@ -172,6 +172,7 @@ namespace FullViajes.Controllers
 
 
         // DELETE: api/Ciudades/5
+        [Route("api/Ciudades/DeleteCiudad")]
         [ResponseType(typeof(Ciudad))]
         public IHttpActionResult DeleteCiudad(long id)
         {

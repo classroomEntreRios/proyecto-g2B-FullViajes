@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Ciudad } from '../models/ciudades.model'
+import { Ciudad } from '../models/ciudades.model';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -40,7 +40,7 @@ export class CiudadesService {
   return this.http.get(this.rootURL+ '/Ciudades/GetCiudades')
 }
 DeleteCiudad(id:number){
-  return this.http.get(this.rootURL+ '/Ciudades/DeleteCiudad'+id);
+  return this.http.post(this.rootURL+ '/Ciudades/DeleteCiudad/'+id,id);
 }
 
 
