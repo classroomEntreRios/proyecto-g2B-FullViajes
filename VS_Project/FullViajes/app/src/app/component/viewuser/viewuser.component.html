@@ -43,8 +43,14 @@
                             <div class="box">
                                 <p><i class="fas fa-user"></i> Nombre: {{user.nomapel}} </p>
                                 <p><i class="far fa-envelope"></i> Email: {{user.email}} </p>
-                                <p> Rol: {{user.rol}} </p>
-                                <p> Estado: {{user.active}} </p>
+                                <p> Rol: 
+                                    <span *ngIf="user.rol==0;">Admin</span>
+                                    <span *ngIf="user.rol==1;">User</span>
+                                </p>
+                                <p> Estado: 
+                                    <span *ngIf="user.active==true;">Activo</span>
+                                    <span *ngIf="user.active==false;">Inactivo</span>
+                                </p>
                                 <p> imágen de Perfil: {{user.user_foto}} </p>
                                 <img src="{{user.user_foto}}">
                                 <p>Redes sociales (opcional)</p>
