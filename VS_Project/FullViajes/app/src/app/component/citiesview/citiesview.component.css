@@ -12,3 +12,116 @@ img {
  body{
     overflow-x: hidden;
  }
+
+ #Banner {
+   background-color:#eaeaea;
+    
+}
+
+
+
+h1{
+   text-align: center;
+   color: white;
+   border-radius: 15px;
+   margin-bottom: 5PX;
+}
+
+ body{
+    overflow-x: hidden;
+ }
+
+ 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+main{
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.Title{
+    text-align: center;
+    margin-top: 60px;
+}
+
+.container-caja{
+    width: 100%;
+    display: flex; /*Para que esten uno al lado del otro */ 
+    justify-content: center;
+    flex-wrap: wrap; /*Para lograr hacerlo responsivo */ 
+}
+
+.caja1 {
+    width: 250px;
+    height: 250px;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 15px ;
+    text-align: center;
+    margin-top: 200 px;
+    position:relative; /* Para que exista relacion entre sus divs*/
+}
+
+
+.caja1 img {
+    width:50% ;
+}
+
+.caja1 h2 {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+
+.caja1 p{
+font-size: 14px;
+color: rgba(78,78,78) ;
+}
+
+p{
+    font-size: 14px;
+    color: rgba(78,78,78) ;
+    }
+
+
+/*Efecto de movimiento*/
+
+
+
+
+.caja1:hover img{
+    /*transform: translateY(-60px) ;*/
+    transform: rotate(-20px);
+}
+
+.caja1:hover h2{
+    transform: translateY(-20px) ;
+}
+
+.caja1:hover p{
+    transform: translateY(-20px) ;
+}
+
+.caja1:hover h1{
+    transform: translateY(-20px) ;
+} 
+.caja1:hover img{
+    transform: translateY(-20px) ;
+}
+
+.caja1:hover i{
+    transform: translateY(-20px) ;
+}
+
+a{
+    text-decoration: none;
+}
+
+/*Galeria*/
