@@ -50,6 +50,7 @@ import { ClimaService } from './services/clima.service';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { DelcityComponent } from './component/delcity/delcity.component';
 import { ClimahistoricoComponent } from './component/climahistorico/climahistorico.component';
+import { AtractivosviewComponent } from './component/atractivosview/atractivosview.component';
 
 
 @NgModule({
@@ -90,6 +91,7 @@ import { ClimahistoricoComponent } from './component/climahistorico/climahistori
     CitiesviewComponent,
     DelcityComponent,
     ClimahistoricoComponent,
+    AtractivosviewComponent,
     
   ],
   imports: [
