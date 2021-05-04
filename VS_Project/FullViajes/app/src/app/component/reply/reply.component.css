@@ -1,0 +1,98 @@
+#Topicos{
+    background-color: rgb(255, 255, 255);
+    color: rgb(51, 223, 194);
+    border-radius: 10px;
+    padding: 24px;
+    
+    box-shadow: 2px 2px 5px #999;
+
+}
+
+#Resp{
+   
+    background-color: rgb(255, 255, 255);
+    color: rgb(51, 223, 194);
+    border-radius: 10px;
+    padding: 24px;
+    transform: translateY(20px);
+    box-shadow: 2px 2px 5px #999;
+
+}
+
+
+p{
+    color: gray;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+
+    color: rgb(51, 223, 194);
+}
+ 
+h1{
+    text-align: center;
+}
+
+h5 {
+    text-align: right;
+    color: rgb(43, 43, 43);
+    font-size: 15px;
+}
+
+#Topico {
+    background-color: #eaeaea;
+   
+    padding: 10px;
+    border-radius: 10px;
+  
+}
+
+
+
+.Reply {
+    background-color:rgb(51, 223, 194)!important ;
+    border-color: rgb(51, 223, 194);
+    border-radius: 10px;
+    padding: 10px;
+}
+.Reply:hover {
+    background-color:white!important ;
+    color: rgb(51, 223, 194)!important ;
+}
+
+.cancel {
+    background-color:rgb(255, 115, 115)!important ;
+    border-color:rgb(255, 115, 115);
+    border-radius: 10px;
+    padding: 10px;
+}
+.cancel:hover{
+    background-color:white!important ;
+    color:rgb(255, 115, 115)!important ; 
+}
+#Avatar {
+    width: 150px;
+    height: 150px;
+    background-color: rgb(255, 255, 255);
+}
+
+h3 {
+    text-align: center;
+    color: rgba(34, 34, 34, 0.692);
+}
+
+a{
+    padding-left: 20px;
+    text-align:right;
+   
+}
+
+
+@media screen and (max-width: 900px) {
+    .cancel {
+      margin-top: 10px;
+    }
+
+}

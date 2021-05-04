@@ -1,0 +1,67 @@
+#Formulario {
+    background-color: rgb(255, 255, 255);
+    color: rgb(51, 223, 194);
+    border-radius: 10px;
+    padding: 24px;
+    transform: translateY(80px);
+    box-shadow: 2px 2px 5px #999;
+  
+    
+}
+
+
+#people {
+   transform: translateX(400px);
+}
+
+#Titulo {
+    border-radius: 10px;
+}
+
+#exampleFormControlText{
+    border-radius: 10px;
+}
+
+
+h1 {
+    text-align: center;
+
+    color: rgb(51, 223, 194);
+}
+
+
+
+
+.add:hover {
+    background-color:white!important ;
+    color: rgb(51, 223, 194)!important ;
+}
+
+
+@media only screen and (max-width: 1300px) {
+    #people {
+        transform: translateX(350px);
+     }
+} 
+
+@media only screen and (max-width: 850px) {
+    #people {
+        transform: translateX(200px);
+     }
+}
+
+@media only screen and (max-width: 600px)  {
+    #people {
+        transform: translateX(40px);
+     }
+
+}
+
+@media only screen and (max-width: 400px) {
+    #people {
+        transform: translateX(0px);
+     }
+}
+
+
+
