@@ -16,7 +16,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <tr *ngFor="let city of cities">
-                                    <td class="dropdown-item" routerLink="/admcitys">{{city.nombre}}</td>
+                                    <td class="dropdown-item" routerLink="/editcity/{{city.id_ciudad}}">{{city.nombre}}</td>
                                 </tr>
                             </div>
                         </li>
@@ -24,7 +24,7 @@
                             <a class="nav-link" href="#contactanos"> <button class="btn-toggle" id="btn-toggle">Contactanos </button> <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" routerLink="/principal2"> <button> <i class="fas fa-search"></i> Buscar </button> <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" routerLink="/city"> <button> <i class="fas fa-search"></i> Buscar </button> <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" routerLink="/usuario"> <button style="width: 185px;" style="width:auto;">   Login/ ¿Nuevo Usuario?  </button> <span class="sr-only">(current)</span></a>

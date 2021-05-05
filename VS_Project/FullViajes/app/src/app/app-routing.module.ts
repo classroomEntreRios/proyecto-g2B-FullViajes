@@ -28,6 +28,7 @@ import {DelcityComponent} from './component/delcity/delcity.component';
 import { ClimahistoricoComponent } from './component/climahistorico/climahistorico.component';
 import { ForoComponent } from './component/foro/foro.component';
 import { CitiesviewComponent } from './component/citiesview/citiesview.component';
+import { NewtopicComponent } from './component/newtopic/newtopic.component';
 
 
 const routes: Routes = [
@@ -57,6 +58,7 @@ const routes: Routes = [
   {path:'', component: PrincipalComponent},
   {path:'index', component: PrincipalComponent},
   {path:'foro', component: ForoComponent},
+  {path:'newtopic', component: NewtopicComponent},
   {path:'city', component: CitiesviewComponent},
   {path:'usuario', component: UsuarioComponent},
   {path:'climahistorico', component: ClimahistoricoComponent},
