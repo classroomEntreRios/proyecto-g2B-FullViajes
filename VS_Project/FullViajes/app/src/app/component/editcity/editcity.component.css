@@ -32,13 +32,17 @@
       overflow:initial;
       position:relative;
     }
+
     .cp{
         width: 30%;
     }
     .container{
       width: 100%;
-      margin-left:50px;
-      margin-top:40px;
       justify-content: center;
       flex-wrap: wrap;
+    }
+
+    h2{
+      text-align: center;
+      color: rgb(95, 95, 95);
     }

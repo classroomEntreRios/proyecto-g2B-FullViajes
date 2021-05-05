@@ -10,11 +10,11 @@ a:hover {
   background-color: #f17d39;
   color: white!important;
 }
-.container{
-  margin-left:10px;
-}
-.table-responsive-sm{
+
+
+.table-responsive{
   max-width: 98%;
+  margin: 1px;
 }
   th{
     background: #20c3ec;

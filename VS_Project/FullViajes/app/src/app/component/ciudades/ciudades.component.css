@@ -10,6 +10,13 @@ a:hover {
   background-color: #f17d39;
   color: white!important;
 }
+
   th{
     background: #20c3ec;
   }
+
+
+.container{
+   margin: 0px;
+   background-color: rgb(255, 255, 255);
+}

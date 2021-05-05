@@ -1,13 +1,4 @@
-#Banner {
-   background-color:#eaeaea;
-    
-}
 
-img { 
-    width: 250px;
-    height: 250px;
-    transform: translateX(120px);
- }
 
  body{
     overflow-x: hidden;
@@ -62,16 +53,16 @@ main{
     width: 250px;
     height: 250px;
     margin: 10px;
-    padding: 20px;
     border-radius: 15px ;
     text-align: center;
     margin-top: 200 px;
+    margin-bottom: 60px;
     position:relative; /* Para que exista relacion entre sus divs*/
 }
 
 
 .caja1 img {
-    width:50% ;
+    width:70% ;
 }
 
 .caja1 h2 {
@@ -123,5 +114,10 @@ p{
 a{
     text-decoration: none;
 }
+
+.contenidociudad {
+    transform: translateY(40PX);
+}
+
 
 /*Galeria*/
