@@ -173,9 +173,46 @@ namespace FullViajes.Controllers
                     usuario.user_descripcion = "El Usuario: " + usuario.nickname + " no agregó descripción pero su email es: " + usuario.email;
                 }
                 db.Usuario.Add(usuario);
-                db.SaveChanges();
+                      db.SaveChanges();
+                //Send Email to User
+                EnviarMailVerificador(usuario.email, usuario.token.ToString());
             }
             return CreatedAtRoute("DefaultApi", new { id = usuario.id_usuario }, usuario); ;
+        }
+
+        private void EnviarMailVerificador(string email, string tkn)
+        {
+            var UrlVerifica = "/Verifica/" + tkn;
+            var UrlSite = "https://localhost:44331/Bundles";
+            var link= UrlSite+UrlVerifica;
+
+            var DesdeEmail = new MailAddress("fullviajestest@m3s.com.ar", "FullViajes Registro de Usuarios");
+            var HaciaEmail = new MailAddress(email);
+            var DesdeEmailPassword = "fullviajesprueba";
+            string subject = "Su cuenta el Full Viajes se ha creado satisfactoriamente";
+
+            string body = "<br/><br/>Estamos muy alegres que te hayas registrado en FullViajes. Su cuenta ha sido creada correctamente pero debe verificar su mail para activar la cuenta" +
+                "Debe hacer click en el siguiente vinculo para poder acceder " +
+                " <br/><br/><a href='" + link + "'>" + link + "</a> ";
+
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(DesdeEmail.Address, DesdeEmailPassword)
+            };
+
+            using (var message = new MailMessage(DesdeEmail, HaciaEmail)
+            {
+                Subject = subject,
+                Body = body,
+                IsBodyHtml = true
+            })
+                smtp.Send(message);
+
         }
 
         [Route("api/Users/login")]
