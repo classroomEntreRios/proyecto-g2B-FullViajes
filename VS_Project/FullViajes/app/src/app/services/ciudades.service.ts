@@ -8,8 +8,8 @@ import { Injectable } from '@angular/core';
 export class CiudadesService {
  
   formData: Ciudad = new Ciudad;
-  readonly rootURL = 'https://localhost:44331/api'
-  //readonly rootURL = 'https://fullviajesdemo.azurewebsites.net/api'
+  //readonly rootURL = 'https://localhost:44331/api'
+  readonly rootURL = 'https://fullviajesdemo.azurewebsites.net/api'
   constructor(private http: HttpClient) { }
 
   clearFormData(){

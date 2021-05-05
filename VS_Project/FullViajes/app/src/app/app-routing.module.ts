@@ -26,6 +26,8 @@ import { ActiveuserComponent } from './component/activeuser/activeuser.component
 import { DeactiveuserComponent } from './component/deactiveuser/deactiveuser.component';
 import {DelcityComponent} from './component/delcity/delcity.component';
 import { ClimahistoricoComponent } from './component/climahistorico/climahistorico.component';
+import { ForoComponent } from './component/foro/foro.component';
+import { CitiesviewComponent } from './component/citiesview/citiesview.component';
 
 
 const routes: Routes = [
@@ -54,6 +56,8 @@ const routes: Routes = [
   {path:'delcity/:id', component: DelcityComponent},
   {path:'', component: PrincipalComponent},
   {path:'index', component: PrincipalComponent},
+  {path:'foro', component: ForoComponent},
+  {path:'city', component: CitiesviewComponent},
   {path:'usuario', component: UsuarioComponent},
   {path:'climahistorico', component: ClimahistoricoComponent},
   {path:'**', redirectTo: '/', pathMatch: 'full'}
