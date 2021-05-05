@@ -101,7 +101,36 @@ namespace FullViajes.Controllers
 
             return StatusCode(HttpStatusCode.NoContent);
         }
+    
+     [HttpGet]
+        [Route("api/Users/act")]
+        [ResponseType(typeof(void))]
+        public IHttpActionResult Act(long id)
+        {
+            Usuario user = db.Usuario.Where(a => a.id_usuario == id).FirstOrDefault();
+            if (user != null)
+            {
+                user.active = true;
+                db.Entry(user).State = EntityState.Modified;
 
+            }
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!UsuarioExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+        }
+    
         [Route("api/Users/register")]
         [HttpPost]
         [ResponseType(typeof(Usuario))]
