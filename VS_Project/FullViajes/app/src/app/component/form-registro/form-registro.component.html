@@ -1,4 +1,7 @@
-<app-navbar></app-navbar>
+<div class="divmenu" style="background-color: #eaeaea;">
+    <app-navbar></app-navbar>
+    <img class="img-fluid" src="./assets/Imagenes/logoredu.png"  alt="Logoredu">
+</div>
 <body >
     <div class="formulario" >
         <div class="container">
@@ -15,7 +18,7 @@
                         <div class="form-group">
                             <label><strong>NickName</strong> </label>
                             <input name="nickname" [(ngModel)]="service.formData.nickname" type="text"
-                                class="form-control " placeholder="Ingrese un Nick Name" ng-maxlength="8" required
+                                class="form-control " placeholder="Ingrese un NickName" ng-maxlength="8" required
                                 #nickname="ngModel" (keyup)="corregido()" >
                             <div [hidden]="nickname.valid || (nickname.pristine && !nickname.touched)"
                                 class="alert alert-danger" pattern="[a-zA-Z0-9\_\-]{4,16}$">
@@ -107,13 +110,13 @@
                         <div class="form-group">
                             <label><strong>Contraseña</strong></label>
                             <input #password="ngModel" name="password" [(ngModel)]="service.formData.password"
-                                type="password" class="form-control" placeholder="Ingrese su Password" required
+                                type="password" class="form-control" placeholder="Ingrese su contraseña" required
                                 pattern=".{4,12}$">
 
                             <div [hidden]="password.valid || (password.pristine && !password.touched)"
                                 class="alert alert-danger">
                                 <div>
-                                    El <strong>Password</strong> es requerido y debe ser entre 4 y 16 dígitos.
+                                    La <strong>contraseña</strong>  es requerida y debe ser entre 4 y 16 dígitos.
                                 </div>
                             </div>
                         </div>
@@ -122,13 +125,13 @@
                         <div class="form-group">
                             <label><strong>Repetir Contraseña</strong></label>
                             <input #password2="ngModel" name="password2" type="password" class="form-control"
-                                placeholder="Repita su Password" required pattern="{{service.formData.password}}"
+                                placeholder="Repita su contraseña" required pattern="{{service.formData.password}}"
                                 ngModel>
 
                             <div [hidden]="password2.valid || (password2.pristine && !password2.touched)"
                                 class="alert alert-danger">
                                 <div>
-                                    El <strong>Password</strong> debe ser idéntico al ingresado anteriormente.
+                                    La <strong>contraseña</strong> debe ser idéntica a la ingresada anteriormente.
                                 </div>
                             </div>
                         </div>
