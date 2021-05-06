@@ -16,7 +16,7 @@
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                               <tr *ngFor="let city of cities">
-                                  <td class="dropdown-item" routerLink="/admcitys">{{city.nombre}}</td>
+                                  <td class="dropdown-item" routerLink="/city/{{city.id_ciudad}}">{{city.nombre}}</td>
                               </tr>
                           </div>
                            

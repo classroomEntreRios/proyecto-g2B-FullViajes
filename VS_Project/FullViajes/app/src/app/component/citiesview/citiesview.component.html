@@ -10,7 +10,7 @@
    <div class="contenidociudad ">
        <div class="row justify-content-center ">
            <div class="col-12  "  style="background-color: rgb(255, 255, 255);">
-            <h1 style="background-color:  #ffde59;">Villa Elisa</h1> 
+            <h1 style="background-color:  #ffde59;">{{city.nombre}}</h1> 
                   <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -97,14 +97,14 @@
 
         </div>
         <div class="col-xl-5 justify-content-center" style="background-color: rgb(255, 255, 255);">
-            <h5 style="background-color:#ffde59; ; color: white; border-radius: 10px; text-align: center;">Sobre Villa Elisa</h5>
+            <h5 style="background-color:#ffde59; ; color: white; border-radius: 10px; text-align: center;">Sobre {{city.nombre}}</h5>
             <br>
-            <p> Es un municipio del distrito Segundo con parte en el distrito Primero del Departamento Colón en la provincia de Entre Ríos, República Argentina. El municipio comprende la localidad del mismo nombre y un área rural.</p>
+            <p> {{city.descripcion}}</p>
             <br>
             <img src="./assets/Imagenes/Ejemplo Ciudad/Atractivos_de_Villa_Elisa.jpg" class="img-fluid " style="border-radius: 10px;" alt="...">
             <br>
             <br>
-            <p>Fue fundada en 1890 por Héctor de Elía con la ayuda de los inmigrantes provenientes de Saboya, Piamonte (Italia) y del Cantón de Valais (Suiza) que en 1857 se habían asentado en la Colonia San José bajo el patrocinio del Gobernador de la Provincia de Entre Ríos, General Justo José de Urquiza.</p>
+            &nbsp;
           </div>
         <div class="col-xl-5" style="background-color: rgb(255, 255, 255);">
           <app-clima></app-clima>

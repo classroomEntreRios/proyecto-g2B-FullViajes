@@ -59,7 +59,7 @@ const routes: Routes = [
   {path:'index', component: PrincipalComponent},
   {path:'foro', component: ForoComponent},
   {path:'newtopic', component: NewtopicComponent},
-  {path:'city', component: CitiesviewComponent},
+  {path:'city/:id', component: CitiesviewComponent},
   {path:'usuario', component: UsuarioComponent},
   {path:'climahistorico', component: ClimahistoricoComponent},
   {path:'**', redirectTo: '/', pathMatch: 'full'}
