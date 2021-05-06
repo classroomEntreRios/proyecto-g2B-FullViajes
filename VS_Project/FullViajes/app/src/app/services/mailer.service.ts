@@ -8,8 +8,8 @@ import {Consulta} from '../models/consulta.model';
   providedIn: 'root'
 })
 export class MailerService {
-  readonly rootURL = 'https://localhost:44331/api'
-  //readonly rootURL = 'https://fullviajesdemo.azurewebsites.net/api';
+  //readonly rootURL = 'https://localhost:44331/api'
+  readonly rootURL = 'https://fullviajesdemo.azurewebsites.net/api';
   formData: Consulta = new Consulta;
   
   constructor(private http: HttpClient) { }
