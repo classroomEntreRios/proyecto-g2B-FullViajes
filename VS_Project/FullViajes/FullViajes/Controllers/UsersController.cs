@@ -6,6 +6,7 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Mail;
 using System.Web.Http;
 using System.Web.Http.Description;
 using FullViajes.Models;
@@ -117,6 +118,7 @@ namespace FullViajes.Controllers
             try
             {
                 db.SaveChanges();
+                return NotFound();
             }
             catch (DbUpdateConcurrencyException)
             {
