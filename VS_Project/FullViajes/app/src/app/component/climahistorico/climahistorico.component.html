@@ -62,6 +62,11 @@
                       <div class="col">
                         <label for="cityName">Ciudad</label>
                         <input type="text" placeholder="Ciudad" class="form-control" autofocus #cityName>
+                        <div *ngIf="vacio" class="alert alert-danger">
+                          <div>
+                            Debe ingresar el nombre de una ciudad
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -82,12 +87,15 @@
                         <input type="date" class="form-control" #dateEnd id="dateEnd" name="trip-end" value="2021-04-21"
                           min="2010-01-01" max="2021-4-15">
                       </div>
-        
+                    </div>
+                    <div *ngIf="excede" class="alert alert-success">
+                      <div>
+                        Al superar los 4 días de consulta, se mostrarán los primeros 4 a partir de la fecha elejida, contacte al administrador para ver más días.
+                      </div>
                     </div>
                   </div>
-        
-        
-        
+                  
+
         
         
         

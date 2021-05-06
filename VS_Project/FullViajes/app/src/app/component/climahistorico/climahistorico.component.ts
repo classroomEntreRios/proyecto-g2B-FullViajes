@@ -11,6 +11,8 @@ import { formatDate } from '@angular/common';
 export class ClimahistoricoComponent implements OnInit {
   location = { cityName: 'Parana Entre Ríos', countryCode: 'AR' };
   weather: any;
+  vacio = false;
+  excede = false;
 
   constructor(private weatherService: ClimaService, private datePipe: DatePipe) { }
 
@@ -60,7 +62,7 @@ export class ClimahistoricoComponent implements OnInit {
 
   submitHistorico(cityName: HTMLInputElement, dateStart: HTMLInputElement, dateEnd: HTMLInputElement) {
     if (cityName.value && dateStart.value && dateEnd.value) {
-
+      this.vacio=false;
       var dias = [];
 
       const _MS_PER_DAY = 1000 * 60 * 60 * 24;
@@ -89,15 +91,13 @@ export class ClimahistoricoComponent implements OnInit {
       this.getWeatherHistorical(cityName.value, dateStart.value, formatDATE(dateFourDays));
 
       if (difference >= 5) {
-        alert("Solo es hasta 4 días de rango, consultar Visual Crossing")
+        this.excede=true;
+      } else{
+        this.excede=false;
       }
 
-
-
-
-      cityName.value = '';
     } else {
-      alert('Porfavor ingrese los valores')
+      this.vacio = true;
     }
     cityName.focus();
     return false;
