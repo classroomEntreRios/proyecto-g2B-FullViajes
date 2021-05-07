@@ -14,11 +14,17 @@ export class PerfilComponent implements OnInit {
   ApeNom='';
   descripcion='';
   user_img='';
+  status='';
+  rol='';
 
   constructor(public service: UsuarioService, private router: Router) { }
 
   ngOnInit(): void {
     this.user_id = localStorage.getItem('user_id')!;
+    this.rol = localStorage.getItem('rol')!;
+    if (parseInt(this.rol)==0){
+      this.router.navigate(['/perfilad']);
+    }
     this.service.acceder(this.user_id).subscribe(
       (usuario: any) => {
         this.nickname=usuario.nickname;
