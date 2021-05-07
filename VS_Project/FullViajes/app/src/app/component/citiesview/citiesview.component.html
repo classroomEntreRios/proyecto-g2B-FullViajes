@@ -109,7 +109,97 @@
             &nbsp;
           </div>
         <div class="col-xl-5" style="background-color: rgb(255, 255, 255);">
-          <app-clima></app-clima>
+          <!-- Sección Clima -->
+          <div class="container px-4">
+            <div class="row gx-6">
+                <div class="col-sm">
+                    <!--Card con el clima actual-->
+                    <div class="col-sm" id="cardClima">
+                        <div class="weatherWidgetRow" style="font-size: 24px;"><i class="fa fa-map-marker"
+                                aria-hidden="true"></i>
+                            {{weather.resolvedAddress}}</div>
+                        <td class="weatherWidgetRow moon"><img class="imagenlogo img-fluid"
+                                src="./assets/Imagenes/clima-iconos/{{weather.currentConditions.icon}}.png" alt="imagenClima">
+                        </td>
+        
+                        <div class="weatherWidgetRow" style="font-size: 28px;">{{weather.currentConditions.temp}}°</div>
+                        <div class="weatherWidgetRow" style="font-size: 18px;">Min: {{weather.days[0].tempmin}}° / Max:
+                            {{weather.days[0].tempmax}}°</div>
+                        <div class="weatherWidgetRow" style="font-size: 24px;">Humedad: {{weather.currentConditions.humidity}}%
+                        </div>
+                        <div class="weatherWidgetRow" style="font-size: 24px;">Viento: {{weather.currentConditions.windspeed}}
+                            kph
+        
+                        </div>
+                    </div>
+                    <div class="col" id="cardBorder">
+        
+                        <!--SIGUIENTES TRES DIAS CLIMA -->
+                        <div class="container-md">
+                            <div class="weatherWidgetRow" style="font-size: 16px;">Siguientes 3 días</div>
+                            <div class="row">
+                                <!-- Mañana -->
+                                <div class="col-sm" id="cardClima">
+                                    <div class="weatherWidgetRow" style="font-size: 14px;"><i class="fa fa-calendar"
+                                            aria-hidden="true"></i>
+                                        {{weather.days[1].datetime}}</div>
+                                    <td class="weatherWidgetRow moon"><img
+                                            src="./assets/Imagenes/clima-iconos/{{weather.days[1].icon}}.png" alt="imagenClima"
+                                            width="60" height="60"></td>
+            
+                                    <div class="weatherWidgetRow" style="font-size: 12px;">Min: {{weather.days[1].tempmin}}° / Max:
+                                        {{weather.days[1].tempmax}}°</div>
+                                    <div class="weatherWidgetRow" style="font-size: 12px;">Humedad: {{weather.days[1].humidity}}%
+                                    </div>
+                                    <div class="weatherWidgetRow" style="font-size: 12px;">Viento: {{weather.days[1].windspeed}} kph
+                                    </div>
+                                </div>
+            
+                                <!-- Mañana pasado -->
+                                <div class="col-sm" id="cardClima">
+                                    <div class="weatherWidgetRow" style="font-size: 14px;"><i class="fa fa-calendar"
+                                            aria-hidden="true"></i>
+                                        {{weather.days[2].datetime}}</div>
+                                    <td class="weatherWidgetRow moon"><img
+                                            src="./assets/Imagenes/clima-iconos/{{weather.days[2].icon}}.png" alt="imagenClima"
+                                            width="60" height="60"></td>
+            
+                                    <div class="weatherWidgetRow" style="font-size: 12px;">Min: {{weather.days[2].tempmin}}° / Max:
+                                        {{weather.days[2].tempmax}}°</div>
+                                    <div class="weatherWidgetRow" style="font-size: 12px;">Humedad: {{weather.days[2].humidity}}%
+                                    </div>
+                                    <div class="weatherWidgetRow" style="font-size: 12px;">Viento: {{weather.days[2].windspeed}} kph
+                                    </div>
+                                </div>
+            
+                                <!-- Despues de mañana pasado -->
+                                <div class="col-sm" id="cardClima">
+                                    <div class="weatherWidgetRow" style="font-size: 14px;"><i class="fa fa-calendar"
+                                            aria-hidden="true"></i>
+                                        {{weather.days[3].datetime}}</div>
+                                    <td class="weatherWidgetRow moon"><img
+                                            src="./assets/Imagenes/clima-iconos/{{weather.days[3].icon}}.png" alt="imagenClima"
+                                            width="60" height="60"></td>
+            
+                                    <div class="weatherWidgetRow" style="font-size: 12px;">Min: {{weather.days[3].tempmin}}° / Max:
+                                        {{weather.days[3].tempmax}}°</div>
+                                    <div class="weatherWidgetRow" style="font-size: 12px;">Humedad: {{weather.days[3].humidity}}%
+                                    </div>
+                                    <div class="weatherWidgetRow" style="font-size: 12px;">Viento: {{weather.days[3].windspeed}} kph
+                                    </div>
+                                </div>
+            
+                            </div>
+                        </div>
+            
+                    </div>
+        
+        
+                </div>
+                
+        
+            </div>
+        </div>
         </div>
         <div class="col-1">
 
