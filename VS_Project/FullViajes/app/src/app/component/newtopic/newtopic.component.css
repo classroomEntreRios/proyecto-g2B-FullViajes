@@ -35,8 +35,15 @@ h1 {
 .add:hover {
     background-color:white!important ;
     color: rgb(51, 223, 194)!important ;
+    font-weight:bold;
 }
 
+.add {
+    color:white!important ;
+    background-color: rgb(51, 223, 194)!important ;
+    border-color:rgb(51, 223, 194)!important  ;
+    border: solid 2px;
+}
 
 @media only screen and (max-width: 1300px) {
     #people {

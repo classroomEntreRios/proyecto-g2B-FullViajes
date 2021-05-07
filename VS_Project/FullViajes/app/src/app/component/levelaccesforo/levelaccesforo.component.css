@@ -1,0 +1,129 @@
+.caja1 {
+    width: 250px;
+    height: 200px;
+    margin: 10px;
+    border-radius: 15px ;
+    text-align: center;
+    margin-top: 10 px;
+    position:relative; /* Para que exista relacion entre sus divs*/
+}
+
+.container-caja{
+    width: 50%;
+    display: flex; /*Para que esten uno al lado del otro */ 
+    justify-content: center;
+    flex-wrap: wrap; /*Para lograr hacerlo responsivo */ 
+}
+.caja1 img {
+    width:60% ;
+}
+
+
+.caja1 h2 {
+    font-size: 16px;
+    margin-top: 10px;
+    color: rgb(109, 108, 108);
+}
+
+h1{
+    text-align: center;
+    color: white;
+    background-color: #caec58;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+p{
+    color: rgb(109, 108, 108);
+    text-align: justify;
+}
+
+.regis{
+    background-color: #1fc2eb;
+    border-color: #1fc2eb;
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.regis:hover{
+    background-color: #ffffff;
+    border-color: #1fc2eb;
+    color:#1fc2eb;
+    font-weight: bold;
+    border: solid 2px;
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.regis2{
+    background-color: #f6901e;
+    border-color: #f6901e;
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.regis2:hover{
+    background-color: #ffffff;
+    border-color: #f6901e;
+    color:#f6901e;
+    font-weight: bold;
+    border: solid 2px;
+    margin-left: 20px;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+
+@media screen and (max-width: 800px) {
+
+    h1 {
+        font-size: 30px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    h1 {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    h1 {
+        font-size: 20px;
+    }
+
+    p{
+        font-size: 15px;
+    }
+
+    .caja1 {
+        width: 250px;
+        height: 120px;
+        margin: 10px;
+        border-radius: 15px ;
+        text-align: center;
+        margin-top: 10 px;
+        position:relative; /* Para que exista relacion entre sus divs*/
+    }
+    
+    .caja1 h2 {
+        font-size: 12px;
+        margin-top: 10px;
+        color: rgb(109, 108, 108);
+    }
+
+    button{
+
+        font-size: 15px;
+    }   
+
+    .caja1 img {
+        width:70% ;
+    }
+    
+}

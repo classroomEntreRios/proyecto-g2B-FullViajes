@@ -52,6 +52,7 @@ import { DelcityComponent } from './component/delcity/delcity.component';
 import { ClimahistoricoComponent } from './component/climahistorico/climahistorico.component';
 import { AtractivosviewComponent } from './component/atractivosview/atractivosview.component';
 import { VerificaComponent } from './component/verifica/verifica.component';
+import { LevelaccesforoComponent } from './component/levelaccesforo/levelaccesforo.component';
 
 
 @NgModule({
@@ -94,6 +95,7 @@ import { VerificaComponent } from './component/verifica/verifica.component';
     ClimahistoricoComponent,
     AtractivosviewComponent,
     VerificaComponent,
+    LevelaccesforoComponent,
     
   ],
   imports: [
