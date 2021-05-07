@@ -53,6 +53,7 @@ import { ClimahistoricoComponent } from './component/climahistorico/climahistori
 import { AtractivosviewComponent } from './component/atractivosview/atractivosview.component';
 import { VerificaComponent } from './component/verifica/verifica.component';
 import { LevelaccesforoComponent } from './component/levelaccesforo/levelaccesforo.component';
+import { EventosComponent } from './component/eventos/eventos.component';
 
 
 @NgModule({
@@ -96,6 +97,7 @@ import { LevelaccesforoComponent } from './component/levelaccesforo/levelaccesfo
     AtractivosviewComponent,
     VerificaComponent,
     LevelaccesforoComponent,
+    EventosComponent,
     
   ],
   imports: [

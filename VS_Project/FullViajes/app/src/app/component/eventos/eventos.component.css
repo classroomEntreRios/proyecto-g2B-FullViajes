@@ -1,0 +1,53 @@
+.container-fluid{
+    background-image: url(./../../../assets/Imagenes/Eventos/covid.jpg) ;
+  
+
+    height: 600px;
+}
+
+#Info{
+        background-color: white;
+        background-color: rgb(255, 255, 255);
+       border-radius: 20px;
+        box-shadow: 2px 2px 5px #999;
+     
+        transform: translateY(50px);
+}
+
+#covicheado {
+    height: 250px;
+    width: 250px;
+ 
+  
+}
+
+h1 {
+    color: #fe7062;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+p{
+    color: rgb(124, 124, 124);
+    text-align: justify;
+    font-size: 20px;
+}
+
+.ini {
+    background-color: white;
+    border: 2px #fe7062 solid;
+    color: #fe7062;
+    font-weight: bold;
+    margin-bottom: 10px;
+    border-radius: 20px;
+   
+}
+
+.ini:hover {
+   background-color: #fe7062;
+   border: 2px #fe7062 solid;
+   color: #ffffff;
+   font-weight: bold;
+   border-radius: 20px;
+}
