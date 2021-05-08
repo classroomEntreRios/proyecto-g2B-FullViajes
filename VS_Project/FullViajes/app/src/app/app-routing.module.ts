@@ -32,6 +32,7 @@ import { NewtopicComponent } from './component/newtopic/newtopic.component';
 import { LevelaccesforoComponent } from './component/levelaccesforo/levelaccesforo.component';
 import { TopicsComponent } from './component/topics/topics.component';
 import { ChangepswdComponent } from './component/changepswd/changepswd.component';
+import { ContactoComponent } from './component/contacto/contacto.component';
 
 
 const routes: Routes = [
@@ -68,6 +69,7 @@ const routes: Routes = [
   {path:'city/:id', component: CitiesviewComponent},
   {path:'usuario', component: UsuarioComponent},
   {path:'climahistorico', component: ClimahistoricoComponent},
+  {path:'contacto', component: ContactoComponent},
   {path:'**', redirectTo: '/', pathMatch: 'full'}
 
 ];
