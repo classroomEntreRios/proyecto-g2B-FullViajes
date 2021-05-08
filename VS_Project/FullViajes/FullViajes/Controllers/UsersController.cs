@@ -134,7 +134,7 @@ namespace FullViajes.Controllers
         }
 
         [HttpGet]
-        [Route("api/Users/act")]
+        [Route("api/Users/dst")]
         [ResponseType(typeof(void))]
         public IHttpActionResult Dst(long id)
         {
@@ -166,30 +166,40 @@ namespace FullViajes.Controllers
         [HttpGet]
         [Route("api/Users/changepswd")]
         [ResponseType(typeof(void))]
-        public IHttpActionResult Changepswd(long id)
+        public IHttpActionResult Changepswd(long id, string oldpwd, string newpwd)
         {
-            Usuario user = db.Usuario.Where(a => a.id_usuario == id).FirstOrDefault();
-            if (user != null)
+            if (oldpwd != newpwd)
             {
-                user.active = true;
-                db.Entry(user).State = EntityState.Modified;
-
-            }
-            try
-            {
-                db.SaveChanges();
-                return NotFound();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!UsuarioExists(id))
+                string oldpass= Encrypt.GetSHA256(oldpwd);
+                string newpass = Encrypt.GetSHA256(newpwd);
+                Usuario user = db.Usuario.Where(a => a.id_usuario == id && a.password == oldpass).FirstOrDefault();
+                if (user != null)
                 {
+                    user.password = newpass;
+                    db.Entry(user).State = EntityState.Modified;
+
+                }
+                try
+                {
+                    db.SaveChanges();
                     return NotFound();
                 }
-                else
+                catch (DbUpdateConcurrencyException)
                 {
-                    throw;
+                    if (!UsuarioExists(id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
                 }
+            }
+            else
+            {
+                string MensajeError = "El nuevo password no puede ser igual al anterior";
+                return BadRequest(MensajeError);
             }
         }
 

@@ -10,8 +10,8 @@ export class UsuarioService {
   oRes = '';
   //user_id='';
   formData: Usuario = new Usuario;
-  readonly rootURL = 'https://fullviajesdemo.azurewebsites.net/api'
-  //readonly rootURL = 'https://localhost:44331/api'
+  //readonly rootURL = 'https://fullviajesdemo.azurewebsites.net/api'
+  readonly rootURL = 'https://localhost:44331/api'
   constructor(private http: HttpClient) { }
 
   postUsuario(formData: Usuario) {
@@ -34,6 +34,9 @@ export class UsuarioService {
   }
   deactivate(user_id: string) {
     return this.http.get(this.rootURL + '/Users/Dst/' + user_id)
+  }
+  changepswd(user_id: string, oldpwd:string, newpwd:string) {
+    return this.http.get(this.rootURL + '/Users/Changepswd/' + user_id +'/'+ oldpwd + '/' + newpwd)
   }
 
   chau(token: string) {
