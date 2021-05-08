@@ -52,6 +52,11 @@ import { DelcityComponent } from './component/delcity/delcity.component';
 import { ClimahistoricoComponent } from './component/climahistorico/climahistorico.component';
 import { AtractivosviewComponent } from './component/atractivosview/atractivosview.component';
 import { VerificaComponent } from './component/verifica/verifica.component';
+import { LevelaccesforoComponent } from './component/levelaccesforo/levelaccesforo.component';
+import { EventosComponent } from './component/eventos/eventos.component';
+import { TopicsComponent } from './component/topics/topics.component';
+import { ChangepswdComponent } from './component/changepswd/changepswd.component';
+
 
 
 @NgModule({
@@ -94,6 +99,10 @@ import { VerificaComponent } from './component/verifica/verifica.component';
     ClimahistoricoComponent,
     AtractivosviewComponent,
     VerificaComponent,
+    LevelaccesforoComponent,
+    EventosComponent,
+    TopicsComponent,
+    ChangepswdComponent,
     
   ],
   imports: [

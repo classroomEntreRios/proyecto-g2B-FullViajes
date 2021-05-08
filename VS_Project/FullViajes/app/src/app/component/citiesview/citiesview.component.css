@@ -121,3 +121,63 @@ a{
 
 
 /*Galeria*/
+
+/*Clima ciudad*/
+#cardClima{
+    display: block;
+    border-radius: 10px;
+    margin: 5px;
+
+    justify-content: center;
+
+    background: rgb(0,0,0);
+    background: linear-gradient(180deg, rgb(0, 63, 52) 0%, rgba(8,7,42,1) 75%, rgb(8, 10, 63) 100%);
+    color: white;;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#cardBorder{
+    display: block;
+    border-radius: 10px;
+    margin: 5px 15px 5px 5px;
+
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.weatherWidgetRow{
+    display:block;
+    margin:0 auto;
+    width: fit-content;
+}
+
+.sun{
+    display:block;
+    margin:0 auto;
+    width: fit-content;
+    color: yellow;
+    filter: drop-shadow( 1px 1px 10px yellow);
+}
+
+.moon{
+    margin-top: 10px;
+    color: white;
+    filter: drop-shadow( 1px 1px 10px white);
+}
+
+.cloudDiv{
+    margin-top: -40px;
+}
+
+.cloud{
+    display:block;
+    margin:0 auto;
+    width: fit-content;
+    color: rgb(104, 175, 197);
+    filter: drop-shadow( 1px 1px 5px rgb(104, 175, 197));
+    /*animation-name: cloudMovement;
+    animation-iteration-count: infinite;
+    animation-duration: 10s;
+    animation-timing-function: ease-in-out;
+    animation-direction: alternate;*/
+}

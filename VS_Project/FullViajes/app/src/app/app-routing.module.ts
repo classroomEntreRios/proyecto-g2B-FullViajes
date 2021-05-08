@@ -29,6 +29,9 @@ import { ClimahistoricoComponent } from './component/climahistorico/climahistori
 import { ForoComponent } from './component/foro/foro.component';
 import { CitiesviewComponent } from './component/citiesview/citiesview.component';
 import { NewtopicComponent } from './component/newtopic/newtopic.component';
+import { LevelaccesforoComponent } from './component/levelaccesforo/levelaccesforo.component';
+import { TopicsComponent } from './component/topics/topics.component';
+import { ChangepswdComponent } from './component/changepswd/changepswd.component';
 
 
 const routes: Routes = [
@@ -48,18 +51,21 @@ const routes: Routes = [
   {path:'admatrac', component: AtractivosComponent},
   {path:'addcity', component: AddcityComponent},
   {path:'editcity/:id', component: EditcityComponent},
+  {path:'changepswd/:id', component: ChangepswdComponent},
   {path:'adduser', component: AdduserComponent},
   {path:'activeuser/:user_id', component: ActiveuserComponent},
   {path:'deactiveuser/:user_id', component: DeactiveuserComponent},
   {path:'viewuser/:user_id', component: ViewuserComponent},
   {path:'edituser/:user_id', component: EdituserComponent},
   {path:'levelaccess', component: LevelaccessComponent},
+  {path:'topicos', component: TopicsComponent},
+  {path:'levelaccessforo', component: LevelaccesforoComponent},
   {path:'delcity/:id', component: DelcityComponent},
   {path:'', component: PrincipalComponent},
   {path:'index', component: PrincipalComponent},
   {path:'foro', component: ForoComponent},
   {path:'newtopic', component: NewtopicComponent},
-  {path:'city', component: CitiesviewComponent},
+  {path:'city/:id', component: CitiesviewComponent},
   {path:'usuario', component: UsuarioComponent},
   {path:'climahistorico', component: ClimahistoricoComponent},
   {path:'**', redirectTo: '/', pathMatch: 'full'}
