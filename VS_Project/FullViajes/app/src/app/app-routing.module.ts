@@ -32,11 +32,9 @@ import { NewtopicComponent } from './component/newtopic/newtopic.component';
 import { LevelaccesforoComponent } from './component/levelaccesforo/levelaccesforo.component';
 import { TopicsComponent } from './component/topics/topics.component';
 import { ChangepswdComponent } from './component/changepswd/changepswd.component';
-<<<<<<< HEAD
 import { EventosComponent } from './component/eventos/eventos.component';
-=======
 import { ContactoComponent } from './component/contacto/contacto.component';
->>>>>>> 3811fb8a1c71c2ff7f4f492c2d18b05b39c575d8
+
 
 
 const routes: Routes = [
