@@ -12,10 +12,16 @@ export class CitiesviewComponent implements OnInit {
   city_id="";
   city:any;
   weather:any;
+  status='';
+  estado=false;
 
   constructor(public service: CiudadesService, private router: Router, private _route:ActivatedRoute, private weatherService: ClimaService) { }
 
   ngOnInit(): void {
+    this.status = localStorage.getItem('resultado')!;
+    if (parseInt(this.status)==1){
+      this.estado=true;
+    }
     this.city_id = this._route.snapshot.paramMap.get('id')!;
     this.service.acceder(this.city_id).subscribe(
       (ciudad: any) => {

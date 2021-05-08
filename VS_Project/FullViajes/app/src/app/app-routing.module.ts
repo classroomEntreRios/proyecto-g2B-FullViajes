@@ -29,6 +29,8 @@ import { ClimahistoricoComponent } from './component/climahistorico/climahistori
 import { ForoComponent } from './component/foro/foro.component';
 import { CitiesviewComponent } from './component/citiesview/citiesview.component';
 import { NewtopicComponent } from './component/newtopic/newtopic.component';
+import { LevelaccesforoComponent } from './component/levelaccesforo/levelaccesforo.component';
+import { TopicsComponent } from './component/topics/topics.component';
 
 
 const routes: Routes = [
@@ -54,6 +56,8 @@ const routes: Routes = [
   {path:'viewuser/:user_id', component: ViewuserComponent},
   {path:'edituser/:user_id', component: EdituserComponent},
   {path:'levelaccess', component: LevelaccessComponent},
+  {path:'topicos', component: TopicsComponent},
+  {path:'levelaccessforo', component: LevelaccesforoComponent},
   {path:'delcity/:id', component: DelcityComponent},
   {path:'', component: PrincipalComponent},
   {path:'index', component: PrincipalComponent},

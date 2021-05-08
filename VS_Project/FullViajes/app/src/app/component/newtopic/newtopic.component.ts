@@ -9,12 +9,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./newtopic.component.css']
 })
 export class NewtopicComponent implements OnInit {
+  status='';
 
-  constructor() {
+  constructor(private router: Router) {
+    
     
    }
 
   ngOnInit(): void {
+    this.status = localStorage.getItem('resultado')!;
+          if (parseInt(this.status)==0){
+        this.router.navigate(['/levelaccessforo']);
+      }
   }
 
  

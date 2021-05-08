@@ -54,6 +54,8 @@ import { AtractivosviewComponent } from './component/atractivosview/atractivosvi
 import { VerificaComponent } from './component/verifica/verifica.component';
 import { LevelaccesforoComponent } from './component/levelaccesforo/levelaccesforo.component';
 import { EventosComponent } from './component/eventos/eventos.component';
+import { TopicsComponent } from './component/topics/topics.component';
+
 
 
 @NgModule({
@@ -98,6 +100,7 @@ import { EventosComponent } from './component/eventos/eventos.component';
     VerificaComponent,
     LevelaccesforoComponent,
     EventosComponent,
+    TopicsComponent,
     
   ],
   imports: [

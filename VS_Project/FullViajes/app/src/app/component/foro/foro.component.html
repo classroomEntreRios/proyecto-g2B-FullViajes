@@ -1,6 +1,11 @@
 <!--Banner foro-->
 <div class="divmenu" style="background-color: #eaeaea;" >
-    <app-navbar></app-navbar>
+    <div *ngIf="estado==false;">
+        <app-navbar></app-navbar>
+    </div>
+    <div *ngIf="estado==true;">
+        <app-regnavbar></app-regnavbar>
+    </div>
     <img class="img-fluid" src="./assets/Imagenes/logoredu.png"  alt="Logoredu">
 </div>
 
@@ -32,10 +37,12 @@
 
         <div class="container-caja" style="background-color: white;">
             <!--Todos los topicos-->
+            <a routerLink="/topicos">
             <div class="caja1">
                 <img src="./assets/Imagenes/Foro/1.png" alt="Todas las discusiones">
                 <h2> <strong>Ver todos los tópicos</strong></h2>
             </div>
+            </a>
 
             <!--Agragar tema a foro-->
             <a routerLink="/newtopic">
