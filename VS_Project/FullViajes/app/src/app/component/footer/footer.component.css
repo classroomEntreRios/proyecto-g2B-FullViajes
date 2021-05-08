@@ -19,24 +19,7 @@
 }
 
 
-#ButtonEnviar {
-     border-radius: 20px;
-     background-color: #20c3ec!important;
-      border: none;
-      transition-duration: 0.2s;
-      float:none;
-      text-align:center;
-      width: 150px;
-}
 
-#ButtonEnviar:hover{
-    background-color: white!important;
-    border: solid 2px #20c3ec;
-    box-shadow: #20c3ec 1px;
-    color: #20c3ec;
-    cursor: pointer;
-    font-weight: bold;
-}
 
 #Contactanos{
         display:block;

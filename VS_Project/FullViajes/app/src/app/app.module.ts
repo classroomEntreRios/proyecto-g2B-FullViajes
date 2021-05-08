@@ -57,6 +57,7 @@ import { EventosComponent } from './component/eventos/eventos.component';
 import { TopicsComponent } from './component/topics/topics.component';
 import { ChangepswdComponent } from './component/changepswd/changepswd.component';
 import { NewtopicComponent } from './component/newtopic/newtopic.component';
+import { ContactoComponent } from './component/contacto/contacto.component';
 
 
 
@@ -105,6 +106,7 @@ import { NewtopicComponent } from './component/newtopic/newtopic.component';
     TopicsComponent,
     NewtopicComponent,
     ChangepswdComponent,
+    ContactoComponent,
     
   ],
   imports: [

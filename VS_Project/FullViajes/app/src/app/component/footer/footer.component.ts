@@ -12,6 +12,7 @@ import {ActivatedRoute, Router } from '@angular/router';
 })
 export class FooterComponent implements OnInit {
   error = false;
+  esperar = false;
   noerror=false;
   mensaje = '';
   
@@ -49,7 +50,8 @@ enviar(){
   this.service.EnviarContacto(this.service.formData).subscribe(
     res => {
       this.noerror=true;
-      this.router.navigate(['/principal']);
+      this.esperar = false;
+      //this.router.navigate(['/principal']);
       this.consultaForm.reset();
     },
     (err:HttpErrorResponse) => {
@@ -58,6 +60,7 @@ enviar(){
       ;
       console.log(MensajeError);
       this.error=true;
+      this.esperar = false;
       this.consultaForm.reset();
       }
   )
@@ -65,5 +68,6 @@ enviar(){
 corregido(){
   this.error=false;
   this.noerror=false;
+  this.esperar = false;
 }
 }

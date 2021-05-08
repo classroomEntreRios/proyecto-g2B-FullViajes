@@ -11,17 +11,15 @@ namespace FullViajes.Controllers
 {
     public class MailerController : ApiController
     {
-        
-        [Route("api/Contacto")]
-        [HttpPost]
-        public IHttpActionResult EnviarContacto( Consulta Form)
-        {   string MensajeError = "Error";
+        private IHttpActionResult Enviar(Consulta Form) 
+        {
+            string MensajeError = "Error";
             var DesdeEmail = new MailAddress("fullviajescontact@gmail.com", "contacto");
             var HaciaEmail = new MailAddress("fullviajescontact@gmail.com");
             var DesdeEmailPassword = "wgoyrygvusejvlcg";
-            string subject = "Consulta de "+Form.nombre+" en FullViajes ";
-            
-            string body = "<br/><br/>"+ Form.consulta+ "<br/><br/>"+"Contestar a: "+ Form.correo;
+            string subject = "Consulta de " + Form.nombre + " en FullViajes ";
+
+            string body = "<br/><br/>" + Form.consulta + "<br/><br/>" + "Contestar a: " + Form.correo;
 
             var smtp = new SmtpClient
             {
@@ -35,22 +33,30 @@ namespace FullViajes.Controllers
             };
 
 
-                try {
-                    using (var message = new MailMessage(DesdeEmail, HaciaEmail)
-                    {
-                        Subject = subject,
-                        Body = body,
-                        IsBodyHtml = true
-                    })
+            try
+            {
+                using (var message = new MailMessage(DesdeEmail, HaciaEmail)
+                {
+                    Subject = subject,
+                    Body = body,
+                    IsBodyHtml = true
+                })
                     smtp.Send(message);
-                
-                  } catch {
-                        MensajeError = "ERROR AL INTENTAR ENVIAR LA CONSULTA";
-                        return BadRequest(MensajeError);
-                            }
+
+            }
+            catch
+            {
+                MensajeError = "ERROR AL INTENTAR ENVIAR LA CONSULTA";
+                return BadRequest(MensajeError);
+            }
             return Ok();
 
-
+        }
+        [Route("api/Contacto")]
+        [HttpPost]
+        public IHttpActionResult EnviarContacto( Consulta Form)
+        {
+            return Enviar(Form);
 
         }
 
