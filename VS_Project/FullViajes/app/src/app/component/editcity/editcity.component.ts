@@ -144,7 +144,7 @@ export class EditcityComponent implements OnInit {
 
 // VALIDA LAS COORDENADAS
   validarcoordenadas(cadena:string){
-    var er2=/^[0-9]{1,2}[°]{1}[0-9]{1,2}[']{1}[SN]{1}[ ]{1}[0-9]{1,2}[°]{1}[0-9]{1,2}[']{1}[EO]{1}$/;
+    var er2=/^[0-9]{1,2}[°]{1}[0-9]{1,2}[']{1}[SN]{1}[ ]{1}[0-9]{1,2}[°]{1}[0-9]{1,2}[']{1}[EW]{1}$/;
     var rta2=er2.test(cadena);
     if (rta2==false){this.errorformato=true;return false;} else{ return true;}
     }

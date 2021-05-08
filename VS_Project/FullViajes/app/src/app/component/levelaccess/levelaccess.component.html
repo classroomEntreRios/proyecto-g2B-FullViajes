@@ -1,5 +1,10 @@
 <div class="divmenu" >
-    <app-navbar></app-navbar>
+    <div *ngIf="estado==false;">
+        <app-navbar></app-navbar>
+    </div>
+    <div *ngIf="estado==true;">
+        <app-regnavbar></app-regnavbar>
+    </div>
     <img class="img-fluid" src="./assets/Imagenes/logoredu.png"  alt="Logoredu">
 </div>
 
@@ -7,7 +12,7 @@
 <div class="row justify-content-center">
 
     <div class="col-12 justify-content-center ">
-        <img src="./../../../assets/Imagenes/LevelAcces/detener.png" class="img mx-auto d-block" id="stop" alt="Detente">
+        <img src="./assets/Imagenes/LevelAcces/detener.png" class="img mx-auto d-block" id="stop" alt="Detente">
 
         <h2>Disculpe pero no puede acceder aquí.</h2>
         <p>Te sugerimos ir a tu perfil o volver a inicio</p>

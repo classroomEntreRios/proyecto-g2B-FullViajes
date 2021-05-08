@@ -1,4 +1,4 @@
-<body>
+
   <div class="divmenu">
     <div *ngIf="estado==false;">
       <app-navbar></app-navbar>
@@ -78,17 +78,18 @@
           </div>
 
           <!--Eventos-->
+          <a routerLink="/eventos">
           <div class="caja1">
             <img src="./assets/Imagenes/Ejemplo Ciudad/3Eventos.png" alt="Enventos">
             <h2><strong>Eventos</strong></h2>
             <div class="contenedorp">
               <p>Conoce los Eventos de nuestra ciudad. </p>
             </div>
-
           </div>
+          </a>
           <!--Ubicación-->
           <a target="_blank"
-            href="https://www.google.com.ar/maps/dir//Villa+Elisa,+Entre+R%C3%ADos/@-32.1641137,-58.4356184,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x95b1d7897bf3762d:0x594fb1d9af235f82!2m2!1d-58.400599!2d-32.1641185">
+            href="https://www.google.com/maps/place/{{city.coordenadas}}">
             <div class="caja1">
               <img src="./assets/Imagenes/Ejemplo Ciudad/2comollegar.png" alt="Ubicacion">
               <h2><strong>¿Cómo llegar?</strong></h2>

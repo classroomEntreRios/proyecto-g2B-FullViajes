@@ -1,5 +1,10 @@
 <div class="divmenu" >
-    <app-navbar></app-navbar>
+    <div *ngIf="estado==false;">
+        <app-navbar></app-navbar>
+    </div>
+    <div *ngIf="estado==true;">
+        <app-regnavbar></app-regnavbar>
+    </div>
     <img class="img-fluid" src="./assets/Imagenes/logoredu.png"  alt="Logoredu">
 </div>
 
@@ -15,7 +20,7 @@
 
                       <p>Esperamos con muchas ansias tener novedades proximamente </p>
 
-                      <a routerLink="/principal2"><button class="btn float-right ini " style="margin-left: 5px;">Volver al inicio</button></a>
+                      <a routerLink="/principal"><button class="btn float-right ini " style="margin-left: 5px;">Volver al inicio</button></a>
                 </div>
         
     </div>
