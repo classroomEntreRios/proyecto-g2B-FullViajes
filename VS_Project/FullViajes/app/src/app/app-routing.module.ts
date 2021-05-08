@@ -31,6 +31,7 @@ import { CitiesviewComponent } from './component/citiesview/citiesview.component
 import { NewtopicComponent } from './component/newtopic/newtopic.component';
 import { LevelaccesforoComponent } from './component/levelaccesforo/levelaccesforo.component';
 import { TopicsComponent } from './component/topics/topics.component';
+import { ChangepswdComponent } from './component/changepswd/changepswd.component';
 
 
 const routes: Routes = [
@@ -50,6 +51,7 @@ const routes: Routes = [
   {path:'admatrac', component: AtractivosComponent},
   {path:'addcity', component: AddcityComponent},
   {path:'editcity/:id', component: EditcityComponent},
+  {path:'changepswd/:id', component: ChangepswdComponent},
   {path:'adduser', component: AdduserComponent},
   {path:'activeuser/:user_id', component: ActiveuserComponent},
   {path:'deactiveuser/:user_id', component: DeactiveuserComponent},

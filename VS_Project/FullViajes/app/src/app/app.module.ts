@@ -55,6 +55,7 @@ import { VerificaComponent } from './component/verifica/verifica.component';
 import { LevelaccesforoComponent } from './component/levelaccesforo/levelaccesforo.component';
 import { EventosComponent } from './component/eventos/eventos.component';
 import { TopicsComponent } from './component/topics/topics.component';
+import { ChangepswdComponent } from './component/changepswd/changepswd.component';
 
 
 
@@ -101,6 +102,7 @@ import { TopicsComponent } from './component/topics/topics.component';
     LevelaccesforoComponent,
     EventosComponent,
     TopicsComponent,
+    ChangepswdComponent,
     
   ],
   imports: [

@@ -133,6 +133,67 @@ namespace FullViajes.Controllers
             }
         }
 
+        [HttpGet]
+        [Route("api/Users/act")]
+        [ResponseType(typeof(void))]
+        public IHttpActionResult Dst(long id)
+        {
+            Usuario user = db.Usuario.Where(a => a.id_usuario == id).FirstOrDefault();
+            if (user != null)
+            {
+                user.active = false;
+                db.Entry(user).State = EntityState.Modified;
+
+            }
+            try
+            {
+                db.SaveChanges();
+                return NotFound();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!UsuarioExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+        }
+
+        [HttpGet]
+        [Route("api/Users/changepswd")]
+        [ResponseType(typeof(void))]
+        public IHttpActionResult Changepswd(long id)
+        {
+            Usuario user = db.Usuario.Where(a => a.id_usuario == id).FirstOrDefault();
+            if (user != null)
+            {
+                user.active = true;
+                db.Entry(user).State = EntityState.Modified;
+
+            }
+            try
+            {
+                db.SaveChanges();
+                return NotFound();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!UsuarioExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+        }
+
+
         [Route("api/Users/register")]
         [HttpPost]
         [ResponseType(typeof(Usuario))]
@@ -185,7 +246,8 @@ namespace FullViajes.Controllers
         private void EnviarMailVerificador(string email, string tkn)
         {
             var UrlVerifica = "/Verifica/" + tkn;
-            var UrlSite = "https://localhost:44331/Bundles";
+            //var UrlSite = "https://localhost:44331/Bundles";
+            var UrlSite = "https://fullviajesdemo.azurewebsites.net/Bundles";
             var link= UrlSite+UrlVerifica;
 
             var DesdeEmail = new MailAddress("fullviajestest@m3s.com.ar", "FullViajes Registro de Usuarios");
