@@ -26,7 +26,7 @@ export class CitiesviewComponent implements OnInit {
     this.service.acceder(this.city_id).subscribe(
       (ciudad: any) => {
       this.city=ciudad;
-      this.getWeather(this.city.nombre);
+      this.getWeather(this.city.nombre + ' Entre rios');
       }
     );
     
