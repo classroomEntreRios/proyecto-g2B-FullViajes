@@ -19,31 +19,33 @@
            
             <img src="./assets/Imagenes/Foro/pixlr-bg-result.png" class="img-fluid center-block" id="people" width="250px" height="200px">
            
+            <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
+                
             <div class="form-group">
                
                 <strong>
                     <label for="exampleFormControlInput1">Título</label>
                 </strong>
-                <input type="text" class="form-control" id="Titulo" placeholder="Ingrese un titulo">
+                <input type="text" class="form-control"  #titulo="ngModel" name="titulo" [(ngModel)]="service.formData.titulo" id="Titulo" placeholder="Ingrese un titulo">
             </div>
 
 
             <div class="mb-3"  >
                 
-                <textarea class="form-control" id="exampleFormControlText" rows="4" placeholder="Nose que ponerle"></textarea>
+                <textarea   #contenido="ngModel" name="contenido" [(ngModel)]="service.formData.contenido" class="form-control" id="contenido" rows="4" placeholder="Nose que ponerle"></textarea>
             </div>
 
             
             <div class="row justify-content-center">
                 <div class="col-6">
-                    <button type="button " class="btn btn-primary add"> Agregar </button>
+                    <button type="submit" class="btn btn-primary add"> Agregar </button>
                 </div>
                 <div class="col-6">
                     <a routerLink="/foro"><button type="button " class="btn btn-primary add"> Volver atras </button></a>
                 </div>
               
             </div>
-          
+        </form>
                
           
         </div>
