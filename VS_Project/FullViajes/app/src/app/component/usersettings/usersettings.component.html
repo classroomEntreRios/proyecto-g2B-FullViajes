@@ -88,7 +88,7 @@
                                         <label for="floatingPassword"></label>
                                     </div>
                                     <div class="row justify-content-center">
-                                        <a routerLink="/changepswd/{{user.id_usuario}}">
+                                        <a routerLink="/changepswd/{{user?.id_usuario}}">
                                         <button class="changes btn btn-success ">
                                             Cambiar Contraseña
                                         </button>
@@ -107,7 +107,7 @@
                                         </h5>
                                     </strong>
                                     <div class="form-floating">
-                                        <input  class="form-control"  placeholder="@NickName" value="{{user.nickname}}">
+                                        <input  class="form-control"  placeholder="@NickName" value="{{user?.nickname}}">
                                         <label></label>
                                     </div>
                                     <strong>
@@ -116,7 +116,7 @@
                                         </h5>
                                     </strong>
                                     <div class="form-floating mb-3">
-                                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{user.email}}">
+                                        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" value="{{user?.email}}">
                                         <label for="floatingInput"></label>
                                     </div>
                                     <div class="row justify-content-center">

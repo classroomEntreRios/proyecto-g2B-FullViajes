@@ -164,6 +164,31 @@ namespace FullViajes.Controllers
         }
 
         [HttpGet]
+        [Route("api/Users/Verifica")]
+        [ResponseType(typeof(void))]
+        public IHttpActionResult Verifica(string tkn)
+        {
+            Usuario user = db.Usuario.Where(a => a.token == tkn).FirstOrDefault();
+            if (user != null)
+            {
+                user.active = true;
+                user.token = " ";
+                db.Entry(user).State = EntityState.Modified;
+            }
+            try
+            {
+                db.SaveChanges();
+                return BadRequest("OK");
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                
+                    throw;
+                
+            }
+        }
+
+        [HttpGet]
         [Route("api/Users/changepswd")]
         [ResponseType(typeof(void))]
         public IHttpActionResult Changepswd(long id, string oldpwd, string newpwd)
@@ -248,25 +273,25 @@ namespace FullViajes.Controllers
                 db.Usuario.Add(usuario);
                       db.SaveChanges();
                 //Send Email to User
-                EnviarMailVerificador(usuario.email, usuario.token.ToString());
+                EnviarMailVerificador(usuario.email, usuario.token.ToString(), usuario.id_usuario);
             }
             return CreatedAtRoute("DefaultApi", new { id = usuario.id_usuario }, usuario); ;
         }
 
-        private void EnviarMailVerificador(string email, string tkn)
+        private void EnviarMailVerificador(string email, string tkn, long id)
         {
-            var UrlVerifica = "/Verifica/" + tkn;
-            //var UrlSite = "https://localhost:44331/Bundles";
-            var UrlSite = "https://fullviajesdemo.azurewebsites.net/Bundles";
-            var link= UrlSite+UrlVerifica;
+            var UrlVerifica = "/verifica/" + tkn;
+           // var UrlSite = "https://localhost:44331/Bundles/#";
+            var UrlSite = "https://fullviajesdemo.azurewebsites.net/Bundles/#";
+            var link = UrlSite+UrlVerifica;
 
             var DesdeEmail = new MailAddress("fullviajestest@m3s.com.ar", "FullViajes Registro de Usuarios");
             var HaciaEmail = new MailAddress(email);
             var DesdeEmailPassword = "fullviajesprueba";
             string subject = "Su cuenta el Full Viajes se ha creado satisfactoriamente";
 
-            string body = "<br/><br/>Estamos muy alegres que te hayas registrado en FullViajes. Su cuenta ha sido creada correctamente pero debe verificar su mail para activar la cuenta" +
-                "Debe hacer click en el siguiente vinculo para poder acceder " +
+            string body = "<br/><br/>Estamos muy alegres que te hayas registrado en FullViajes. <br/><br/>Su cuenta ha sido creada correctamente pero debe verificar su mail para activar la cuenta" +
+                "<br/><br/>Debe hacer click en el siguiente vinculo para poder acceder " +
                 " <br/><br/><a href='" + link + "'>" + link + "</a> ";
 
             var smtp = new SmtpClient

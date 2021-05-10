@@ -36,6 +36,9 @@ import { EventosComponent } from './component/eventos/eventos.component';
 import { ContactoComponent } from './component/contacto/contacto.component';
 import { ReplyComponent } from './component/reply/reply.component';
 import { RepliesComponent } from './component/replies/replies.component';
+import { RegokComponent } from './component/regok/regok.component';
+import { VerificaokComponent } from './component/verificaok/verificaok.component';
+import { VerificaComponent } from './component/verifica/verifica.component';
 
 
 
@@ -75,6 +78,9 @@ const routes: Routes = [
   {path:'usuario', component: UsuarioComponent},
   {path:'climahistorico', component: ClimahistoricoComponent},
   {path:'contacto', component: ContactoComponent},
+  {path:'regok', component: RegokComponent},
+  {path:'verifica/:id/:tkn', component: VerificaComponent},
+  {path:'verificaok', component: VerificaokComponent},
   {path:'reply/:topic_id', component: ReplyComponent},
   {path:'replies', component: RepliesComponent},
   {path:'**', redirectTo: '/', pathMatch: 'full'}
