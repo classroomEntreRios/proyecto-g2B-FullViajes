@@ -75,7 +75,7 @@ const routes: Routes = [
   {path:'usuario', component: UsuarioComponent},
   {path:'climahistorico', component: ClimahistoricoComponent},
   {path:'contacto', component: ContactoComponent},
-  {path:'reply', component: ReplyComponent},
+  {path:'reply/:topic_id', component: ReplyComponent},
   {path:'replies', component: RepliesComponent},
   {path:'**', redirectTo: '/', pathMatch: 'full'}
 

@@ -17,11 +17,9 @@
                 <div class="col-sm-7 col-md-8 col-lg-9 align-items-center justify-content-center ">
                     <h5> Día- Mes - Año</h5>
                     <strong>
-                        <h3>Titulo del tópico</h3>
+                        <h3>{{tema.titulo}}</h3>
                     </strong>
-                    <p style="text-align: justify;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo
-                        ab fuga quam modi facere iusto quia quas corrupti voluptatem deleniti ea, veniam alias vel harum
-                        animi, dolores assumenda optio quae...</p>
+                    <p style="text-align: justify;">{{tema.contenido}}</p>
                     <br>
                     <br>
                     <br>
@@ -48,41 +46,40 @@
                 <div class="col-1">
 
                 </div>
-                <div class="col-10 justify-content-center" id="Formulario">
+                
+                    <div class="col-10 justify-content-center" id="Formulario">
+                        <form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
 
+                        <div class="mb-4">
 
-                    <div class="mb-4">
-
-                        <textarea class="form-control" id="exampleFormControlText" rows="4"
-                            placeholder="Ingrese su respuesta"></textarea>
-                    </div>
-
-
-                    <div class="row justify-content-center">
-                        <div class="col-md-2 justify-content-center">
-                            <button type="button " class="btn btn-primary Reply"> Responder </button>
-                        </div>
-                        <br>
-                        <div class="col-md-2 justify-content-center ">
-                            <a routerLink="/topicos">
-                                <button type="button " class="btn btn-primary cancel"> Cancelar</button>
-                            </a>
+                            <textarea #contenido="ngModel" name="contenido" [(ngModel)]="service.formData.contenido"
+                                class="form-control" id="exampleFormControlText" rows="4"
+                                placeholder="Ingrese su respuesta"></textarea>
                         </div>
 
+                        <div class="row justify-content-center">
+                            <div class="col-md-2 justify-content-center">
+                                <button type="submit" class="btn btn-primary Reply"> Responder </button>
+                            </div>
+                            <br>
+                            <div class="col-md-2 justify-content-center ">
+                                <a routerLink="/topicos">
+                                    <button type="button " class="btn btn-primary cancel"> Cancelar</button>
+                                </a>
+                            </div>
+                        </div>
+                    </form>
                     </div>
+               
 
+            </div>
 
-                </div>
-
-                <div class="col-1">
-
-                </div>
+            <div class="col-1">
 
             </div>
 
         </div>
 
-
-
-
     </div>
+
+</div>

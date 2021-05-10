@@ -223,6 +223,7 @@
     <Compile Include="Controllers\AccesoController.cs" />
     <Compile Include="Controllers\CiudadesController.cs" />
     <Compile Include="Controllers\ForoController.cs" />
+    <Compile Include="Controllers\ReplyController.cs" />
     <Compile Include="Models\Consulta.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MailerController.cs" />
