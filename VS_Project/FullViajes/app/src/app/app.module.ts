@@ -59,6 +59,8 @@ import { TopicsComponent } from './component/topics/topics.component';
 import { ChangepswdComponent } from './component/changepswd/changepswd.component';
 import { NewtopicComponent } from './component/newtopic/newtopic.component';
 import { ContactoComponent } from './component/contacto/contacto.component';
+import { ReplyComponent } from './component/reply/reply.component';
+import { RepliesComponent } from './component/replies/replies.component';
 
 
 
@@ -108,6 +110,8 @@ import { ContactoComponent } from './component/contacto/contacto.component';
     NewtopicComponent,
     ChangepswdComponent,
     ContactoComponent,
+    ReplyComponent,
+    RepliesComponent,
     
   ],
   imports: [

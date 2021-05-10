@@ -11,6 +11,7 @@ export class CiudadesComponent implements OnInit {
   cities:any;
   status='';
   rol='';
+  
 
   constructor(public service: CiudadesService, private router: Router) { }
 

@@ -39,7 +39,6 @@ export class FormRegistroComponent implements OnInit {
     this.errorG=false; 
 
     
-
     this.service.formData = {
       nombre: '',
       apellido: '',

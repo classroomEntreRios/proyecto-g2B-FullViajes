@@ -1,102 +1,48 @@
-
 <!--SeccionBanner-->
 <app-regnavbar></app-regnavbar>
 <div class="container-fluid" style="background-color: #FAFBFD;">
     <div class="row justify-content-center" style="background-color: #FAFBFD(255, 255, 255);">
-       
-        <div class="col-11" id= "Topicos" style="background-color: rgb(255, 255, 255);">
+
+        <div class="col-11" id="Topicos" style="background-color: rgb(255, 255, 255);">
             <strong>
                 <h1> Todos los topicos </h1>
             </strong>
-            <p>Aquí encontraras consultas y comentarios varios de los demás usuarios de Full Viajes . Recuerda las reglas antes de  interactuar . </p>
-            <div class="row" id="Topico">
-                <div class="col-sm-4 col-md-4 col-lg-3 align-items-center justify-content-center  .col-sm-3" >
-                    <img src="./../../../assets/Imagenes/Foro/avatar/032-boy-4.png" class="img-fluid rounded-circle my-4  d-md-block shadow  mx-auto d-block"   id="Avatar" alt="">
-                    <h3>@NickName</h3>
+            <p>Aquí encontraras consultas y comentarios varios de los demás usuarios de Full Viajes . Recuerda las
+                reglas antes de interactuar . </p>
+
+            <div class="row" id="Topico" *ngFor="let tema of temas">
+                <div class="col-sm-4 col-md-4 col-lg-3 align-items-center justify-content-center  .col-sm-3">
+                    <img src="./assets/Imagenes/Foro/avatar/032-boy-4.png"
+                        class="img-fluid rounded-circle my-4  d-md-block shadow  mx-auto d-block" id="Avatar" alt="">
+                    <h3>{{tema.id_usuario}}</h3>
                 </div>
-                <div class="col-sm-7 col-md-8 col-lg-9 align-items-center justify-content-center " >
-                    <h5> Día- Mes - Año</h5>
+                <div class="col-sm-7 col-md-8 col-lg-9 align-items-center justify-content-center ">
+                    <h5>{{tema.fecha_creacion}}</h5>
                     <strong>
-                     <h3>Titulo del tópico</h3>
+                        <h3>{{tema.titulo}}</h3>
                     </strong>
-                    <p style="text-align: justify;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo ab fuga quam modi facere iusto quia quas corrupti voluptatem deleniti ea, veniam alias vel harum animi, dolores assumenda optio quae...</p>
+                    <p style="text-align: justify;">{{tema.contenido}}</p>
                     <br>
-                   <br>
-                   <br>
-                   <br>
-                   <div class="row">
-                       <div class="col-4">
+                    <br>
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-4">
                             <a href="#">Ver todo el tópico</a>
-                       </div>
-                       <div class="col-4">
-                            <a href="#"><i class="far fa-comments"></i> Ver todas las respuestas</a>
-                       </div>
-                       <div class="col-4">
-                        <a href="#"> <i class="fas fa-reply"></i> Responder</a>
-                       </div>
-                   </div>
-                  
+                        </div>
+                        <div class="col-4">
+                            <a routerLink="/replies/{{tema.id_topics}}"><i class="far fa-comments"></i> Ver todas las respuestas</a>
+                        </div>
+                        <div class="col-4">
+                            <a routerLink="/reply/{{tema.id_topics}}"> <i class="fas fa-reply"></i> Responder</a>
+                        </div>
+                    </div>
                 </div>
+                
+
             </div>
 
-           <br>
-
-           <div class="row" id="Topico">
-            <div class="col-sm-4 col-md-4 col-lg-3 align-items-center justify-content-center  .col-sm-3" >
-                <img src="./../../../assets/Imagenes/Foro/avatar/002-girl-1.png" class="img-fluid rounded-circle my-4  d-md-block shadow  mx-auto d-block"   id="Avatar" alt="">
-                <h3>@NickName</h3>
-            </div>
-            <div class="col-sm-7 col-md-8 col-lg-9 align-items-center justify-content-center " >
-                
-                <strong>
-                 <h3>Titulo del tópico</h3>
-                </strong>
-                <p style="text-align: justify;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo ab fuga quam modi facere iusto quia quas corrupti voluptatem deleniti ea, veniam alias vel harum animi, dolores assumenda optio quae...</p>
-                <br>
-                <br>
-                <br>
-                <br>
-                <div class="row">
-                    <div class="col-4">
-                         <a href="#">Ver todo el tópico</a>
-                    </div>
-                    <div class="col-4">
-                         <a href="#"><i class="far fa-comments"></i> Ver todas las respuestas</a>
-                    </div>
-                    <div class="col-4">
-                     <a href="#"> <i class="fas fa-reply"></i> Responder</a>
-                    </div>
-            </div>
-        </div>
-        </div>
-        <br>
-        <div class="row" id="Topico">
-            <div class="col-sm-4 col-md-4 col-lg-3 align-items-center justify-content-center  .col-sm-3" >
-                <img src="./../../../assets/Imagenes/Foro/avatar/036-person.png" class="img-fluid rounded-circle my-4  d-md-block shadow  mx-auto d-block"   id="Avatar" alt="">
-                <h3>@NickName</h3>
-            </div>
-            <div class="col-sm-7 col-md-8 col-lg-9 align-items-center justify-content-center " >
-                
-                <strong>
-                 <h3>Titulo del tópico</h3>
-                </strong>
-                <p style="text-align: justify;">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo ab fuga quam modi facere iusto quia quas corrupti voluptatem deleniti ea, veniam alias vel harum animi, dolores assumenda optio quae...</p>
-                <br>
-                <br>
-                <br>
-                <br>
-                <div class="row">
-                    <div class="col-4">
-                         <a href="#">Ver todo el tópico</a>
-                    </div>
-                    <div class="col-4">
-                         <a href="#"><i class="far fa-comments"></i> Ver todas las respuestas</a>
-                    </div>
-                    <div class="col-4">
-                     <a href="#"> <i class="fas fa-reply"></i> Responder</a>
-                    </div>
-            </div>
-        </div>
+            <br>
         </div>
     </div>
 </div>

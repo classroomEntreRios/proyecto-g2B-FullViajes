@@ -34,6 +34,9 @@ import { TopicsComponent } from './component/topics/topics.component';
 import { ChangepswdComponent } from './component/changepswd/changepswd.component';
 import { EventosComponent } from './component/eventos/eventos.component';
 import { ContactoComponent } from './component/contacto/contacto.component';
+import { ReplyComponent } from './component/reply/reply.component';
+import { RepliesComponent } from './component/replies/replies.component';
+
 
 
 
@@ -73,6 +76,8 @@ const routes: Routes = [
   {path:'usuario', component: UsuarioComponent},
   {path:'climahistorico', component: ClimahistoricoComponent},
   {path:'contacto', component: ContactoComponent},
+  {path:'reply/:topic_id', component: ReplyComponent},
+  {path:'replies', component: RepliesComponent},
   {path:'**', redirectTo: '/', pathMatch: 'full'}
 
 ];
