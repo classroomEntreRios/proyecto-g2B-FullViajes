@@ -14,3 +14,8 @@ a:hover {
   margin-left: 50px;
   margin-top: 15px;
 }
+
+#userfoto {
+  height: 200px;
+  width: 200px;
+}

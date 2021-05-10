@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" >
     <div class="row min-vh-100 flex-column flex-md-row">
         <aside class="col-12 col-md-3 col-xl-2 p-0 flex-shrink-1" id="Sidebar">
             <nav
@@ -31,10 +31,12 @@
                 </div>
             </nav>
         </aside>
-        <main class="col px-0 flex-grow-1">
-            <div class="container py-3">
-                <article>
-                    <div class="inner-content" style="background-color: rgb(255, 255, 255); height: 1300px;"
+
+       
+        <main class="col px-0 flex-grow-1" style="background-color: white;">
+            <div class="container py-3" style="background-color: white;">
+                <article style="background-color: white;">
+                    <div class="inner-content" style="background-color: rgb(255, 255, 255);"
                         id="contenido">
                         <!--Contenido-->
                         <h2>Detalles de Usuario</h2>
@@ -52,10 +54,9 @@
                                     <span *ngIf="user.active==false;">Inactivo</span>
                                 </p>
                                 <p> imágen de Perfil: {{user.user_foto}} </p>
-                                <img src="{{user.user_foto}}">
-                                <p>Redes sociales (opcional)</p>
-                                <p><i class="fab fa-instagram"> </i> Instagram: </p>
-                                <p><i class="fab fa-twitter"></i> Twitter:</p>
+                                <img src="{{user.user_foto}}" class="img-fluid rounded-circle my-4 p-1 d-none d-md-block shadow" id="userfoto">
+                               
+                                
                                 <p><i class="fas fa-user"></i> Descripción: {{user.user_descripcion}} </p>
                             </div>
                         </div>
@@ -73,6 +74,7 @@
 
     </div>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
     crossorigin="anonymous"></script>
