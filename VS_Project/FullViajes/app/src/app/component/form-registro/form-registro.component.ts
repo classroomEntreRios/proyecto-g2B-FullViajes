@@ -67,7 +67,7 @@ export class FormRegistroComponent implements OnInit {
             this.resetForm(form);
             this.resetForm();
             //MOSTRAR UN MENSAJE QUE SE GUARDO CORRECTAMENTE
-            this.router.navigate(['/usuario']);
+            this.router.navigate(['/regok/']);
           },
           (err:HttpErrorResponse) => {
               

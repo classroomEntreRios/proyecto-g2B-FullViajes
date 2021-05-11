@@ -297,11 +297,15 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Bundles\covid.jpg" />
     <Content Include="Bundles\favicon.ico" />
+    <Content Include="Bundles\Gentefeliz.jpg" />
     <Content Include="Bundles\index.html" />
     <Content Include="Bundles\main.js" />
     <Content Include="Bundles\polyfills.js" />
+    <Content Include="Bundles\Portada.jpg" />
     <Content Include="Bundles\runtime.js" />
+    <Content Include="Bundles\scripts.js" />
     <Content Include="Bundles\styles.css" />
     <Content Include="Bundles\vendor.js" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -351,11 +355,6 @@
     <Content Include="Content\bootstrap-reboot.css.map" />
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
-    <Content Include="Bundles\main.js.map" />
-    <Content Include="Bundles\polyfills.js.map" />
-    <Content Include="Bundles\runtime.js.map" />
-    <Content Include="Bundles\styles.css.map" />
-    <Content Include="Bundles\vendor.js.map" />
     <EntityDeploy Include="Models\FullViajesEntities.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>FullViajesEntities.Designer.cs</LastGenOutput>
@@ -363,6 +362,12 @@
     <Content Include="Models\FullViajesEntities.edmx.diagram">
       <DependentUpon>FullViajesEntities.edmx</DependentUpon>
     </Content>
+    <Content Include="Bundles\main.js.map" />
+    <Content Include="Bundles\polyfills.js.map" />
+    <Content Include="Bundles\runtime.js.map" />
+    <Content Include="Bundles\scripts.js.map" />
+    <Content Include="Bundles\styles.css.map" />
+    <Content Include="Bundles\vendor.js.map" />
     <None Include="Properties\PublishProfiles\FullViajesdemo - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />

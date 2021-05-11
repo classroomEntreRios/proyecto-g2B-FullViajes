@@ -35,6 +35,13 @@ export class UsuarioService {
   deactivate(user_id: string) {
     return this.http.get(this.rootURL + '/Users/Dst/' + user_id)
   }
+  /*
+  verifica(id: string, tkn: string) {
+    return this.http.get(this.rootURL + '/Users/Verifica/' + id + '/' + tkn)
+  }*/
+  verifica(tkn: string) {
+    return this.http.get(this.rootURL + '/Users/Verifica/' + tkn)
+  }
   changepswd(user_id: string, oldpwd:string, newpwd:string) {
     return this.http.get(this.rootURL + '/Users/Changepswd/' + user_id +'/'+ oldpwd + '/' + newpwd)
   }

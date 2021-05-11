@@ -61,6 +61,8 @@ import { NewtopicComponent } from './component/newtopic/newtopic.component';
 import { ContactoComponent } from './component/contacto/contacto.component';
 import { ReplyComponent } from './component/reply/reply.component';
 import { RepliesComponent } from './component/replies/replies.component';
+import { RegokComponent } from './component/regok/regok.component';
+import { VerificaokComponent } from './component/verificaok/verificaok.component';
 
 
 
@@ -112,6 +114,8 @@ import { RepliesComponent } from './component/replies/replies.component';
     ContactoComponent,
     ReplyComponent,
     RepliesComponent,
+    RegokComponent,
+    VerificaokComponent,
     
   ],
   imports: [
