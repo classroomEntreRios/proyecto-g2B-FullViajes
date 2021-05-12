@@ -4843,9 +4843,9 @@ __webpack_require__.r(__webpack_exports__);
 class ClimaService {
     constructor(http) {
         this.http = http;
-        this.apiKey = 'PUZYPGRF29CQYT4DPT8GGDTEE';
+        //apiKey: string = 'PUZYPGRF29CQYT4DPT8GGDTEE';
         //api matias1
-        //apiKey: string = '75J9942ASWZK3GMXMEA9SCPS9';
+        this.apiKey = '75J9942ASWZK3GMXMEA9SCPS9';
         this.URIvisualCrossing = '';
         this.URIvisualCrossing = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Parana%2C%20E%2C%20AR?unitGroup=metric&key=${this.apiKey}&include=current`;
     }
@@ -5939,7 +5939,7 @@ class ReplyComponent {
     }
 }
 ReplyComponent.ɵfac = function ReplyComponent_Factory(t) { return new (t || ReplyComponent)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](src_app_services_foro_service__WEBPACK_IMPORTED_MODULE_1__["ForoService"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["Router"]), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_router__WEBPACK_IMPORTED_MODULE_2__["ActivatedRoute"])); };
-ReplyComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ReplyComponent, selectors: [["app-reply"]], decls: 52, vars: 3, consts: [[1, "divmenu", 2, "background-color", "#eaeaea"], [1, "container-fluid", 2, "background-color", "#FAFBFD"], [1, "row", "justify-content-center", 2, "background-color", "#FAFBFD(255, 255, 255)"], ["id", "Topicos", 1, "col-11", 2, "background-color", "rgb(255, 255, 255)"], ["id", "Topico", 1, "row"], [1, "col-sm-4", "col-md-4", "col-lg-3", "align-items-center", "justify-content-center", ".col-sm-3"], ["src", "./../../../assets/Imagenes/Foro/avatar/048-girl-24.png", "id", "Avatar", "alt", "", 1, "img-fluid", "rounded-circle", "my-4", "d-md-block", "shadow", "mx-auto", "d-block"], [1, "col-sm-7", "col-md-8", "col-lg-9", "align-items-center", "justify-content-center"], [2, "text-align", "justify"], [1, "row"], [1, "col-4"], ["routerLink", "/replies"], [1, "far", "fa-comments"], ["id", "Resp", 1, "col-11", "reply"], [1, "fas", "fa-reply"], [1, "col-1"], ["id", "Formulario", 1, "col-10", "justify-content-center"], ["autocomplete", "off", 3, "submit"], ["form", "ngForm"], [1, "mb-4"], ["name", "contenido", "id", "exampleFormControlText", "rows", "4", "placeholder", "Ingrese su respuesta", 1, "form-control", 3, "ngModel", "ngModelChange"], ["contenido", "ngModel"], [1, "row", "justify-content-center"], [1, "col-md-2", "justify-content-center"], ["type", "submit", 1, "btn", "btn-primary", "Reply"], ["routerLink", "/topicos"], ["type", "button ", 1, "btn", "btn-primary", "cancel"]], template: function ReplyComponent_Template(rf, ctx) { if (rf & 1) {
+ReplyComponent.ɵcmp = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineComponent"]({ type: ReplyComponent, selectors: [["app-reply"]], decls: 52, vars: 3, consts: [[1, "divmenu", 2, "background-color", "#eaeaea"], [1, "container-fluid", 2, "background-color", "#FAFBFD"], [1, "row", "justify-content-center", 2, "background-color", "#FAFBFD(255, 255, 255)"], ["id", "Topicos", 1, "col-11", 2, "background-color", "rgb(255, 255, 255)"], ["id", "Topico", 1, "row"], [1, "col-sm-4", "col-md-4", "col-lg-3", "align-items-center", "justify-content-center", ".col-sm-3"], ["src", "./assets/Imagenes/Foro/avatar/048-girl-24.png", "id", "Avatar", "alt", "", 1, "img-fluid", "rounded-circle", "my-4", "d-md-block", "shadow", "mx-auto", "d-block"], [1, "col-sm-7", "col-md-8", "col-lg-9", "align-items-center", "justify-content-center"], [2, "text-align", "justify"], [1, "row"], [1, "col-4"], ["routerLink", "/replies"], [1, "far", "fa-comments"], ["id", "Resp", 1, "col-11", "reply"], [1, "fas", "fa-reply"], [1, "col-1"], ["id", "Formulario", 1, "col-10", "justify-content-center"], ["autocomplete", "off", 3, "submit"], ["form", "ngForm"], [1, "mb-4"], ["name", "contenido", "id", "exampleFormControlText", "rows", "4", "placeholder", "Ingrese su respuesta", 1, "form-control", 3, "ngModel", "ngModelChange"], ["contenido", "ngModel"], [1, "row", "justify-content-center"], [1, "col-md-2", "justify-content-center"], ["type", "submit", 1, "btn", "btn-primary", "Reply"], ["routerLink", "/topicos"], ["type", "button ", 1, "btn", "btn-primary", "cancel"]], template: function ReplyComponent_Template(rf, ctx) { if (rf & 1) {
         const _r2 = _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵgetCurrentView"]();
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelementStart"](0, "div", 0);
         _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵelement"](1, "app-regnavbar");
@@ -7841,7 +7841,7 @@ const routes = [
     { path: 'climahistorico', component: _component_climahistorico_climahistorico_component__WEBPACK_IMPORTED_MODULE_25__["ClimahistoricoComponent"] },
     { path: 'contacto', component: _component_contacto_contacto_component__WEBPACK_IMPORTED_MODULE_33__["ContactoComponent"] },
     { path: 'regok', component: _component_regok_regok_component__WEBPACK_IMPORTED_MODULE_36__["RegokComponent"] },
-    { path: 'verifica/:id/:tkn', component: _component_verifica_verifica_component__WEBPACK_IMPORTED_MODULE_38__["VerificaComponent"] },
+    { path: 'verifica/:tkn', component: _component_verifica_verifica_component__WEBPACK_IMPORTED_MODULE_38__["VerificaComponent"] },
     { path: 'verificaok', component: _component_verificaok_verificaok_component__WEBPACK_IMPORTED_MODULE_37__["VerificaokComponent"] },
     { path: 'reply/:topic_id', component: _component_reply_reply_component__WEBPACK_IMPORTED_MODULE_34__["ReplyComponent"] },
     { path: 'replies', component: _component_replies_replies_component__WEBPACK_IMPORTED_MODULE_35__["RepliesComponent"] },

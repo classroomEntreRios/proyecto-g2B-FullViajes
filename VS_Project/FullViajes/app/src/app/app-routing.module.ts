@@ -79,7 +79,7 @@ const routes: Routes = [
   {path:'climahistorico', component: ClimahistoricoComponent},
   {path:'contacto', component: ContactoComponent},
   {path:'regok', component: RegokComponent},
-  {path:'verifica/:id/:tkn', component: VerificaComponent},
+  {path:'verifica/:tkn', component: VerificaComponent},
   {path:'verificaok', component: VerificaokComponent},
   {path:'reply/:topic_id', component: ReplyComponent},
   {path:'replies', component: RepliesComponent},
