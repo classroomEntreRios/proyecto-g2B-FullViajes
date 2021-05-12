@@ -47,6 +47,7 @@ import { DatePipe } from '@angular/common';
 //import { DashboardDefComponent } from './component/dashboard-def/dashboard-def.component';
 import { CiudadesService } from './services/ciudades.service';
 import { ClimaService } from './services/clima.service';
+import { MailerService } from './services/mailer.service';
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { DelcityComponent } from './component/delcity/delcity.component';
 import { ClimahistoricoComponent } from './component/climahistorico/climahistorico.component';
@@ -126,7 +127,7 @@ import { VerificaokComponent } from './component/verificaok/verificaok.component
     AppRoutingModule
   ],
   providers: [
-    UsuarioService, CiudadesService,ClimaService, DatePipe,
+    UsuarioService, CiudadesService,ClimaService, MailerService, DatePipe,
     {provide: LocationStrategy, useClass:HashLocationStrategy}
   ],
   bootstrap: [AppComponent]

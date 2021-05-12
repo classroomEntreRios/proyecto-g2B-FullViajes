@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router,NavigationEnd } from '@angular/router';
 import { CiudadesService } from 'src/app/services/ciudades.service';
 
 @Component({
@@ -23,6 +23,12 @@ export class RegnavbarComponent implements OnInit {
     );
       this.Username = localStorage.getItem('nickname')!;
       this.imgperfil = localStorage.getItem('imgperfil')!;
+      this.router.events.subscribe((evt) => {
+        if (evt instanceof NavigationEnd) {
+            this.router.navigated = false;
+            window.scrollTo(0, 0);
+        }
+    });
   }
 
 }

@@ -16,12 +16,18 @@ export class ContactoComponent implements OnInit {
   esperar= false;
   general=true;
   cartel=false;
+  status='';
+  estado=false;
  
   constructor(public service: MailerService,private router:Router) { }
 
   
   
     ngOnInit(): void {
+      this.status = localStorage.getItem('resultado')!;
+      if (parseInt(this.status)==1){
+        this.estado=true;
+      }
       this.resetForm();
     }
   

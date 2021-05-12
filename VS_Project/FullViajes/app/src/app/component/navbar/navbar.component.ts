@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit} from '@angular/core';
+import { Router, NavigationEnd } from '@angular/router';
 import { CiudadesService } from 'src/app/services/ciudades.service';
 
 @Component({
@@ -9,6 +9,8 @@ import { CiudadesService } from 'src/app/services/ciudades.service';
 })
 export class NavbarComponent implements OnInit {
   cities:any;
+  url:any="";
+  urlfinal="/city/";
   constructor(public service: CiudadesService, private router: Router) { }
 
   ngOnInit(): void {
@@ -17,6 +19,17 @@ export class NavbarComponent implements OnInit {
         this.cities=city;
       }
     );
+    this.router.routeReuseStrategy.shouldReuseRoute = function(){
+      return false;
+  };
+  
+  this.router.events.subscribe((evt) => {
+      if (evt instanceof NavigationEnd) {
+          this.router.navigated = false;
+          window.scrollTo(0, 0);
+      }
+  });
   }
+
 
 }

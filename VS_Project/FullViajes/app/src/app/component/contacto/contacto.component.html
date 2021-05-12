@@ -1,5 +1,10 @@
-<div class="divmenu" style="background-color: #eaeaea;">
-    <app-navbar></app-navbar>
+<div class="divmenu" style="background-color: #eaeaea;" >
+    <div *ngIf="estado==false;">
+        <app-navbar></app-navbar>
+    </div>
+    <div *ngIf="estado==true;">
+        <app-regnavbar></app-regnavbar>
+    </div>
     <img class="img-fluid" src="./assets/Imagenes/logoredu.png"  alt="Logoredu">
 </div>
 <body >

@@ -42,6 +42,7 @@ import { VerificaComponent } from './component/verifica/verifica.component';
 
 
 
+
 const routes: Routes = [
   // {path:'', component: componente que muestra por defecto si ruta vacia},
   {path:'formulario', component: FormRegistroComponent},

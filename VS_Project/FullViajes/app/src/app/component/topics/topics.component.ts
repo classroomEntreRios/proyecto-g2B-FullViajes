@@ -11,7 +11,7 @@ import { UsuarioService } from 'src/app/services/usuario.service';
 export class TopicsComponent implements OnInit {
   status='';
   temas:any;
-  tuser:any;
+  users:any;
   id='';
 
   constructor(public service: ForoService, public userservice: UsuarioService, private router: Router) { }
@@ -24,13 +24,11 @@ export class TopicsComponent implements OnInit {
       this.service.listar().subscribe(
         (tema: any) => {
           this.temas=tema;
-          //this.id=tema.id_usuario;
-          //console.log(this.id);
-         /* this.userservice.acceder(this.id).subscribe(
-            (temauser: any) => {
-              this.tuser=temauser;
+           this.userservice.listar().subscribe(
+            (user: any) => {
+              this.users=user;
             }
-          );*/
+          );
         }
       );
   }
